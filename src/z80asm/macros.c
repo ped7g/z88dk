@@ -163,6 +163,7 @@ static bool collect_name(char **in, UT_string *out)
 	}
 }
 
+#if 0
 // collect formal parameters
 /* Prevent warning: defined but not used [-Wunused-function] */
 /*
@@ -186,7 +187,7 @@ static bool collect_params(char **p, DefMacro *macro, UT_string *param)
 
 #undef P
 }
-*/
+#endif
 
 // collect macro text
 static bool collect_text(char **p, DefMacro *macro, UT_string *text)

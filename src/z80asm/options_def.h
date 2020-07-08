@@ -15,7 +15,6 @@ Define command line options
 #define OPT_VAR(type, name, default)
 #endif
 
-OPT_VAR( bool,		verbose,	false	)
 OPT_VAR( bool,		symtable,	false	)
 OPT_VAR( bool,		list,		false	)	/* -l flag */
 OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
@@ -64,8 +63,7 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 #endif
 
 OPT_TITLE("Help Options:")
-OPT(OptCall, exit_help, "-h", "", "Show help options", "")
-OPT(OptSet, &opts.verbose, "-v", "", "Be verbose", "")
+OPT(OptCall, exit_help, "-h", "--help", "Show help options", "")
 
 OPT_TITLE("Code Generation Options:")
 OPT(OptCall, option_cpu_z80n, "-mz80n", "", "Assemble for the Z80 variant of ZX Next", "")

@@ -8,10 +8,16 @@
 
 use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
-
 my $test = test_name();
 
-path("$test.asm")->spew(<<END);
+my @bin = ( 1, 2, 3, 4, 5,
+			unpack("C*", "helloworld"),
+			0x34, 0x12, 0x34, 0x12, 0x34, 0x12,
+			0x56, 0x78, 0x56, 0x78,
+			0x56, 0x34, 0x12, 0x56, 0x34, 0x12, 0x56, 0x34, 0x12,
+			0x78, 0x56, 0x34, 0x12, 0x78, 0x56, 0x34, 0x12, 0x78, 0x56, 0x34, 0x12,
+			0x55, 0x55, 0xaa, 0xaa);
+asm_ok(<<END, "", @bin);
 	byte 	1
 	db 		2
 	defb 	3
@@ -41,16 +47,6 @@ path("$test.asm")->spew(<<END);
 	defc	c1 = 4
 	dc		c2 = 5
 END
-
-run_ok("z80asm -b $test.asm", '', '');
-my $bin = path("$test.bin")->slurp_raw();
-ok $bin eq  "\x01\x02\x03\x04\x05".
-			"helloworld".
-			"\x34\x12\x34\x12\x34\x12".
-			"\x56\x78\x56\x78".
-			"\x56\x34\x12\x56\x34\x12\x56\x34\x12".
-			"\x78\x56\x34\x12\x78\x56\x34\x12\x78\x56\x34\x12".
-			"\x55\x55\xaa\xaa", "bin ok";
 
 run_ok("z80nm -a $test.o", <<"END", '');
 Object  file $test.o at \$0000: Z80RMF14

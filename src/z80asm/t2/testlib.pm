@@ -15,7 +15,7 @@ use Config;
 
 require Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw( ok nok diag note test_name run_ok run_nok end_test path );
+our @EXPORT = qw( ok nok diag note test_name run_ok run_nok asm_ok system_ok end_test path );
 
 my $exe = $Config{osname} eq 'MSWin32' ? '.exe' : '';
 my $test = basename($0, '.t');
@@ -54,10 +54,25 @@ sub run {
 sub run_ok  { run(1, $test, @_); }
 sub run_nok { run(0, $test, @_); }
 
+sub asm_ok {
+	my($asm, $options, @bin) = @_;
+	path("$test.asm")->spew($asm);
+	unlink("$test.bin");
+	run_ok("z80asm -b $options $test.asm", "", "");
+	ok path("$test.bin")->slurp_raw eq pack("C*", @bin), "bin ok";
+}
+
+sub system_ok {
+	my($cmd) = @_;
+	ok 0==system($cmd), $cmd;
+}
+
 sub end_test {
 	if (Test::More->builder->is_passing) {
 		unlink("$test.gotout", "$test.goterr", "$test.expout", "$test.experr",
-				"$test.asm", "$test.o", "$test.bin");
+				"$test.asm", "$test.d", "$test.o", "$test.bin", 
+				"$test.lis", "$test.err", "$test.map", 
+				"$test.c");
 	}
 	done_testing();
 }

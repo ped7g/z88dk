@@ -8,20 +8,29 @@
 
 #include "options.yy.h"
 
-#include <array>
+#include <string>
 #include <vector>
 
-class CmdArgs : private OptionsLexer
+class CmdArgs
 {
 public:
 	CmdArgs();
 	virtual ~CmdArgs();
 
-	// Parse options and files from argv
-	bool ParseArgs(int argc, char* argv[]);
+	bool ParseEnv(const std::string& envVariable = "Z80ASM") { return lexer.ParseEnv(envVariable); }
+	bool ParseArgs(int argc, char* argv[]) { return lexer.ParseArgs(argc, argv); }
 
 	// access options from OptionsLexer
-	bool isVerbose() const { return verbose; }
+	bool IsVerbose() const { return lexer.IsVerbose(); }
+	const char* GetEnvPendingOpts() const { return lexer.GetEnvPendingOpts(); }
+	int GetCpu() const { return lexer.GetCpu(); }
+	const std::string& GetCpuName() const { return lexer.GetCpuName(); }
+	bool IsTi83Plus() const { return lexer.IsTi83Plus(); }
+	auto cbeginDefines() const { return lexer.cbeginDefines(); }
+	auto cendDefines() const { return lexer.cendDefines(); }
+
+private:
+	OptionsLexer lexer;
 };
 
 extern CmdArgs theCmdArgs;		// singleton

@@ -11,6 +11,8 @@
 #include <iostream>
 
 int main(int argc, char* argv[]) {
+	if (!theCmdArgs.ParseEnv())
+		return EXIT_FAILURE;
 	if (!theCmdArgs.ParseArgs(argc, argv))
 		return EXIT_FAILURE;
     return z80asm_main(argc, argv);

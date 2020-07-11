@@ -252,27 +252,6 @@ ASM2
 );
 
 #------------------------------------------------------------------------------
-# BUG_0016: RCM2000 and RCM3000 emulation routines not assembled when LIST is ON (-l)
-note "BUG_0016";
-for my $list ("", "-l") {
-z80asm(
-	asm		=> <<'ASM',
-			cpi				;; ED A1
-ASM
-	options	=> "$list -b",
-);
-z80asm(
-	asm		=> <<'ASM',
-			cpi				;; CD 03 00
-							;; 38 14 BE 23 0B F5 ED 54 CB 85 CB D5 
-							;; 78 B1 20 02 CB 95 ED 54 F1 C9 BE 23 
-							;; 0B F5 ED 54 CB C5 18 EA
-ASM
-	options	=> "$list -b -mr2k",
-);
-}
-
-#------------------------------------------------------------------------------
 # BUG_0018: stack overflow in '@' includes - wrong range check
 note "BUG_0018";
 {

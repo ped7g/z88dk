@@ -22,9 +22,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-	#include "z80asm_manual.h"
+	// silence warnings from RE-flex
+	#ifdef _MSC_VER
+	#pragma warning(disable:4800)
+	#else
+	#ifdef __GNUC__
+	//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
+	#else
+	#ifdef __clang__
+	//#pragma clang diagnostic ignored "-Wignored-qualifiers"
+	#endif
+	#endif
+	#endif
+
+
 	#include "legacy.h"
+
+	#include "config.h"
+	#include "z80asm_manual.h"
+	#include "z80asm_usage.h"
+
 	#include <iostream>
+	#include <string>
+	#include <vector>
+
+	#ifndef Z88DK_VERSION
+	#define Z88DK_VERSION "build " __DATE__
+	#endif
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -51,8 +75,41 @@
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
 
-	protected:
+	private:
+		static const char copyrightmsg[];
+
 		bool verbose;
+		int cpu;					// TODO: replace with class enum
+		bool isTi83Plus;			// true for the TI83Plus
+		std::string cpuName;		// used to search libraries
+		std::string envPendingOpts;	// options from environment to parse by the C code
+									// TODO: to remove
+		std::vector<std::string> defines;	// list of -D defines
+
+	public:
+		bool ParseEnv(const std::string& envVariable);	// parse options from environment
+		bool ParseArgs(int argc, char* argv[]);			// parse options from ARGV
+
+		bool IsVerbose() const { return verbose; }
+		const char* GetEnvPendingOpts() const { return envPendingOpts.c_str(); }
+		int GetCpu() const { return cpu; }
+		const std::string& GetCpuName() const { return cpuName; }
+		bool IsTi83Plus() const { return isTi83Plus; }
+		auto cbeginDefines() const { return defines.cbegin(); }
+		auto cendDefines() const { return defines.cend(); }
+
+	private:
+		void ShowManual() const;
+		void SetCpuZ80();
+		void SetCpuZ80n();
+		void SetCpuZ180();
+		void SetCpuR2k();
+		void SetCpuR3k();
+		void SetCpu8080();
+		void SetCpu8085();
+		void SetCpuGbz80();
+		void SetCpuTi83();
+		void SetCpuTi83Plus();
 
  public:
   typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
@@ -118,24 +175,203 @@ int OptionsLexer::lex()
               out().put(matcher().input());
             }
             break;
-          case 1: // rule at line 23: -v\z|--verbose\z :
+          case 1: // rule at line 80: -v\z|--verbose\z :
 { verbose = true; return true; }
 
             break;
-          case 2: // rule at line 26: -h\z|--help\z :
-{ using namespace std;
-				  cout << z80asm_manual;
-				  exit(EXIT_SUCCESS);
-				  return true; 	// not reached
-				}
+          case 2: // rule at line 83: -h\z|--help\z :
+{ ShowManual(); return true; }
 
             break;
-          case 3: // rule at line 32: [\x00-\xff] :
+          case 3: // rule at line 86: -m=?z80\z|--cpu=?z80\z :
+{ SetCpuZ80(); return true; }
+
+            break;
+          case 4: // rule at line 89: -m=?z80n\z|--cpu=?z80n\z :
+{ SetCpuZ80n(); return true; }
+
+            break;
+          case 5: // rule at line 92: -m=?z180\z|--cpu=?z180\z :
+{ SetCpuZ180(); return true; }
+
+            break;
+          case 6: // rule at line 95: -m=?r2k\z|--cpu=?r2k\z :
+{ SetCpuR2k(); return true; }
+
+            break;
+          case 7: // rule at line 98: -m=?r3k\z|--cpu=?r3k\z :
+{ SetCpuR3k(); return true; }
+
+            break;
+          case 8: // rule at line 101: -m=?8080\z|--cpu=?8080\z :
+{ SetCpu8080(); return true; }
+
+            break;
+          case 9: // rule at line 104: -m=?8085\z|--cpu=?8085\z :
+{ SetCpu8085(); return true; }
+
+            break;
+          case 10: // rule at line 107: -m=?gbz80\z|--cpu=?gbz80\z :
+{ SetCpuGbz80(); return true; }
+
+            break;
+          case 11: // rule at line 110: -m=?ti83\z|--cpu=?ti83\z :
+{ SetCpuTi83(); return true; }
+
+            break;
+          case 12: // rule at line 113: -m=?ti83plus\z|--cpu=?ti83plus\z :
+{ SetCpuTi83Plus(); return true; }
+
+            break;
+          case 13: // rule at line 115: [\x00-\xff] :
 { return false; }
 
             break;
         }
   }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//  SECTION 3: user code                                                      //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
+const char OptionsLexer::copyrightmsg[]{
+	"Z80 Module Assembler " Z88DK_VERSION "\n"
+		"(c) InterLogic 1993-2009, Paulo Custodio 2011-2020"
+};
+
+bool OptionsLexer::ParseEnv(const std::string& envVariable)
+{
+	using namespace std;
+
+	envPendingOpts.clear();
+
+	const char *opts = getenv(envVariable.c_str());
+	if (!opts)
+		return true;
+	stringstream iss{ string(opts) };
+	string arg;
+
+	while (iss >> arg) {
+		in(arg);
+		if (!lex()) {						// TODO: error handling
+			envPendingOpts += arg + " ";	// pass options not parsed to the C code
+		}
+	}
+
+	return true;
+}
+
+bool OptionsLexer::ParseArgs(int argc, char* argv[])
+{
+	using namespace std;
+
+	// if no arguments, just show usage and exit
+	if (argc == 1) {
+		cout << copyrightmsg << endl << endl
+			<< z80asm_usage;
+		exit(EXIT_SUCCESS);
+	}
+
+	// parse options
+	for (int i = 1; i < argc; ++i) {
+		in(argv[i]);
+		if (lex())
+			argv[i][0] = '\0';		// cancel this argument for next pass
+		else {						// TODO: error handling
+		}
+	}
+
+	// if no --cpu option was seen, define default
+	if (cpu == 0)
+		SetCpuZ80();
+
+	return true;
+}
+
+void OptionsLexer::ShowManual() const
+{
+	using namespace std;
+	cout << z80asm_manual;
+	exit(EXIT_SUCCESS);
+}
+
+void OptionsLexer::SetCpuZ80()
+{
+	cpu = CPU_Z80;
+	cpuName = CPU_Z80_NAME;
+	defines.push_back(CPU_Z80_DEFINE);
+	defines.push_back(CPU_ZILOG_DEFINE);
+}
+
+void OptionsLexer::SetCpuZ80n()
+{
+	cpu = CPU_Z80N;
+	cpuName = CPU_Z80N_NAME;
+	defines.push_back(CPU_Z80N_DEFINE);
+	defines.push_back(CPU_ZILOG_DEFINE);
+}
+
+void OptionsLexer::SetCpuZ180()
+{
+	cpu = CPU_Z180;
+	cpuName = CPU_Z180_NAME;
+	defines.push_back(CPU_Z180_DEFINE);
+	defines.push_back(CPU_ZILOG_DEFINE);
+}
+
+void OptionsLexer::SetCpuR2k()
+{
+	cpu = CPU_R2K;
+	cpuName = CPU_R2K_NAME;
+	defines.push_back(CPU_R2K_DEFINE);
+	defines.push_back(CPU_RABBIT_DEFINE);
+}
+
+void OptionsLexer::SetCpuR3k()
+{
+	cpu = CPU_R3K;
+	cpuName = CPU_R3K_NAME;
+	defines.push_back(CPU_R3K_DEFINE);
+	defines.push_back(CPU_RABBIT_DEFINE);
+}
+
+void OptionsLexer::SetCpu8080()
+{
+	cpu = CPU_8080;
+	cpuName = CPU_8080_NAME;
+	defines.push_back(CPU_8080_DEFINE);
+	defines.push_back(CPU_INTEL_DEFINE);
+}
+
+void OptionsLexer::SetCpu8085()
+{
+	cpu = CPU_8085;
+	cpuName = CPU_8085_NAME;
+	defines.push_back(CPU_8085_DEFINE);
+	defines.push_back(CPU_INTEL_DEFINE);
+}
+
+void OptionsLexer::SetCpuGbz80()
+{
+	cpu = CPU_GBZ80;
+	cpuName = CPU_GBZ80_NAME;
+	defines.push_back(CPU_GBZ80_DEFINE);
+}
+
+void OptionsLexer::SetCpuTi83()
+{
+	SetCpuZ80();
+	isTi83Plus = false;
+}
+
+void OptionsLexer::SetCpuTi83Plus()
+{
+	SetCpuZ80();
+	isTi83Plus = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -165,105 +401,545 @@ S0:
   m.FSM_FIND();
   c1 = m.FSM_CHAR();
   if (c1 == '-') goto S2;
-  if (0 <= c1) goto S7;
+  if (0 <= c1) goto S8;
   return m.FSM_HALT(c1);
 
 S2:
-  m.FSM_TAKE(3);
+  m.FSM_TAKE(13);
   c1 = m.FSM_CHAR();
-  if (c1 == 'v') goto S9;
-  if (c1 == 'h') goto S14;
-  if (c1 == '-') goto S11;
+  if (c1 == 'v') goto S10;
+  if (c1 == 'm') goto S18;
+  if (c1 == 'h') goto S16;
+  if (c1 == '-') goto S12;
   return m.FSM_HALT(c1);
 
-S7:
-  m.FSM_TAKE(3);
+S8:
+  m.FSM_TAKE(13);
   return m.FSM_HALT();
 
-S9:
+S10:
   c1 = m.FSM_CHAR();
   if (m.FSM_META_EOB(c1)) {
     m.FSM_TAKE(1, c1);
   }
   return m.FSM_HALT(c1);
 
-S11:
+S12:
   c1 = m.FSM_CHAR();
-  if (c1 == 'v') goto S18;
-  if (c1 == 'h') goto S20;
-  return m.FSM_HALT(c1);
-
-S14:
-  c1 = m.FSM_CHAR();
-  if (m.FSM_META_EOB(c1)) {
-    m.FSM_TAKE(2, c1);
-  }
+  if (c1 == 'v') goto S27;
+  if (c1 == 'h') goto S29;
+  if (c1 == 'c') goto S31;
   return m.FSM_HALT(c1);
 
 S16:
-  m.FSM_TAKE(1);
-  return m.FSM_HALT();
-
-S18:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'e') goto S24;
-  return m.FSM_HALT(c1);
-
-S20:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'e') goto S26;
-  return m.FSM_HALT(c1);
-
-S22:
-  m.FSM_TAKE(2);
-  return m.FSM_HALT();
-
-S24:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'r') goto S28;
-  return m.FSM_HALT(c1);
-
-S26:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'l') goto S30;
-  return m.FSM_HALT(c1);
-
-S28:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'b') goto S32;
-  return m.FSM_HALT(c1);
-
-S30:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'p') goto S34;
-  return m.FSM_HALT(c1);
-
-S32:
-  c1 = m.FSM_CHAR();
-  if (c1 == 'o') goto S36;
-  return m.FSM_HALT(c1);
-
-S34:
   c1 = m.FSM_CHAR();
   if (m.FSM_META_EOB(c1)) {
     m.FSM_TAKE(2, c1);
   }
   return m.FSM_HALT(c1);
 
-S36:
+S18:
   c1 = m.FSM_CHAR();
-  if (c1 == 's') goto S38;
+  if (c1 == 'z') goto S35;
+  if (c1 == 't') goto S45;
+  if (c1 == 'r') goto S38;
+  if (c1 == 'g') goto S43;
+  if (c1 == '=') goto S47;
+  if (c1 == '8') goto S41;
+  return m.FSM_HALT(c1);
+
+S25:
+  m.FSM_TAKE(1);
+  return m.FSM_HALT();
+
+S27:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'e') goto S53;
+  return m.FSM_HALT(c1);
+
+S29:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'e') goto S55;
+  return m.FSM_HALT(c1);
+
+S31:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'p') goto S57;
+  return m.FSM_HALT(c1);
+
+S33:
+  m.FSM_TAKE(2);
+  return m.FSM_HALT();
+
+S35:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S59;
+  if (c1 == '1') goto S61;
   return m.FSM_HALT(c1);
 
 S38:
   c1 = m.FSM_CHAR();
-  if (c1 == 'e') goto S40;
+  if (c1 == '3') goto S65;
+  if (c1 == '2') goto S63;
   return m.FSM_HALT(c1);
 
-S40:
+S41:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S67;
+  return m.FSM_HALT(c1);
+
+S43:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'b') goto S69;
+  return m.FSM_HALT(c1);
+
+S45:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'i') goto S71;
+  return m.FSM_HALT(c1);
+
+S47:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'z') goto S35;
+  if (c1 == 't') goto S45;
+  if (c1 == 'r') goto S38;
+  if (c1 == 'g') goto S43;
+  if (c1 == '8') goto S41;
+  return m.FSM_HALT(c1);
+
+S53:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'r') goto S73;
+  return m.FSM_HALT(c1);
+
+S55:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'l') goto S75;
+  return m.FSM_HALT(c1);
+
+S57:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'u') goto S77;
+  return m.FSM_HALT(c1);
+
+S59:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S84;
+  return m.FSM_HALT(c1);
+
+S61:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S87;
+  return m.FSM_HALT(c1);
+
+S63:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'k') goto S89;
+  return m.FSM_HALT(c1);
+
+S65:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'k') goto S91;
+  return m.FSM_HALT(c1);
+
+S67:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S93;
+  return m.FSM_HALT(c1);
+
+S69:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'z') goto S96;
+  return m.FSM_HALT(c1);
+
+S71:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S98;
+  return m.FSM_HALT(c1);
+
+S73:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'b') goto S100;
+  return m.FSM_HALT(c1);
+
+S75:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'p') goto S102;
+  return m.FSM_HALT(c1);
+
+S77:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'z') goto S104;
+  if (c1 == 't') goto S114;
+  if (c1 == 'r') goto S107;
+  if (c1 == 'g') goto S112;
+  if (c1 == '=') goto S116;
+  if (c1 == '8') goto S110;
+  return m.FSM_HALT(c1);
+
+S84:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(3, c1);
+  }
+  if (c1 == 'n') goto S124;
+  return m.FSM_HALT(c1);
+
+S87:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S126;
+  return m.FSM_HALT(c1);
+
+S89:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(6, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S91:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(7, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S93:
+  c1 = m.FSM_CHAR();
+  if (c1 == '5') goto S134;
+  if (c1 == '0') goto S132;
+  return m.FSM_HALT(c1);
+
+S96:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S136;
+  return m.FSM_HALT(c1);
+
+S98:
+  c1 = m.FSM_CHAR();
+  if (c1 == '3') goto S138;
+  return m.FSM_HALT(c1);
+
+S100:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'o') goto S141;
+  return m.FSM_HALT(c1);
+
+S102:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(2, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S104:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S143;
+  if (c1 == '1') goto S145;
+  return m.FSM_HALT(c1);
+
+S107:
+  c1 = m.FSM_CHAR();
+  if (c1 == '3') goto S149;
+  if (c1 == '2') goto S147;
+  return m.FSM_HALT(c1);
+
+S110:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S151;
+  return m.FSM_HALT(c1);
+
+S112:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'b') goto S153;
+  return m.FSM_HALT(c1);
+
+S114:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'i') goto S155;
+  return m.FSM_HALT(c1);
+
+S116:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'z') goto S104;
+  if (c1 == 't') goto S114;
+  if (c1 == 'r') goto S107;
+  if (c1 == 'g') goto S112;
+  if (c1 == '8') goto S110;
+  return m.FSM_HALT(c1);
+
+S122:
+  m.FSM_TAKE(3);
+  return m.FSM_HALT();
+
+S124:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(4, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S126:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(5, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S128:
+  m.FSM_TAKE(6);
+  return m.FSM_HALT();
+
+S130:
+  m.FSM_TAKE(7);
+  return m.FSM_HALT();
+
+S132:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(8, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S134:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(9, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S136:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S165;
+  return m.FSM_HALT(c1);
+
+S138:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(11, c1);
+  }
+  if (c1 == 'p') goto S169;
+  return m.FSM_HALT(c1);
+
+S141:
+  c1 = m.FSM_CHAR();
+  if (c1 == 's') goto S171;
+  return m.FSM_HALT(c1);
+
+S143:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S173;
+  return m.FSM_HALT(c1);
+
+S145:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S176;
+  return m.FSM_HALT(c1);
+
+S147:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'k') goto S178;
+  return m.FSM_HALT(c1);
+
+S149:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'k') goto S180;
+  return m.FSM_HALT(c1);
+
+S151:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S182;
+  return m.FSM_HALT(c1);
+
+S153:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'z') goto S185;
+  return m.FSM_HALT(c1);
+
+S155:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S187;
+  return m.FSM_HALT(c1);
+
+S157:
+  m.FSM_TAKE(4);
+  return m.FSM_HALT();
+
+S159:
+  m.FSM_TAKE(5);
+  return m.FSM_HALT();
+
+S161:
+  m.FSM_TAKE(8);
+  return m.FSM_HALT();
+
+S163:
+  m.FSM_TAKE(9);
+  return m.FSM_HALT();
+
+S165:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(10, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S167:
+  m.FSM_TAKE(11);
+  return m.FSM_HALT();
+
+S169:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'l') goto S191;
+  return m.FSM_HALT(c1);
+
+S171:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'e') goto S193;
+  return m.FSM_HALT(c1);
+
+S173:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(3, c1);
+  }
+  if (c1 == 'n') goto S195;
+  return m.FSM_HALT(c1);
+
+S176:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S197;
+  return m.FSM_HALT(c1);
+
+S178:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(6, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S180:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(7, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S182:
+  c1 = m.FSM_CHAR();
+  if (c1 == '5') goto S201;
+  if (c1 == '0') goto S199;
+  return m.FSM_HALT(c1);
+
+S185:
+  c1 = m.FSM_CHAR();
+  if (c1 == '8') goto S203;
+  return m.FSM_HALT(c1);
+
+S187:
+  c1 = m.FSM_CHAR();
+  if (c1 == '3') goto S205;
+  return m.FSM_HALT(c1);
+
+S189:
+  m.FSM_TAKE(10);
+  return m.FSM_HALT();
+
+S191:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'u') goto S208;
+  return m.FSM_HALT(c1);
+
+S193:
   c1 = m.FSM_CHAR();
   if (m.FSM_META_EOB(c1)) {
     m.FSM_TAKE(1, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S195:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(4, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S197:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(5, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S199:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(8, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S201:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(9, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S203:
+  c1 = m.FSM_CHAR();
+  if (c1 == '0') goto S210;
+  return m.FSM_HALT(c1);
+
+S205:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(11, c1);
+  }
+  if (c1 == 'p') goto S212;
+  return m.FSM_HALT(c1);
+
+S208:
+  c1 = m.FSM_CHAR();
+  if (c1 == 's') goto S214;
+  return m.FSM_HALT(c1);
+
+S210:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(10, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S212:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'l') goto S216;
+  return m.FSM_HALT(c1);
+
+S214:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(12, c1);
+  }
+  return m.FSM_HALT(c1);
+
+S216:
+  c1 = m.FSM_CHAR();
+  if (c1 == 'u') goto S220;
+  return m.FSM_HALT(c1);
+
+S218:
+  m.FSM_TAKE(12);
+  return m.FSM_HALT();
+
+S220:
+  c1 = m.FSM_CHAR();
+  if (c1 == 's') goto S222;
+  return m.FSM_HALT(c1);
+
+S222:
+  c1 = m.FSM_CHAR();
+  if (m.FSM_META_EOB(c1)) {
+    m.FSM_TAKE(12, c1);
   }
   return m.FSM_HALT(c1);
 }

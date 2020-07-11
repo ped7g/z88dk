@@ -19,7 +19,6 @@ OPT_VAR( bool,		symtable,	false	)
 OPT_VAR( bool,		list,		false	)	/* -l flag */
 OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
 OPT_VAR( bool,		map,		false	)
-OPT_VAR( bool,		ti83plus,	false	)
 OPT_VAR( bool,		swap_ix_iy,	false	)
 OPT_VAR( bool,      debug_info, false   )	/* add debug info to map file */
 OPT_VAR( bool,		globaldef,	false	)
@@ -35,9 +34,6 @@ OPT_VAR(const char *, appmake_opts, "")
 OPT_VAR(const char *, appmake_ext, "")
 OPT_VAR(int, appmake_origin_min, -1)
 OPT_VAR(int, appmake_origin_max, -1)
-
-OPT_VAR(int, cpu, CPU_Z80)
-OPT_VAR(const char *, cpu_name, CPU_Z80_NAME)
 
 OPT_VAR(const char *,	bin_file,	NULL	)	/* set by -o */
 OPT_VAR(const char *,	lib_file,	NULL	)	/* set by -x */
@@ -65,16 +61,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 OPT_TITLE("Help Options:")
 
 OPT_TITLE("Code Generation Options:")
-OPT(OptCall, option_cpu_z80n, "-mz80n", "", "Assemble for the Z80 variant of ZX Next", "")
-OPT(OptCall, option_cpu_z80, "-mz80", "", "Assemble for the Z80", "")
-OPT(OptCall, option_cpu_gbz80, "-mgbz80", "", "Assemble for the GameBoy Z80", "")
-OPT(OptCall, option_cpu_8080, "-m8080", "", "Assemble for the 8080 (with Zilog or Intel mnemonics)", "")
-OPT(OptCall, option_cpu_8085, "-m8085", "", "Assemble for the 8085 (with Zilog or Intel mnemonics)", "")
-OPT(OptCall, option_cpu_z180, "-mz180", "", "Assemble for the Z180", "")
-OPT(OptCall, option_cpu_r2k, "-mr2k", "", "Assemble for the Rabbit 2000", "")
-OPT(OptCall, option_cpu_r3k, "-mr3k", "", "Assemble for the Rabbit 3000", "")
-OPT(OptCall, option_cpu_ti83plus, "-mti83plus", "", "Assemble for the TI83Plus", "")
-OPT(OptCall, option_cpu_ti83, "-mti83", "", "Assemble for the TI83", "")
 OPT(OptSet, &opts.swap_ix_iy, "-IXIY", "", "Swap IX and IY registers", "")
 OPT(OptSet, &opts.opt_speed, "-opt-speed", "", "Optimize for speed", "")
 OPT(OptCall, option_debug_info, "-debug", "", "Add debug info to map file", "")

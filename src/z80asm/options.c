@@ -7,8 +7,8 @@
 
 #include "legacy.h"
 
-#include "../config.h"			// TODO: remove include ../
-#include "../portability.h"
+#include "config.h"
+#include "portability.h"
 #include "die.h"
 #include "errors.h"
 #include "fileutil.h"
@@ -59,16 +59,6 @@ static void option_origin(const char *origin );
 static void option_define(const char *symbol );
 static void option_make_lib(const char *library );
 static void option_use_lib(const char *library );
-static void option_cpu_z80(void);
-static void option_cpu_z80n(void);
-static void option_cpu_z180(void);
-static void option_cpu_gbz80(void);
-static void option_cpu_8080(void);
-static void option_cpu_8085(void);
-static void option_cpu_r2k(void);
-static void option_cpu_r3k(void);
-static void option_cpu_ti83(void);
-static void option_cpu_ti83plus(void);
 static void option_appmake_zx(void);
 static void option_appmake_zx81(void);
 static void option_filler(const char *filler_arg );
@@ -138,7 +128,7 @@ DEFINE_dtor_module()
 *----------------------------------------------------------------------------*/
 static void process_env_options()
 {
-	const char *opts = getenv("Z80ASM");
+	const char *opts = GetEnvPendingOpts();
 	if (!opts)
 		return;
 
@@ -206,10 +196,10 @@ static char *check_option( char *arg, char *opt )
         return NULL;			/* not found */
 }
 
-static void process_opt( int *parg, int argc, char *argv[] )
+static void process_opt(int *parg, int argc, char *argv[])
 {
 #define II (*parg)
-    int		 j;
+	int		 j;
 	const char *opt_arg_ptr;
 
 	/* search options that are exceptions to the look-up table */
@@ -269,72 +259,67 @@ static void process_opt( int *parg, int argc, char *argv[] )
 		/* search opts_lu[] */
 		for (j = 0; j < NUM_ELEMS(opts_lu); j++)
 		{
-			if ((opt_arg_ptr = check_option(argv[II], opts_lu[j].long_opt)) != NULL ||
-				(opt_arg_ptr = check_option(argv[II], opts_lu[j].short_opt)) != NULL)
+			/* found option, opt_arg_ptr points to after option */
+			switch (opts_lu[j].type)
 			{
-				/* found option, opt_arg_ptr points to after option */
-				switch (opts_lu[j].type)
-				{
-				case OptSet:
-					if (*opt_arg_ptr)
-						error_illegal_option(argv[II]);
-					else
-						*((bool *)(opts_lu[j].arg)) = true;
+			case OptSet:
+				if (*opt_arg_ptr)
+					error_illegal_option(argv[II]);
+				else
+					*((bool *)(opts_lu[j].arg)) = true;
 
-					break;
+				break;
 
-				case OptCall:
-					if (*opt_arg_ptr)
-						error_illegal_option(argv[II]);
-					else
-						((void(*)(void))(opts_lu[j].arg))();
+			case OptCall:
+				if (*opt_arg_ptr)
+					error_illegal_option(argv[II]);
+				else
+					((void(*)(void))(opts_lu[j].arg))();
 
-					break;
+				break;
 
-				case OptCallArg:
-					if (*opt_arg_ptr) {
-						opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
-						((void(*)(const char *))(opts_lu[j].arg))(opt_arg_ptr);
-					}
-					else
-						error_illegal_option(argv[II]);
-
-					break;
-
-				case OptString:
-					if (*opt_arg_ptr) {
-						opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
-						*((const char **)(opts_lu[j].arg)) = opt_arg_ptr;
-					}
-					else
-						error_illegal_option(argv[II]);
-
-					break;
-
-				case OptStringList:
-					if (*opt_arg_ptr)
-					{
-						UT_array **p_path = (UT_array **)opts_lu[j].arg;
-						opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
-						argv_push(*p_path, opt_arg_ptr);
-					}
-					else
-						error_illegal_option(argv[II]);
-
-					break;
-
-				default:
-					xassert(0);
+			case OptCallArg:
+				if (*opt_arg_ptr) {
+					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					((void(*)(const char *))(opts_lu[j].arg))(opt_arg_ptr);
 				}
+				else
+					error_illegal_option(argv[II]);
 
-				return;
+				break;
+
+			case OptString:
+				if (*opt_arg_ptr) {
+					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					*((const char **)(opts_lu[j].arg)) = opt_arg_ptr;
+				}
+				else
+					error_illegal_option(argv[II]);
+
+				break;
+
+			case OptStringList:
+				if (*opt_arg_ptr)
+				{
+					UT_array **p_path = (UT_array **)opts_lu[j].arg;
+					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					argv_push(*p_path, opt_arg_ptr);
+				}
+				else
+					error_illegal_option(argv[II]);
+
+				break;
+
+			default:
+				xassert(0);
 			}
+
+			return;
 		}
-
-		/* not found */
-		error_illegal_option(argv[II]);
-
 	}
+
+	/* not found */
+	error_illegal_option(argv[II]);
 
 #undef II
 }
@@ -583,57 +568,6 @@ static void process_files( int arg, int argc, char *argv[] )
 }
 
 /*-----------------------------------------------------------------------------
-*   Show information and exit - functions
-*----------------------------------------------------------------------------*/
-#define OPT_TITLE(text)		puts(""); puts(text);
-#define OPT(type, arg, short_opt, long_opt, help_text, help_arg) \
-							show_option(type, (bool *)arg, \
-										short_opt, long_opt, help_text, help_arg);
-
-#define ALIGN_HELP	24
-
-static void show_option( enum OptType type, bool *pflag,
-                         char *short_opt, char *long_opt, char *help_text, char *help_arg )
-{
-	STR_DEFINE(msg, STR_SIZE);
-    int count_opts = 0;
-
-    Str_set( msg, "  " );
-
-    if ( *short_opt )
-    {
-        /* dont show short_opt if short_opt is same as long_opt, except for extra '-' */
-        if ( !( *long_opt && strcmp( short_opt, long_opt + 1 ) == 0 ) )
-        {
-            Str_append_sprintf( msg, "%s", short_opt );
-            count_opts++;
-        }
-    }
-
-    if ( *long_opt )
-    {
-        if ( count_opts )
-            Str_append( msg, ", " );
-
-        Str_append_sprintf( msg, "%s", long_opt );
-        count_opts++;
-    }
-
-    if ( *help_arg )
-    {
-        Str_append_sprintf( msg, "%s", help_arg );
-    }
-
-    if ( Str_len(msg) > ALIGN_HELP )
-        printf( "%s\n%-*s %s\n", Str_data(msg), ALIGN_HELP, "",       help_text );
-    else
-        printf( "%-*s %s\n",                    ALIGN_HELP, Str_data(msg), help_text );
-
-	STR_DELETE(msg);
-}
-#undef ALIGN_HELP
-
-/*-----------------------------------------------------------------------------
 *   Option functions called from Opts table
 *----------------------------------------------------------------------------*/
 int number_arg(const char *arg)
@@ -735,107 +669,16 @@ static void option_use_lib(const char *library) {
 	library_file_append(library);
 }
 
-static void option_cpu_z80(void)
-{
-	opts.cpu = CPU_Z80;
-	opts.cpu_name = CPU_Z80_NAME;
-}
-
-static void option_cpu_z80n(void)
-{
-	opts.cpu = CPU_Z80N;
-	opts.cpu_name = CPU_Z80N_NAME;
-}
-
-static void option_cpu_gbz80(void)
-{
-	opts.cpu = CPU_GBZ80;
-	opts.cpu_name = CPU_GBZ80_NAME;
-}
-
-static void option_cpu_8080(void)
-{
-	opts.cpu = CPU_8080;
-	opts.cpu_name = CPU_8080_NAME;
-}
-
-static void option_cpu_8085(void)
-{
-	opts.cpu = CPU_8085;
-	opts.cpu_name = CPU_8085_NAME;
-}
-
-static void option_cpu_z180(void)
-{
-	opts.cpu = CPU_Z180;
-	opts.cpu_name = CPU_Z180_NAME;
-}
-
-static void option_cpu_r2k(void)
-{
-	opts.cpu = CPU_R2K;
-	opts.cpu_name = CPU_R2K_NAME;
-}
-
-static void option_cpu_r3k(void)
-{
-	opts.cpu = CPU_R3K;
-	opts.cpu_name = CPU_R3K_NAME;
-}
-
-static void option_cpu_ti83(void)
-{
-	option_cpu_z80();
-	opts.ti83plus = false;
-}
-
-static void option_cpu_ti83plus(void)
-{
-	option_cpu_z80();
-	opts.ti83plus = true;
+static void def_sym(const char* name) {
+	define_static_def_sym(name, 1);
 }
 
 static void define_assembly_defines()
 {
-	switch (opts.cpu) {
-	case CPU_Z80:
-	    define_static_def_sym("__CPU_Z80__", 1);
-	    define_static_def_sym("__CPU_ZILOG__", 1);
-		break;
-	case CPU_Z80N:
-	    define_static_def_sym("__CPU_Z80N__", 1);
-	    define_static_def_sym("__CPU_ZILOG__", 1);
-		break;
-	case CPU_Z180:
-	    define_static_def_sym("__CPU_Z180__", 1);
-	    define_static_def_sym("__CPU_ZILOG__", 1);
-		break;
-	case CPU_R2K:
-	    define_static_def_sym("__CPU_R2K__", 1);
-	    define_static_def_sym("__CPU_RABBIT__", 1);
-		break;
-	case CPU_R3K:
-	    define_static_def_sym("__CPU_R3K__", 1);
-	    define_static_def_sym("__CPU_RABBIT__", 1);
-		break;
-	case CPU_8080:
-	    define_static_def_sym("__CPU_8080__", 1);
-	    define_static_def_sym("__CPU_INTEL__", 1);
-		break;
-	case CPU_8085:
-	    define_static_def_sym("__CPU_8085__", 1);
-	    define_static_def_sym("__CPU_INTEL__", 1);
-		break;
-	case CPU_GBZ80:
-		define_static_def_sym("__CPU_GBZ80__", 1);
-		break;
-	default:
-		xassert(0);
-	}
+	TraverseDefines(def_sym);
 
-	if (opts.swap_ix_iy) {
-		define_static_def_sym("__SWAP_IX_IY__", 1);
-	}
+	if (opts.swap_ix_iy) 
+		define_static_def_sym(SWAP_IXIY_DEFINE, 1);
 }
 
 /*-----------------------------------------------------------------------------
@@ -1008,7 +851,7 @@ static const char *search_z80asm_lib()
 	const char *ret;
 
 	/* Build libary file name */
-	Str_sprintf(lib_name_str, Z80ASM_LIB, opts.cpu_name, SWAP_IX_IY_NAME);
+	Str_sprintf(lib_name_str, Z80ASM_LIB, GetCpuName(), SWAP_IX_IY_NAME);
 	lib_name = spool_add(Str_data(lib_name_str));
 
 	/* try to read from current directory */

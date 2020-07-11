@@ -15,11 +15,9 @@
 #------------------------------------------------------------------------------
 
 use Modern::Perl;
-use Config;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-my $cmd;
 my @ids = (1..4096);
 
 # build asm files
@@ -40,26 +38,17 @@ close($lst);
 
 # assemble
 unlink "${test}0001.bin";
-$cmd = "z80asm -b \@${test}.lst";
-ok 0==system($cmd), $cmd;
-
-# check binary
-ok -f "${test}0001.bin";
+system_ok("z80asm -b \@${test}.lst");
 ok path("${test}0001.bin")->slurp_raw eq pack("v*", @ids);
 
 # link only
 unlink "${test}0001.bin", <${test}*.asm>;
-$cmd = "z80asm -b \@${test}.lst";
-ok 0==system($cmd), $cmd;
-
-# check binary
-ok -f "${test}0001.bin";
+system_ok("z80asm -b \@${test}.lst");
 ok path("${test}0001.bin")->slurp_raw eq pack("v*", @ids);
 
 # make library
 unlink "${test}.lib";
-$cmd = "z80asm -b -x${test} \@${test}.lst";
-ok 0==system($cmd), $cmd;
+system_ok("z80asm -b -x${test} \@${test}.lst");
 ok -f "${test}.lib";
 
 # use library
@@ -68,12 +57,10 @@ path("${test}0001.asm")->spew(<<'END');
  extern lbl4096;
  defw lbl4096;
 END
-$cmd = "z80asm -b -i${test} ${test}0001.asm";
-ok 0==system($cmd), $cmd;
-ok -f "${test}0001.bin";
+system_ok("z80asm -b -i${test} ${test}0001.asm");
 ok path("${test}0001.bin")->slurp_raw eq pack("vv", 4096, 4096);
 
 # delete test files
-unlink <${test}*.asm ${test}*.o ${test}*.bin ${test}*.err ${test}*.lib ${test}*.c ${test}$Config{_exe}>;
+unlink <${test}*.asm ${test}*.o ${test}*.bin ${test}*.err ${test}*.lib>;
 
 end_test();

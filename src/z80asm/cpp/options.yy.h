@@ -26,9 +26,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-	#include "z80asm_manual.h"
+	// silence warnings from RE-flex
+	#ifdef _MSC_VER
+	#pragma warning(disable:4800)
+	#else
+	#ifdef __GNUC__
+	//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
+	#else
+	#ifdef __clang__
+	//#pragma clang diagnostic ignored "-Wignored-qualifiers"
+	#endif
+	#endif
+	#endif
+
+
 	#include "legacy.h"
+
+	#include "config.h"
+	#include "z80asm_manual.h"
+	#include "z80asm_usage.h"
+
 	#include <iostream>
+	#include <string>
+	#include <vector>
+
+	#ifndef Z88DK_VERSION
+	#define Z88DK_VERSION "build " __DATE__
+	#endif
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -55,8 +79,41 @@
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
 
-	protected:
+	private:
+		static const char copyrightmsg[];
+
 		bool verbose;
+		int cpu;					// TODO: replace with class enum
+		bool isTi83Plus;			// true for the TI83Plus
+		std::string cpuName;		// used to search libraries
+		std::string envPendingOpts;	// options from environment to parse by the C code
+									// TODO: to remove
+		std::vector<std::string> defines;	// list of -D defines
+
+	public:
+		bool ParseEnv(const std::string& envVariable);	// parse options from environment
+		bool ParseArgs(int argc, char* argv[]);			// parse options from ARGV
+
+		bool IsVerbose() const { return verbose; }
+		const char* GetEnvPendingOpts() const { return envPendingOpts.c_str(); }
+		int GetCpu() const { return cpu; }
+		const std::string& GetCpuName() const { return cpuName; }
+		bool IsTi83Plus() const { return isTi83Plus; }
+		auto cbeginDefines() const { return defines.cbegin(); }
+		auto cendDefines() const { return defines.cend(); }
+
+	private:
+		void ShowManual() const;
+		void SetCpuZ80();
+		void SetCpuZ80n();
+		void SetCpuZ180();
+		void SetCpuR2k();
+		void SetCpuR3k();
+		void SetCpu8080();
+		void SetCpu8085();
+		void SetCpuGbz80();
+		void SetCpuTi83();
+		void SetCpuTi83Plus();
 
  public:
   typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;

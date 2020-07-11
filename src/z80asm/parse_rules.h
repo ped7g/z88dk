@@ -44757,7 +44757,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x8E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44766,7 +44766,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44775,7 +44775,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44784,7 +44784,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44793,7 +44793,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44802,7 +44802,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44811,7 +44811,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44820,7 +44820,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -44916,7 +44916,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -44928,7 +44928,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -44940,7 +44940,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -44952,7 +44952,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -45106,7 +45106,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x8E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45115,7 +45115,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45124,7 +45124,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45133,7 +45133,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45142,7 +45142,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45151,7 +45151,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45160,7 +45160,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45169,7 +45169,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45229,7 +45229,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x86); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45238,7 +45238,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45247,7 +45247,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45256,7 +45256,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45265,7 +45265,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45274,7 +45274,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45283,7 +45283,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45292,7 +45292,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45388,7 +45388,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -45400,7 +45400,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -45412,7 +45412,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -45424,7 +45424,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -45666,7 +45666,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x86); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45675,7 +45675,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45684,7 +45684,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45693,7 +45693,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45702,7 +45702,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD09); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD09); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD09); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD09); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45711,7 +45711,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD19); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD19); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD19); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD19); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45720,7 +45720,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD29); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD29); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD29); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD29); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45729,7 +45729,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD39); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD39); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD39); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD39); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45738,7 +45738,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45747,7 +45747,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45756,7 +45756,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD09); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD09); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD09); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD09); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45765,7 +45765,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD19); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD19); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD19); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD19); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45774,7 +45774,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD29); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD29); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD29); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD29); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45783,7 +45783,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD39); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD39); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD39); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD39); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45792,7 +45792,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD84); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD84); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45801,7 +45801,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD85); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD85); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -45937,7 +45937,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -45949,7 +45949,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -45961,7 +45961,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -45973,7 +45973,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -46116,7 +46116,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -46128,7 +46128,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -46140,7 +46140,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -46152,7 +46152,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -46265,7 +46265,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -46277,7 +46277,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -46289,7 +46289,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -46301,7 +46301,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -46444,7 +46444,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -46456,7 +46456,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -46468,7 +46468,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -46480,7 +46480,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -46593,7 +46593,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -46605,7 +46605,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -46617,7 +46617,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -46629,7 +46629,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -46742,7 +46742,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -46754,7 +46754,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -46766,7 +46766,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -46778,7 +46778,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -46790,7 +46790,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); }
 break;
@@ -46802,7 +46802,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); }
 break;
@@ -46953,7 +46953,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -46971,7 +46971,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -46989,7 +46989,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -47007,7 +47007,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -47045,7 +47045,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); }
 break;
@@ -47057,7 +47057,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); }
 break;
@@ -47149,7 +47149,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -47161,7 +47161,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -47173,7 +47173,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -47185,7 +47185,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -47288,7 +47288,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -47300,7 +47300,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -47312,7 +47312,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -47324,7 +47324,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -47477,7 +47477,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -47489,7 +47489,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -47501,7 +47501,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -47513,7 +47513,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -47687,7 +47687,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -47699,7 +47699,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -47711,7 +47711,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -47723,7 +47723,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -47757,7 +47757,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -47770,7 +47770,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -47783,7 +47783,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -47796,7 +47796,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -47820,7 +47820,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -47833,7 +47833,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -47846,7 +47846,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -47859,7 +47859,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -47883,7 +47883,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -47896,7 +47896,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -47909,7 +47909,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -47922,7 +47922,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -47946,7 +47946,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -47959,7 +47959,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -47972,7 +47972,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -47985,7 +47985,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -48009,7 +48009,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -48022,7 +48022,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -48035,7 +48035,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -48048,7 +48048,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -48072,7 +48072,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -48085,7 +48085,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -48098,7 +48098,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -48111,7 +48111,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -48147,7 +48147,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -48166,7 +48166,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -48185,7 +48185,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -48204,7 +48204,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -48228,7 +48228,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -48241,7 +48241,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -48254,7 +48254,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -48267,7 +48267,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -48291,7 +48291,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -48304,7 +48304,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -48317,7 +48317,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -48330,7 +48330,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -48354,7 +48354,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -48367,7 +48367,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -48380,7 +48380,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -48393,7 +48393,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -48417,7 +48417,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -48430,7 +48430,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -48443,7 +48443,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -48456,7 +48456,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -48594,7 +48594,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -48607,7 +48607,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -48620,7 +48620,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -48633,7 +48633,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -48669,7 +48669,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -48682,7 +48682,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -48695,7 +48695,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -48708,7 +48708,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -48744,7 +48744,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -48757,7 +48757,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -48770,7 +48770,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -48783,7 +48783,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -48807,7 +48807,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -48820,7 +48820,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -48833,7 +48833,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -48846,7 +48846,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -48882,7 +48882,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -48895,7 +48895,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -48908,7 +48908,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -48921,7 +48921,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -48945,7 +48945,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -48958,7 +48958,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -48971,7 +48971,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -48984,7 +48984,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -49019,7 +49019,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -49032,7 +49032,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -49045,7 +49045,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -49058,7 +49058,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -49094,7 +49094,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -49107,7 +49107,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -49120,7 +49120,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -49133,7 +49133,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -49157,7 +49157,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -49170,7 +49170,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -49183,7 +49183,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -49196,7 +49196,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -49220,7 +49220,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -49233,7 +49233,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -49246,7 +49246,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -49259,7 +49259,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -49283,7 +49283,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -49296,7 +49296,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -49309,7 +49309,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -49322,7 +49322,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -49346,7 +49346,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -49359,7 +49359,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -49372,7 +49372,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -49385,7 +49385,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -49409,7 +49409,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -49422,7 +49422,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -49435,7 +49435,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -49448,7 +49448,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -49472,7 +49472,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -49485,7 +49485,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -49498,7 +49498,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -49511,7 +49511,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -49535,7 +49535,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -49548,7 +49548,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -49561,7 +49561,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -49574,7 +49574,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -49598,7 +49598,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -49611,7 +49611,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -49624,7 +49624,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -49637,7 +49637,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -49661,7 +49661,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -49674,7 +49674,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -49687,7 +49687,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -49700,7 +49700,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -49724,7 +49724,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -49737,7 +49737,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -49750,7 +49750,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -49763,7 +49763,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -49787,7 +49787,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -49800,7 +49800,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -49813,7 +49813,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -49826,7 +49826,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -49850,7 +49850,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -49863,7 +49863,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -49876,7 +49876,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -49889,7 +49889,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -49913,7 +49913,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -49926,7 +49926,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -49939,7 +49939,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -49952,7 +49952,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -49976,7 +49976,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -49989,7 +49989,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -50002,7 +50002,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -50015,7 +50015,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -50039,7 +50039,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -50052,7 +50052,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -50065,7 +50065,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -50078,7 +50078,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -50102,7 +50102,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -50115,7 +50115,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -50128,7 +50128,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -50141,7 +50141,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -50165,7 +50165,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -50178,7 +50178,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -50191,7 +50191,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -50204,7 +50204,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -50228,7 +50228,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -50241,7 +50241,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -50254,7 +50254,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -50267,7 +50267,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -50291,7 +50291,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -50304,7 +50304,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -50317,7 +50317,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -50330,7 +50330,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -50354,7 +50354,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -50367,7 +50367,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -50380,7 +50380,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -50393,7 +50393,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -50417,7 +50417,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -50430,7 +50430,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -50443,7 +50443,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -50456,7 +50456,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -50492,7 +50492,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -50511,7 +50511,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -50530,7 +50530,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -50549,7 +50549,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -50573,7 +50573,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -50586,7 +50586,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -50599,7 +50599,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -50612,7 +50612,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -50636,7 +50636,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -50649,7 +50649,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -50662,7 +50662,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -50675,7 +50675,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -50699,7 +50699,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -50712,7 +50712,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -50725,7 +50725,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -50738,7 +50738,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -50762,7 +50762,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -50775,7 +50775,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -50788,7 +50788,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -50801,7 +50801,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -50939,7 +50939,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -50952,7 +50952,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -50965,7 +50965,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -50978,7 +50978,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -51014,7 +51014,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -51027,7 +51027,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -51040,7 +51040,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -51053,7 +51053,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -51089,7 +51089,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -51102,7 +51102,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -51115,7 +51115,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -51128,7 +51128,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -51152,7 +51152,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -51165,7 +51165,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -51178,7 +51178,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -51191,7 +51191,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -51227,7 +51227,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -51240,7 +51240,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -51253,7 +51253,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -51266,7 +51266,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -51290,7 +51290,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -51303,7 +51303,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -51316,7 +51316,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -51329,7 +51329,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -51364,7 +51364,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -51377,7 +51377,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -51390,7 +51390,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -51403,7 +51403,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -51439,7 +51439,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -51452,7 +51452,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -51465,7 +51465,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -51478,7 +51478,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -51502,7 +51502,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -51515,7 +51515,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -51528,7 +51528,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -51541,7 +51541,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -51565,7 +51565,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -51578,7 +51578,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -51591,7 +51591,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -51604,7 +51604,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -51628,7 +51628,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -51641,7 +51641,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -51654,7 +51654,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -51667,7 +51667,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -51691,7 +51691,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -51704,7 +51704,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -51717,7 +51717,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -51730,7 +51730,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -51754,7 +51754,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -51767,7 +51767,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -51780,7 +51780,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -51793,7 +51793,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -51817,7 +51817,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -51830,7 +51830,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -51843,7 +51843,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -51856,7 +51856,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -51880,7 +51880,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -51893,7 +51893,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -51906,7 +51906,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -51919,7 +51919,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -51943,7 +51943,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -51956,7 +51956,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -51969,7 +51969,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -51982,7 +51982,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -52006,7 +52006,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -52019,7 +52019,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -52032,7 +52032,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -52045,7 +52045,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -52069,7 +52069,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -52082,7 +52082,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -52095,7 +52095,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -52108,7 +52108,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -52132,7 +52132,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -52145,7 +52145,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -52158,7 +52158,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -52171,7 +52171,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -52195,7 +52195,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -52208,7 +52208,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -52221,7 +52221,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -52234,7 +52234,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -52258,7 +52258,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -52271,7 +52271,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -52284,7 +52284,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -52297,7 +52297,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -52321,7 +52321,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -52334,7 +52334,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -52347,7 +52347,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -52360,7 +52360,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -52384,7 +52384,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -52397,7 +52397,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -52410,7 +52410,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -52423,7 +52423,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -52629,7 +52629,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -52641,7 +52641,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -52653,7 +52653,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -52665,7 +52665,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -52779,7 +52779,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -52791,7 +52791,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -52803,7 +52803,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -52815,7 +52815,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -52948,7 +52948,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -52960,7 +52960,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -52972,7 +52972,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -52984,7 +52984,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -53087,7 +53087,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -53099,7 +53099,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -53111,7 +53111,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -53123,7 +53123,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -53256,7 +53256,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -53268,7 +53268,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -53280,7 +53280,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -53292,7 +53292,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -53395,7 +53395,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -53407,7 +53407,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -53419,7 +53419,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -53431,7 +53431,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -53502,7 +53502,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -53514,7 +53514,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -53526,7 +53526,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -53538,7 +53538,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -53570,7 +53570,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
 break;
@@ -53582,7 +53582,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
 break;
@@ -53676,7 +53676,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -53688,7 +53688,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -53700,7 +53700,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -53712,7 +53712,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -53835,7 +53835,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -53847,7 +53847,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -53859,7 +53859,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -53871,7 +53871,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -53984,7 +53984,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -53996,7 +53996,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -54008,7 +54008,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -54020,7 +54020,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -54032,7 +54032,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); }
 break;
@@ -54044,7 +54044,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); }
 break;
@@ -54339,7 +54339,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -54351,7 +54351,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -54363,7 +54363,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -54375,7 +54375,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -54477,7 +54477,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -54489,7 +54489,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -54501,7 +54501,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -54513,7 +54513,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -54635,7 +54635,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -54647,7 +54647,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -54659,7 +54659,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -54671,7 +54671,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -54683,7 +54683,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); }
 break;
@@ -54695,7 +54695,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); }
 break;
@@ -54797,7 +54797,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -54809,7 +54809,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -54821,7 +54821,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -54833,7 +54833,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -54935,7 +54935,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -54947,7 +54947,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -54959,7 +54959,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -54971,7 +54971,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -55114,7 +55114,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -55126,7 +55126,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -55138,7 +55138,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -55150,7 +55150,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -55375,7 +55375,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -55387,7 +55387,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -55399,7 +55399,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -55411,7 +55411,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -55503,7 +55503,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -55515,7 +55515,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -55527,7 +55527,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -55539,7 +55539,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -55631,7 +55631,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -55643,7 +55643,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -55655,7 +55655,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -55667,7 +55667,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -55759,7 +55759,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -55771,7 +55771,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -55783,7 +55783,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -55795,7 +55795,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -55898,7 +55898,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -55910,7 +55910,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -55922,7 +55922,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -55934,7 +55934,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -56047,7 +56047,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -56059,7 +56059,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -56071,7 +56071,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -56083,7 +56083,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -56186,7 +56186,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -56198,7 +56198,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -56210,7 +56210,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -56222,7 +56222,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -56329,7 +56329,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xA6); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56338,7 +56338,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56347,7 +56347,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56356,7 +56356,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56365,7 +56365,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56374,7 +56374,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56383,7 +56383,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56392,7 +56392,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56488,7 +56488,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -56500,7 +56500,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -56512,7 +56512,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -56524,7 +56524,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -56598,7 +56598,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56607,7 +56607,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56650,7 +56650,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xA6); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56659,7 +56659,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56668,7 +56668,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56677,7 +56677,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56686,7 +56686,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56695,7 +56695,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56704,7 +56704,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56713,7 +56713,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDDC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDDC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56722,7 +56722,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56731,7 +56731,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -56953,7 +56953,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -56970,7 +56970,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -56987,7 +56987,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -57004,7 +57004,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -57151,7 +57151,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -57168,7 +57168,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -57185,7 +57185,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -57202,7 +57202,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -57247,7 +57247,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57256,7 +57256,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57655,7 +57655,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xBE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57664,7 +57664,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57673,7 +57673,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57682,7 +57682,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57691,7 +57691,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57700,7 +57700,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57709,7 +57709,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57718,7 +57718,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57773,7 +57773,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xBE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57782,7 +57782,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57791,7 +57791,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57800,7 +57800,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57809,7 +57809,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57818,7 +57818,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57827,7 +57827,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57836,7 +57836,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57946,7 +57946,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xBE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57955,7 +57955,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57964,7 +57964,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57973,7 +57973,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57982,7 +57982,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -57991,7 +57991,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58000,7 +58000,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58009,7 +58009,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58064,7 +58064,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xBE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58073,7 +58073,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58082,7 +58082,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58091,7 +58091,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58100,7 +58100,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58109,7 +58109,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58118,7 +58118,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58127,7 +58127,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58563,7 +58563,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x35); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58572,7 +58572,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58581,7 +58581,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58590,7 +58590,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58599,7 +58599,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58608,7 +58608,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD25); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD25); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD25); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD25); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58617,7 +58617,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58626,7 +58626,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58635,7 +58635,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD25); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD25); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD25); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD25); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58644,7 +58644,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58843,7 +58843,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE3); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE3); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE3); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE3); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -58852,7 +58852,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE3); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE3); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE3); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE3); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59243,7 +59243,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x34); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59252,7 +59252,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59261,7 +59261,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59270,7 +59270,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59279,7 +59279,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD23); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD23); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD23); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD23); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59288,7 +59288,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD24); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD24); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD24); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD24); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59297,7 +59297,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59306,7 +59306,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD23); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD23); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD23); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD23); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59315,7 +59315,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD24); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD24); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD24); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD24); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59324,7 +59324,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD2C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD2C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -59475,7 +59475,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -59487,7 +59487,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -59499,7 +59499,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -59511,7 +59511,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -59535,7 +59535,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -59548,7 +59548,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -59561,7 +59561,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -59574,7 +59574,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -59596,7 +59596,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -59608,7 +59608,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -59620,7 +59620,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -59632,7 +59632,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -59654,7 +59654,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -59666,7 +59666,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -59678,7 +59678,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -59690,7 +59690,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -59714,7 +59714,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -59727,7 +59727,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -59740,7 +59740,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -59753,7 +59753,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -59775,7 +59775,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -59787,7 +59787,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -59799,7 +59799,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -59811,7 +59811,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -59835,7 +59835,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -59848,7 +59848,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -59861,7 +59861,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -59874,7 +59874,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -59898,7 +59898,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -59911,7 +59911,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -59924,7 +59924,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -59937,7 +59937,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -59961,7 +59961,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -59974,7 +59974,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -59987,7 +59987,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -60000,7 +60000,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -60024,7 +60024,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -60037,7 +60037,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -60050,7 +60050,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -60063,7 +60063,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -60087,7 +60087,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -60100,7 +60100,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -60113,7 +60113,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -60126,7 +60126,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -60150,7 +60150,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -60163,7 +60163,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -60176,7 +60176,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -60189,7 +60189,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -60225,7 +60225,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -60244,7 +60244,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -60263,7 +60263,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -60282,7 +60282,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -60306,7 +60306,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -60319,7 +60319,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -60332,7 +60332,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -60345,7 +60345,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -60369,7 +60369,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -60382,7 +60382,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -60395,7 +60395,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -60408,7 +60408,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -60432,7 +60432,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -60445,7 +60445,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -60458,7 +60458,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -60471,7 +60471,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -60495,7 +60495,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -60508,7 +60508,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -60521,7 +60521,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -60534,7 +60534,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -60672,7 +60672,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -60685,7 +60685,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -60698,7 +60698,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -60711,7 +60711,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -60747,7 +60747,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -60760,7 +60760,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -60773,7 +60773,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -60786,7 +60786,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -60822,7 +60822,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -60835,7 +60835,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -60848,7 +60848,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -60861,7 +60861,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -60885,7 +60885,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -60898,7 +60898,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -60911,7 +60911,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -60924,7 +60924,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -60960,7 +60960,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -60973,7 +60973,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -60986,7 +60986,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -60999,7 +60999,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -61023,7 +61023,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -61036,7 +61036,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -61049,7 +61049,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -61062,7 +61062,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -61097,7 +61097,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -61110,7 +61110,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -61123,7 +61123,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -61136,7 +61136,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -61172,7 +61172,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -61185,7 +61185,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -61198,7 +61198,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -61211,7 +61211,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -61235,7 +61235,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -61248,7 +61248,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -61261,7 +61261,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -61274,7 +61274,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -61298,7 +61298,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -61311,7 +61311,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -61324,7 +61324,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -61337,7 +61337,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -61361,7 +61361,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -61374,7 +61374,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -61387,7 +61387,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -61400,7 +61400,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -61424,7 +61424,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -61437,7 +61437,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -61450,7 +61450,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -61463,7 +61463,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -61487,7 +61487,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -61500,7 +61500,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -61513,7 +61513,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -61526,7 +61526,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -61550,7 +61550,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -61563,7 +61563,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -61576,7 +61576,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -61589,7 +61589,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -61613,7 +61613,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -61626,7 +61626,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -61639,7 +61639,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -61652,7 +61652,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -61676,7 +61676,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -61689,7 +61689,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -61702,7 +61702,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -61715,7 +61715,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -61739,7 +61739,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -61752,7 +61752,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -61765,7 +61765,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -61778,7 +61778,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -61802,7 +61802,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -61815,7 +61815,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -61828,7 +61828,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -61841,7 +61841,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -61865,7 +61865,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -61878,7 +61878,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -61891,7 +61891,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -61904,7 +61904,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -61928,7 +61928,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -61941,7 +61941,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -61954,7 +61954,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -61967,7 +61967,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -61991,7 +61991,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -62004,7 +62004,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -62017,7 +62017,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -62030,7 +62030,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -62054,7 +62054,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -62067,7 +62067,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -62080,7 +62080,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -62093,7 +62093,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -62117,7 +62117,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -62130,7 +62130,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -62143,7 +62143,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -62156,7 +62156,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -62178,7 +62178,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -62190,7 +62190,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -62202,7 +62202,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -62214,7 +62214,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -62238,7 +62238,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -62251,7 +62251,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -62264,7 +62264,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -62277,7 +62277,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -62299,7 +62299,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -62311,7 +62311,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -62323,7 +62323,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -62335,7 +62335,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -62369,7 +62369,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -62387,7 +62387,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -62405,7 +62405,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -62423,7 +62423,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -62457,7 +62457,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -62475,7 +62475,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -62493,7 +62493,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -62511,7 +62511,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -62533,7 +62533,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -62545,7 +62545,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -62557,7 +62557,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -62569,7 +62569,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -62591,7 +62591,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -62603,7 +62603,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -62615,7 +62615,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -62627,7 +62627,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -62649,7 +62649,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -62661,7 +62661,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -62673,7 +62673,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -62685,7 +62685,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -62707,7 +62707,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -62719,7 +62719,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -62731,7 +62731,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -62743,7 +62743,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -62765,7 +62765,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -62777,7 +62777,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -62789,7 +62789,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -62801,7 +62801,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -62823,7 +62823,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -62835,7 +62835,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -62847,7 +62847,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -62859,7 +62859,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -62985,7 +62985,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -62997,7 +62997,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -63009,7 +63009,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -63021,7 +63021,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -63170,7 +63170,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -63183,7 +63183,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -63196,7 +63196,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -63209,7 +63209,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -63243,7 +63243,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -63255,7 +63255,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -63267,7 +63267,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -63279,7 +63279,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -63303,7 +63303,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -63316,7 +63316,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -63329,7 +63329,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -63342,7 +63342,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -63387,7 +63387,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -63399,7 +63399,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -63411,7 +63411,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -63423,7 +63423,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -63447,7 +63447,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -63460,7 +63460,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -63473,7 +63473,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -63486,7 +63486,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -63508,7 +63508,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -63520,7 +63520,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -63532,7 +63532,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -63544,7 +63544,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -63568,7 +63568,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -63581,7 +63581,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -63594,7 +63594,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -63607,7 +63607,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -63652,7 +63652,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -63664,7 +63664,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -63676,7 +63676,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -63688,7 +63688,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -63712,7 +63712,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -63725,7 +63725,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -63738,7 +63738,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -63751,7 +63751,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -63773,7 +63773,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -63785,7 +63785,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -63797,7 +63797,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -63809,7 +63809,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -63833,7 +63833,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -63846,7 +63846,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -63859,7 +63859,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -63872,7 +63872,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -63904,7 +63904,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -63916,7 +63916,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -63928,7 +63928,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -63940,7 +63940,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -63986,7 +63986,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -63999,7 +63999,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -64012,7 +64012,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -64025,7 +64025,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -64254,7 +64254,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); }
 break;
@@ -64266,7 +64266,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); }
 break;
@@ -64278,7 +64278,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); }
 break;
@@ -64290,7 +64290,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); }
 break;
@@ -64302,7 +64302,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); }
 break;
@@ -64314,7 +64314,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); }
 break;
@@ -64326,7 +64326,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); }
 break;
@@ -64338,7 +64338,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); }
 break;
@@ -64351,7 +64351,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); }
 break;
@@ -64363,7 +64363,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); }
 break;
@@ -64375,7 +64375,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); }
 break;
@@ -64387,7 +64387,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); }
 break;
@@ -64399,7 +64399,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); }
 break;
@@ -64411,7 +64411,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); }
 break;
@@ -64423,7 +64423,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); }
 break;
@@ -64435,7 +64435,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); }
 break;
@@ -64447,7 +64447,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); }
 break;
@@ -64460,7 +64460,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); } else {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); }
 break;
@@ -64472,7 +64472,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); }
 break;
@@ -64484,7 +64484,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); }
 break;
@@ -64496,7 +64496,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); }
 break;
@@ -64508,7 +64508,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); }
 break;
@@ -64520,7 +64520,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); }
 break;
@@ -64532,7 +64532,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); }
 break;
@@ -64544,7 +64544,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); }
 break;
@@ -64556,7 +64556,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); }
 break;
@@ -64569,7 +64569,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); }
 break;
@@ -64581,7 +64581,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); }
 break;
@@ -64593,7 +64593,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); }
 break;
@@ -64605,7 +64605,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); }
 break;
@@ -64617,7 +64617,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); }
 break;
@@ -64629,7 +64629,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); }
 break;
@@ -64641,7 +64641,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); }
 break;
@@ -64653,7 +64653,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); }
 break;
@@ -64665,7 +64665,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); }
 break;
@@ -64678,7 +64678,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); } else {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); }
 break;
@@ -64691,7 +64691,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); }
 break;
@@ -64704,7 +64704,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); }
 break;
@@ -64726,7 +64726,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -64738,7 +64738,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -64750,7 +64750,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -64762,7 +64762,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -64786,7 +64786,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -64799,7 +64799,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -64812,7 +64812,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -64825,7 +64825,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -64893,7 +64893,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); }
 break;
@@ -64906,7 +64906,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); }
 break;
@@ -65163,7 +65163,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -65175,7 +65175,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -65187,7 +65187,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -65199,7 +65199,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -65223,7 +65223,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -65236,7 +65236,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -65249,7 +65249,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -65262,7 +65262,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -65284,7 +65284,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -65296,7 +65296,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -65308,7 +65308,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -65320,7 +65320,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -65354,7 +65354,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -65372,7 +65372,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -65390,7 +65390,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -65408,7 +65408,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -65442,7 +65442,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -65460,7 +65460,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -65478,7 +65478,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -65496,7 +65496,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -65518,7 +65518,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -65530,7 +65530,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -65542,7 +65542,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -65554,7 +65554,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -65576,7 +65576,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -65588,7 +65588,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -65600,7 +65600,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -65612,7 +65612,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -65634,7 +65634,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -65646,7 +65646,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -65658,7 +65658,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -65670,7 +65670,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -65692,7 +65692,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -65704,7 +65704,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -65716,7 +65716,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -65728,7 +65728,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -65750,7 +65750,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -65762,7 +65762,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -65774,7 +65774,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -65786,7 +65786,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -65810,7 +65810,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -65823,7 +65823,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -65836,7 +65836,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -65849,7 +65849,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -65871,7 +65871,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -65883,7 +65883,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -65895,7 +65895,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -65907,7 +65907,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -65941,7 +65941,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -65959,7 +65959,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -65977,7 +65977,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -65995,7 +65995,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -66029,7 +66029,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -66047,7 +66047,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -66065,7 +66065,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -66083,7 +66083,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -66105,7 +66105,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -66117,7 +66117,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -66129,7 +66129,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -66141,7 +66141,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -66163,7 +66163,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -66175,7 +66175,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -66187,7 +66187,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -66199,7 +66199,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -66221,7 +66221,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -66233,7 +66233,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -66245,7 +66245,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -66257,7 +66257,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -66279,7 +66279,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -66291,7 +66291,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -66303,7 +66303,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -66315,7 +66315,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -66339,7 +66339,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -66352,7 +66352,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -66365,7 +66365,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -66378,7 +66378,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -66400,7 +66400,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -66412,7 +66412,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -66424,7 +66424,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -66436,7 +66436,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -66458,7 +66458,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -66470,7 +66470,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -66482,7 +66482,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -66494,7 +66494,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -66518,7 +66518,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -66531,7 +66531,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -66544,7 +66544,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -66557,7 +66557,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -66579,7 +66579,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -66591,7 +66591,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -66603,7 +66603,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -66615,7 +66615,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDB); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -66637,7 +66637,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -66649,7 +66649,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -66661,7 +66661,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -66673,7 +66673,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -66697,7 +66697,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -66710,7 +66710,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -66723,7 +66723,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -66736,7 +66736,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -66758,7 +66758,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -66770,7 +66770,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -66782,7 +66782,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -66794,7 +66794,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -66816,7 +66816,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -66828,7 +66828,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -66840,7 +66840,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -66852,7 +66852,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -66876,7 +66876,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -66889,7 +66889,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -66902,7 +66902,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -66915,7 +66915,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -66937,7 +66937,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -66949,7 +66949,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -66961,7 +66961,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -66973,7 +66973,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -66997,7 +66997,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -67010,7 +67010,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -67023,7 +67023,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -67036,7 +67036,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -67060,7 +67060,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); }
 break;
@@ -67073,7 +67073,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); }
 break;
@@ -67086,7 +67086,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8E00); } while(0); }
 break;
@@ -67099,7 +67099,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD8E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD8E), expr); } while(0); }
 break;
@@ -67123,7 +67123,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -67136,7 +67136,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -67149,7 +67149,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -67162,7 +67162,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -67186,7 +67186,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); }
 break;
@@ -67199,7 +67199,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); }
 break;
@@ -67212,7 +67212,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD8600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD8600); } while(0); }
 break;
@@ -67225,7 +67225,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD86), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD86), expr); } while(0); }
 break;
@@ -67249,7 +67249,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -67262,7 +67262,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -67275,7 +67275,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -67288,7 +67288,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -67312,7 +67312,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -67325,7 +67325,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -67338,7 +67338,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -67351,7 +67351,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -67387,7 +67387,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -67406,7 +67406,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -67425,7 +67425,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -67444,7 +67444,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -67468,7 +67468,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -67481,7 +67481,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -67494,7 +67494,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -67507,7 +67507,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -67531,7 +67531,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -67544,7 +67544,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -67557,7 +67557,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -67570,7 +67570,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -67594,7 +67594,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -67607,7 +67607,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -67620,7 +67620,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -67633,7 +67633,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -67657,7 +67657,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -67670,7 +67670,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -67683,7 +67683,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -67696,7 +67696,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -67834,7 +67834,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -67847,7 +67847,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -67860,7 +67860,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -67873,7 +67873,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -67909,7 +67909,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -67922,7 +67922,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -67935,7 +67935,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -67948,7 +67948,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -67984,7 +67984,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -67997,7 +67997,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -68010,7 +68010,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -68023,7 +68023,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -68047,7 +68047,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -68060,7 +68060,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -68073,7 +68073,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -68086,7 +68086,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -68122,7 +68122,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -68135,7 +68135,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -68148,7 +68148,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -68161,7 +68161,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -68185,7 +68185,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -68198,7 +68198,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -68211,7 +68211,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -68224,7 +68224,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -68259,7 +68259,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -68272,7 +68272,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -68285,7 +68285,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -68298,7 +68298,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -68334,7 +68334,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -68347,7 +68347,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -68360,7 +68360,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -68373,7 +68373,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -68397,7 +68397,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -68410,7 +68410,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -68423,7 +68423,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -68436,7 +68436,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -68460,7 +68460,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -68473,7 +68473,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -68486,7 +68486,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -68499,7 +68499,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -68523,7 +68523,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -68536,7 +68536,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -68549,7 +68549,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -68562,7 +68562,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -68586,7 +68586,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -68599,7 +68599,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -68612,7 +68612,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -68625,7 +68625,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -68649,7 +68649,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -68662,7 +68662,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -68675,7 +68675,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -68688,7 +68688,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -68712,7 +68712,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -68725,7 +68725,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -68738,7 +68738,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -68751,7 +68751,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -68775,7 +68775,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -68788,7 +68788,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -68801,7 +68801,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -68814,7 +68814,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -68838,7 +68838,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -68851,7 +68851,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -68864,7 +68864,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -68877,7 +68877,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -68901,7 +68901,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -68914,7 +68914,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -68927,7 +68927,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -68940,7 +68940,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -68964,7 +68964,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -68977,7 +68977,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -68990,7 +68990,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -69003,7 +69003,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -69027,7 +69027,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -69040,7 +69040,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -69053,7 +69053,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -69066,7 +69066,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -69090,7 +69090,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -69103,7 +69103,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -69116,7 +69116,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -69129,7 +69129,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -69153,7 +69153,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -69166,7 +69166,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -69179,7 +69179,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -69192,7 +69192,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -69216,7 +69216,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -69229,7 +69229,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -69242,7 +69242,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -69255,7 +69255,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -69279,7 +69279,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -69292,7 +69292,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -69305,7 +69305,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -69318,7 +69318,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -69340,7 +69340,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -69352,7 +69352,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -69364,7 +69364,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -69376,7 +69376,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -69400,7 +69400,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -69413,7 +69413,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -69426,7 +69426,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -69439,7 +69439,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -69461,7 +69461,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); }
 break;
@@ -69473,7 +69473,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); }
 break;
@@ -69485,7 +69485,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDA600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDA600); } while(0); }
 break;
@@ -69497,7 +69497,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDA6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDA6), expr); } while(0); }
 break;
@@ -69531,7 +69531,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -69549,7 +69549,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -69567,7 +69567,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -69585,7 +69585,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -69619,7 +69619,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -69637,7 +69637,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -69655,7 +69655,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0046+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0046+((8*expr_value))); } while(0); }
 break;
@@ -69673,7 +69673,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB46+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB46+((8*expr_value))), expr); } while(0); }
 break;
@@ -69695,7 +69695,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -69707,7 +69707,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -69719,7 +69719,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -69731,7 +69731,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -69753,7 +69753,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -69765,7 +69765,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -69777,7 +69777,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -69789,7 +69789,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -69811,7 +69811,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -69823,7 +69823,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -69835,7 +69835,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -69847,7 +69847,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -69869,7 +69869,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); }
 break;
@@ -69881,7 +69881,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); }
 break;
@@ -69893,7 +69893,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDBE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDBE00); } while(0); }
 break;
@@ -69905,7 +69905,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDBE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDBE), expr); } while(0); }
 break;
@@ -69927,7 +69927,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); }
 break;
@@ -69939,7 +69939,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); }
 break;
@@ -69951,7 +69951,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3500); } while(0); }
 break;
@@ -69963,7 +69963,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD35), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD35), expr); } while(0); }
 break;
@@ -69985,7 +69985,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); }
 break;
@@ -69997,7 +69997,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); }
 break;
@@ -70009,7 +70009,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD3400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD3400); } while(0); }
 break;
@@ -70021,7 +70021,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD34), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD34), expr); } while(0); }
 break;
@@ -70147,7 +70147,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -70159,7 +70159,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -70171,7 +70171,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -70183,7 +70183,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -70332,7 +70332,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -70345,7 +70345,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -70358,7 +70358,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -70371,7 +70371,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -70405,7 +70405,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -70417,7 +70417,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -70429,7 +70429,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -70441,7 +70441,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -70465,7 +70465,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -70478,7 +70478,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -70491,7 +70491,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -70504,7 +70504,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -70549,7 +70549,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -70561,7 +70561,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -70573,7 +70573,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -70585,7 +70585,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -70609,7 +70609,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -70622,7 +70622,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -70635,7 +70635,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -70648,7 +70648,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -70670,7 +70670,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -70682,7 +70682,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -70694,7 +70694,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -70706,7 +70706,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -70730,7 +70730,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -70743,7 +70743,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -70756,7 +70756,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -70769,7 +70769,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -70814,7 +70814,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -70826,7 +70826,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -70838,7 +70838,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -70850,7 +70850,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -70874,7 +70874,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -70887,7 +70887,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -70900,7 +70900,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -70913,7 +70913,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -70935,7 +70935,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -70947,7 +70947,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -70959,7 +70959,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -70971,7 +70971,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -70995,7 +70995,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -71008,7 +71008,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -71021,7 +71021,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -71034,7 +71034,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -71066,7 +71066,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -71078,7 +71078,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -71090,7 +71090,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -71102,7 +71102,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -71148,7 +71148,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -71161,7 +71161,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -71174,7 +71174,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -71187,7 +71187,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -71416,7 +71416,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); }
 break;
@@ -71428,7 +71428,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); }
 break;
@@ -71440,7 +71440,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); }
 break;
@@ -71452,7 +71452,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); }
 break;
@@ -71464,7 +71464,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); }
 break;
@@ -71476,7 +71476,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); }
 break;
@@ -71488,7 +71488,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); }
 break;
@@ -71500,7 +71500,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); }
 break;
@@ -71513,7 +71513,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); }
 break;
@@ -71525,7 +71525,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); }
 break;
@@ -71537,7 +71537,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); }
 break;
@@ -71549,7 +71549,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); }
 break;
@@ -71561,7 +71561,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); }
 break;
@@ -71573,7 +71573,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); }
 break;
@@ -71585,7 +71585,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); }
 break;
@@ -71597,7 +71597,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); }
 break;
@@ -71609,7 +71609,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); }
 break;
@@ -71622,7 +71622,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); } else {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); }
 break;
@@ -71634,7 +71634,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); }
 break;
@@ -71646,7 +71646,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); }
 break;
@@ -71658,7 +71658,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); }
 break;
@@ -71670,7 +71670,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); }
 break;
@@ -71682,7 +71682,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); }
 break;
@@ -71694,7 +71694,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); }
 break;
@@ -71706,7 +71706,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); }
 break;
@@ -71718,7 +71718,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); }
 break;
@@ -71731,7 +71731,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); }
 break;
@@ -71743,7 +71743,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); }
 break;
@@ -71755,7 +71755,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); }
 break;
@@ -71767,7 +71767,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); }
 break;
@@ -71779,7 +71779,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); }
 break;
@@ -71791,7 +71791,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); }
 break;
@@ -71803,7 +71803,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); }
 break;
@@ -71815,7 +71815,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); }
 break;
@@ -71827,7 +71827,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); }
 break;
@@ -71840,7 +71840,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (expr_in_parens) warn_expr_in_parens();
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); } else {
 do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); }
 break;
@@ -71853,7 +71853,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); }
 break;
@@ -71866,7 +71866,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); }
 break;
@@ -71888,7 +71888,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -71900,7 +71900,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -71912,7 +71912,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -71924,7 +71924,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -71948,7 +71948,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -71961,7 +71961,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -71974,7 +71974,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -71987,7 +71987,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -72055,7 +72055,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); }
 break;
@@ -72068,7 +72068,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); }
 break;
@@ -72325,7 +72325,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -72337,7 +72337,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -72349,7 +72349,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -72361,7 +72361,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -72385,7 +72385,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -72398,7 +72398,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -72411,7 +72411,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -72424,7 +72424,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -72446,7 +72446,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -72458,7 +72458,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -72470,7 +72470,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -72482,7 +72482,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -72516,7 +72516,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -72534,7 +72534,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -72552,7 +72552,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -72570,7 +72570,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -72604,7 +72604,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -72622,7 +72622,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -72640,7 +72640,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -72658,7 +72658,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -72680,7 +72680,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
@@ -72692,7 +72692,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
@@ -72704,7 +72704,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
@@ -72716,7 +72716,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
@@ -72738,7 +72738,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
@@ -72750,7 +72750,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
@@ -72762,7 +72762,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
@@ -72774,7 +72774,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
@@ -72796,7 +72796,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
@@ -72808,7 +72808,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
@@ -72820,7 +72820,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
@@ -72832,7 +72832,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
@@ -72854,7 +72854,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
@@ -72866,7 +72866,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
@@ -72878,7 +72878,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
@@ -72890,7 +72890,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
@@ -72912,7 +72912,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -72924,7 +72924,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -72936,7 +72936,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -72948,7 +72948,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -72972,7 +72972,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -72985,7 +72985,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -72998,7 +72998,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -73011,7 +73011,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -73033,7 +73033,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -73045,7 +73045,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -73057,7 +73057,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -73069,7 +73069,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -73103,7 +73103,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -73121,7 +73121,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -73139,7 +73139,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -73157,7 +73157,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -73191,7 +73191,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -73209,7 +73209,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -73227,7 +73227,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -73245,7 +73245,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -73267,7 +73267,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
@@ -73279,7 +73279,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
@@ -73291,7 +73291,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
@@ -73303,7 +73303,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
@@ -73325,7 +73325,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
@@ -73337,7 +73337,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
@@ -73349,7 +73349,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
@@ -73361,7 +73361,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
@@ -73383,7 +73383,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
@@ -73395,7 +73395,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
@@ -73407,7 +73407,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
@@ -73419,7 +73419,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
@@ -73441,7 +73441,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -73453,7 +73453,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -73465,7 +73465,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -73477,7 +73477,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -73501,7 +73501,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -73514,7 +73514,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -73527,7 +73527,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -73540,7 +73540,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -73562,7 +73562,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -73574,7 +73574,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -73586,7 +73586,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -73598,7 +73598,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -73620,7 +73620,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -73632,7 +73632,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -73644,7 +73644,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -73656,7 +73656,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -73680,7 +73680,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -73693,7 +73693,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -73706,7 +73706,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -73719,7 +73719,7 @@ switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -73741,7 +73741,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -73753,7 +73753,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -73765,7 +73765,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -73777,7 +73777,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xD3); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -73938,7 +73938,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xE9); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE9); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE9); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -73947,7 +73947,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE9); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE9); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74329,7 +74329,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74338,7 +74338,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74347,7 +74347,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74356,7 +74356,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74365,7 +74365,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74374,7 +74374,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74383,7 +74383,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74392,7 +74392,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74631,7 +74631,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); }
 break;
@@ -74643,7 +74643,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); }
 break;
@@ -74655,7 +74655,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7E00); } while(0); }
 break;
@@ -74667,7 +74667,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD7E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD7E), expr); } while(0); }
 break;
@@ -74745,7 +74745,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x46); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74754,7 +74754,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74763,7 +74763,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74772,7 +74772,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74781,7 +74781,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74790,7 +74790,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD45); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD45); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD45); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD45); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74799,7 +74799,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74808,7 +74808,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD45); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD45); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD45); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD45); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74899,7 +74899,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); }
 break;
@@ -74911,7 +74911,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); }
 break;
@@ -74923,7 +74923,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4600); } while(0); }
 break;
@@ -74935,7 +74935,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD46), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD46), expr); } while(0); }
 break;
@@ -74979,7 +74979,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x4D); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44DD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44FD4D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44DD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44FD4D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -74988,7 +74988,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44FD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44DD4D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD44FD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD44DD4D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75075,7 +75075,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x4E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75084,7 +75084,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75093,7 +75093,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75102,7 +75102,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75111,7 +75111,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75120,7 +75120,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75129,7 +75129,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75138,7 +75138,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75229,7 +75229,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); }
 break;
@@ -75241,7 +75241,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); }
 break;
@@ -75253,7 +75253,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD4E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD4E00); } while(0); }
 break;
@@ -75265,7 +75265,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD4E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD4E), expr); } while(0); }
 break;
@@ -75332,7 +75332,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x56); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75341,7 +75341,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75350,7 +75350,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75359,7 +75359,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75368,7 +75368,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75377,7 +75377,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD55); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD55); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD55); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD55); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75386,7 +75386,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75395,7 +75395,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD55); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD55); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD55); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD55); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75486,7 +75486,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); }
 break;
@@ -75498,7 +75498,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); }
 break;
@@ -75510,7 +75510,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5600); } while(0); }
 break;
@@ -75522,7 +75522,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD56), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD56), expr); } while(0); }
 break;
@@ -75582,7 +75582,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54DD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54FD5D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54DD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54FD5D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75591,7 +75591,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54FD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54DD5D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD54FD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD54DD5D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75732,7 +75732,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x5E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75741,7 +75741,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75750,7 +75750,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75759,7 +75759,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75768,7 +75768,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75777,7 +75777,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75786,7 +75786,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75795,7 +75795,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -75886,7 +75886,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); }
 break;
@@ -75898,7 +75898,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); }
 break;
@@ -75910,7 +75910,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD5E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD5E00); } while(0); }
 break;
@@ -75922,7 +75922,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD5E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD5E), expr); } while(0); }
 break;
@@ -75998,7 +75998,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x66); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76007,7 +76007,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76016,7 +76016,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76025,7 +76025,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76116,7 +76116,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); }
 break;
@@ -76128,7 +76128,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); }
 break;
@@ -76140,7 +76140,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6600); } while(0); }
 break;
@@ -76152,7 +76152,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD66), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD66), expr); } while(0); }
 break;
@@ -76223,7 +76223,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76232,7 +76232,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76241,7 +76241,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76250,7 +76250,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76277,10 +76277,10 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
 break;
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5E1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5E1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5E1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5E1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76289,10 +76289,10 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
 break;
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5E1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5E1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5E1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5E1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76381,7 +76381,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); }
 break;
@@ -76393,7 +76393,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); }
 break;
@@ -76405,7 +76405,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE400); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE400); } while(0); }
 break;
@@ -76417,7 +76417,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDE4), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xE4), expr); } while(0); }
 break;
@@ -76449,7 +76449,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); }
 break;
@@ -76461,7 +76461,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7C); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7C); } while(0); }
 break;
@@ -76661,7 +76661,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76670,7 +76670,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76679,7 +76679,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76688,7 +76688,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76697,7 +76697,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76706,7 +76706,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76715,7 +76715,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76724,7 +76724,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76734,7 +76734,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76743,7 +76743,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76752,7 +76752,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76761,7 +76761,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76770,7 +76770,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76779,7 +76779,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76788,7 +76788,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76797,7 +76797,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76806,7 +76806,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76816,7 +76816,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); } else { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); } else { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76825,7 +76825,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7700); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7700); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76834,7 +76834,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7000); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76843,7 +76843,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7100); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7100); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76852,7 +76852,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7200); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7200); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76861,7 +76861,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7300); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7300); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76870,7 +76870,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76879,7 +76879,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xF400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76888,7 +76888,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7500); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7500); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76898,7 +76898,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD3600), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD3600), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76907,7 +76907,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD77), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD77), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76916,7 +76916,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD70), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD70), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76925,7 +76925,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD71), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD71), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76934,7 +76934,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD72), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD72), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76943,7 +76943,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD73), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD73), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76952,7 +76952,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD74), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD74), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76961,7 +76961,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDF4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xF4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76970,7 +76970,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD75), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD75), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76980,7 +76980,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); } else { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xFD36), idx_expr, n_expr); } while(0); } else { do { Expr *n_expr = pop_expr(ctx); Expr *idx_expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx_n((0xDD36), idx_expr, n_expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -76998,7 +76998,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDD400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDD400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDD400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDD400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77007,7 +77007,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDD400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDD400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDD400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDD400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77025,7 +77025,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDD4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDD4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDD4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDD4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77034,7 +77034,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDD4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDD4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDD4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDD4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77043,7 +77043,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60DD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60FD69); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60DD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60FD69); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77052,7 +77052,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62DD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62FD6B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62DD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62FD6B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77062,12 +77062,12 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE5); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); }
 break;
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77076,7 +77076,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDC400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDC400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDC400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDC400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77085,7 +77085,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDC4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDC4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDC4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDC4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77094,7 +77094,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5DDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5FDE1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5DDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5FDE1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77104,10 +77104,10 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_GBZ80:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); }
 break;
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (expr_in_parens) { if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } } else { if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } }
+if (expr_in_parens) { if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } } else { if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } }
 break;
 default: error_illegal_ident(); }
 }
@@ -77116,7 +77116,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD67); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD67); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD67); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD67); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77125,7 +77125,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77134,7 +77134,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD61); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD61); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD61); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD61); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77143,7 +77143,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77152,7 +77152,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD63); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD63); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD63); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD63); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77161,7 +77161,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77170,7 +77170,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD65); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD65); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD65); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD65); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77180,7 +77180,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD26), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD26), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77189,7 +77189,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77198,7 +77198,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD68); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD68); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD68); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD68); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77207,7 +77207,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD69); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD69); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77216,7 +77216,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77225,7 +77225,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77234,7 +77234,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77243,7 +77243,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77253,7 +77253,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD2E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD2E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77262,7 +77262,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60FD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60DD69); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60FD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60DD69); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77271,7 +77271,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62FD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62DD6B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62FD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62DD6B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77281,12 +77281,12 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 do { asm_cond_LABEL(stmt_label); add_opcode(0xE5); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); }
 break;
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD7D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD7D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77295,7 +77295,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDC400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDC400); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDC400); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDC400); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77304,7 +77304,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDC4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDC4), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFDC4), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDDC4), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77313,7 +77313,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5FDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5DDE1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5FDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5DDE1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77323,10 +77323,10 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_GBZ80:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); }
 break;
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (expr_in_parens) { if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } } else { if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } }
+if (expr_in_parens) { if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD2A), expr); } while(0); } } else { if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD21), expr); } while(0); } }
 break;
 default: error_illegal_ident(); }
 }
@@ -77335,7 +77335,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD67); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD67); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD67); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD67); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77344,7 +77344,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD60); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD60); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77353,7 +77353,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD61); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD61); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD61); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD61); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77362,7 +77362,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD62); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD62); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77371,7 +77371,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD63); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD63); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD63); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD63); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77380,7 +77380,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77389,7 +77389,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD65); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD65); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD65); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD65); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77399,7 +77399,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD26), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD26), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77408,7 +77408,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77417,7 +77417,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD68); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD68); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD68); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD68); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77426,7 +77426,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD69); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD69); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD69); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77435,7 +77435,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77444,7 +77444,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77453,7 +77453,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77462,7 +77462,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77472,7 +77472,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
 if (expr_in_parens) warn_expr_in_parens();
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD2E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xFD2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_n((0xDD2E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77516,7 +77516,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x6E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77525,7 +77525,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77534,7 +77534,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77543,7 +77543,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77634,7 +77634,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); }
 break;
@@ -77646,7 +77646,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); }
 break;
@@ -77658,7 +77658,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6E00); } while(0); }
 break;
@@ -77670,7 +77670,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD6E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD6E), expr); } while(0); }
 break;
@@ -77716,7 +77716,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xF9); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDF9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF9); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDF9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF9); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77725,7 +77725,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDF9); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDF9); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDF9); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77801,7 +77801,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -77811,7 +77811,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD22), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78133,7 +78133,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78142,7 +78142,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD6C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD6C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78170,7 +78170,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78179,7 +78179,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD64); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD64); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78189,7 +78189,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD6D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD6D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD6D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD6D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78199,7 +78199,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD6D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD6D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD6D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD6D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78219,7 +78219,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD65), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD65), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD65), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD65), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -78229,7 +78229,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 if (!expr_in_parens) return false;
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD65), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD65), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xFD65), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_nn((0xDD65), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79082,7 +79082,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xB6); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79091,7 +79091,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79100,7 +79100,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79109,7 +79109,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79118,7 +79118,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79127,7 +79127,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79136,7 +79136,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79145,7 +79145,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79241,7 +79241,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
@@ -79253,7 +79253,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
@@ -79265,7 +79265,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
@@ -79277,7 +79277,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
@@ -79358,7 +79358,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xB6); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79367,7 +79367,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79376,7 +79376,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79385,7 +79385,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDB6), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDB6), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79394,7 +79394,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79403,7 +79403,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79412,7 +79412,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79421,7 +79421,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDEC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDEC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79430,7 +79430,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB4); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB4); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79439,7 +79439,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDB5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDB5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79900,7 +79900,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79909,7 +79909,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE1); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE1); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79976,7 +79976,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -79985,7 +79985,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDE5); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDE5); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80246,7 +80246,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -80263,7 +80263,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -80280,7 +80280,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -80297,7 +80297,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -80541,7 +80541,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -80558,7 +80558,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -80575,7 +80575,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0086+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0086+((8*expr_value))); } while(0); }
 break;
@@ -80592,7 +80592,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB86+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB86+((8*expr_value))), expr); } while(0); }
 break;
@@ -80939,7 +80939,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0017); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0017); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0017); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0017); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80948,7 +80948,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0010); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0010); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0010); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0010); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80957,7 +80957,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0011); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0011); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0011); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0011); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80966,7 +80966,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0012); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0012); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0012); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0012); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80975,7 +80975,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0013); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0013); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0013); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0013); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80984,7 +80984,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0014); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0014); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0014); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0014); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -80993,7 +80993,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0015); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0015); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0015); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0015); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81002,7 +81002,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81011,7 +81011,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB17), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB17), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB17), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB17), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81020,7 +81020,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB10), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB10), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB10), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB10), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81029,7 +81029,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB11), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB11), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB11), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB11), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81038,7 +81038,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB12), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB12), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB12), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB12), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81047,7 +81047,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB13), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB13), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB13), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB13), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81056,7 +81056,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB14), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB14), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB14), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB14), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81065,7 +81065,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB15), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB15), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB15), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB15), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81074,7 +81074,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81083,7 +81083,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0017); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0017); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0017); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0017); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81092,7 +81092,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0010); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0010); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0010); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0010); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81101,7 +81101,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0011); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0011); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0011); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0011); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81110,7 +81110,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0012); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0012); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0012); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0012); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81119,7 +81119,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0013); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0013); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0013); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0013); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81128,7 +81128,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0014); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0014); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0014); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0014); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81137,7 +81137,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0015); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0015); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0015); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0015); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81146,7 +81146,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0016); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0016); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81155,7 +81155,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB17), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB17), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB17), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB17), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81164,7 +81164,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB10), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB10), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB10), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB10), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81173,7 +81173,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB11), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB11), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB11), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB11), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81182,7 +81182,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB12), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB12), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB12), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB12), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81191,7 +81191,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB13), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB13), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB13), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB13), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81200,7 +81200,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB14), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB14), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB14), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB14), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81209,7 +81209,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB15), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB15), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB15), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB15), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81218,7 +81218,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB16), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB16), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81384,7 +81384,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0007); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0007); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0007); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0007); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81393,7 +81393,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0000); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0000); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81402,7 +81402,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0001); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0001); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0001); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0001); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81411,7 +81411,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0002); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0002); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0002); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0002); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81420,7 +81420,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0003); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0003); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0003); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0003); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81429,7 +81429,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0004); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0004); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0004); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0004); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81438,7 +81438,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0005); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0005); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0005); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0005); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81447,7 +81447,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81456,7 +81456,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB07), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB07), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB07), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB07), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81465,7 +81465,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB00), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB00), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB00), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB00), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81474,7 +81474,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB01), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB01), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB01), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB01), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81483,7 +81483,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB02), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB02), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB02), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB02), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81492,7 +81492,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB03), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB03), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB03), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB03), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81501,7 +81501,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB04), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB04), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB04), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB04), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81510,7 +81510,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB05), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB05), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB05), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB05), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81519,7 +81519,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81528,7 +81528,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0007); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0007); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0007); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0007); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81537,7 +81537,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0000); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0000); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0000); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81546,7 +81546,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0001); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0001); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0001); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0001); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81555,7 +81555,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0002); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0002); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0002); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0002); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81564,7 +81564,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0003); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0003); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0003); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0003); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81573,7 +81573,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0004); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0004); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0004); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0004); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81582,7 +81582,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0005); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0005); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0005); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0005); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81591,7 +81591,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0006); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0006); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81600,7 +81600,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB07), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB07), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB07), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB07), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81609,7 +81609,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB00), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB00), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB00), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB00), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81618,7 +81618,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB01), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB01), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB01), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB01), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81627,7 +81627,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB02), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB02), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB02), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB02), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81636,7 +81636,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB03), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB03), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB03), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB03), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81645,7 +81645,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB04), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB04), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB04), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB04), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81654,7 +81654,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB05), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB05), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB05), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB05), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -81663,7 +81663,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB06), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB06), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82004,7 +82004,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82013,7 +82013,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0018); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0018); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0018); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0018); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82022,7 +82022,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0019); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0019); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0019); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0019); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82031,7 +82031,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82040,7 +82040,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82049,7 +82049,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82058,7 +82058,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82067,7 +82067,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82076,7 +82076,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82085,7 +82085,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB18), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB18), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB18), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB18), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82094,7 +82094,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB19), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB19), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB19), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB19), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82103,7 +82103,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82112,7 +82112,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82121,7 +82121,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82130,7 +82130,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82139,7 +82139,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82148,7 +82148,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82157,7 +82157,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0018); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0018); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0018); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0018); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82166,7 +82166,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0019); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0019); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0019); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0019); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82175,7 +82175,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82184,7 +82184,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82193,7 +82193,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82202,7 +82202,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82211,7 +82211,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB001E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB001E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82220,7 +82220,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82229,7 +82229,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB18), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB18), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB18), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB18), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82238,7 +82238,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB19), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB19), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB19), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB19), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82247,7 +82247,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82256,7 +82256,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82265,7 +82265,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82274,7 +82274,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82283,7 +82283,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB1E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB1E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82292,7 +82292,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82301,7 +82301,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDFC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDFC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82467,7 +82467,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82476,7 +82476,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0008); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0008); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0008); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0008); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82485,7 +82485,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0009); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0009); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0009); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0009); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82494,7 +82494,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82503,7 +82503,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82512,7 +82512,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82521,7 +82521,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82530,7 +82530,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82539,7 +82539,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82548,7 +82548,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB08), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB08), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB08), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB08), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82557,7 +82557,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB09), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB09), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB09), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB09), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82566,7 +82566,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82575,7 +82575,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82584,7 +82584,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82593,7 +82593,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82602,7 +82602,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82611,7 +82611,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82620,7 +82620,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0008); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0008); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0008); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0008); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82629,7 +82629,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0009); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0009); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0009); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0009); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82638,7 +82638,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82647,7 +82647,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82656,7 +82656,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82665,7 +82665,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82674,7 +82674,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB000E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB000E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82683,7 +82683,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82692,7 +82692,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB08), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB08), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB08), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB08), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82701,7 +82701,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB09), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB09), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB09), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB09), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82710,7 +82710,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82719,7 +82719,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82728,7 +82728,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82737,7 +82737,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82746,7 +82746,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB0E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB0E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82940,7 +82940,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x9E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82949,7 +82949,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82958,7 +82958,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82967,7 +82967,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82976,7 +82976,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82985,7 +82985,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -82994,7 +82994,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83003,7 +83003,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83099,7 +83099,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
@@ -83111,7 +83111,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
@@ -83123,7 +83123,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
@@ -83135,7 +83135,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
@@ -83289,7 +83289,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x9E); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83298,7 +83298,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83307,7 +83307,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9E00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9E00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83316,7 +83316,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD9E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD9E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83325,7 +83325,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83334,7 +83334,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83343,7 +83343,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83352,7 +83352,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -83579,7 +83579,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -83596,7 +83596,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -83613,7 +83613,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -83630,7 +83630,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -83874,7 +83874,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -83891,7 +83891,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -83908,7 +83908,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB00C6+((8*expr_value))); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB00C6+((8*expr_value))); } while(0); }
 break;
@@ -83925,7 +83925,7 @@ switch (expr_value) {
 case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7: break;
 default: error_int_range(expr_value);
 }}
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCBC6+((8*expr_value))), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCBC6+((8*expr_value))), expr); } while(0); }
 break;
@@ -84145,7 +84145,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0027); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0027); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0027); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0027); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84154,7 +84154,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0020); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0020); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0020); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0020); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84163,7 +84163,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0021); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0021); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0021); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0021); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84172,7 +84172,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0022); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0022); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0022); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0022); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84181,7 +84181,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0023); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0023); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0023); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0023); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84190,7 +84190,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0024); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0024); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0024); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0024); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84199,7 +84199,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0025); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0025); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0025); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0025); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84208,7 +84208,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84217,7 +84217,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB27), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB27), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB27), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB27), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84226,7 +84226,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB20), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB20), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB20), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB20), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84235,7 +84235,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB21), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB21), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84244,7 +84244,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB22), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB22), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84253,7 +84253,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB23), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB23), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB23), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB23), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84262,7 +84262,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB24), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB24), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB24), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB24), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84271,7 +84271,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB25), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB25), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB25), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB25), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84280,7 +84280,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84289,7 +84289,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0027); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0027); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0027); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0027); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84298,7 +84298,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0020); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0020); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0020); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0020); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84307,7 +84307,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0021); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0021); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0021); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0021); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84316,7 +84316,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0022); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0022); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0022); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0022); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84325,7 +84325,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0023); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0023); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0023); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0023); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84334,7 +84334,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0024); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0024); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0024); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0024); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84343,7 +84343,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0025); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0025); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0025); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0025); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84352,7 +84352,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0026); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0026); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84361,7 +84361,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB27), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB27), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB27), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB27), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84370,7 +84370,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB20), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB20), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB20), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB20), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84379,7 +84379,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB21), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB21), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB21), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84388,7 +84388,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB22), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB22), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB22), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84397,7 +84397,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB23), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB23), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB23), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB23), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84406,7 +84406,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB24), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB24), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB24), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB24), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84415,7 +84415,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB25), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB25), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB25), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB25), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84424,7 +84424,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB26), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB26), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84515,7 +84515,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84524,7 +84524,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84533,7 +84533,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84542,7 +84542,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84551,7 +84551,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84560,7 +84560,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84569,7 +84569,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84578,7 +84578,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84587,7 +84587,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84596,7 +84596,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84605,7 +84605,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84614,7 +84614,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84623,7 +84623,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84632,7 +84632,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84641,7 +84641,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84650,7 +84650,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84659,7 +84659,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84668,7 +84668,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84677,7 +84677,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84686,7 +84686,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84695,7 +84695,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84704,7 +84704,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84713,7 +84713,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84722,7 +84722,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84731,7 +84731,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84740,7 +84740,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84749,7 +84749,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84758,7 +84758,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84767,7 +84767,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84776,7 +84776,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84785,7 +84785,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84794,7 +84794,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84875,7 +84875,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84884,7 +84884,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84893,7 +84893,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84902,7 +84902,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84911,7 +84911,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84920,7 +84920,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84929,7 +84929,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84938,7 +84938,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84947,7 +84947,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84956,7 +84956,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84965,7 +84965,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84974,7 +84974,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84983,7 +84983,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -84992,7 +84992,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85001,7 +85001,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85010,7 +85010,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85019,7 +85019,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0037); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0037); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85028,7 +85028,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0030); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0030); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85037,7 +85037,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0031); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0031); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85046,7 +85046,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0032); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0032); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85055,7 +85055,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0033); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0033); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85064,7 +85064,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85073,7 +85073,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0035); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0035); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85082,7 +85082,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0036); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0036); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85091,7 +85091,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB37), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB37), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85100,7 +85100,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB30), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB30), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85109,7 +85109,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB31), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB31), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85118,7 +85118,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB32), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB32), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85127,7 +85127,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB33), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB33), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85136,7 +85136,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85145,7 +85145,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB35), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB35), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85154,7 +85154,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB36), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB36), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85351,7 +85351,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85360,7 +85360,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0028); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0028); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0028); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0028); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85369,7 +85369,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0029); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0029); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0029); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0029); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85378,7 +85378,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85387,7 +85387,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85396,7 +85396,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85405,7 +85405,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85414,7 +85414,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85423,7 +85423,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85432,7 +85432,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB28), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB28), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB28), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB28), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85441,7 +85441,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB29), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB29), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB29), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB29), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85450,7 +85450,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85459,7 +85459,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85468,7 +85468,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85477,7 +85477,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85486,7 +85486,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85495,7 +85495,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85504,7 +85504,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0028); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0028); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0028); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0028); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85513,7 +85513,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0029); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0029); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0029); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0029); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85522,7 +85522,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85531,7 +85531,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85540,7 +85540,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85549,7 +85549,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85558,7 +85558,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB002E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB002E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85567,7 +85567,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85576,7 +85576,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB28), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB28), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB28), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB28), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85585,7 +85585,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB29), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB29), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB29), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB29), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85594,7 +85594,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85603,7 +85603,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85612,7 +85612,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85621,7 +85621,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85630,7 +85630,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB2E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB2E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85781,7 +85781,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85790,7 +85790,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0038); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0038); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0038); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0038); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85799,7 +85799,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0039); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0039); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0039); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0039); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85808,7 +85808,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85817,7 +85817,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85826,7 +85826,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85835,7 +85835,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85844,7 +85844,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85853,7 +85853,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85862,7 +85862,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB38), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB38), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB38), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB38), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85871,7 +85871,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB39), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB39), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB39), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB39), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85880,7 +85880,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85889,7 +85889,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85898,7 +85898,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85907,7 +85907,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85916,7 +85916,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85925,7 +85925,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003F); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003F); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003F); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85934,7 +85934,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0038); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0038); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0038); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0038); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85943,7 +85943,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0039); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0039); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB0039); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB0039); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85952,7 +85952,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003A); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003A); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003A); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85961,7 +85961,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003B); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003B); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003B); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85970,7 +85970,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003C); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003C); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003C); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85979,7 +85979,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003D); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003D); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003D); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85988,7 +85988,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDCB003E); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDCB003E); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -85997,7 +85997,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3F), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3F), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3F), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86006,7 +86006,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB38), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB38), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB38), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB38), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86015,7 +86015,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB39), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB39), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB39), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB39), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86024,7 +86024,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3A), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3A), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3A), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86033,7 +86033,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3B), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3B), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3B), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86042,7 +86042,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3C), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3C), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3C), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86051,7 +86051,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3D), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3D), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3D), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86060,7 +86060,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDCB3E), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDCB3E), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86171,7 +86171,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x96); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86180,7 +86180,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86189,7 +86189,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86198,7 +86198,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86207,7 +86207,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86216,7 +86216,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86225,7 +86225,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86234,7 +86234,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86330,7 +86330,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
@@ -86342,7 +86342,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
@@ -86354,7 +86354,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
@@ -86366,7 +86366,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
@@ -86459,7 +86459,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0x96); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86468,7 +86468,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86477,7 +86477,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD9600); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD9600); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86486,7 +86486,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFD96), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDD96), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86495,7 +86495,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86504,7 +86504,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86513,7 +86513,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD94); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD94); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86522,7 +86522,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFD95); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDD95); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86715,7 +86715,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86724,7 +86724,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86733,7 +86733,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86742,7 +86742,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86837,7 +86837,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86846,7 +86846,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86855,7 +86855,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86864,7 +86864,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86959,7 +86959,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86968,7 +86968,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86977,7 +86977,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -86986,7 +86986,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87081,7 +87081,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87090,7 +87090,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87099,7 +87099,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDED0034); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDED0034); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87108,7 +87108,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z180:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDED34), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDED34), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87218,7 +87218,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xAE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87227,7 +87227,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87236,7 +87236,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87245,7 +87245,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87254,7 +87254,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87263,7 +87263,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87272,7 +87272,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87281,7 +87281,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87377,7 +87377,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
@@ -87389,7 +87389,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
@@ -87401,7 +87401,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else {
 do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
@@ -87413,7 +87413,7 @@ default: error_illegal_ident(); }
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K:
 do { asm_cond_LABEL(stmt_label); add_opcode(0x76); } while(0);
-if (!opts.swap_ix_iy) {
+if (!SwapIxIy()) {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else {
 do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
@@ -87475,7 +87475,7 @@ do { asm_cond_LABEL(stmt_label); add_opcode(0xAE); } while(0);
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87484,7 +87484,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87493,7 +87493,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAE00); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAE00); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87502,7 +87502,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_R2K: case CPU_R3K: case CPU_Z180: case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
+if (!SwapIxIy()) { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xFDAE), expr); } while(0); } else { do { Expr *expr = pop_expr(ctx); asm_cond_LABEL(stmt_label); add_opcode_idx((0xDDAE), expr); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87511,7 +87511,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87520,7 +87520,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87529,7 +87529,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAC); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAC); } while(0); }
 break;
 default: error_illegal_ident(); }
 }
@@ -87538,7 +87538,7 @@ default: error_illegal_ident(); }
 	{
 switch (GetCpu()) {
 case CPU_Z80: case CPU_Z80N:
-if (!opts.swap_ix_iy) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); }
+if (!SwapIxIy()) { do { asm_cond_LABEL(stmt_label); add_opcode(0xFDAD); } while(0); } else { do { asm_cond_LABEL(stmt_label); add_opcode(0xDDAD); } while(0); }
 break;
 default: error_illegal_ident(); }
 }

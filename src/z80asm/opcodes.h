@@ -100,8 +100,8 @@ void add_copper_unit_nop();
 #define P_HL	0
 #define P_AF	0
 #define P_SP	0
-#define P_IX	(opts.swap_ix_iy ? 0xFD00 : 0xDD00)
-#define P_IY	(opts.swap_ix_iy ? 0xDD00 : 0xFD00)
+#define P_IX	(SwapIxIy() ? 0xFD00 : 0xDD00)
+#define P_IY	(SwapIxIy() ? 0xDD00 : 0xFD00)
 
 /* Flags constants */
 enum { FLAG_NZ, FLAG_Z, FLAG_NC, FLAG_C, FLAG_PO_LZ, FLAG_PE_LO, FLAG_P, FLAG_M };

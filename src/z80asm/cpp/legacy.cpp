@@ -46,6 +46,11 @@ bool IsTi83Plus()
 	return theCmdArgs.IsTi83Plus();
 }
 
+bool SwapIxIy()
+{
+	return theCmdArgs.SwapIxIy();
+}
+
 void TraverseDefines(void(*func)(const char *name))
 {
 	for (auto it = theCmdArgs.cbeginDefines();

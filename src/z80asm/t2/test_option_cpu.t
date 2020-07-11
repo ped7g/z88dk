@@ -53,9 +53,6 @@ my $asm = <<END;
 		if __CPU_INTEL__
 		defb 11
 		endif
-		if __SWAP_IX_IY__
-		defb 12
-		endif
 END
 
 asm_ok($asm, "-mz80  ", 1, 9);
@@ -66,15 +63,6 @@ asm_ok($asm, "-mr3k  ", 5, 10);
 asm_ok($asm, "-m8080 ", 6, 11);
 asm_ok($asm, "-m8085 ", 7, 11);
 asm_ok($asm, "-mgbz80", 8);
-
-asm_ok($asm, "-mz80   -IXIY", 1, 9, 12);
-asm_ok($asm, "-mz80n  -IXIY", 2, 9, 12);
-asm_ok($asm, "-mz180  -IXIY", 3, 9, 12);
-asm_ok($asm, "-mr2k   -IXIY", 4, 10, 12);
-asm_ok($asm, "-mr3k   -IXIY", 5, 10, 12);
-asm_ok($asm, "-m8080  -IXIY", 6, 11, 12);
-asm_ok($asm, "-m8085  -IXIY", 7, 11, 12);
-asm_ok($asm, "-mgbz80 -IXIY", 8, 12);
 
 asm_ok("swapnib", "-mz80n", 0xED, 0x23);
 
@@ -88,13 +76,5 @@ asm_ok("push su", "-mr3k", 0xED, 0x66);
 asm_ok("invoke 0x1234", "          ", 0xCD, 0x34, 0x12);
 asm_ok("invoke 0x1234", "-mti83    ", 0xCD, 0x34, 0x12);
 asm_ok("invoke 0x1234", "-mti83plus", 0xEF, 0x34, 0x12);
-
-asm_ok("ld ix,0x1234", "      ", 0xDD, 0x21, 0x34, 0x12);
-asm_ok("ld ix,0x1234", " -IXIY", 0xFD, 0x21, 0x34, 0x12);
-asm_ok("ld ix,0x1234", "--IXIY", 0xFD, 0x21, 0x34, 0x12);
-
-asm_ok("ld iy,0x1234", "      ", 0xFD, 0x21, 0x34, 0x12);
-asm_ok("ld iy,0x1234", " -IXIY", 0xDD, 0x21, 0x34, 0x12);
-asm_ok("ld iy,0x1234", "--IXIY", 0xDD, 0x21, 0x34, 0x12);
 
 end_test();

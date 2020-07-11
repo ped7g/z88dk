@@ -676,8 +676,7 @@ static void def_sym(const char* name) {
 static void define_assembly_defines()
 {
 	TraverseDefines(def_sym);
-
-	if (opts.swap_ix_iy) 
+	if (SwapIxIy())
 		define_static_def_sym(SWAP_IXIY_DEFINE, 1);
 }
 

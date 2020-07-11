@@ -1990,7 +1990,7 @@ sub merge_ixiy {
 	else {
 		(my $common, $ixiy, $iyix) = extract_common($ixiy, $iyix);
 		return $common.
-				"if (!opts.swap_ix_iy) { $ixiy } else { $iyix }";
+				"if (!SwapIxIy()) { $ixiy } else { $iyix }";
 	}
 }
 

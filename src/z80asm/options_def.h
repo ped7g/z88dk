@@ -19,7 +19,6 @@ OPT_VAR( bool,		symtable,	false	)
 OPT_VAR( bool,		list,		false	)	/* -l flag */
 OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
 OPT_VAR( bool,		map,		false	)
-OPT_VAR( bool,		swap_ix_iy,	false	)
 OPT_VAR( bool,      debug_info, false   )	/* add debug info to map file */
 OPT_VAR( bool,		globaldef,	false	)
 OPT_VAR( bool,		make_bin,	false	)
@@ -61,7 +60,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 OPT_TITLE("Help Options:")
 
 OPT_TITLE("Code Generation Options:")
-OPT(OptSet, &opts.swap_ix_iy, "-IXIY", "", "Swap IX and IY registers", "")
 OPT(OptSet, &opts.opt_speed, "-opt-speed", "", "Optimize for speed", "")
 OPT(OptCall, option_debug_info, "-debug", "", "Add debug info to map file", "")
 

@@ -26,7 +26,7 @@ ASTYLE = astyle \
 # force generation of version with make dev
 #------------------------------------------------------------------------------
 all::
-	touch hist.c
+	touch cpp/options.l
 
 #------------------------------------------------------------------------------
 # ragel parser generator

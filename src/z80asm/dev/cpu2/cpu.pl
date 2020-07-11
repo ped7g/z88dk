@@ -1841,7 +1841,7 @@ sub merge_ixiy {
 	else {
 		(my $common, $ixiy_code, $iyix_code) = extract_common($ixiy_code, $iyix_code);
 		return $common.
-				"if (!opts.swap_ix_iy) { $ixiy_code } else { $iyix_code }";
+				"if (!SwapIxIy()) { $ixiy_code } else { $iyix_code }";
 	}
 }
 

@@ -60,6 +60,7 @@ extern "C" {
 	int GetCpu();
 	const char* GetCpuName();
 	bool IsTi83Plus();
+	bool SwapIxIy();
 	void TraverseDefines(void(*func)(const char* name));
 	bool OptionVerbose();
 	const char* GetEnvPendingOpts();

@@ -17,7 +17,7 @@
 *   Assembler standard library
 *----------------------------------------------------------------------------*/
 #define Z80ASM_LIB	"z80asm-%s-%s.lib"
-#define SWAP_IX_IY_NAME	(opts.swap_ix_iy ? "ixiy" : "")
+#define SWAP_IX_IY_NAME	(SwapIxIy() ? "ixiy" : "")
 
 /*-----------------------------------------------------------------------------
 *   APPMAKE type

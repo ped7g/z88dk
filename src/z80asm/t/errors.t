@@ -439,7 +439,7 @@ if ($^O eq 'MSWin32' || $^O eq 'msys') {
 my $init = <<'END';
 
 FILE *errfile;
-char *GetLibfile( char *filename ) {return NULL;}
+const char *GetLibfile( char * ) { return ""; }
 
 END
 

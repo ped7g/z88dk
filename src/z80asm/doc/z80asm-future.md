@@ -2483,6 +2483,8 @@ The following error messages will be written toe the error files corresponding t
 		int a b  
 		-------^ 
 
+	- Simplify generation of cpu test files, remove z80pack
+
 
 
 ----

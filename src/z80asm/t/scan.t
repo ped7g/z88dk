@@ -31,13 +31,13 @@ my $init = <<'END';
 #include "utstring.h"
 #include <assert.h>
 
-char *GetLibfile( char *filename ) {return NULL;}
+const char *GetLibfile( char * ) { return ""; }
 
 #define T_GET_N( exp_token, exp_text, exp_len ) \
 	token = GetSym(); \
 	assert( token   == exp_token ); \
 	assert( sym.tok == exp_token ); \
-	assert( sym.tlen == exp_len ); \
+	assert( sym.tlen == (int)exp_len ); \
 	assert( strncmp( sym.tstart, exp_text, sym.tlen ) == 0 );
 
 #define T_GET( exp_token, exp_text ) \
@@ -51,7 +51,7 @@ char *GetLibfile( char *filename ) {return NULL;}
 
 #define T_NUMBER( exp_value ) \
 	T_GET( TK_NUMBER, "" ); \
-	assert( sym.number == exp_value );
+	assert( sym.number == (int)exp_value );
 
 #define T_STRING_N( exp_string, n ) \
 	T_GET_N( TK_STRING, exp_string, n ); \
@@ -137,11 +137,11 @@ char *GetLibfile( char *filename ) {return NULL;}
 
 #define T_OPCODE2(opcode, opcode_cmp, _cpu) \
 		if (_cpu & CPU_Z80) { \
-			opts.cpu &= ~CPU_RABBIT; \
+			/*opts.cpu &= ~CPU_RABBIT;*/ \
 			T_OPCODE1(opcode, opcode_cmp); \
 		} \
 		if (_cpu & CPU_RABBIT) { \
-			opts.cpu |= CPU_RABBIT; \
+			/*opts.cpu |= CPU_RABBIT;*/ \
 			T_OPCODE1(opcode, opcode_cmp); \
 		}
 
@@ -784,7 +784,6 @@ t_compile_module($init, <<'END', $objs);
 	T_GET(TK_XPC,   "xpc");
 	T_GET(TK_XPC,   "XPC");
 	T_END();
-
 
 	/* assembly directives */
 	T_OPCODE(BINARY,	T_ALL);

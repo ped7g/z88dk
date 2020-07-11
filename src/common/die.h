@@ -16,7 +16,20 @@
 #endif
 
 #ifdef _WIN32
+
+// silence warnings from glob
+#ifdef _MSC_VER
+
+#else
+#ifdef __GNUC__
+#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
+#else
+#pragma clang diagnostic ignored "-Wignored-qualifiers"
+#endif
+#endif
+
 #include <unixem/glob.h>
+
 #endif
 #include <glob.h>
 #include <dirent.h>

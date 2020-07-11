@@ -8,9 +8,18 @@ Copyright (C) Paulo Custodio, 2011-2020
 License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "../../portability.h"
 #include "dbg.h"
 #include "testlib.h"
+
+#ifdef __cplusplus
+};
+#endif
+
 #include <assert.h>
 #include <stdlib.h>
 

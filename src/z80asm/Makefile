@@ -48,7 +48,7 @@ CXX_SRCS		:= $(wildcard cpp/*.cpp)
 OBJS			:= $(C_SRCS:.c=.o) $(CXX_SRCS:.cpp=.o) $(UNIXem_OBJS)
 DEPENDS			:= $(C_SRCS:.c=.d) $(CXX_SRCS:.cpp=.d) $(UNIXem_OBJS:.o=.d)
 
-TEST_SRC_MAIN	:= $(wildcard t/test_*.c)
+TEST_SRC_MAIN	:= $(wildcard t/test_*.cpp)
 TEST_SRC_LIB	:= t/testlib.c
 
 #------------------------------------------------------------------------------
@@ -72,7 +72,12 @@ FLAGS			:= $(OPT) -MMD -g -Wall \
 
 CFLAGS			+= -std=gnu11           $(FLAGS)
 CXXFLAGS		+= -std=gnu++14 -Wextra $(FLAGS)
-LDFLAGS			+= ../../ext/RE-flex/lib/libreflexmin.a
+LDFLAGS			+= 	../../ext/RE-flex/lib/debug.o \
+					../../ext/RE-flex/lib/error.o \
+					../../ext/RE-flex/lib/input.o \
+					../../ext/RE-flex/lib/matcher.o \
+					../../ext/RE-flex/lib/pattern.o \
+					../../ext/RE-flex/lib/utf8.o
 
 #------------------------------------------------------------------------------
 .PHONY: all clean test install astyle z80asm_lib
@@ -129,16 +134,49 @@ cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l
 		--outfile=cpp/options.yy.cpp \
 		--header-file=cpp/options.yy.h
 
+#------------------------------------------------------------------------------
 # documentation files
+#------------------------------------------------------------------------------
 $(TARGET): doc/z80asm_manual.o doc/z80asm_usage.o
+
+all: 	doc/z80asm.md   	doc/z80asm-future.md \
+		doc/z80asm.html 	doc/z80asm-future.html \
+		doc/z80asm.txt  	doc/z80asm-future.txt \
+		doc/z80asm_manual.c doc/z80asm_manual.h \
+		doc/z80asm_usage.c  doc/z80asm_usage.h
+
+.SUFFIXES: .md .in .html .txt
+
+.in.md:
+	perl doc/make_index.pl < $< > $@.tmp
+	mv -f $@.tmp $@
+
+.md.html:
+	@echo \# use grip from https://github.com/joeyespo/grip
+	grip $< --export $@
+	@if grep '<title>500' $@ ; then $(RM) $@; exit 1; fi
+
+.html.txt:
+	@echo use elinks to render html
+	elinks -dump $< > $@
+
+doc/z80asm.md doc/z80asm-future.md: Makefile doc/make_index.pl
 
 doc/z80asm_manual.o: doc/z80asm_manual.c
 
+doc/z80asm_manual.c: Makefile doc/make_c.pl doc/z80asm.txt
+	cd doc && perl make_c.pl -n z80asm_manual z80asm.txt
+
+doc/z80asm_manual.h:
+	touch $@
+
 doc/z80asm_usage.o: doc/z80asm_usage.c
 
-doc/z80asm_manual.c doc/z80asm_manual.h doc/z80asm_usage.c doc/z80asm_usage.h: \
-		$(wildcard doc/*.pl doc/*.in doc/*.txt doc/*.md)
-	$(MAKE) -C doc
+doc/z80asm_usage.c: Makefile doc/make_c.pl doc/usage.txt
+	cd doc && perl make_c.pl -n z80asm_usage usage.txt
+
+doc/z80asm_usage.h:
+	touch $@
 
 #------------------------------------------------------------------------------
 .c.o:
@@ -208,16 +246,16 @@ all: t/libtestlib.a
 t/libtestlib.a : $(OBJS) $(TEST_SRC_LIB:.c=.o)
 	ar rcs t/libtestlib.a $(OBJS:cpp/main.o=) $(TEST_SRC_LIB:.c=.o)
 
-$(TEST_SRC_MAIN:.c=.o) : t/libtestlib.a
+$(TEST_SRC_MAIN:.cpp=.o) : t/libtestlib.a
 
 .o.out :
-	$(CC) $(CFLAGS) $< -o $(<:.o=$(EXESUFFIX)) $(LDFLAGS) -Lt -ltestlib
+	$(CXX) $(CXXFLAGS) $< -o $(<:.o=$(EXESUFFIX)) $(LDFLAGS) -Lt -ltestlib
 	$(<:.o=$(EXESUFFIX)) 2> $@~
 	diff -w $(<:.o=.bmk) $@~
 	mv -f $@~ $@
 
 clean::
-	$(RM) t/libtestlib.a t/*.o t/*.out lib/t/*.o lib/t/*.out $(TEST_SRC_MAIN:.c=$(EXESUFFIX))
+	$(RM) t/libtestlib.a t/*.o t/*.out lib/t/*.o lib/t/*.out $(TEST_SRC_MAIN:.cpp=$(EXESUFFIX))
 
 all:
 	perl dev/cpu2/cpu.pl
@@ -235,7 +273,7 @@ testdev:
 testlib:
 	$(MAKE) -C lib test
 
-prove_c: t/libtestlib.a $(TEST_SRC_MAIN:.c=.o) $(TEST_SRC_MAIN:.c=.out)
+prove_c: t/libtestlib.a $(TEST_SRC_MAIN:.cpp=.o) $(TEST_SRC_MAIN:.cpp=.out)
 
 prove_perl: $(TARGET)
 	perl -S prove --statefile=.prove2 --state=slow,save -j9 t2/*.t

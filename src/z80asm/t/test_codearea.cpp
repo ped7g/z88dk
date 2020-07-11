@@ -7,17 +7,19 @@ Copyright (C) Paulo Custodio, 2011-2020
 License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 */
 
+extern "C" {
 #include "codearea.h"
 #include "options.h"
+
+const char *GetLibfile( char * ) { return ""; }
+};
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdbool.h>
 
-char *GetLibfile( char *filename ) { return ""; }
-bool OptionVerbose() { return false; }
-
-static void dump_sections(char *title, int line)
+static void dump_sections(const char *title, int line)
 {
 	Section *section, *first_section, *last_section, *old_cur_section;
 	SectionHashElem *iter;
@@ -57,19 +59,19 @@ static void dump_sections(char *title, int line)
 	for ( section = get_first_section( &iter ) ; section != NULL ; 
 		  section = get_next_section( &iter ) )
 	{
-		warn("%c%d. \"%s\", size = %ld, addr = %ld, origin = %ld, align = %ld, asmpc = %ld, opcode_size = %ld\n", 
+		warn("%c%ld. \"%s\", size = %ld, addr = %ld, origin = %ld, align = %ld, asmpc = %ld, opcode_size = %ld\n", 
 				   section == get_cur_section() ? '*' : ' ',
-				   ++i, section->name,  
+				   (long)++i, section->name,  
 				   (long) get_section_size( section ),
 				   (long) section->addr, (long) section->origin, (long) section->align, (long) section->asmpc, 
 				   (long) section->opcode_size );
 		warn("    bytes =");
-		for ( j = 0; j < ByteArray_size( section->bytes ); j++ )
+		for ( j = 0; j < (int)ByteArray_size( section->bytes ); j++ )
 			warn("%s$%02X", 
 					   j != 1 && (j % 16) == 1 ? "\n            " : " ",
 					   *ByteArray_item( section->bytes, j ) );
 		warn("\n    start =");
-		for ( j = 0; j < intArray_size( section->module_start ); j++ )
+		for ( j = 0; j < (int)intArray_size( section->module_start ); j++ )
 			warn(" %3ld", (long) *intArray_item( section->module_start, j ) );
 		warn("\n");
 	}
@@ -114,7 +116,7 @@ static void dump_sections(char *title, int line)
 	warn("--------------------------------------------------------------------------------\n");
 }
 
-static void dump_file( char *title )
+static void dump_file(const char *title)
 {
 	FILE *file;
 	int i, c;
@@ -343,7 +345,7 @@ static void test_sections( void )
 	dump_file("code area ");
 }
 
-int main( int argc, char *argv[] )
+int main()
 {
 	test_sections();
 	return 0;

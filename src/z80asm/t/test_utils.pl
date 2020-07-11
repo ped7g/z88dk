@@ -521,10 +521,12 @@ sub t_compile_module {
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include \"legacy.h\"
 
-bool OptionVerbose() { return false; }
-
+extern \"C\" {
 ".join("\n", map {"#include \"$_\""} grep {-f $_} map {"$_.h"} sort keys %modules)."\n".'
+};
+
 #undef main
 
 #define TITLE(title)	fprintf(stderr, "\n---- TEST: %s ----\n\n", (title) )
@@ -562,6 +564,7 @@ void dump_file ( char *filename )
 '.$init_code.'
 int main (int argc, char **argv)
 {
+	(void)argc; (void)argv;		// silence warnings
 	{
 '.$main_code."
 	}
@@ -571,10 +574,10 @@ int main (int argc, char **argv)
 
 ";
 
-	write_file("test.c", $main_code);
+	write_file("test.cpp", $main_code);
 
 	# build
-	my $cc = "gcc $CFLAGS -O0 -o test$Config{_exe} test.c $compile_args $LDFLAGS";
+	my $cc = "g++ $CXXFLAGS -O0 -o test$Config{_exe} test.cpp $compile_args $LDFLAGS -Lt -ltestlib";
 	note "line ", (caller)[2], ": $cc";
 
 	my $ok = (0 == system($cc));

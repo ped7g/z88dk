@@ -4528,7 +4528,7 @@ my $init = <<'END';
 #include <assert.h>
 
 FILE *errfile;
-char *GetLibfile( char *filename ) {return NULL;}
+const char *GetLibfile( char * ) { return ""; }
 
 END
 

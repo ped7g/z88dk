@@ -577,7 +577,7 @@ int main (int argc, char **argv)
 	write_file("test.cpp", $main_code);
 
 	# build
-	my $cc = "g++ $CXXFLAGS -O0 -o test$Config{_exe} test.cpp $compile_args $LDFLAGS -Lt -ltestlib";
+	my $cc = "g++ $CXXFLAGS -O0 -o test$Config{_exe} test.cpp $compile_args -Lt -ltestlib $LDFLAGS";
 	note "line ", (caller)[2], ": $cc";
 
 	my $ok = (0 == system($cc));

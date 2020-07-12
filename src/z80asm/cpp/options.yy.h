@@ -47,6 +47,7 @@
 	#include "z80asm_manual.h"
 	#include "z80asm_usage.h"
 
+	#include <cassert>
 	#include <iostream>
 	#include <string>
 	#include <vector>
@@ -107,16 +108,6 @@ class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
 
 	private:
 		void ShowManual() const;
-		void SetCpuZ80();
-		void SetCpuZ80n();
-		void SetCpuZ180();
-		void SetCpuR2k();
-		void SetCpuR3k();
-		void SetCpu8080();
-		void SetCpu8085();
-		void SetCpuGbz80();
-		void SetCpuTi83();
-		void SetCpuTi83Plus();
 
  public:
   typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;

@@ -14,13 +14,13 @@ path("$test.asm")->spew(<<END);
 	nop
 END
 
-unlink $test.bin;
+unlink "$test.bin";
 run_ok("z80asm -b $test.asm", '', '');
 my $bin = path("$test.bin")->slurp_raw();
 ok $bin eq  "\x00", "bin ok";
 
 for my $verbose (qw( -v --verbose )) {
-	unlink $test.bin;
+	unlink "$test.bin";
 	run_ok("z80asm -b $verbose $test.asm", <<"OUT", '');
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = \$0001

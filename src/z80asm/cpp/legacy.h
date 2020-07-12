@@ -15,6 +15,7 @@ extern "C" {
 
 	// common constants
 	enum {	// TODO: use a class enum when no longer needed by C
+		CPU_NOT_DEFINED = 0,
 		CPU_Z80 = (1 << 0),
 		CPU_Z80N = (1 << 1),
 		CPU_Z180 = (1 << 2),

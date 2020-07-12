@@ -56,7 +56,7 @@ TEST_SRC_LIB	:= t/testlib.c
 # compilation flags
 #------------------------------------------------------------------------------
 
-OPT 			= -O3
+OPT 			= -O0
 
 FLAGS			:= $(OPT) -MMD -g -Wall \
 				   -I. \
@@ -73,12 +73,7 @@ FLAGS			:= $(OPT) -MMD -g -Wall \
 
 CFLAGS			+= -std=gnu11           $(FLAGS)
 CXXFLAGS		+= -std=gnu++14 -Wextra $(FLAGS)
-LDFLAGS			+= 	../../ext/RE-flex/lib/debug.o \
-					../../ext/RE-flex/lib/error.o \
-					../../ext/RE-flex/lib/input.o \
-					../../ext/RE-flex/lib/matcher.o \
-					../../ext/RE-flex/lib/pattern.o \
-					../../ext/RE-flex/lib/utf8.o
+LDFLAGS			+= ../../ext/RE-flex/lib/libreflexmin.a
 
 #------------------------------------------------------------------------------
 .PHONY: all clean test install astyle z80asm_lib
@@ -118,7 +113,7 @@ endef
 $(eval $(call MAKE_CXX_EXE,$(PROJ),$(OBJS),0))
 
 #------------------------------------------------------------------------------
-$(TARGET): ../config.h
+$(OBJS): ../config.h
 
 # config file
 ../config.h:
@@ -254,7 +249,7 @@ t/libtestlib.a : $(OBJS) $(TEST_SRC_LIB:.c=.o)
 $(TEST_SRC_MAIN:.cpp=.o) : t/libtestlib.a
 
 .o.out :
-	$(CXX) $(CXXFLAGS) $< -o $(<:.o=$(EXESUFFIX)) $(LDFLAGS) -Lt -ltestlib
+	$(CXX) $(CXXFLAGS) $< -o $(<:.o=$(EXESUFFIX)) -Lt -ltestlib $(LDFLAGS) 
 	$(<:.o=$(EXESUFFIX)) 2> $@~
 	diff -w $(<:.o=.bmk) $@~
 	$(MV) $@~ $@

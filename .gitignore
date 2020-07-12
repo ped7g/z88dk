@@ -143,3 +143,5 @@ win32/Release/
 win32/ipch/
 win32/z88dk.VC.VC.opendb
 win32/z88dk.VC.db
+
+examples/c128/SGDEMO.T64

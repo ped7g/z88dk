@@ -1,5 +1,6 @@
 *.pdf   binary
 *.asm   text eol=lf
+*.bat   text eol=crlf
 *.bmk   text eol=lf
 *.c     text eol=lf
 *.cc    text eol=lf

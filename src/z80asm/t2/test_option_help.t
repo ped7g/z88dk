@@ -26,7 +26,7 @@ while (<$fh>) {
 }
 
 for my $help (qw( -h --help )) {
-	unlink $test.bin;
+	unlink "$test.bin";
 	run_ok("z80asm -b $help $test.asm", $manual, '');
 	ok ! -f "$test.bin", "$test.bin not assembled";
 }

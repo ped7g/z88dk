@@ -53,16 +53,26 @@ my $asm = <<END;
 		if __CPU_INTEL__
 		defb 11
 		endif
+		if __ARCH_TI83__		; TODO: not yet implemented
+		defb 12
+		endif
+		if __ARCH_TI83PLUS__	; TODO: not yet implemented
+		defb 13
+		endif
 END
 
-asm_ok($asm, "-mz80  ", 1, 9);
-asm_ok($asm, "-mz80n ", 2, 9);
-asm_ok($asm, "-mz180 ", 3, 9);
-asm_ok($asm, "-mr2k  ", 4, 10);
-asm_ok($asm, "-mr3k  ", 5, 10);
-asm_ok($asm, "-m8080 ", 6, 11);
-asm_ok($asm, "-m8085 ", 7, 11);
-asm_ok($asm, "-mgbz80", 8);
+for my $spurious ("", "-mr2k -m8080") {	# check that only last -m has effect
+	asm_ok($asm, "$spurious -mz80     ", 1, 9);
+	asm_ok($asm, "$spurious -mti83    ", 1, 9);
+	asm_ok($asm, "$spurious -mti83plus", 1, 9);
+	asm_ok($asm, "$spurious -mz80n    ", 2, 9);
+	asm_ok($asm, "$spurious -mz180    ", 3, 9);
+	asm_ok($asm, "$spurious -mr2k     ", 4, 10);
+	asm_ok($asm, "$spurious -mr3k     ", 5, 10);
+	asm_ok($asm, "$spurious -m8080    ", 6, 11);
+	asm_ok($asm, "$spurious -m8085    ", 7, 11);
+	asm_ok($asm, "$spurious -mgbz80   ", 8);
+}
 
 asm_ok("swapnib", "-mz80n", 0xED, 0x23);
 

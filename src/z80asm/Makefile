@@ -32,6 +32,7 @@ CROSS			?= 0
 REFLEX			?= reflex --fast --noline
 ASTYLE			?= astyle --project=.astylerc
 CP				?= cp -f
+MV				?= mv -f
 
 #------------------------------------------------------------------------------
 # Object files
@@ -148,17 +149,21 @@ all: 	doc/z80asm.md   	doc/z80asm-future.md \
 .SUFFIXES: .md .in .html .txt
 
 .in.md:
-	perl doc/make_index.pl < $< > $@.tmp
-	mv -f $@.tmp $@
+	perl doc/make_index.pl < $< > $@~
+	$(MV) $@~ $@
 
 .md.html:
 	@echo \# use grip from https://github.com/joeyespo/grip
-	grip $< --export $@
-	@if grep '<title>500' $@ ; then $(RM) $@; exit 1; fi
+	grip $< --export $@~
+	if grep '<title>500' $@~ ; then $(RM) $@~; exit 1; fi
+	$(MV) $@~ $@
 
 .html.txt:
 	@echo use elinks to render html
-	elinks -dump $< > $@
+	elinks -dump $< > $@~1
+	perl -pe 's{file:///.*?/src/z80asm/doc/}{file://}g' $@~1 > $@~2
+	$(MV) $@~2 $@
+	$(RM) $@~1
 
 doc/z80asm.md doc/z80asm-future.md: Makefile doc/make_index.pl
 
@@ -252,7 +257,7 @@ $(TEST_SRC_MAIN:.cpp=.o) : t/libtestlib.a
 	$(CXX) $(CXXFLAGS) $< -o $(<:.o=$(EXESUFFIX)) $(LDFLAGS) -Lt -ltestlib
 	$(<:.o=$(EXESUFFIX)) 2> $@~
 	diff -w $(<:.o=.bmk) $@~
-	mv -f $@~ $@
+	$(MV) $@~ $@
 
 clean::
 	$(RM) t/libtestlib.a t/*.o t/*.out lib/t/*.o lib/t/*.out $(TEST_SRC_MAIN:.cpp=$(EXESUFFIX))

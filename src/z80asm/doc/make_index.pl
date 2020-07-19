@@ -54,20 +54,12 @@ expand_keywords(@lines);
 print @lines;
 
 
-sub chap_list {
-	my($sep, @nos) = @_;
-	@nos or die;
-	my $ret = "";
-	for (@nos) { $ret .= $_.$sep; }
-	return $ret;
-}
-	
 sub chap_nr {
-	return chap_list(".", @_);
+	return join(".", @_).".";
 }
 
 sub chap_anchor {
-	return chap_list("_", @_);
+	return join("_", @_);
 }
 
 sub add_chap_header {

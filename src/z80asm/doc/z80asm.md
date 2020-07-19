@@ -12,7 +12,7 @@
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=1_></a>
+<a id=1></a>
 
 ## 1. Usage ...
 
@@ -20,7 +20,7 @@
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_></a>
+<a id=2></a>
 
 ## 2. Options
 
@@ -28,7 +28,7 @@
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_></a>
+<a id=2_1></a>
 
 ### 2.1. Preprocessor options
 
@@ -36,61 +36,61 @@
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_1_></a>
+<a id=2_1_1></a>
 
 #### 2.1.1. -atoctal (at is octal prefix)
 
 By default the at-character (```@```) is used as a binary number prefix. 
 
-With the option  [-atoctal](#2_1_1_)  it is used as the octal number prefix instead.
+With the option  [-atoctal](#2_1_1)  it is used as the octal number prefix instead.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_2_></a>
+<a id=2_1_2></a>
 
 #### 2.1.2. -dotdirective (period is directive prefix)
 
 By default the period (```.```) is used to signal that the next identifier is a label. 
 
-With the option  [-dotdirective](#2_1_2_)  it is used instead to signal that the next identifier is an assembler directive.
+With the option  [-dotdirective](#2_1_2)  it is used instead to signal that the next identifier is an assembler directive.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_3_></a>
+<a id=2_1_3></a>
 
 #### 2.1.3. -hashhex (hash is hex prefix)
 
 By default the hash-character (```#```) is used to signal that the next expression should be compiled as an immediate value. This meaning, although common in assemblers, is a no-operation in **z80asm**. 
 
-With the option  [-hashhex](#2_1_3_)  the hash-character is used as the hexadecimal number prefix instead.
+With the option  [-hashhex](#2_1_3)  the hash-character is used as the hexadecimal number prefix instead.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_4_></a>
+<a id=2_1_4></a>
 
 #### 2.1.4. -labelcol1 (labels at column 1)
 
-By default **z80asm** needs either a period (```.```) prefix (but see  [-dotdirective](#2_1_2_) ) or a colon (```:```) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.
+By default **z80asm** needs either a period (```.```) prefix (but see  [-dotdirective](#2_1_2) ) or a colon (```:```) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.
 
-With the option  [-labelcol1](#2_1_4_)  an identifier is a label if started at column 1, or a directive or opcode if started after white space.
+With the option  [-labelcol1](#2_1_4)  an identifier is a label if started at column 1, or a directive or opcode if started after white space.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_5_></a>
+<a id=2_1_5></a>
 
 #### 2.1.5. -ucase (upper case)
 
 By default **z80asm** is case-sensitive for identifiers, but case-insensitive for assembly keywords (opcodes, directives, registers and flags).
 
-The option  [-ucase](#2_1_5_)  causes **z80asm** to convert all the symbols to upper-case, so that code that assumes case-insentivity can be assembled.
+The option  [-ucase](#2_1_5)  causes **z80asm** to convert all the symbols to upper-case, so that code that assumes case-insentivity can be assembled.
 
 
 
@@ -100,7 +100,7 @@ The option  [-ucase](#2_1_5_)  causes **z80asm** to convert all the symbols to u
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_></a>
+<a id=3></a>
 
 ## 3. Input Files
 
@@ -108,7 +108,7 @@ The option  [-ucase](#2_1_5_)  causes **z80asm** to convert all the symbols to u
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_1_></a>
+<a id=3_1></a>
 
 ### 3.1. Source File Format
 
@@ -120,13 +120,13 @@ A single backslash character (```\```) may be used to separate multiple statemen
     start: push bc\pop hl     ; define a label and add two assembly opcodes              
     ret                       ; assembly opcode can be at the first column    
 
-Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option  [-labelcol1](#2_1_4_) ).
+Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option  [-labelcol1](#2_1_4) ).
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_2_></a>
+<a id=3_2></a>
 
 ### 3.2. Comments
 
@@ -142,27 +142,27 @@ Comments may start with a semi-colon (```;```) or two slashes (```//```) and end
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_3_></a>
+<a id=3_3></a>
 
 ### 3.3. Symbols
 
-All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (```_```), and can contain letters, digits, underscores or periods (```.```). Identifiers are case-sensitive (but see option  [-ucase](#2_1_5_) ).
+All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (```_```), and can contain letters, digits, underscores or periods (```.```). Identifiers are case-sensitive (but see option  [-ucase](#2_1_5) ).
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_4_></a>
+<a id=3_4></a>
 
 ### 3.4. Labels
 
-A label is a symbol that represents the current assembly address (ASMPC) and is defined at the start of a line by prefixing a symbol with a period (```.```) (but see  [-dotdirective](#2_1_2_) ) or suffixing it with a colon (```:```), i.e. either ```.label``` or ```label:``` (but see  [-labelcol1](#2_1_4_) ).
+A label is a symbol that represents the current assembly address (ASMPC) and is defined at the start of a line by prefixing a symbol with a period (```.```) (but see  [-dotdirective](#2_1_2) ) or suffixing it with a colon (```:```), i.e. either ```.label``` or ```label:``` (but see  [-labelcol1](#2_1_4) ).
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_></a>
+<a id=3_5></a>
 
 ### 3.5. Numbers
 
@@ -177,7 +177,7 @@ All expressions are computed as signed integers with the host platform's integer
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_1_></a>
+<a id=3_5_1></a>
 
 #### 3.5.1. Decimal
 
@@ -190,7 +190,7 @@ Decimal numbers are a sequence of decimal digits (```0..9```), optionally follow
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_2_></a>
+<a id=3_5_2></a>
 
 #### 3.5.2. Hexadecimal
 
@@ -198,10 +198,10 @@ Hexadecimal numbers are a sequence of hexadecimal digits (```0..9``` and ```A..F
 
 The hexadecimal prefix ```$``` is also the ASMPC identifier if not followed by a hexadecimal number, i.e. the address of the instruction being assembled.
 
-The hexadecimal prefix ```#``` is only recognized with the option  [-hashhex](#2_1_3_) .
+The hexadecimal prefix ```#``` is only recognized with the option  [-hashhex](#2_1_3) .
 
     ld a, $FF
-    ld a, #FF          ; only with option  [-hashhex](#2_1_3_) 
+    ld a, #FF          ; only with option  [-hashhex](#2_1_3) 
     ld a, 0xFF
     ld a, 0FFh
 
@@ -209,15 +209,15 @@ The hexadecimal prefix ```#``` is only recognized with the option  [-hashhex](#2
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_3_></a>
+<a id=3_5_3></a>
 
 #### 3.5.3. Octal
 
 Octal numbers are a sequence of octal digits (```0..7```), either prefixed or suffixed with an octal marker. 
 
-The octal-prefix ```@``` is only recognized with the option  [-atoctal](#2_1_1_) .
+The octal-prefix ```@``` is only recognized with the option  [-atoctal](#2_1_1) .
 
-    ld a, @77          ; only with option  [-atoctal](#2_1_1_) 
+    ld a, @77          ; only with option  [-atoctal](#2_1_1) 
     ld a, 0o77
     ld a, 0q77
     ld a, 77o
@@ -227,7 +227,7 @@ The octal-prefix ```@``` is only recognized with the option  [-atoctal](#2_1_1_)
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_4_></a>
+<a id=3_5_4></a>
 
 #### 3.5.4. Binary
 
@@ -235,10 +235,10 @@ Binary numbers are a sequence of binary digits (```0..1```), either prefixed or 
 
 The binary prefix ```%``` is also the modulus operator, if not followed by a binary digit. 
 
-The binary prefix ```@``` is recognized unless the option  [-atoctal](#2_1_1_)  is given.
+The binary prefix ```@``` is recognized unless the option  [-atoctal](#2_1_1)  is given.
 
     ld a, %11
-    ld a, @11           ; except with option  [-atoctal](#2_1_1_) 
+    ld a, @11           ; except with option  [-atoctal](#2_1_1) 
     ld a, 0b11
     ld a, 11b
 
@@ -246,7 +246,7 @@ The binary prefix ```@``` is recognized unless the option  [-atoctal](#2_1_1_)  
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_5_></a>
+<a id=3_5_5></a>
 
 #### 3.5.5. Bitmaps
 
@@ -264,7 +264,7 @@ Binary numbers can be specified as bitmaps, with ```#``` as ```1``` and ```-``` 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_6_></a>
+<a id=3_6></a>
 
 ### 3.6. Keywords
 
@@ -274,7 +274,7 @@ Processor registers (BC, DE, ...) and flags (NZ, ```Z```, ...), and assembly ASM
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_7_></a>
+<a id=3_7></a>
 
 ### 3.7. Directives and Opcodes
 
@@ -287,7 +287,7 @@ Assembler directives (ORG, INCLUDE, ...) and processor opcodes (NOP, LD, ...) ar
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=4_></a>
+<a id=4></a>
 
 ## 4. Object File Format
 
@@ -295,7 +295,7 @@ Assembler directives (ORG, INCLUDE, ...) and processor opcodes (NOP, LD, ...) ar
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=4_1_></a>
+<a id=4_1></a>
 
 ### 4.1. Object Files
 
@@ -303,7 +303,7 @@ Assembler directives (ORG, INCLUDE, ...) and processor opcodes (NOP, LD, ...) ar
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=4_2_></a>
+<a id=4_2></a>
 
 ### 4.2. Library File Format
 
@@ -311,7 +311,7 @@ Assembler directives (ORG, INCLUDE, ...) and processor opcodes (NOP, LD, ...) ar
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=5_></a>
+<a id=5></a>
 
 ## 5. Copyright
 
@@ -328,7 +328,7 @@ Copyright (C) Paulo Custodio, 2011-2020
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_></a>
+<a id=6></a>
 
 ## 6. License
 
@@ -340,48 +340,48 @@ Artistic License 2.0 [http://www.perlfoundation.org/artisticlicense2_0](http://w
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=7_></a>
+<a id=7></a>
 
 ## 7. Keywords
- [-atoctal](#2_1_1_) 
- [-dotdirective](#2_1_2_) 
- [-hashhex](#2_1_3_) 
- [-labelcol1](#2_1_4_) 
- [-ucase](#2_1_5_) 
+ [-atoctal](#2_1_1) 
+ [-dotdirective](#2_1_2) 
+ [-hashhex](#2_1_3) 
+ [-labelcol1](#2_1_4) 
+ [-ucase](#2_1_5) 
 <a id=index></a>
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=8_></a>
+<a id=8></a>
 
 ## 8. Index
-- [1.](#1_) Usage ...
-- [2.](#2_) Options
-  - [2.1.](#2_1_) Preprocessor options
-    - [2.1.1.](#2_1_1_)  [-atoctal](#2_1_1_)  (at is octal prefix)
-    - [2.1.2.](#2_1_2_)  [-dotdirective](#2_1_2_)  (period is directive prefix)
-    - [2.1.3.](#2_1_3_)  [-hashhex](#2_1_3_)  (hash is hex prefix)
-    - [2.1.4.](#2_1_4_)  [-labelcol1](#2_1_4_)  (labels at column 1)
-    - [2.1.5.](#2_1_5_)  [-ucase](#2_1_5_)  (upper case)
-- [3.](#3_) Input Files
-  - [3.1.](#3_1_) Source File Format
-  - [3.2.](#3_2_) Comments
-  - [3.3.](#3_3_) Symbols
-  - [3.4.](#3_4_) Labels
-  - [3.5.](#3_5_) Numbers
-    - [3.5.1.](#3_5_1_) Decimal
-    - [3.5.2.](#3_5_2_) Hexadecimal
-    - [3.5.3.](#3_5_3_) Octal
-    - [3.5.4.](#3_5_4_) Binary
-    - [3.5.5.](#3_5_5_) Bitmaps
-  - [3.6.](#3_6_) Keywords
-  - [3.7.](#3_7_) Directives and Opcodes
-- [4.](#4_) Object File Format
-  - [4.1.](#4_1_) Object Files
-  - [4.2.](#4_2_) Library File Format
-- [5.](#5_) Copyright
-- [6.](#6_) License
-- [7.](#7_) Keywords
-- [8.](#8_) Index
+- [1.](#1) Usage ...
+- [2.](#2) Options
+  - [2.1.](#2_1) Preprocessor options
+    - [2.1.1.](#2_1_1)  [-atoctal](#2_1_1)  (at is octal prefix)
+    - [2.1.2.](#2_1_2)  [-dotdirective](#2_1_2)  (period is directive prefix)
+    - [2.1.3.](#2_1_3)  [-hashhex](#2_1_3)  (hash is hex prefix)
+    - [2.1.4.](#2_1_4)  [-labelcol1](#2_1_4)  (labels at column 1)
+    - [2.1.5.](#2_1_5)  [-ucase](#2_1_5)  (upper case)
+- [3.](#3) Input Files
+  - [3.1.](#3_1) Source File Format
+  - [3.2.](#3_2) Comments
+  - [3.3.](#3_3) Symbols
+  - [3.4.](#3_4) Labels
+  - [3.5.](#3_5) Numbers
+    - [3.5.1.](#3_5_1) Decimal
+    - [3.5.2.](#3_5_2) Hexadecimal
+    - [3.5.3.](#3_5_3) Octal
+    - [3.5.4.](#3_5_4) Binary
+    - [3.5.5.](#3_5_5) Bitmaps
+  - [3.6.](#3_6) Keywords
+  - [3.7.](#3_7) Directives and Opcodes
+- [4.](#4) Object File Format
+  - [4.1.](#4_1) Object Files
+  - [4.2.](#4_2) Library File Format
+- [5.](#5) Copyright
+- [6.](#6) License
+- [7.](#7) Keywords
+- [8.](#8) Index

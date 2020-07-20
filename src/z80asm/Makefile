@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Z88DK Z80 Module Assembler
+# z80asm restart
 #
 # Copyright (C) Paulo Custodio, 2011-2020
 # License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
@@ -56,7 +56,7 @@ TEST_SRC_LIB	:= t/testlib.c
 # compilation flags
 #------------------------------------------------------------------------------
 
-OPT 			= -O0
+OPT 			= -O3
 
 FLAGS			:= $(OPT) -MMD -g -Wall \
 				   -I. \
@@ -131,54 +131,6 @@ cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l
 		--header-file=cpp/options.yy.h
 
 #------------------------------------------------------------------------------
-# documentation files
-#------------------------------------------------------------------------------
-$(TARGET): doc/z80asm_manual.o doc/z80asm_usage.o
-
-all: 	doc/z80asm.md   	doc/z80asm-future.md \
-		doc/z80asm.html 	doc/z80asm-future.html \
-		doc/z80asm.txt  	doc/z80asm-future.txt \
-		doc/z80asm_manual.c doc/z80asm_manual.h \
-		doc/z80asm_usage.c  doc/z80asm_usage.h
-
-.SUFFIXES: .md .in .html .txt
-
-.in.md:
-	perl doc/make_index.pl < $< > $@~
-	$(MV) $@~ $@
-
-.md.html:
-	@echo \# use grip from https://github.com/joeyespo/grip
-	grip $< --export $@~
-	if grep '<title>500' $@~ ; then $(RM) $@~; exit 1; fi
-	$(MV) $@~ $@
-
-.html.txt:
-	@echo use elinks to render html
-	elinks -dump $< > $@~1
-	perl -pe 's{file:///.*?/src/z80asm/doc/}{file://}g' $@~1 > $@~2
-	$(MV) $@~2 $@
-	$(RM) $@~1
-
-doc/z80asm.md doc/z80asm-future.md: Makefile doc/make_index.pl
-
-doc/z80asm_manual.o: doc/z80asm_manual.c
-
-doc/z80asm_manual.c: Makefile doc/make_c.pl doc/z80asm.txt
-	cd doc && perl make_c.pl -n z80asm_manual z80asm.txt
-
-doc/z80asm_manual.h:
-	touch $@
-
-doc/z80asm_usage.o: doc/z80asm_usage.c
-
-doc/z80asm_usage.c: Makefile doc/make_c.pl doc/usage.txt
-	cd doc && perl make_c.pl -n z80asm_usage usage.txt
-
-doc/z80asm_usage.h:
-	touch $@
-
-#------------------------------------------------------------------------------
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -203,13 +155,17 @@ clean::
 #------------------------------------------------------------------------------
 # developer generated source files, and test libs
 #------------------------------------------------------------------------------
-.PHONY: dev
+.PHONY: dev doc
+
 dev:
 	perl asmstyle.pl z80asm_lib/*.asm
 	$(MAKE) -C tt
 	$(MAKE) -C lib
 	$(MAKE) -f dev/Makefile
 	$(MAKE) all
+
+doc:
+	$(MAKE) -C doc
 
 clean::
 	$(MAKE) -C lib clean
@@ -302,7 +258,6 @@ astyle:
 
 clean::
 	$(RM) *.orig t/*.orig *.bak t/*.bak
->>>>>>> 5f57c7219... Merge C++ and C makefiles, move files around
 
 #------------------------------------------------------------------------------
 # Dependencies

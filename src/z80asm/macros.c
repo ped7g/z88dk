@@ -164,8 +164,6 @@ static bool collect_name(char **in, UT_string *out)
 
 #if 0
 // collect formal parameters
-/* Prevent warning: defined but not used [-Wunused-function] */
-/*
 static bool collect_params(char **p, DefMacro *macro, UT_string *param)
 {
 #define P (*p)

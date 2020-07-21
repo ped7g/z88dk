@@ -137,6 +137,10 @@ cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l
 .cpp.o:
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# gcc crashes compiling generated parse.c with -O3
+parse.o: parse.c
+	$(CC) $(CFLAGS) -O0 -c $< -o $@
+
 #------------------------------------------------------------------------------
 # libraries
 #------------------------------------------------------------------------------

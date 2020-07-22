@@ -26,7 +26,6 @@ OPT_VAR( bool,		split_bin,	false   )	/* true to split binary file per section */
 OPT_VAR( bool,		date_stamp,	false	)
 OPT_VAR( bool,		relocatable, false	)
 OPT_VAR( bool,      reloc_info, false   )	/* generate .reloc file */
-OPT_VAR( bool,		opt_speed,	false   )
 
 OPT_VAR(appmake_t, appmake, APPMAKE_NONE)
 OPT_VAR(const char *, appmake_opts, "")
@@ -60,7 +59,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 OPT_TITLE("Help Options:")
 
 OPT_TITLE("Code Generation Options:")
-OPT(OptSet, &opts.opt_speed, "-opt-speed", "", "Optimize for speed", "")
 OPT(OptCall, option_debug_info, "-debug", "", "Add debug info to map file", "")
 
 OPT_TITLE("Environment:")

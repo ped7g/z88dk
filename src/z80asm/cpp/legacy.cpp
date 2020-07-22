@@ -63,6 +63,11 @@ bool OptionVerbose()
 	return theCmdArgs.IsVerbose();
 }
 
+bool OptionOptimizeSpeed()
+{
+	return theCmdArgs.IsOptimizeSpeed();
+}
+
 const char* GetEnvPendingOpts()
 {
 	return theCmdArgs.GetEnvPendingOpts();

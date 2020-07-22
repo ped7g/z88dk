@@ -52,7 +52,7 @@ void add_opcode_jr_n(int opcode, struct Expr* expr, int asmpc_offset)
 {
 	expr->asmpc += asmpc_offset;		// expr is assumed to be at asmpc+1; add offset if this is not true
 
-	if (opts.opt_speed) {
+	if (OptionOptimizeSpeed()) {
 		switch (opcode) {
 		case Z80_JR:
 			add_opcode(Z80_JP);

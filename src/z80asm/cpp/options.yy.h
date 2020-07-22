@@ -40,7 +40,6 @@
 	#endif
 	#endif
 
-
 	#include "legacy.h"
 
 	#include "config.h"
@@ -84,11 +83,12 @@ class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
 	private:
 		static const char copyrightmsg[];
 
-		bool verbose;
+		bool verbose;				// true to be verbose
 		int cpu;					// TODO: replace with class enum
 		bool isTi83Plus;			// true for the TI83Plus
 		std::string cpuName;		// used to search libraries
 		bool swapIxIy;				// swap IX and IY
+		bool optimizeSpeed;			// true to optimize for speed
 		std::string envPendingOpts;	// options from environment to parse by the C code
 									// TODO: to remove
 		std::vector<std::string> defines;	// list of -D defines
@@ -103,6 +103,7 @@ class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
 		const std::string& GetCpuName() const { return cpuName; }
 		bool IsTi83Plus() const { return isTi83Plus; }
 		bool SwapIxIy() const { return swapIxIy; }
+		bool IsOptimizeSpeed() const { return optimizeSpeed; }
 		auto cbeginDefines() const { return defines.cbegin(); }
 		auto cendDefines() const { return defines.cend(); }
 

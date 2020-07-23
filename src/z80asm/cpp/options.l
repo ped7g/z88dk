@@ -74,6 +74,7 @@
 -v        \z | \
 --verbose \z	{ verbose = true; return true; }
 
+-\?    \z | \
 -h     \z | \
 --help \z		{ ShowManual(); return true; }
 

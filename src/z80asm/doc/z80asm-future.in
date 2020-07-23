@@ -5,85 +5,80 @@
 **z80asm** is a relocatable assembler, linker and librarian that can assemble Intel 8080/8085 and Z80-family assembly files into a relocatable object format, can manage sets of object files in libraries and can build binary images by linking these object files together. The binary images can be defined in different sections, to match the target architecture.
 
 
- 
+
 ## Usage ...
 
-### ... as pre-processor
+### ... as preprocessor
 
-```
-z80asm -E [options] file...
-```
+    z80asm -E [options] file...
 
-When called with the ```-E``` option, **z80asm** pre-processes each input file and stores the result in files with the ```.i``` extension, with all macros expanded, include files expanded, and constants converted to hexadecimal. 
+Preprocess each input file and store the result in files with the `.i` extension, with all macros expanded, include files expanded, and constants converted to hexadecimal. 
 
 ### ... as assembler
 
-```
-z80asm [options] file...
-```
+    z80asm [options] file...
 
-By default, i.e. without any options, **z80asm** assembles each of the listed files into relocatable object files with a ```.o``` extension. It shows a summary of all the options when called without arguments.
+By default, i.e. without any options, assemble each of the listed files into relocatable object files with a `.o` extension. 
 
 ### ... as linker
 
-```
-z80asm -b [options] file...
-```
+    z80asm -b [options] [-ilibrary.lib...] file...
 
-When called with the ```-b``` option, **z80asm** links the object files together into a set of binary files.
+Link the object files together and with any requested libraries into a set of binary files.
 
 ### ... as librarian
 
-```
-z80asm -xlibrary.lib [options] file...
-```
+    z80asm -xlibrary.lib [options] file...
 
-When called with the ```-x``` option, **z80asm** builds a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the ```-i``` option.
+Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the `-i` option.
 
 ## Options 
 
-### General Options
+### Help Options
 
-#### -v (verbose)
+#### no arguments (show usage)
 
-The ```-v``` options causes **z80asm** to tell what is happening by messages sent to ```stdout```.
+Show a help screen with the available options. 
 
+#### -h, -?, --help (show manual)
+
+Show this document. The output can be piped to `more` for pagination.
+
+#### -v, --verbose (show progress)
+
+Show progress messages on `stdout`.
 
 ### Preprocessor options
 
 #### -atoctal (at is octal prefix)
 
-By default the at-character (```@```) is used as a binary number prefix. 
+By default the at-character (`@`) is used as a binary number prefix. 
 
-With the option ```-atoctal``` it is used as the octal number prefix instead.
+With the option `-atoctal` it is used as the octal number prefix instead.
 
 #### -dotdirective (period is directive prefix)
 
-By default the period (```.```) is used to signal that the next identifier is a label. 
+By default the period (`.`) is used to signal that the next identifier is a label. 
 
-With the option ```-dotdirective``` it is used instead to signal that the next identifier is an assembler directive.
+With the option `-dotdirective` it is used instead to signal that the next identifier is an assembler directive.
 
 #### -hashhex (hash is hex prefix)
 
-By default the hash-character (```#```) is used to signal that the next expression should be compiled as an immediate value. This meaning, although common in assemblers, is a no-operation in **z80asm**. 
+By default the hash-character (`#`) is used to signal that the next expression should be compiled as an immediate value. This meaning, although common in assemblers, is a no-operation in **z80asm**. 
 
-With the option ```-hashhex``` the hash-character is used as the hexadecimal number prefix instead.
+With the option `-hashhex` the hash-character is used as the hexadecimal number prefix instead.
 
 #### -labelcol1 (labels at column 1)
 
-By default **z80asm** needs either a period (```.```) prefix (but see ```-dotdirective```) or a colon (```:```) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.
+By default **z80asm** needs either a period (`.`) prefix (but see `-dotdirective`) or a colon (`:`) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.
 
-With the option ```-labelcol1``` an identifier is a label if started at column 1, or a directive or opcode if started after white space.
+With the option `-labelcol1` an identifier is a label if started at column 1, or a directive or opcode if started after white space.
 
 #### -ucase (upper case)
 
 By default **z80asm** is case-sensitive for identifiers, but case-insensitive for assembly keywords (opcodes, directives, registers and flags).
 
-The option ```-ucase``` causes **z80asm** to convert all the symbols to upper-case, so that code that assumes case-insentivity can be assembled.
-
-#### -IXIY (swap IX and IY)
-
-This option causes the ```IX``` and ```IY``` register roles to be swapped, i.e. references to ```IX``` are assembled as ```IY``` and vice-versa. Useful when the assembler is used as a back-end of a compiler that uses one of the index registers that is used in the target platform.
+The option `-ucase` causes **z80asm** to convert all the symbols to upper-case, so that code that assumes case-insensitivity can be assembled.
 
 ### Assembly options
 
@@ -91,7 +86,7 @@ This option causes the ```IX``` and ```IY``` register roles to be swapped, i.e. 
 
 By default **z80asm** follows the C-precedence rules while evaluating expressions:
 
-| Pecedence | Operators  | Description                              | Associativity |
+| Precedence | Operators  | Description                              | Associativity |
 | ---       | ---        | ---                                      | ---           |
 | 1         | **         | Power                                    | right-to-left |
 | 2         | + - #      | Unary plus, unary minus, immediate       | right-to-left |
@@ -102,44 +97,87 @@ By default **z80asm** follows the C-precedence rules while evaluating expression
 | 7         | < <= > >=  | Less, Less-equal, greater, greater-equal | left-to-right |
 | 8         | = == != <> | Equal (two forms), Not equal (two forms) | left-to-right |
 | 9         | &          | Bitwise AND                              | left-to-right |
-| 10         | ^          | Bitwise XOR                              | left-to-right |
+| 10        | ^          | Bitwise XOR                              | left-to-right |
 | 11        | \|         | Bitwise OR                               | left-to-right |
 | 12        | &&         | Logical AND                              | left-to-right |
 | 13        | ^^         | Logical XOR                              | left-to-right |
 | 14        | \|\|       | Logical OR                               | left-to-right |
 | 15        | ?:         | Ternary conditional                      | right-to-left |
 
-With the ```-noprec``` expressions are evaluated strictly left-to-right.
+With the `-noprec` expressions are evaluated strictly left-to-right.
+
+### Code Generation Options
+
+#### -mCPU, --cpu=CPU (select CPU)
+
+Assemble for the given CPU. The following CPU's are supported:
+
+| CPU      | Name                          |
+| -------- | ----------------------------- |
+| z80      | Zilog Z80                     |
+| z180     | Zilog Z180                    |
+| z80n     | ZX Next variant of the Z80    |
+| gbz80    | GameBoy variant of the Z80    |
+| 8080     | Intel 8080 (1)                |
+| 8085     | Intel 8085 (1)                |
+| r2k      | Rabbit RCM2000                |
+| r3k      | Rabbit RCM3000                |
+| ti83     | Texas Instruments TI83 (2)    |
+| ti83plus | Texas Instruments TI83Plus (2)|
+
+**Notes:**
+
+**(1)** The Intel 8080 and 8085 are with Zilog or Intel mnemonics, except for the mnemonics that have different meanings, i.e.
+
+| Intel | Zilog      | Comment                                     |
+| ----- | ---------- | ------------------------------------------- |
+| JP nn | JP P, nn   | Must use Zilog mnemonic, as JP is ambiguous |
+| CP nn | CALL P, nn | Must use Zilog mnemonic, as CP is ambiguous |
+
+**(2)** The Texas Instruments CPU's are standard Z80, but the `INVOKE` statement is assembled differently, i.e.
+
+| CPU      | Statement | Assembled as       |
+| ----     | --------- | ------------------ |
+| ti83     | INVOKE nn | CALL nn            |
+| ti83plus | INVOKE nn | RST 0x28 \ DEFW nn |
+
+#### -IXIY, --IXIY (swap IX and IY)
+
+Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`IXH`, `IXL`, `IYH` and `IYL`).
+
+#### --opt=speed (optimise for speed)
+
+Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
 ## Input Files
 
-**z80asm** reads text files in the syntax supported by the specific processor being assembled for (see ```-m``` option) and produces the corresponding object files.
+**z80asm** reads text files in the syntax supported by the specific processor being assembled for (see `-mCPU` option) and produces the corresponding object files.
 
-An input file with a ```.o``` extension is assumed to be already in object file format and is just read by the linker. Any other extension is considered an assembly source file (conventionally ```.asm```).
+An input file with a `.o` extension is assumed to be already in object file format and is just read by the linker. Any other extension is considered an assembly source file (conventionally `.asm`).
 
-A project list file may be supplied in the command line prefixed by the at-sign (e.g. ```@project.lst```). The list file contains one input file name per line, or another project list prefixed with an at-sign, which is opened recursively. Hash signs (```#```) and semi-colons (```;```) may be used at the start of lines in the list files to include comments.
+A project list file may be supplied in the command line prefixed by the at-sign (e.g. `@project.lst`). The list file contains one input file name per line, or another project list prefixed with an at-sign, which is opened recursively. Hash signs (`#`) and semi-colons (`;`) may be used at the start of lines in the list files to include comments.
 
 Both the command line and the list files support wild-cards to expand all the files that match the given pattern.
 
 **Note** that the Operating System may do its own wildcard expansion and the pattern may need to be quoted in the command line.
 
-A single star in a file name (```*```) expands to the list of all files/directories that match the complete pattern, where the star represents any sequence of characters. A double-star in a directory name (```**```) expands to the complete directory sub-tree, when searched recursively.
+A single star in a file name (`*`) expands to the list of all files/directories that match the complete pattern, where the star represents any sequence of characters. A double-star in a directory name (`**`) expands to the complete directory sub-tree, when searched recursively.
 
 ### Source File Format
 
-The assembler parses source files with any of the common end-of-line termination sequences (```"\r"```, ```"\n"``` or ```"\r\n"```). Each line starts with an optional label and can contain assembly directives (i.e. instructions to the assembler), assembly instructions (i.e. code to be translated into object code for the specific processor) or blanks and comments.
+The assembler parses source files with any of the common end-of-line termination sequences (`"\r"`, `"\n"` or `"\r\n"`). Each line starts with an optional label and can contain assembly directives (i.e. instructions to the assembler), assembly instructions (i.e. code to be translated into object code for the specific processor) or blanks and comments.
 
-A single backslash character (```\```) may be used to separate multiple statements in a single line.
+A single backslash character (`\`) may be used to separate multiple statements in a single line.
 
     org 0                     ; assembly directive  
     start: push bc\pop hl     ; define a label and add two assembly opcodes              
     ret                       ; assembly opcode can be at the first column    
 
-Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option ```-labelcol1```).
+Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option `-labelcol1`).
 
 ### Comments
 
-Comments may start with a semi-colon (```;```) or two slashes (```//```) and end at the end of the line, or may start with slash-star (```/*```) and end with star-slash (```*/```), possibly spanning multiple lines.
+Comments may start with a semi-colon (`;`) or two slashes (`//`) and end at the end of the line, or may start with slash-star (`/*`) and end with star-slash (`*/`), possibly spanning multiple lines.
 
     ld a, 1                   ; this is a comment
     ld b, 2                   // another comment
@@ -149,11 +187,11 @@ Comments may start with a semi-colon (```;```) or two slashes (```//```) and end
 
 ### Symbols
 
-All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (```_```), and can contain letters, digits, underscores or periods (```.```). Identifiers are case-sensitive (but see option ```-ucase```).
+All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (`_`), and can contain letters, digits, underscores or periods (`.`). Identifiers are case-sensitive (but see option `-ucase`).
 
 ### Labels
 
-A label is a symbol that represents the current assembly address (```ASMPC```) and is defined at the start of a line by prefixing a symbol with a period (```.```) (but see ```-dotdirective```) or suffixing it with a colon (```:```), i.e. either ```.label``` or ```label:``` (but see ```-labelcol1```).
+A label is a symbol that represents the current assembly address (`ASMPC`) and is defined at the start of a line by prefixing a symbol with a period (`.`) (but see `-dotdirective`) or suffixing it with a colon (`:`), i.e. either `.label` or `label:` (but see `-labelcol1`).
 
 ### Numbers
 
@@ -162,26 +200,26 @@ The assembler accepts numbers in decimal, hexadecimal, octal and binary. Differe
     ld a, %10     ; A = 2 (10 binary)
     ld a, 12 % 10 ; A = 2 (remainder of 12 divided by 10)
 
-All expressions are computed as signed integers with the host platform's integer size (32-bit or 64-bit in the most common platforms). Expression evaluation follows the operator precedence of C (but see ```-noprec```).
+All expressions are computed as signed integers with the host platform's integer size (32-bit or 64-bit in the most common platforms). Expression evaluation follows the operator precedence of C (but see `-noprec`).
 
-The underscore can be used to separate groups of digits to help readability, e.g. ```0xFFFF_FFFF``` is the same as ```0xFFFFFFFF```.
+The underscore can be used to separate groups of digits to help readability, e.g. `0xFFFF_FFFF` is the same as `0xFFFFFFFF`.
 
-Floating point numbers can be supplied with the ```FLOAT``` directive, that encodes them in the current floating point format in the object code. Floating point numbers must be supplied in decimal base and have an integer part and a fractional part separated by a period, followed by an optional ```e``` (exponent), a plus or minus sign, and the power of 10 to multiply to the base.
+Floating point numbers can be supplied with the `FLOAT` directive, that encodes them in the current floating point format in the object code. Floating point numbers must be supplied in decimal base and have an integer part and a fractional part separated by a period, followed by an optional `e` (exponent), a plus or minus sign, and the power of 10 to multiply to the base.
 
 #### Decimal
 
-Decimal numbers are a sequence of decimal digits (```0..9```), optionally followed by a ```d``` or ```D``` - all prefixes and suffixes are case-insensitive. Leading zeros are insignificant - note the difference from C, where a leading zero means octal.
+Decimal numbers are a sequence of decimal digits (`0..9`), optionally followed by a `d` or `D` - all prefixes and suffixes are case-insensitive. Leading zeros are insignificant - note the difference from C, where a leading zero means octal.
 
     ld a, 99
     ld a, 99d
 
 #### Hexadecimal
 
-Hexadecimal numbers are a sequence of hexadecimal digits (```0..9``` and ```A..F```, case-insensitive), either prefixed or suffixed with an hexadecimal marker. If the marker is a suffix, and the number starts with a letter, then a leading zero has to be added.
+Hexadecimal numbers are a sequence of hexadecimal digits (`0..9` and `A..F`, case-insensitive), either prefixed or suffixed with an hexadecimal marker. If the marker is a suffix, and the number starts with a letter, then a leading zero has to be added.
 
-The hexadecimal prefix ```$``` is also the ```ASMPC``` identifier if not followed by a hexadecimal number, i.e. the address of the instruction being assembled.
+The hexadecimal prefix `$` is also the `ASMPC` identifier if not followed by a hexadecimal number, i.e. the address of the instruction being assembled.
 
-The hexadecimal prefix ```#``` is only recognized with the option ```-hashhex```.
+The hexadecimal prefix `#` is only recognised with the option `-hashhex`.
 
     ld a, $FF
     ld a, #FF           ; only with option -hashhex
@@ -190,9 +228,9 @@ The hexadecimal prefix ```#``` is only recognized with the option ```-hashhex```
 
 #### Octal
 
-Octal numbers are a sequence of octal digits (```0..7```), either prefixed or suffixed with an octal marker. 
+Octal numbers are a sequence of octal digits (`0..7`), either prefixed or suffixed with an octal marker. 
 
-The octal-prefix ```@``` is only recognized with the option ```-atoctal```.
+The octal-prefix `@` is only recognised with the option `-atoctal`.
 
     ld a, @77           ; only with option -atoctal
     ld a, 0o77
@@ -202,11 +240,11 @@ The octal-prefix ```@``` is only recognized with the option ```-atoctal```.
 
 #### Binary
 
-Binary numbers are a sequence of binary digits (```0..1```), either prefixed or suffixed with a binary marker.  
+Binary numbers are a sequence of binary digits (`0..1`), either prefixed or suffixed with a binary marker.  
 
-The binary prefix ```%``` is also the modulus operator, if not followed by a binary digit. 
+The binary prefix `%` is also the modulus operator, if not followed by a binary digit. 
 
-The binary prefix ```@``` is recognized unless the option ```-atoctal``` is given.
+The binary prefix `@` is recognised unless the option `-atoctal` is given.
 
     ld a, %11
     ld a, @11           ; except with option -atoctal
@@ -215,7 +253,7 @@ The binary prefix ```@``` is recognized unless the option ```-atoctal``` is give
 
 #### Bitmaps
 
-Binary numbers can be specified as bitmaps, with ```#``` as ```1``` and ```-``` as ```0```, using the binary prefix (```@``` or ```%```) immediately followed by a double-quoted string of hashes and dashes.
+Binary numbers can be specified as bitmaps, with `#` as `1` and `-` as `0`, using the binary prefix (`@` or `%`) immediately followed by a double-quoted string of hashes and dashes.
 
     defb @"---##---"
     defb @"-##--##-"
@@ -227,11 +265,11 @@ Binary numbers can be specified as bitmaps, with ```#``` as ```1``` and ```-``` 
 
 ### Keywords
 
-Processor registers (```BC```, ```DE```, ...) and flags (```NZ```, ```Z```, ...), and assembly ```ASMPC```, representing the current assembly location, are reserved keywords. They cannot be used as identifiers, and are case-insensitive.
+Processor registers (`BC`, `DE`, ...) and flags (`NZ`, `Z`, ...), and assembly `ASMPC`, representing the current assembly location, are reserved keywords. They cannot be used as identifiers, and are case-insensitive.
 
 ### Directives and Opcodes
 
-Assembler directives (```ORG```, ```INCLUDE```, ...) and processor opcodes (```NOP```, ```LD```, ...) are interpreted as directives or opcodes when appearing at the start of the statement or after a label definition, or as regular identifiers otherwise. The directives and opcodes are case-insensitive.
+Assembler directives (`ORG`, `INCLUDE`, ...) and processor opcodes (`NOP`, `LD`, ...) are interpreted as directives or opcodes when appearing at the start of the statement or after a label definition, or as regular identifiers otherwise. The directives and opcodes are case-insensitive.
 
     jr: jr jr  ; silly example, jr is both a label and an opcode
                ; while correct code, it's confusing, don't do it
@@ -301,7 +339,7 @@ The format of the object files is as follows:
 |       | dword     | value     | Absolute value for a constant, or the relative address to the start of the code block for a relocatable address
 |       | string    | name      | Name of symbol
 |       | string    | sourcefile| Source file name of symbol definition
-|       | dword     | linenumber| Line number in source file of symnbol definition
+|       | dword     | linenumber| Line number in source file of symbol definition
 |       |           |           | ... repeat for every symbol ...
 |pextern|           |           | *External Symbols*: set of external symbols referred in the module, up *Module Name*
 |       | string    | name      | Name of external symbol
@@ -331,7 +369,7 @@ structures.
 
 ### Format History
 
-| Version   | Commment
+| Version   | Comment
 | ---       | ---
 | 01        | original z80asm version
 | 02        | allow expressions to use standard C operators instead of the original (legacy) z80asm specific syntax. 
@@ -386,14 +424,9 @@ Many of the parameters are preset with default values which gives an easy user i
 
 ### Command line options
 
-Options are used to control the assembly process and output. They are recognized by the assembler when you specify a leading minus before the option identifier ('-'). Options are always specified before file names or project files.
+Options are used to control the assembly process and output. They are recognised by the assembler when you specify a leading minus before the option identifier ('-'). Options are always specified before file names or project files.
 
 When the assembler is executed options are all preset with default values and are either switched ON or OFF (active or not). All options have a single letter identification. Upper and lower case letters are distinguished, which means that 'a' might be different command than 'A'. If an option is to be turned off, you simply specify a 'n' before the identification, e.g. -nl which selects listing files not to be created by the assembler.
-
-#### -h : Show help screen
-
-Shows a help screen with the available options.
-
 
 #### -e\<ext\> : Use alternative source file extension
 
@@ -476,7 +509,7 @@ During the linking phase of the assembler the ORG address that defines the posit
 
     z80asm -b -r4000 file.asm
 
-which specifies that your code is to be relocated for address 4000h (16384) onwards.
+which specifies that your code is to be relocated for address 4000h (16384) onward.
 
 Using the -r option supersedes a defined ORG in the object file. You could for example have defined the ORG to 8000h (32768) in your first source file, then compiled the project. This would have generated machine code for memory location 8000h (segment 2 in the Cambridge Z88). Since the object files are generated it is easy to link them again with another ORG address by just using the -r option. The linking process does not alter the information in object files - they are only read. The same project could then easily be re-linked to another address, e.g.
 
@@ -484,11 +517,11 @@ Using the -r option supersedes a defined ORG in the object file. You could for e
 
 #### -R : Generate address independent code
 
-The Z80 processor instruction set allows only relative jumps in maximum +/- 128 bytes using the JR and DJNZ instructions. Further, there is no program counter relative call-to-subroutine or jump-to-subroutine instruction. If you want a program to be address-independent no absolute address references may be used in jump or call instructions. If you want to program Z80 address independent code you can only write small routines using the JR and DJNZ instructions. With a restricted interval of 128 bytes you can imagine the size of those routines! Programming of large applications using address independency is simply impossible on the Z80 processor with the basic instruction set available. You can only define a fixed address origin (ORG) for your machine code to be loaded and executed from. However, there is one solution: before the code is executed an automatical address-relocation is performed to the current position in memory. This is done only once. The penalty is that the program fills more space in memory. This is unavoidable since information must be available to define where the address relocation has to be performed in the program. Further, a small routine must be included with the program to read the relocation information and patch it into the specified locations of the program. It is impossible to determine the extra size generated with a relocation table. We assume an extra size of 3 - 3.5K for a typical 16K application program.
+The Z80 processor instruction set allows only relative jumps in maximum +/- 128 bytes using the JR and DJNZ instructions. Further, there is no program counter relative call-to-subroutine or jump-to-subroutine instruction. If you want a program to be address-independent no absolute address references may be used in jump or call instructions. If you want to program Z80 address independent code you can only write small routines using the JR and DJNZ instructions. With a restricted interval of 128 bytes you can imagine the size of those routines! Programming of large applications using address Independence is simply impossible on the Z80 processor with the basic instruction set available. You can only define a fixed address origin (ORG) for your machine code to be loaded and executed from. However, there is one solution: before the code is executed an automatic address-relocation is performed to the current position in memory. This is done only once. The penalty is that the program fills more space in memory. This is unavoidable since information must be available to define where the address relocation has to be performed in the program. Further, a small routine must be included with the program to read the relocation information and patch it into the specified locations of the program. It is impossible to determine the extra size generated with a relocation table. We assume an extra size of 3 - 3.5K for a typical 16K application program.
 
 You can generate address independent code using the -R option accompanied with the -a or -b option. There is no other requirements. The relocatable code may be useful for programmers using the Cambridge Z88 who want to use machine code in the BBC BASIC application environment. This can easily be interfaced with the DIM statement to allocate memory for the machine code program, and issue a CALL or USR() to execute the machine code.
 
-Please note that the linking process with the -R option addresses your code from 0 onwards. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.
+Please note that the linking process with the -R option addresses your code from 0 onward. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.
 
 The principle of relocation is in fact a self-modifying program. You cannot relocate a program that has been blown into an EPROM (cannot be modified). You may only execute relocatable programs in dynamic memory (RAM).
 
@@ -1526,15 +1559,12 @@ The following error messages will be written toe the error files corresponding t
 	  redirect standard error.
 
 	  Fatal errors example:  
-	```
 	  x.cc:1:18: fatal error: nofile: No such file or directory  
 		\#include "nofile"  
 		------------------^  
 	  compilation terminated.
-	```
 
 	  Non-fatal errors example:  
-	```
 	  x.cc:1:7: error: expected initializer before 'b'  
 		int a b  
 		-------^ 
@@ -1559,4 +1589,4 @@ Copyright (C) Paulo Custodio, 2011-2020
 
 ## License
 
-Artistic License 2.0 [http://www.perlfoundation.org/artisticlicense2_0](http://www.perlfoundation.org/artisticlicense2_0 "Artistic License 2.0")
+Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)

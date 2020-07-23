@@ -36,7 +36,7 @@ ok $bin eq  "\x00", "bin ok";
 
 my $manual = path("doc/z80asm.txt")->slurp;
 
-for my $help (qw( -h --help )) {
+for my $help (qw( -? -h --help )) {
 	unlink "$test.bin";
 	$ENV{Z80ASM} = $help;
 	run_ok("z80asm -b $test.asm", $manual, '');

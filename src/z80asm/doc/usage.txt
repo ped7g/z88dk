@@ -16,7 +16,7 @@ Usage:
   The environment variable Z80ASM can contain blank-separated options.
 
 Help Options:
-  -h, --help            Show manual, pipe through 'more' to paginate
+  -h, -?, --help        Show manual, pipe through 'more' to paginate
   -v, --verbose         Be verbose
 
 Code Generation Options:

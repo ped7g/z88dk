@@ -30,6 +30,8 @@ INSTALL 		?= install
 CROSS			?= 0
 
 REFLEX			?= reflex --fast --noline
+LIBREFLEXMIN	:= ../../ext/RE-flex/lib/libreflexmin.a
+
 ASTYLE			?= astyle --project=.astylerc
 CP				?= cp -f
 MV				?= mv -f
@@ -73,7 +75,7 @@ FLAGS			:= $(OPT) -MMD -g -Wall \
 
 CFLAGS			+= -std=gnu11           $(FLAGS)
 CXXFLAGS		+= -std=gnu++14 -Wextra $(FLAGS)
-LDFLAGS			+= ../../ext/RE-flex/lib/libreflexmin.a
+LDFLAGS			+= $(LIBREFLEXMIN)
 
 #------------------------------------------------------------------------------
 .PHONY: all clean test install astyle z80asm_lib
@@ -120,16 +122,20 @@ $(OBJS): ../config.h
 	touch ../config.h
 
 # RE-flex generated files
-$(TARGET): cpp/options.yy.o
+$(TARGET): cpp/options.yy.o $(LIBREFLEXMIN)
 
 cpp/options.yy.o: cpp/options.yy.cpp
 
-cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l Makefile
+cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l $(LIBREFLEXMIN) Makefile
 	$(REFLEX) cpp/options.l \
 		--lexer=OptionsLexer \
 		--outfile=cpp/options.yy.cpp \
 		--header-file=cpp/options.yy.h
 	dos2unix cpp/options.yy.cpp cpp/options.yy.h
+
+$(LIBREFLEXMIN):
+	$(MAKE) -C ../../ext clean
+	$(MAKE) -C ../../ext
 
 #------------------------------------------------------------------------------
 .c.o:

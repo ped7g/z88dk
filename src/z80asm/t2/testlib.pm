@@ -69,10 +69,7 @@ sub system_ok {
 
 sub end_test {
 	if (Test::More->builder->is_passing) {
-		unlink("$test.gotout", "$test.goterr", "$test.expout", "$test.experr",
-				"$test.asm", "$test.d", "$test.o", "$test.bin", 
-				"$test.lis", "$test.err", "$test.map", 
-				"$test.c");
+		unlink <${test}*>;
 	}
 	done_testing();
 }

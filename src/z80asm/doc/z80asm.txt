@@ -157,6 +157,52 @@
 
    [41](top) [42](keywords) [43](index)
 
+    2.2.4. --debug (debug information)
+
+   Add debug information to the map file: new symbols __C_LINE_nn and
+   __ASM_LINE_nn are created on each C_LINE statement (supplied by the C
+   compiler) and each asm line, and listed in the map file together with
+   their source file location.
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [44](top) [45](keywords) [46](index)
+
+  2.3. Output File Options
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [47](top) [48](keywords) [49](index)
+
+    2.3.1. -m, --map (create map file)
+
+   Creates a map file at the end of the link phase. The map file contains one
+   line per defined symbol, with the following information:
+
+     • symbol name
+     • '='
+     • aboslute address in the binary file in hexadecimal
+     • ';'
+     • 'const' if symbols is a constant, 'addr' if it is an address or
+       'comput' if it is an expression evaluated at link time
+     • ','
+     • scope of the symbol: 'local', 'public', 'extern' or 'global'
+     • ','
+     • 'def' if symbol is a global define (defined with -Dsymbol or DEFINE),
+       empty string otherwise
+     • ','
+     • module name where symbol was defined
+     • ','
+     • section name where symbol was defined
+     • ','
+     • source file name where symbol was defined
+     • ':'
+     • source line number where symbol was defined
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [50](top) [51](keywords) [52](index)
+
 3. Copyright
 
    The original z80asm module assembler was written by Gunther Strube. It was
@@ -170,51 +216,56 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [44](top) [45](keywords) [46](index)
+   [53](top) [54](keywords) [55](index)
 
 4. License
 
    Artistic License 2.0
-   ([47]http://www.perlfoundation.org/artisticlicense2_0)
+   ([56]http://www.perlfoundation.org/artisticlicense2_0)
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [48](top) [49](keywords) [50](index)
+   [57](top) [58](keywords) [59](index)
 
 5. Keywords
 
-   [51]-IXIY [52]-h [53]-mCPU [54]-v
+   [60]-IXIY [61]-h [62]-m [63]-mCPU [64]-v
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [55](top) [56](keywords) [57](index)
+   [65](top) [66](keywords) [67](index)
 
 6. Index
 
-     • [58]1. Usage ...
+     • [68]1. Usage ...
 
-          • [59]1.1. ... as assembler
-          • [60]1.2. ... as linker
-          • [61]1.3. ... as librarian
+          • [69]1.1. ... as assembler
+          • [70]1.2. ... as linker
+          • [71]1.3. ... as librarian
 
-     • [62]2. Options
+     • [72]2. Options
 
-          • [63]2.1. Help Options
+          • [73]2.1. Help Options
 
-               • [64]2.1.1. no arguments (show usage)
-               • [65]2.1.2. [66]-h , -?, --help (show manual)
-               • [67]2.1.3. [68]-v , --verbose (show progress)
+               • [74]2.1.1. no arguments (show usage)
+               • [75]2.1.2. [76]-h , -?, --help (show manual)
+               • [77]2.1.3. [78]-v , --verbose (show progress)
 
-          • [69]2.2. Code Generation Options
+          • [79]2.2. Code Generation Options
 
-               • [70]2.2.1. [71]-mCPU , --cpu=CPU (select CPU)
-               • [72]2.2.2. [73]-IXIY , - [74]-IXIY (swap IX and IY)
-               • [75]2.2.3. --opt=speed (optimise for speed)
+               • [80]2.2.1. [81]-mCPU , --cpu=CPU (select CPU)
+               • [82]2.2.2. [83]-IXIY , - [84]-IXIY (swap IX and IY)
+               • [85]2.2.3. --opt=speed (optimise for speed)
+               • [86]2.2.4. --debug (debug information)
 
-     • [76]3. Copyright
-     • [77]4. License
-     • [78]5. Keywords
-     • [79]6. Index
+          • [87]2.3. Output File Options
+
+               • [88]2.3.1. [89]-m , --map (create map file)
+
+     • [90]3. Copyright
+     • [91]4. License
+     • [92]5. Keywords
+     • [93]6. Index
 
     
 
@@ -222,81 +273,95 @@ References
 
    Visible links
    1. http://www.z88dk.org/
-   2. file://doc/z80asm.html#top
-   3. file://doc/z80asm.html#keywords
-   4. file://doc/z80asm.html#index
-   5. file://doc/z80asm.html#top
-   6. file://doc/z80asm.html#keywords
-   7. file://doc/z80asm.html#index
-   8. file://doc/z80asm.html#top
-   9. file://doc/z80asm.html#keywords
-  10. file://doc/z80asm.html#index
-  11. file://doc/z80asm.html#top
-  12. file://doc/z80asm.html#keywords
-  13. file://doc/z80asm.html#index
-  14. file://doc/z80asm.html#top
-  15. file://doc/z80asm.html#keywords
-  16. file://doc/z80asm.html#index
-  17. file://doc/z80asm.html#top
-  18. file://doc/z80asm.html#keywords
-  19. file://doc/z80asm.html#index
-  20. file://doc/z80asm.html#top
-  21. file://doc/z80asm.html#keywords
-  22. file://doc/z80asm.html#index
-  23. file://doc/z80asm.html#top
-  24. file://doc/z80asm.html#keywords
-  25. file://doc/z80asm.html#index
-  26. file://doc/z80asm.html#top
-  27. file://doc/z80asm.html#keywords
-  28. file://doc/z80asm.html#index
-  29. file://doc/z80asm.html#top
-  30. file://doc/z80asm.html#keywords
-  31. file://doc/z80asm.html#index
-  32. file://doc/z80asm.html#top
-  33. file://doc/z80asm.html#keywords
-  34. file://doc/z80asm.html#index
-  35. file://doc/z80asm.html#top
-  36. file://doc/z80asm.html#keywords
-  37. file://doc/z80asm.html#index
-  38. file://doc/z80asm.html#top
-  39. file://doc/z80asm.html#keywords
-  40. file://doc/z80asm.html#index
-  41. file://doc/z80asm.html#top
-  42. file://doc/z80asm.html#keywords
-  43. file://doc/z80asm.html#index
-  44. file://doc/z80asm.html#top
-  45. file://doc/z80asm.html#keywords
-  46. file://doc/z80asm.html#index
-  47. http://www.perlfoundation.org/artisticlicense2_0
-  48. file://doc/z80asm.html#top
-  49. file://doc/z80asm.html#keywords
-  50. file://doc/z80asm.html#index
-  51. file://doc/z80asm.html#2_2_2
-  52. file://doc/z80asm.html#2_1_2
-  53. file://doc/z80asm.html#2_2_1
-  54. file://doc/z80asm.html#2_1_3
-  55. file://doc/z80asm.html#top
-  56. file://doc/z80asm.html#keywords
-  57. file://doc/z80asm.html#index
-  58. file://doc/z80asm.html#1
-  59. file://doc/z80asm.html#1_1
-  60. file://doc/z80asm.html#1_2
-  61. file://doc/z80asm.html#1_3
-  62. file://doc/z80asm.html#2
-  63. file://doc/z80asm.html#2_1
-  64. file://doc/z80asm.html#2_1_1
-  65. file://doc/z80asm.html#2_1_2
-  66. file://doc/z80asm.html#2_1_2
-  67. file://doc/z80asm.html#2_1_3
-  68. file://doc/z80asm.html#2_1_3
-  69. file://doc/z80asm.html#2_2
-  70. file://doc/z80asm.html#2_2_1
-  71. file://doc/z80asm.html#2_2_1
-  72. file://doc/z80asm.html#2_2_2
-  73. file://doc/z80asm.html#2_2_2
-  74. file://doc/z80asm.html#2_2_2
-  75. file://doc/z80asm.html#2_2_3
-  76. file://doc/z80asm.html#3
-  77. file://doc/z80asm.html#4
-  78. file://doc/z80asm.html#5
-  79. file://doc/z80asm.html#6
+   2. file://z80asm.html#top
+   3. file://z80asm.html#keywords
+   4. file://z80asm.html#index
+   5. file://z80asm.html#top
+   6. file://z80asm.html#keywords
+   7. file://z80asm.html#index
+   8. file://z80asm.html#top
+   9. file://z80asm.html#keywords
+  10. file://z80asm.html#index
+  11. file://z80asm.html#top
+  12. file://z80asm.html#keywords
+  13. file://z80asm.html#index
+  14. file://z80asm.html#top
+  15. file://z80asm.html#keywords
+  16. file://z80asm.html#index
+  17. file://z80asm.html#top
+  18. file://z80asm.html#keywords
+  19. file://z80asm.html#index
+  20. file://z80asm.html#top
+  21. file://z80asm.html#keywords
+  22. file://z80asm.html#index
+  23. file://z80asm.html#top
+  24. file://z80asm.html#keywords
+  25. file://z80asm.html#index
+  26. file://z80asm.html#top
+  27. file://z80asm.html#keywords
+  28. file://z80asm.html#index
+  29. file://z80asm.html#top
+  30. file://z80asm.html#keywords
+  31. file://z80asm.html#index
+  32. file://z80asm.html#top
+  33. file://z80asm.html#keywords
+  34. file://z80asm.html#index
+  35. file://z80asm.html#top
+  36. file://z80asm.html#keywords
+  37. file://z80asm.html#index
+  38. file://z80asm.html#top
+  39. file://z80asm.html#keywords
+  40. file://z80asm.html#index
+  41. file://z80asm.html#top
+  42. file://z80asm.html#keywords
+  43. file://z80asm.html#index
+  44. file://z80asm.html#top
+  45. file://z80asm.html#keywords
+  46. file://z80asm.html#index
+  47. file://z80asm.html#top
+  48. file://z80asm.html#keywords
+  49. file://z80asm.html#index
+  50. file://z80asm.html#top
+  51. file://z80asm.html#keywords
+  52. file://z80asm.html#index
+  53. file://z80asm.html#top
+  54. file://z80asm.html#keywords
+  55. file://z80asm.html#index
+  56. http://www.perlfoundation.org/artisticlicense2_0
+  57. file://z80asm.html#top
+  58. file://z80asm.html#keywords
+  59. file://z80asm.html#index
+  60. file://z80asm.html#2_2_2
+  61. file://z80asm.html#2_1_2
+  62. file://z80asm.html#2_3_1
+  63. file://z80asm.html#2_2_1
+  64. file://z80asm.html#2_1_3
+  65. file://z80asm.html#top
+  66. file://z80asm.html#keywords
+  67. file://z80asm.html#index
+  68. file://z80asm.html#1
+  69. file://z80asm.html#1_1
+  70. file://z80asm.html#1_2
+  71. file://z80asm.html#1_3
+  72. file://z80asm.html#2
+  73. file://z80asm.html#2_1
+  74. file://z80asm.html#2_1_1
+  75. file://z80asm.html#2_1_2
+  76. file://z80asm.html#2_1_2
+  77. file://z80asm.html#2_1_3
+  78. file://z80asm.html#2_1_3
+  79. file://z80asm.html#2_2
+  80. file://z80asm.html#2_2_1
+  81. file://z80asm.html#2_2_1
+  82. file://z80asm.html#2_2_2
+  83. file://z80asm.html#2_2_2
+  84. file://z80asm.html#2_2_2
+  85. file://z80asm.html#2_2_3
+  86. file://z80asm.html#2_2_4
+  87. file://z80asm.html#2_3
+  88. file://z80asm.html#2_3_1
+  89. file://z80asm.html#2_3_1
+  90. file://z80asm.html#3
+  91. file://z80asm.html#4
+  92. file://z80asm.html#5
+  93. file://z80asm.html#6

@@ -124,11 +124,12 @@ $(TARGET): cpp/options.yy.o
 
 cpp/options.yy.o: cpp/options.yy.cpp
 
-cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l
+cpp/options.yy.cpp cpp/options.yy.h: cpp/options.l Makefile
 	$(REFLEX) cpp/options.l \
 		--lexer=OptionsLexer \
 		--outfile=cpp/options.yy.cpp \
 		--header-file=cpp/options.yy.h
+	dos2unix cpp/options.yy.cpp cpp/options.yy.h
 
 #------------------------------------------------------------------------------
 .c.o:
@@ -170,6 +171,7 @@ dev:
 
 doc:
 	$(MAKE) -C doc
+	$(MAKE)
 
 clean::
 	$(MAKE) -C lib clean

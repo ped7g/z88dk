@@ -258,6 +258,42 @@
 <p>Replace all occurrences of <code>JR</code> by <code>JP</code>, as the later are faster. <code>DJNZ</code> is not replaced by <code>DEC B \ JP</code> as the later is slower.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-2_2_4"></a></p>
+<h4>
+<a id="user-content-224---debug-debug-information" class="anchor" href="#224---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.4. --debug (debug information)</h4>
+<p>Add debug information to the map file: new symbols <code>__C_LINE_nn</code> and <code>__ASM_LINE_nn</code> are created on each <code>C_LINE</code> statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-2_3"></a></p>
+<h3>
+<a id="user-content-23-output-file-options" class="anchor" href="#23-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3. Output File Options</h3>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-2_3_1"></a></p>
+<h4>
+<a id="user-content-231--m---map-create-map-file" class="anchor" href="#231--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3.1. -m, --map (create map file)</h4>
+<p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
+<ul>
+<li>symbol name</li>
+<li>'='</li>
+<li>aboslute address in the binary file in hexadecimal</li>
+<li>';'</li>
+<li>'const' if symbols is a constant, 'addr' if it is an address or 'comput' if it is an expression evaluated at link time</li>
+<li>','</li>
+<li>scope of the symbol: 'local', 'public', 'extern' or 'global'</li>
+<li>','</li>
+<li>'def' if symbol is a global define (defined with <code>-Dsymbol</code> or <code>DEFINE</code>), empty string otherwise</li>
+<li>','</li>
+<li>module name where symbol was defined</li>
+<li>','</li>
+<li>section name where symbol was defined</li>
+<li>','</li>
+<li>source file name where symbol was defined</li>
+<li>':'</li>
+<li>source line number where symbol was defined</li>
+</ul>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-3"></a></p>
 <h2>
 <a id="user-content-3-copyright" class="anchor" href="#3-copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Copyright</h2>
@@ -281,6 +317,7 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a id="user-content-5-keywords" class="anchor" href="#5-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Keywords</h2>
 <p><a href="#2_2_2">-IXIY</a>
 <a href="#2_1_2">-h</a>
+<a href="#2_3_1">-m</a>
 <a href="#2_2_1">-mCPU</a>
 <a href="#2_1_3">-v</a>
 <a id="user-content-index"></a></p>
@@ -324,6 +361,15 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a href="#2_2_2">2.2.2.</a>  <a href="#2_2_2">-IXIY</a> , - <a href="#2_2_2">-IXIY</a>  (swap IX and IY)</li>
 <li>
 <a href="#2_2_3">2.2.3.</a> --opt=speed (optimise for speed)</li>
+<li>
+<a href="#2_2_4">2.2.4.</a> --debug (debug information)</li>
+</ul>
+</li>
+<li>
+<a href="#2_3">2.3.</a> Output File Options
+<ul>
+<li>
+<a href="#2_3_1">2.3.1.</a>  <a href="#2_3_1">-m</a> , --map (create map file)</li>
 </ul>
 </li>
 </ul>

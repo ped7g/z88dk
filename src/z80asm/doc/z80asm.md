@@ -166,6 +166,56 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
 
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=2_2_4></a>
+
+#### 2.2.4. --debug (debug information)
+
+Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=2_3></a>
+
+### 2.3. Output File Options
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=2_3_1></a>
+
+#### 2.3.1. -m, --map (create map file)
+
+Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+
+  - symbol name
+  - '='
+  - aboslute address in the binary file in hexadecimal
+  - ';'
+  - 'const' if symbols is a constant, 'addr' if it is an address or 'comput' if it is an expression evaluated at link time
+  - ','
+  - scope of the symbol: 'local', 'public', 'extern' or 'global'
+  - ','
+  - 'def' if symbol is a global define (defined with `-Dsymbol` or `DEFINE`), empty string otherwise
+  - ','
+  - module name where symbol was defined
+  - ','
+  - section name where symbol was defined
+  - ','
+  - source file name where symbol was defined
+  - ':'
+  - source line number where symbol was defined
+  
+
+
+
+
+
 
 ----
 
@@ -204,6 +254,7 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 ## 5. Keywords
  [-IXIY](#2_2_2) 
  [-h](#2_1_2) 
+ [-m](#2_3_1) 
  [-mCPU](#2_2_1) 
  [-v](#2_1_3) 
 <a id=index></a>
@@ -228,6 +279,9 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
     - [2.2.1.](#2_2_1)  [-mCPU](#2_2_1) , --cpu=CPU (select CPU)
     - [2.2.2.](#2_2_2)  [-IXIY](#2_2_2) , - [-IXIY](#2_2_2)  (swap IX and IY)
     - [2.2.3.](#2_2_3) --opt=speed (optimise for speed)
+    - [2.2.4.](#2_2_4) --debug (debug information)
+  - [2.3.](#2_3) Output File Options
+    - [2.3.1.](#2_3_1)  [-m](#2_3_1) , --map (create map file)
 - [3.](#3) Copyright
 - [4.](#4) License
 - [5.](#5) Keywords

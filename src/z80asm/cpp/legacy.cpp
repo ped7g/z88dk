@@ -68,6 +68,16 @@ bool OptionOptimizeSpeed()
 	return theCmdArgs.IsOptimizeSpeed();
 }
 
+bool OptionDebugInfo()
+{
+	return theCmdArgs.IsDebugInfo();
+}
+
+bool OptionMapFile()
+{
+	return theCmdArgs.DoMapFile();
+}
+
 const char* GetEnvPendingOpts()
 {
 	return theCmdArgs.GetEnvPendingOpts();

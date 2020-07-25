@@ -18,8 +18,6 @@ Define command line options
 OPT_VAR( bool,		symtable,	false	)
 OPT_VAR( bool,		list,		false	)	/* -l flag */
 OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
-OPT_VAR( bool,		map,		false	)
-OPT_VAR( bool,      debug_info, false   )	/* add debug info to map file */
 OPT_VAR( bool,		globaldef,	false	)
 OPT_VAR( bool,		make_bin,	false	)
 OPT_VAR( bool,		split_bin,	false   )	/* true to split binary file per section */
@@ -59,7 +57,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 OPT_TITLE("Help Options:")
 
 OPT_TITLE("Code Generation Options:")
-OPT(OptCall, option_debug_info, "-debug", "", "Add debug info to map file", "")
 
 OPT_TITLE("Environment:")
 OPT(OptStringList, &opts.inc_path, "-I", "", "Add directory to include search path", "PATH")
@@ -84,7 +81,6 @@ OPT(OptCallArg, option_filler, "-f", "", "Default value to fill in DEFS (decimal
 OPT_TITLE("Output File Options:")
 OPT(OptSet, &opts.symtable, "-s", "", "Create symbol table file" FILEEXT_SYM, "")
 OPT(OptSet, &opts.list, "-l", "", "Create listing file" FILEEXT_LIST, "")
-OPT(OptSet, &opts.map, "-m", "", "Create address map file" FILEEXT_MAP, "")
 OPT(OptSet, &opts.globaldef, "-g", "", "Create global definition file" FILEEXT_DEF, "")
 
 OPT_TITLE("Appmake Options:")

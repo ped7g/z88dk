@@ -51,7 +51,7 @@ void asm_cond_LABEL(Str* label)
 		Str_len(label) = 0;
 	}
 
-	if (opts.debug_info && !scr_is_c_source()) {
+	if (OptionDebugInfo() && !scr_is_c_source()) {
 		STR_DEFINE(name, STR_SIZE);
 
 		Str_sprintf(name, "__ASM_LINE_%ld", get_error_line());
@@ -173,7 +173,7 @@ void asm_C_LINE(int line_nr, const char* filename)
 	set_error_file(filename);
 	set_error_line(line_nr);
 
-	if (opts.debug_info) {
+	if (OptionDebugInfo()) {
 		STR_DEFINE(name, STR_SIZE);
 
 		Str_sprintf(name, "__C_LINE_%ld", line_nr);

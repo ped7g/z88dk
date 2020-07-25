@@ -28,7 +28,7 @@ all: 	z80asm.md   	z80asm-future.md \
 .html.txt:
 	@echo use elinks to render html
 	elinks -dump $< > $@~1
-	perl -pe 's{file:///.*?/src/z80asm/}{file://}g' $@~1 > $@~2
+	perl -pe 's{file:///.*?/src/z80asm/doc/}{file://}g' $@~1 > $@~2
 	$(MV) $@~2 $@
 	$(RM) $@~1
 

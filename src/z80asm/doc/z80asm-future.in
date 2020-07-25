@@ -149,6 +149,34 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
+#### --debug (debug information)
+
+Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
+
+### Output File Options
+
+#### -m, --map (create map file)
+
+Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+
+  - symbol name
+  - '='
+  - aboslute address in the binary file in hexadecimal
+  - ';'
+  - 'const' if symbols is a constant, 'addr' if it is an address or 'comput' if it is an expression evaluated at link time
+  - ','
+  - scope of the symbol: 'local', 'public', 'extern' or 'global'
+  - ','
+  - 'def' if symbol is a global define (defined with `-Dsymbol` or `DEFINE`), empty string otherwise
+  - ','
+  - module name where symbol was defined
+  - ','
+  - section name where symbol was defined
+  - ','
+  - source file name where symbol was defined
+  - ':'
+  - source line number where symbol was defined
+  
 ## Input Files
 
 **z80asm** reads text files in the syntax supported by the specific processor being assembled for (see `-mCPU` option) and produces the corresponding object files.
@@ -496,12 +524,6 @@ Same as providing both -b (link/relocate object files) and -d (assemble only upd
 #### -o\<binary-filename\> : Binary filename
 
 Define another filename for the compiled binary output than the default source filename of the project, appended with the ".bin" extension.
-
-#### -m : Create address map information file
-
-When the linking process has been completed and the machine code saved to a file, the address map file is produced. This file contains the information of all relocated address symbols with their assigned absolute addresses. Further, an id is written that displays the scope of the symbols; local ('L') or global ('G'). The last item of each address map line, identified after the colon, is the name of the module which the symbol name belongs to.
-
-The address map file is divided into two sections; the first produces the symbol list in alphabetical order (fast lookup of symbol names), the second in order of their address counterparts. The section is more used during a debugging session when an address in a disassembly needs to be identified with a name. The second list also gives a chronological view (composition) of the linked modules.
 
 #### -r\<hex-address\> : Re-define the ORG relocation address
 

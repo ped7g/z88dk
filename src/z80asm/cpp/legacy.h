@@ -65,6 +65,8 @@ extern "C" {
 	void TraverseDefines(void(*func)(const char* name));
 	bool OptionVerbose();
 	bool OptionOptimizeSpeed();
+	bool OptionDebugInfo();
+	bool OptionMapFile();
 	const char* GetEnvPendingOpts();
 
 #ifdef __cplusplus

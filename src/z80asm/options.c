@@ -62,7 +62,6 @@ static void option_use_lib(const char *library );
 static void option_appmake_zx(void);
 static void option_appmake_zx81(void);
 static void option_filler(const char *filler_arg );
-static void option_debug_info();
 static void define_assembly_defines();
 static void include_z80asm_lib();
 static const char *search_z80asm_lib();
@@ -620,12 +619,6 @@ static void option_filler(const char *filler_arg )
 		error_invalid_filler_option(filler_arg);
 	else
 		opts.filler = value;
-}
-
-static void option_debug_info()
-{
-	opts.debug_info = true;
-	opts.map = true;
 }
 
 static void option_define(const char *symbol )

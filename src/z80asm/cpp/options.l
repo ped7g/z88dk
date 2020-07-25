@@ -47,6 +47,8 @@
 		std::string cpuName;		// used to search libraries
 		bool swapIxIy;				// swap IX and IY
 		bool optimizeSpeed;			// true to optimize for speed
+		bool debugInfo;				// add debug info to map file 
+		bool mapFile;				// generate map file
 		std::string envPendingOpts;	// options from environment to parse by the C code
 									// TODO: to remove
 		std::vector<std::string> defines;	// list of -D defines
@@ -62,6 +64,8 @@
 		bool IsTi83Plus() const { return isTi83Plus; }
 		bool SwapIxIy() const { return swapIxIy; }
 		bool IsOptimizeSpeed() const { return optimizeSpeed; }
+		bool IsDebugInfo() const { return debugInfo; }
+		bool DoMapFile() const { return mapFile; }
 		auto cbeginDefines() const { return defines.cbegin(); }
 		auto cendDefines() const { return defines.cend(); }
 
@@ -111,7 +115,12 @@
 -IXIY  \z | \
 --IXIY \z		{ swapIxIy = true; return true; }
 
---opt=speed		{ optimizeSpeed = true; return true; }
+--opt=speed	\z	{ optimizeSpeed = true; return true; }
+
+--debug \z		{ debugInfo = true; mapFile = true; return true; }
+
+-m    \z |
+--map \z		{ mapFile = true; return true; }
 
 .				{ return false; }
 

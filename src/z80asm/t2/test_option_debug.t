@@ -80,7 +80,7 @@ path("${test}.c")->spew(<<END);
 END
 
 system_ok("zcc +z80 -m -clib=new -Cc-gcline -Ca--debug ${test}.c ${test}1.asm -o${test}.bin");
-system_ok("grep ${test} ${test}.map | grep -v 'zcc.*\\.i:' > ${test}.map1");
+system_ok("grep ${test} ${test}.map | grep -v '\\.i:[0-9]' > ${test}.map1");
 path("${test}.exp")->spew(<<END);
 __C_LINE_0                      = \$0000 ; addr, local, , ${test}_c, , ${test}.c:0
 __C_LINE_3                      = \$0000 ; addr, local, , ${test}_c, , ${test}.c:3

@@ -12,7 +12,7 @@
 #include "modlink.h"
 #include "utlist.h"
 #include "zobjfile.h"
-#include "options.h"
+#include "options_c.h"
 
 char Z80libhdr[] = "Z80LMF" OBJ_VERSION;
 

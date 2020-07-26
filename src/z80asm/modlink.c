@@ -16,7 +16,7 @@ License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_licens
 #include "libfile.h"
 #include "listfile.h"
 #include "modlink.h"
-#include "options.h"
+#include "options_c.h"
 #include "scan.h"
 #include "str.h"
 #include "strutil.h"

@@ -19,7 +19,7 @@ b) performance - avltree 50% slower when loading the symbols from the ZX 48 ROM 
 #include "listfile.h"
 #include "fileutil.h"
 #include "model.h"
-#include "options.h"
+#include "options_c.h"
 #include "symbol.h"
 #include "symtab.h"
 #include "str.h"

@@ -188,9 +188,12 @@
     <ClCompile Include="..\..\src\common\zutils.c" />
     <ClCompile Include="..\..\src\z80asm\codearea.c" />
     <ClCompile Include="..\..\src\z80asm\common.c" />
+    <ClCompile Include="..\..\src\z80asm\cpp\Arch.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\CmdArgs.cpp" />
+    <ClCompile Include="..\..\src\z80asm\cpp\Cpu.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\legacy.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\main.cpp" />
+    <ClCompile Include="..\..\src\z80asm\cpp\Options.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\options.yy.cpp" />
     <ClCompile Include="..\..\src\z80asm\directives.c" />
     <ClCompile Include="..\..\src\z80asm\doc\z80asm_manual.c" />
@@ -215,7 +218,7 @@
     <ClCompile Include="..\..\src\z80asm\module.c" />
     <ClCompile Include="..\..\src\z80asm\zobjfile.c" />
     <ClCompile Include="..\..\src\z80asm\opcodes.c" />
-    <ClCompile Include="..\..\src\z80asm\options.c" />
+    <ClCompile Include="..\..\src\z80asm\options_c.c" />
     <ClCompile Include="..\..\src\z80asm\parse.c" />
     <ClCompile Include="..\..\src\z80asm\scan.c" />
     <ClCompile Include="..\..\src\z80asm\sym.c" />
@@ -229,8 +232,11 @@
     <ClInclude Include="..\..\src\portability.h" />
     <ClInclude Include="..\..\src\z80asm\codearea.h" />
     <ClInclude Include="..\..\src\z80asm\common.h" />
+    <ClInclude Include="..\..\src\z80asm\cpp\Arch.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\CmdArgs.h" />
+    <ClInclude Include="..\..\src\z80asm\cpp\Cpu.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\legacy.h" />
+    <ClInclude Include="..\..\src\z80asm\cpp\Options.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\options.yy.h" />
     <ClInclude Include="..\..\src\z80asm\directives.h" />
     <ClInclude Include="..\..\src\z80asm\doc\z80asm_manual.h" />
@@ -260,7 +266,7 @@
     <ClInclude Include="..\..\src\z80asm\module.h" />
     <ClInclude Include="..\..\src\z80asm\zobjfile.h" />
     <ClInclude Include="..\..\src\z80asm\opcodes.h" />
-    <ClInclude Include="..\..\src\z80asm\options.h" />
+    <ClInclude Include="..\..\src\z80asm\options_c.h" />
     <ClInclude Include="..\..\src\z80asm\options_def.h" />
     <ClInclude Include="..\..\src\z80asm\parse.h" />
     <ClInclude Include="..\..\src\z80asm\parse_rules.h" />

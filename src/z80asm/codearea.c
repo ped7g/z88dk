@@ -15,7 +15,7 @@ Manage the code area in memory
 #include "fileutil.h"
 #include "init.h"
 #include "listfile.h"
-#include "options.h"
+#include "options_c.h"
 #include "strutil.h"
 #include "utstring.h"
 #include "z80asm.h"

@@ -14,8 +14,14 @@
 class CmdArgs : public OptionsLexer
 {
 public:
-	CmdArgs();
-	virtual ~CmdArgs();
+	bool ParseEnv(const std::string& envVariable = "Z80ASM");	// parse options from environment
+	bool ParseArgs(int argc, char* argv[]);						// parse options from ARGV
+	const char* GetEnvPendingOpts() const { return envPendingOpts.c_str(); }
+
+private:
+	std::string envPendingOpts;	// options from environment to parse by the C code
+								// TODO: to remove
 };
 
-extern CmdArgs theCmdArgs;		// singleton
+// singleton
+extern CmdArgs theCmdArgs;		

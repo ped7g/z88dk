@@ -11,7 +11,7 @@ Error handling.
 #include "errors.h"
 #include "fileutil.h"
 #include "init.h"
-#include "options.h"
+#include "options_c.h"
 #include "srcfile.h"
 #include "str.h"
 #include "strhash.h"

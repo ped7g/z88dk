@@ -18,7 +18,7 @@ for my $cpu ("", "--cpuz80", "--cpu=z80", "-mz80", "-m=z80") {
 END
 }
 
-# __CPU_xxx_contants___
+# __CPU_xxx_contants___ and __ARCH_xxx_constants__
 my $asm = <<END;
 		if __CPU_Z80__
 		defb 1
@@ -53,18 +53,18 @@ my $asm = <<END;
 		if __CPU_INTEL__
 		defb 11
 		endif
-		if __ARCH_TI83__		; TODO: not yet implemented
+		if __ARCH_TI83__
 		defb 12
 		endif
-		if __ARCH_TI83PLUS__	; TODO: not yet implemented
+		if __ARCH_TI83PLUS__
 		defb 13
 		endif
 END
 
 for my $spurious ("", "-mr2k -m8080") {	# check that only last -m has effect
 	asm_ok($asm, "$spurious -mz80     ", 1, 9);
-	asm_ok($asm, "$spurious -mti83    ", 1, 9);
-	asm_ok($asm, "$spurious -mti83plus", 1, 9);
+	asm_ok($asm, "$spurious -mti83    ", 1, 9, 12);
+	asm_ok($asm, "$spurious -mti83plus", 1, 9, 13);
 	asm_ok($asm, "$spurious -mz80n    ", 2, 9);
 	asm_ok($asm, "$spurious -mz180    ", 3, 9);
 	asm_ok($asm, "$spurious -mr2k     ", 4, 10);

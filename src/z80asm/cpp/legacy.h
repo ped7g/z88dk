@@ -60,9 +60,9 @@ extern "C" {
 	// called by legacy
 	int GetCpu();
 	const char* GetCpuName();
-	bool IsTi83Plus();
+	int GetInvokeOpcode();
 	bool SwapIxIy();
-	void TraverseDefines(void(*func)(const char* name));
+	void TraverseDefines(void(*func)(const char* name, int value));
 	bool OptionVerbose();
 	bool OptionOptimizeSpeed();
 	bool OptionDebugInfo();

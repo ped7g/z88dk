@@ -40,20 +40,9 @@
 	#endif
 	#endif
 
-	#include "legacy.h"
-
-	#include "config.h"
-	#include "z80asm_manual.h"
-	#include "z80asm_usage.h"
-
-	#include <cassert>
-	#include <iostream>
-	#include <string>
-	#include <vector>
-
-	#ifndef Z88DK_VERSION
-	#define Z88DK_VERSION "build " __DATE__
-	#endif
+	#include "Arch.h"
+	#include "Cpu.h"
+	#include "Options.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -79,41 +68,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
-
-	private:
-		static const char copyrightmsg[];
-
-		bool verbose;				// true to be verbose
-		int cpu;					// TODO: replace with class enum
-		bool isTi83Plus;			// true for the TI83Plus
-		std::string cpuName;		// used to search libraries
-		bool swapIxIy;				// swap IX and IY
-		bool optimizeSpeed;			// true to optimize for speed
-		bool debugInfo;				// add debug info to map file
-		bool mapFile;				// generate map file
-		std::string envPendingOpts;	// options from environment to parse by the C code
-									// TODO: to remove
-		std::vector<std::string> defines;	// list of -D defines
-
-	public:
-		bool ParseEnv(const std::string& envVariable = "Z80ASM");	// parse options from environment
-		bool ParseArgs(int argc, char* argv[]);						// parse options from ARGV
-
-		bool IsVerbose() const { return verbose; }
-		const char* GetEnvPendingOpts() const { return envPendingOpts.c_str(); }
-		int GetCpu() const { return cpu; }
-		const std::string& GetCpuName() const { return cpuName; }
-		bool IsTi83Plus() const { return isTi83Plus; }
-		bool SwapIxIy() const { return swapIxIy; }
-		bool IsOptimizeSpeed() const { return optimizeSpeed; }
-		bool IsDebugInfo() const { return debugInfo; }
-		bool DoMapFile() const { return mapFile; }
-		auto cbeginDefines() const { return defines.cbegin(); }
-		auto cendDefines() const { return defines.cend(); }
-
-	private:
-		void ShowManual() const;
-
  public:
   typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
   OptionsLexer(

@@ -17,7 +17,7 @@ Handle object file contruction, reading and writing
 #include "fileutil.h"
 #include "libfile.h"
 #include "model.h"
-#include "options.h"
+#include "options_c.h"
 #include "str.h"
 #include "strutil.h"
 #include "utstring.h"

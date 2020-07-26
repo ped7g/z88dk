@@ -36,20 +36,9 @@
 	#endif
 	#endif
 
-	#include "legacy.h"
-
-	#include "config.h"
-	#include "z80asm_manual.h"
-	#include "z80asm_usage.h"
-
-	#include <cassert>
-	#include <iostream>
-	#include <string>
-	#include <vector>
-
-	#ifndef Z88DK_VERSION
-	#define Z88DK_VERSION "build " __DATE__
-	#endif
+	#include "Arch.h"
+	#include "Cpu.h"
+	#include "Options.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -75,41 +64,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
-
-	private:
-		static const char copyrightmsg[];
-
-		bool verbose;				// true to be verbose
-		int cpu;					// TODO: replace with class enum
-		bool isTi83Plus;			// true for the TI83Plus
-		std::string cpuName;		// used to search libraries
-		bool swapIxIy;				// swap IX and IY
-		bool optimizeSpeed;			// true to optimize for speed
-		bool debugInfo;				// add debug info to map file
-		bool mapFile;				// generate map file
-		std::string envPendingOpts;	// options from environment to parse by the C code
-									// TODO: to remove
-		std::vector<std::string> defines;	// list of -D defines
-
-	public:
-		bool ParseEnv(const std::string& envVariable = "Z80ASM");	// parse options from environment
-		bool ParseArgs(int argc, char* argv[]);						// parse options from ARGV
-
-		bool IsVerbose() const { return verbose; }
-		const char* GetEnvPendingOpts() const { return envPendingOpts.c_str(); }
-		int GetCpu() const { return cpu; }
-		const std::string& GetCpuName() const { return cpuName; }
-		bool IsTi83Plus() const { return isTi83Plus; }
-		bool SwapIxIy() const { return swapIxIy; }
-		bool IsOptimizeSpeed() const { return optimizeSpeed; }
-		bool IsDebugInfo() const { return debugInfo; }
-		bool DoMapFile() const { return mapFile; }
-		auto cbeginDefines() const { return defines.cbegin(); }
-		auto cendDefines() const { return defines.cend(); }
-
-	private:
-		void ShowManual() const;
-
  public:
   typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
   OptionsLexer(
@@ -174,188 +128,84 @@ int OptionsLexer::lex()
               out().put(matcher().input());
             }
             break;
-          case 1: // rule at line 79: -v\z|--verbose\z :
-{ verbose = true; return true; }
+          case 1: // rule at line 32: -v\z|--verbose\z :
+{ theOptions.verbose = true; return true; }
 
             break;
-          case 2: // rule at line 83: -\?\z|-h\z|--help\z :
-{ ShowManual(); return true; }
+          case 2: // rule at line 36: -\?\z|-h\z|--help\z :
+{ ExitManual(); }
 
             break;
-          case 3: // rule at line 86: -m=?z80\z|--cpu=?z80\z :
-{ cpu = CPU_Z80; return true; }
+          case 3: // rule at line 39: -m=?z80\z|--cpu=?z80\z :
+{ theCpu.Init(Cpu::Type::Z80); return true; }
 
             break;
-          case 4: // rule at line 89: -m=?z80n\z|--cpu=?z80n\z :
-{ cpu = CPU_Z80N; return true; }
+          case 4: // rule at line 42: -m=?z80n\z|--cpu=?z80n\z :
+{ theCpu.Init(Cpu::Type::Z80N); return true; }
 
             break;
-          case 5: // rule at line 92: -m=?z180\z|--cpu=?z180\z :
-{ cpu = CPU_Z180; return true; }
+          case 5: // rule at line 45: -m=?z180\z|--cpu=?z180\z :
+{ theCpu.Init(Cpu::Type::Z180); return true; }
 
             break;
-          case 6: // rule at line 95: -m=?r2k\z|--cpu=?r2k\z :
-{ cpu = CPU_R2K; return true; }
+          case 6: // rule at line 48: -m=?r2k\z|--cpu=?r2k\z :
+{ theCpu.Init(Cpu::Type::R2K); return true; }
 
             break;
-          case 7: // rule at line 98: -m=?r3k\z|--cpu=?r3k\z :
-{ cpu = CPU_R3K; return true; }
+          case 7: // rule at line 51: -m=?r3k\z|--cpu=?r3k\z :
+{ theCpu.Init(Cpu::Type::R3K); return true; }
 
             break;
-          case 8: // rule at line 101: -m=?8080\z|--cpu=?8080\z :
-{ cpu = CPU_8080; return true; }
+          case 8: // rule at line 54: -m=?8080\z|--cpu=?8080\z :
+{ theCpu.Init(Cpu::Type::I8080); return true; }
 
             break;
-          case 9: // rule at line 104: -m=?8085\z|--cpu=?8085\z :
-{ cpu = CPU_8085; return true; }
+          case 9: // rule at line 57: -m=?8085\z|--cpu=?8085\z :
+{ theCpu.Init(Cpu::Type::I8085); return true; }
 
             break;
-          case 10: // rule at line 107: -m=?gbz80\z|--cpu=?gbz80\z :
-{ cpu = CPU_GBZ80; return true; }
+          case 10: // rule at line 60: -m=?gbz80\z|--cpu=?gbz80\z :
+{ theCpu.Init(Cpu::Type::GBZ80); return true; }
 
             break;
-          case 11: // rule at line 110: -m=?ti83\z|--cpu=?ti83\z :
-{ cpu = CPU_Z80; isTi83Plus = false; return true; }	// TODO: define __ARCH_TI83__
+          case 11: // rule at line 63: -m=?ti83\z|--cpu=?ti83\z :
+{	theCpu.Init(Cpu::Type::Z80);
+					theArch.Init(Arch::Type::TI83);
+					return true; }
 
             break;
-          case 12: // rule at line 113: -m=?ti83plus\z|--cpu=?ti83plus\z :
-{ cpu = CPU_Z80; isTi83Plus = true; return true; }	// TODO: define __ARCH_TI83PLUS__
+          case 12: // rule at line 68: -m=?ti83plus\z|--cpu=?ti83plus\z :
+{
+					theCpu.Init(Cpu::Type::Z80);
+					theArch.Init(Arch::Type::TI83PLUS);
+					return true; }
 
             break;
-          case 13: // rule at line 116: -IXIY\z|--IXIY\z :
-{ swapIxIy = true; return true; }
+          case 13: // rule at line 74: -IXIY\z|--IXIY\z :
+{ theOptions.swapIxIy = true; return true; }
 
             break;
-          case 14: // rule at line 118: --opt=speed\z :
-{ optimizeSpeed = true; return true; }
+          case 14: // rule at line 76: --opt=speed\z :
+{ theOptions.optimizeSpeed = true; return true; }
 
             break;
-          case 15: // rule at line 120: --debug\z :
-{ debugInfo = true; mapFile = true; return true; }
+          case 15: // rule at line 78: --debug\z :
+{	theOptions.debugInfo = true;
+					theOptions.doMapFile = true;
+					return true; }
 
             break;
-          case 16: // rule at line 122: -m\z :
-          case 17: // rule at line 123: --map\z :
-{ mapFile = true; return true; }
+          case 16: // rule at line 82: -m\z :
+          case 17: // rule at line 83: --map\z :
+{ theOptions.doMapFile = true; return true; }
 
             break;
-          case 18: // rule at line 125: [\x00-\xff] :
+          case 18: // rule at line 92: [\x00-\xff] :
 { return false; }
 
             break;
         }
   }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-//  SECTION 3: user code                                                      //
-//                                                                            //
-////////////////////////////////////////////////////////////////////////////////
-
-
-const char OptionsLexer::copyrightmsg[]{
-	"Z80 Module Assembler " Z88DK_VERSION "\n"
-		"(c) InterLogic 1993-2009, Paulo Custodio 2011-2020"
-};
-
-bool OptionsLexer::ParseEnv(const std::string& envVariable)
-{
-	using namespace std;
-
-	envPendingOpts.clear();
-
-	const char *opts = getenv(envVariable.c_str());
-	if (!opts)
-		return true;
-	stringstream iss{ string(opts) };
-	string arg;
-
-	while (iss >> arg) {
-		in(arg);
-		if (!lex()) {						// TODO: error handling
-			envPendingOpts += arg + " ";	// pass options not parsed to the C code
-		}
-	}
-
-	return true;
-}
-
-bool OptionsLexer::ParseArgs(int argc, char* argv[])
-{
-	using namespace std;
-
-	// if no arguments, just show usage and exit
-	if (argc == 1) {
-		cout << copyrightmsg << endl << endl
-			<< z80asm_usage;
-		exit(EXIT_SUCCESS);
-	}
-
-	// parse options
-	for (int i = 1; i < argc; ++i) {
-		in(argv[i]);
-		if (lex())
-			argv[i][0] = '\0';		// cancel this argument for next pass
-		else {						// TODO: error handling
-		}
-	}
-
-	switch (cpu) {		// TODO: use a lookup-table
-	case CPU_NOT_DEFINED:
-		cpu = CPU_Z80;
-		// fall through
-	case CPU_Z80:
-		cpuName = CPU_Z80_NAME;
-		defines.push_back(CPU_Z80_DEFINE);
-		defines.push_back(CPU_ZILOG_DEFINE);
-		break;
-	case CPU_Z80N:
-		cpuName = CPU_Z80N_NAME;
-		defines.push_back(CPU_Z80N_DEFINE);
-		defines.push_back(CPU_ZILOG_DEFINE);
-		break;
-	case CPU_Z180:
-		cpuName = CPU_Z180_NAME;
-		defines.push_back(CPU_Z180_DEFINE);
-		defines.push_back(CPU_ZILOG_DEFINE);
-		break;
-	case CPU_R2K:
-		cpuName = CPU_R2K_NAME;
-		defines.push_back(CPU_R2K_DEFINE);
-		defines.push_back(CPU_RABBIT_DEFINE);
-		break;
-	case CPU_R3K:
-		cpuName = CPU_R3K_NAME;
-		defines.push_back(CPU_R3K_DEFINE);
-		defines.push_back(CPU_RABBIT_DEFINE);
-		break;
-	case CPU_8080:
-		cpuName = CPU_8080_NAME;
-		defines.push_back(CPU_8080_DEFINE);
-		defines.push_back(CPU_INTEL_DEFINE);
-		break;
-	case CPU_8085:
-		cpuName = CPU_8085_NAME;
-		defines.push_back(CPU_8085_DEFINE);
-		defines.push_back(CPU_INTEL_DEFINE);
-		break;
-	case CPU_GBZ80:
-		cpuName = CPU_GBZ80_NAME;
-		defines.push_back(CPU_GBZ80_DEFINE);
-		break;
-	default:
-		assert(0);
-	}
-
-	return true;
-}
-
-void OptionsLexer::ShowManual() const
-{
-	using namespace std;
-	cout << z80asm_manual;
-	exit(EXIT_SUCCESS);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

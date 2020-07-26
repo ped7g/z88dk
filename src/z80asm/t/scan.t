@@ -15,7 +15,7 @@ use Test::Differences;
 require './t/test_utils.pl';
 
 my $objs = "scan.o errors.o error_func.o model.o module.o codearea.o listfile.o ".
-		   "options.o sym.o symtab.o expr.o ".
+		   "options_c.o sym.o symtab.o expr.o ".
 		   "lib/str.o lib/strhash.o  ../common/fileutil.o ../common/strutil.o ../common/die.o ../common/objfile.o ../../ext/regex/regcomp.o ../../ext/regex/regerror.o ../../ext/regex/regexec.o ../../ext/regex/regfree.o modlink.o zobjfile.o libfile.o ".
 		   "lib/srcfile.o macros.o lib/class.o ".
 		   "lib/list.o lib/array.o lib/dbg.o ../common/zutils.o z80asm.o z80pass.o directives.o parse.o opcodes.o ";

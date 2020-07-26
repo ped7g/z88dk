@@ -10,7 +10,7 @@ One symbol from the assembly code - label or constant.
 
 #include "errors.h"
 #include "listfile.h"
-#include "options.h"
+#include "options_c.h"
 #include "str.h"
 #include "strutil.h"
 #include "sym.h"

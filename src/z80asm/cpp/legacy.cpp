@@ -5,7 +5,11 @@
 //-----------------------------------------------------------------------------
 
 #include "legacy.h"
+
+#include "Arch.h"
 #include "CmdArgs.h"
+#include "Cpu.h"
+#include "Options.h"
 
 const char* CPU_Z80_NAME = "z80";
 const char* CPU_Z80N_NAME = "z80n";
@@ -33,49 +37,49 @@ const char* SWAP_IXIY_DEFINE = "__SWAP_IX_IY__";
 
 int GetCpu() 
 {
-	return theCmdArgs.GetCpu();
+	return static_cast<int>(theCpu.GetType());
 }
 
 const char* GetCpuName()
 {
-	return theCmdArgs.GetCpuName().c_str();
+	return theCpu.GetName().c_str();
 }
 
-bool IsTi83Plus()
+int GetInvokeOpcode()
 {
-	return theCmdArgs.IsTi83Plus();
+	return theArch.INVOKE();
 }
 
 bool SwapIxIy()
 {
-	return theCmdArgs.SwapIxIy();
+	return theOptions.swapIxIy;
 }
 
-void TraverseDefines(void(*func)(const char *name))
+void TraverseDefines(void(*func)(const char *name, int value))
 {
-	for (auto it = theCmdArgs.cbeginDefines();
-		it != theCmdArgs.cendDefines(); ++it)
-		func((*it).c_str());
+	for (auto it = theOptions.defines.cbegin();
+		it != theOptions.defines.cend(); ++it)
+		func((*it).first.c_str(), (*it).second);
 }
 
 bool OptionVerbose()
 {
-	return theCmdArgs.IsVerbose();
+	return theOptions.verbose;
 }
 
 bool OptionOptimizeSpeed()
 {
-	return theCmdArgs.IsOptimizeSpeed();
+	return theOptions.optimizeSpeed;
 }
 
 bool OptionDebugInfo()
 {
-	return theCmdArgs.IsDebugInfo();
+	return theOptions.debugInfo;
 }
 
 bool OptionMapFile()
 {
-	return theCmdArgs.DoMapFile();
+	return theOptions.doMapFile;
 }
 
 const char* GetEnvPendingOpts()

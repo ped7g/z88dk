@@ -84,9 +84,6 @@
     <ClCompile Include="..\..\src\z80asm\opcodes.c">
       <Filter>Source Files\legacy</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\z80asm\options.c">
-      <Filter>Source Files\legacy</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\z80asm\parse.c">
       <Filter>Source Files\legacy</Filter>
     </ClCompile>
@@ -136,6 +133,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\z80asm\cpp\options.yy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\cpp\Options.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\options_c.c">
+      <Filter>Source Files\legacy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\cpp\Cpu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\cpp\Arch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -212,9 +221,6 @@
     <ClInclude Include="..\..\src\z80asm\opcodes.h">
       <Filter>Header Files\legacy</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\z80asm\options.h">
-      <Filter>Header Files\legacy</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\z80asm\options_def.h">
       <Filter>Header Files\legacy</Filter>
     </ClInclude>
@@ -282,6 +288,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\z80asm\cpp\options.yy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\cpp\Options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\options_c.h">
+      <Filter>Header Files\legacy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\cpp\Cpu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\cpp\Arch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

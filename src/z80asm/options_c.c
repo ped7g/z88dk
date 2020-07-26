@@ -15,7 +15,7 @@
 #include "init.h"
 #include "model.h"
 #include "modlink.h"
-#include "options.h"
+#include "options_c.h"
 #include "srcfile.h"
 #include "str.h"
 #include "strutil.h"
@@ -128,7 +128,7 @@ DEFINE_dtor_module()
 static void process_env_options()
 {
 	const char *opts = GetEnvPendingOpts();
-	if (!opts)
+	if (!opts || *opts == '\0')
 		return;
 
 	// add dummy program name option
@@ -662,8 +662,8 @@ static void option_use_lib(const char *library) {
 	library_file_append(library);
 }
 
-static void def_sym(const char* name) {
-	define_static_def_sym(name, 1);
+static void def_sym(const char* name, int value) {
+	define_static_def_sym(name, value);
 }
 
 static void define_assembly_defines()

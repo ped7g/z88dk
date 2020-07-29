@@ -99,7 +99,7 @@ void assemble_file( const char *filename )
 	
 	/* append the directoy of the file being assembled to the include path 
 	   and remove it at function end */
-	argv_push(opts.inc_path, path_dir(src_filename));
+	PushSourceDirname(src_filename);
 
     /* normal case - assemble a asm source file */
     opts.cur_list = opts.list;		/* initial LSTON status */
@@ -127,7 +127,7 @@ void assemble_file( const char *filename )
 	opts.cur_list = false;
 
 	/* finished assembly, remove dirname from include path */
-	argv_pop(opts.inc_path);
+	PopSourceDirname();
 }
 
 /*-----------------------------------------------------------------------------

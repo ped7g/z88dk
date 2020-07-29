@@ -307,51 +307,7 @@ z80asm(
 );
 
 #------------------------------------------------------------------------------
-# -R, --relocatable - tested in reloc.t
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# -I - tested in directives.t
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# -L
-#------------------------------------------------------------------------------
-
-# create library
-my $lib = 't/data/'.basename(lib_file());
-my $lib_base = basename($lib);
-my $lib_dir  = dirname($lib);
-
-write_file(asm_file(), "PUBLIC main \n main: ret ");
-t_z80asm_capture("-x".$lib." ".asm_file(), "", "", 0);
-ok -f $lib;
-
-$asm = "EXTERN main \n call main \n ret";
-$bin = "\xCD\x04\x00\xC9\xC9";
-
-# no -L, full path : OK
-t_z80asm_ok(0, $asm, $bin, "-l".$lib);
-
-# no -L, only file name : error
-write_file(asm_file(), $asm);
-t_z80asm_capture("-l".$lib_base." ".asm_file(), "", 
-		"Error: cannot read file 'test.lib'\n", 1);
-
-# -L : OK
-t_z80asm_ok(0, $asm, $bin, "-L$lib_dir -l$lib_base");
-
-# use environment variable in -L
-$ENV{TEST_ENV} = 'data';
-t_z80asm_ok(0, $asm, $bin, '"-Lt/${TEST_ENV}" -l'.$lib_base);
-
-delete $ENV{TEST_ENV};
-t_z80asm_ok(0, $asm, $bin, '"-Lt/da${TEST_ENV}ta" -l'.$lib_base);
-
-unlink_testfiles($lib);
-
-#------------------------------------------------------------------------------
-# -D
+# -D, --define
 #------------------------------------------------------------------------------
 
 $asm = "ld a,_value23";		# BUG_0045
@@ -397,7 +353,7 @@ t_z80asm_ok(0, $asm, "\x3E\x01", '"-D=_value${TEST_ENV}23"');
 unlink_testfiles();
 
 # create a lib name that is not removed by unlink_testfiles()
-$lib = lib_file(); $lib =~ s/\.lib$/_lib.lib/i;
+my $lib = lib_file(); $lib =~ s/\.lib$/_lib.lib/i;
 unlink $lib;
 
 # create a library

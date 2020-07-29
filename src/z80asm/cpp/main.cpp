@@ -10,7 +10,8 @@
 
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
 	if (!theCmdArgs.ParseEnv())
 		return EXIT_FAILURE;
 	if (!theCmdArgs.ParseArgs(argc, argv))

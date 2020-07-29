@@ -210,7 +210,7 @@ void asm_INCLUDE(const char* filename)
 
 void asm_BINARY(const char* filename)
 {
-	filename = path_search(filename, opts.inc_path);
+	filename = SearchIncludeFile(filename);
 	FILE* binfile = fopen(filename, "rb");
 	if (!binfile) {
 		error_read_file(filename);

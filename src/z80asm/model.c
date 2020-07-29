@@ -65,10 +65,10 @@ void model_init(void)
 /*-----------------------------------------------------------------------------
 *   interface to SrcFile singleton
 *----------------------------------------------------------------------------*/
-bool src_open(const char *filename, UT_array *dir_list)
+bool src_open(const char *filename, bool search_include_path)
 {
 	init_module();
-	return SrcFile_open( g_src_input, filename, dir_list );
+	return SrcFile_open( g_src_input, filename, search_include_path);
 }
 
 static char *src_getline1( void )

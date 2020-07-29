@@ -106,7 +106,7 @@
 <a id="user-content-1_3"></a></p>
 <h3>
 <a id="user-content-13--as-linker" class="anchor" href="#13--as-linker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3. ... as linker</h3>
-<pre><code>z80asm  [-b](#5_3_6)  [options] [-ilibrary.lib...] file...
+<pre><code>z80asm  [-b](#6_2_6)  [options] [-ilibrary.lib...] file...
 </code></pre>
 <p>Link the object files together and with any requested libraries into a set of binary files.</p>
 <hr>
@@ -116,85 +116,94 @@
 <a id="user-content-14--as-librarian" class="anchor" href="#14--as-librarian" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4. ... as librarian</h3>
 <pre><code>z80asm -xlibrary.lib [options] file...
 </code></pre>
-<p>Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the <code>[-i](#5_3_14)</code> option.</p>
+<p>Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the <code>[-i](#6_2_14)</code> option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-2"></a></p>
 <h2>
-<a id="user-content-2-options" class="anchor" href="#2-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Options</h2>
+<a id="user-content-2-environment-variables" class="anchor" href="#2-environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Environment Variables</h2>
+<p>The syntax <code>${ENV_VAR}</code> can be used whenever a file name or a command line option is expected, and expands to the value of the given environment variable, or the empty string if it is not defined.</p>
+<p>The environment variable <code>Z80ASM</code>, if defined, contains additional options that are used in every invocation of <strong>z80asm</strong>.</p>
+<p>The environment variable <code>ZCCCFG</code> is used to search for the <strong>z80asm</strong> libraries at its parent directory, i.e. <code>${ZCCCFG}/..</code>. These libraries define emulation routines for certain opcodes not available in all platforms.</p>
+<p><strong>TODO</strong>: table with all emulated opcodes.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1"></a></p>
+<a id="user-content-3"></a></p>
+<h2>
+<a id="user-content-3-options" class="anchor" href="#3-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Options</h2>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_1"></a></p>
 <h3>
-<a id="user-content-21-help-options" class="anchor" href="#21-help-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1. Help Options</h3>
+<a id="user-content-31-help-options" class="anchor" href="#31-help-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1. Help Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_1"></a></p>
+<a id="user-content-3_1_1"></a></p>
 <h4>
-<a id="user-content-211-no-arguments-show-usage" class="anchor" href="#211-no-arguments-show-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.1. no arguments (show usage)</h4>
+<a id="user-content-311-no-arguments-show-usage" class="anchor" href="#311-no-arguments-show-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.1. no arguments (show usage)</h4>
 <p>Show a help screen with the available options.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_2"></a></p>
+<a id="user-content-3_1_2"></a></p>
 <h4>
-<a id="user-content-212--h-----help-show-manual" class="anchor" href="#212--h-----help-show-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.2. -h, -?, --help (show manual)</h4>
+<a id="user-content-312--h-----help-show-manual" class="anchor" href="#312--h-----help-show-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.2. -h, -?, --help (show manual)</h4>
 <p>Show this document. The output can be piped to <code>more</code> for pagination.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_3"></a></p>
+<a id="user-content-3_1_3"></a></p>
 <h4>
-<a id="user-content-213--v---verbose-show-progress" class="anchor" href="#213--v---verbose-show-progress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.3. -v, --verbose (show progress)</h4>
+<a id="user-content-313--v---verbose-show-progress" class="anchor" href="#313--v---verbose-show-progress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.3. -v, --verbose (show progress)</h4>
 <p>Show progress messages on <code>stdout</code>.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2"></a></p>
+<a id="user-content-3_2"></a></p>
 <h3>
-<a id="user-content-22-preprocessor-options" class="anchor" href="#22-preprocessor-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2. Preprocessor options</h3>
+<a id="user-content-32-preprocessor-options" class="anchor" href="#32-preprocessor-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2. Preprocessor options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_1"></a></p>
+<a id="user-content-3_2_1"></a></p>
 <h4>
-<a id="user-content-221--atoctal-at-is-octal-prefix" class="anchor" href="#221--atoctal-at-is-octal-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.1. -atoctal (at is octal prefix)</h4>
+<a id="user-content-321--atoctal-at-is-octal-prefix" class="anchor" href="#321--atoctal-at-is-octal-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.1. -atoctal (at is octal prefix)</h4>
 <p>By default the at-character (<code>@</code>) is used as a binary number prefix.</p>
-<p>With the option <code>[-atoctal](#2_2_1)</code> it is used as the octal number prefix instead.</p>
+<p>With the option <code>[-atoctal](#3_2_1)</code> it is used as the octal number prefix instead.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_2"></a></p>
+<a id="user-content-3_2_2"></a></p>
 <h4>
-<a id="user-content-222--dotdirective-period-is-directive-prefix" class="anchor" href="#222--dotdirective-period-is-directive-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.2. -dotdirective (period is directive prefix)</h4>
+<a id="user-content-322--dotdirective-period-is-directive-prefix" class="anchor" href="#322--dotdirective-period-is-directive-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.2. -dotdirective (period is directive prefix)</h4>
 <p>By default the period (<code>.</code>) is used to signal that the next identifier is a label.</p>
-<p>With the option <code>[-dotdirective](#2_2_2)</code> it is used instead to signal that the next identifier is an assembler directive.</p>
+<p>With the option <code>[-dotdirective](#3_2_2)</code> it is used instead to signal that the next identifier is an assembler directive.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_3"></a></p>
+<a id="user-content-3_2_3"></a></p>
 <h4>
-<a id="user-content-223--hashhex-hash-is-hex-prefix" class="anchor" href="#223--hashhex-hash-is-hex-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.3. -hashhex (hash is hex prefix)</h4>
+<a id="user-content-323--hashhex-hash-is-hex-prefix" class="anchor" href="#323--hashhex-hash-is-hex-prefix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.3. -hashhex (hash is hex prefix)</h4>
 <p>By default the hash-character (<code>#</code>) is used to signal that the next expression should be compiled as an immediate value. This meaning, although common in assemblers, is a no-operation in <strong>z80asm</strong>.</p>
-<p>With the option <code>[-hashhex](#2_2_3)</code> the hash-character is used as the hexadecimal number prefix instead.</p>
+<p>With the option <code>[-hashhex](#3_2_3)</code> the hash-character is used as the hexadecimal number prefix instead.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_4"></a></p>
+<a id="user-content-3_2_4"></a></p>
 <h4>
-<a id="user-content-224--labelcol1-labels-at-column-1" class="anchor" href="#224--labelcol1-labels-at-column-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.4. -labelcol1 (labels at column 1)</h4>
-<p>By default <strong>z80asm</strong> needs either a period (<code>.</code>) prefix (but see <code>[-dotdirective](#2_2_2)</code>) or a colon (<code>:</code>) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.</p>
-<p>With the option <code>[-labelcol1](#2_2_4)</code> an identifier is a label if started at column 1, or a directive or opcode if started after white space.</p>
+<a id="user-content-324--labelcol1-labels-at-column-1" class="anchor" href="#324--labelcol1-labels-at-column-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.4. -labelcol1 (labels at column 1)</h4>
+<p>By default <strong>z80asm</strong> needs either a period (<code>.</code>) prefix (but see <code>[-dotdirective](#3_2_2)</code>) or a colon (<code>:</code>) suffix to signal that an identifier is a label, and white space at the beginning of a line is not significant.</p>
+<p>With the option <code>[-labelcol1](#3_2_4)</code> an identifier is a label if started at column 1, or a directive or opcode if started after white space.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_5"></a></p>
+<a id="user-content-3_2_5"></a></p>
 <h4>
-<a id="user-content-225--ucase-upper-case" class="anchor" href="#225--ucase-upper-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.5. -ucase (upper case)</h4>
+<a id="user-content-325--ucase-upper-case" class="anchor" href="#325--ucase-upper-case" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.5. -ucase (upper case)</h4>
 <p>By default <strong>z80asm</strong> is case-sensitive for identifiers, but case-insensitive for assembly keywords (opcodes, directives, registers and flags).</p>
-<p>The option <code>[-ucase](#2_2_5)</code> causes <strong>z80asm</strong> to convert all the symbols to upper-case, so that code that assumes case-insensitivity can be assembled.</p>
+<p>The option <code>[-ucase](#3_2_5)</code> causes <strong>z80asm</strong> to convert all the symbols to upper-case, so that code that assumes case-insensitivity can be assembled.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_3"></a></p>
+<a id="user-content-3_3"></a></p>
 <h3>
-<a id="user-content-23-assembly-options" class="anchor" href="#23-assembly-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3. Assembly options</h3>
+<a id="user-content-33-assembly-options" class="anchor" href="#33-assembly-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3. Assembly options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_3_1"></a></p>
+<a id="user-content-3_3_1"></a></p>
 <h4>
-<a id="user-content-231--noprec-no-precedence-in-expression-evaluation" class="anchor" href="#231--noprec-no-precedence-in-expression-evaluation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3.1. -noprec (no precedence in expression evaluation)</h4>
+<a id="user-content-331--noprec-no-precedence-in-expression-evaluation" class="anchor" href="#331--noprec-no-precedence-in-expression-evaluation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.1. -noprec (no precedence in expression evaluation)</h4>
 <p>By default <strong>z80asm</strong> follows the C-precedence rules while evaluating expressions:</p>
 <table>
 <thead>
@@ -298,17 +307,35 @@
 </tr>
 </tbody>
 </table>
-<p>With the <code>[-noprec](#2_3_1)</code> expressions are evaluated strictly left-to-right.</p>
+<p>With the <code>[-noprec](#3_3_1)</code> expressions are evaluated strictly left-to-right.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_4"></a></p>
+<a id="user-content-3_4"></a></p>
 <h3>
-<a id="user-content-24-code-generation-options" class="anchor" href="#24-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4. Code Generation Options</h3>
+<a id="user-content-34-environment-options" class="anchor" href="#34-environment-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4. Environment Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_4_1"></a></p>
+<a id="user-content-3_4_1"></a></p>
 <h4>
-<a id="user-content-241--mcpu---cpucpu-select-cpu" class="anchor" href="#241--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4.1. -mCPU, --cpu=CPU (select CPU)</h4>
+<a id="user-content-341--idir---inc-pathdir-directory-for-source-files" class="anchor" href="#341--idir---inc-pathdir-directory-for-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.1. -IDIR, --inc-path=DIR (directory for source files)</h4>
+<p>Append the specified directory to the search path for source and include files.</p>
+<p>While each source file is being assembled, its parent directory is automatically added to the search path, so that <code>[INCLUDE](#10_18)</code> can refer to include files via a relative path to the source.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_4_2"></a></p>
+<h4>
+<a id="user-content-342--ldir---lib-pathdir-directory-for-library" class="anchor" href="#342--ldir---lib-pathdir-directory-for-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.2. -LDIR, --lib-path=DIR (directory for library)</h4>
+<p>Append the specified directory to the search path for library files.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_5"></a></p>
+<h3>
+<a id="user-content-35-code-generation-options" class="anchor" href="#35-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5. Code Generation Options</h3>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_5_1"></a></p>
+<h4>
+<a id="user-content-351--mcpu---cpucpu-select-cpu" class="anchor" href="#351--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. -mCPU, --cpu=CPU (select CPU)</h4>
 <p>Assemble for the given CPU. The following CPU's are supported:</p>
 <table>
 <thead>
@@ -414,32 +441,32 @@
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_4_2"></a></p>
+<a id="user-content-3_5_2"></a></p>
 <h4>
-<a id="user-content-242--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#242--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4.2. -IXIY, --IXIY (swap IX and IY)</h4>
+<a id="user-content-352--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#352--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.2. -IXIY, --IXIY (swap IX and IY)</h4>
 <p>Swap all occurrences of registers <code>IX</code> and <code>IY</code>, and also their 8-bit halves (<code>IXH</code>, <code>IXL</code>, <code>IYH</code> and <code>IYL</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_4_3"></a></p>
+<a id="user-content-3_5_3"></a></p>
 <h4>
-<a id="user-content-243---optspeed-optimise-for-speed" class="anchor" href="#243---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4.3. --opt=speed (optimise for speed)</h4>
+<a id="user-content-353---optspeed-optimise-for-speed" class="anchor" href="#353---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.3. --opt=speed (optimise for speed)</h4>
 <p>Replace all occurrences of <code>JR</code> by <code>JP</code>, as the later are faster. <code>DJNZ</code> is not replaced by <code>DEC B \ JP</code> as the later is slower.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_4_4"></a></p>
+<a id="user-content-3_5_4"></a></p>
 <h4>
-<a id="user-content-244---debug-debug-information" class="anchor" href="#244---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.4.4. --debug (debug information)</h4>
+<a id="user-content-354---debug-debug-information" class="anchor" href="#354---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.4. --debug (debug information)</h4>
 <p>Add debug information to the map file: new symbols <code>__C_LINE_nn</code> and <code>__ASM_LINE_nn</code> are created on each <code>C_LINE</code> statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_5"></a></p>
+<a id="user-content-3_6"></a></p>
 <h3>
-<a id="user-content-25-output-file-options" class="anchor" href="#25-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5. Output File Options</h3>
+<a id="user-content-36-output-file-options" class="anchor" href="#36-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6. Output File Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_5_1"></a></p>
+<a id="user-content-3_6_1"></a></p>
 <h4>
-<a id="user-content-251--m---map-create-map-file" class="anchor" href="#251--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.1. -m, --map (create map file)</h4>
+<a id="user-content-361--m---map-create-map-file" class="anchor" href="#361--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.1. -m, --map (create map file)</h4>
 <p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
 <ul>
 <li>symbol name</li>
@@ -462,10 +489,10 @@
 </ul>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3"></a></p>
+<a id="user-content-4"></a></p>
 <h2>
-<a id="user-content-3-input-files" class="anchor" href="#3-input-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Input Files</h2>
-<p><strong>z80asm</strong> reads text files in the syntax supported by the specific processor being assembled for (see <code>[-mCPU](#2_4_1)</code> option) and produces the corresponding object files.</p>
+<a id="user-content-4-input-files" class="anchor" href="#4-input-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Input Files</h2>
+<p><strong>z80asm</strong> reads text files in the syntax supported by the specific processor being assembled for (see <code>[-mCPU](#3_5_1)</code> option) and produces the corresponding object files.</p>
 <p>An input file with a <code>.o</code> extension is assumed to be already in object file format and is just read by the linker. Any other extension is considered an assembly source file (conventionally <code>.asm</code>).</p>
 <p>A project list file may be supplied in the command line prefixed by the at-sign (e.g. <code>@project.lst</code>). The list file contains one input file name per line, or another project list prefixed with an at-sign, which is opened recursively. Hash signs (<code>#</code>) and semi-colons (<code>;</code>) may be used at the start of lines in the list files to include comments.</p>
 <p>Both the command line and the list files support wild-cards to expand all the files that match the given pattern.</p>
@@ -473,21 +500,21 @@
 <p>A single star in a file name (<code>*</code>) expands to the list of all files/directories that match the complete pattern, where the star represents any sequence of characters. A double-star in a directory name (<code>**</code>) expands to the complete directory sub-tree, when searched recursively.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_1"></a></p>
+<a id="user-content-4_1"></a></p>
 <h3>
-<a id="user-content-31-source-file-format" class="anchor" href="#31-source-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1. Source File Format</h3>
+<a id="user-content-41-source-file-format" class="anchor" href="#41-source-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1. Source File Format</h3>
 <p>The assembler parses source files with any of the common end-of-line termination sequences (<code>"\r"</code>, <code>"\n"</code> or <code>"\r\n"</code>). Each line starts with an optional label and can contain assembly directives (i.e. instructions to the assembler), assembly instructions (i.e. code to be translated into object code for the specific processor) or blanks and comments.</p>
 <p>A single backslash character (<code>\</code>) may be used to separate multiple statements in a single line.</p>
 <pre><code>org 0                     ; assembly directive  
 start: push bc\pop hl     ; define a label and add two assembly opcodes              
 ret                       ; assembly opcode can be at the first column    
 </code></pre>
-<p>Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option <code>[-labelcol1](#2_2_4)</code>).</p>
+<p>Differently to most other assemblers, white space is not significant, i.e. a label can be defined after white space, and an opcode can be written at column 1 (but see option <code>[-labelcol1](#3_2_4)</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_2"></a></p>
+<a id="user-content-4_2"></a></p>
 <h3>
-<a id="user-content-32-comments" class="anchor" href="#32-comments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2. Comments</h3>
+<a id="user-content-42-comments" class="anchor" href="#42-comments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2. Comments</h3>
 <p>Comments may start with a semi-colon (<code>;</code>) or two slashes (<code>//</code>) and end at the end of the line, or may start with slash-star (<code>/*</code>) and end with star-slash (<code>*/</code>), possibly spanning multiple lines.</p>
 <pre><code>ld a, 1                   ; this is a comment
 ld b, 2                   // another comment
@@ -497,58 +524,58 @@ ld c, /* multi-line comment is valid
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_3"></a></p>
+<a id="user-content-4_3"></a></p>
 <h3>
-<a id="user-content-33-symbols" class="anchor" href="#33-symbols" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3. Symbols</h3>
-<p>All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (<code>_</code>), and can contain letters, digits, underscores or periods (<code>.</code>). Identifiers are case-sensitive (but see option <code>[-ucase](#2_2_5)</code>).</p>
+<a id="user-content-43-symbols" class="anchor" href="#43-symbols" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3. Symbols</h3>
+<p>All symbols in the code (labels, variables, ...) are named with unique identifiers. Identifiers start with a letter or underscore (<code>_</code>), and can contain letters, digits, underscores or periods (<code>.</code>). Identifiers are case-sensitive (but see option <code>[-ucase](#3_2_5)</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_4"></a></p>
+<a id="user-content-4_4"></a></p>
 <h3>
-<a id="user-content-34-labels" class="anchor" href="#34-labels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4. Labels</h3>
-<p>A label is a symbol that represents the current assembly address (<code>ASMPC</code>) and is defined at the start of a line by prefixing a symbol with a period (<code>.</code>) (but see <code>[-dotdirective](#2_2_2)</code>) or suffixing it with a colon (<code>:</code>), i.e. either <code>.label</code> or <code>label:</code> (but see <code>[-labelcol1](#2_2_4)</code>).</p>
+<a id="user-content-44-labels" class="anchor" href="#44-labels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.4. Labels</h3>
+<p>A label is a symbol that represents the current assembly address (<code>ASMPC</code>) and is defined at the start of a line by prefixing a symbol with a period (<code>.</code>) (but see <code>[-dotdirective](#3_2_2)</code>) or suffixing it with a colon (<code>:</code>), i.e. either <code>.label</code> or <code>label:</code> (but see <code>[-labelcol1](#3_2_4)</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5"></a></p>
+<a id="user-content-4_5"></a></p>
 <h3>
-<a id="user-content-35-numbers" class="anchor" href="#35-numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5. Numbers</h3>
+<a id="user-content-45-numbers" class="anchor" href="#45-numbers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5. Numbers</h3>
 <p>The assembler accepts numbers in decimal, hexadecimal, octal and binary. Different syntaxes are allowed to simplify porting code written for other assemblers. Some of the prefix characters are also used as operators; in this case a space may be needed to signal the difference, e.g.</p>
 <pre><code>ld a, %10     ; A = 2 (10 binary)
 ld a, 12 % 10 ; A = 2 (remainder of 12 divided by 10)
 </code></pre>
-<p>All expressions are computed as signed integers with the host platform's integer size (32-bit or 64-bit in the most common platforms). Expression evaluation follows the operator precedence of C (but see <code>[-noprec](#2_3_1)</code>).</p>
+<p>All expressions are computed as signed integers with the host platform's integer size (32-bit or 64-bit in the most common platforms). Expression evaluation follows the operator precedence of C (but see <code>[-noprec](#3_3_1)</code>).</p>
 <p>The underscore can be used to separate groups of digits to help readability, e.g. <code>0xFFFF_FFFF</code> is the same as <code>0xFFFFFFFF</code>.</p>
 <p>Floating point numbers can be supplied with the <code>FLOAT</code> directive, that encodes them in the current floating point format in the object code. Floating point numbers must be supplied in decimal base and have an integer part and a fractional part separated by a period, followed by an optional <code>e</code> (exponent), a plus or minus sign, and the power of 10 to multiply to the base.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_1"></a></p>
+<a id="user-content-4_5_1"></a></p>
 <h4>
-<a id="user-content-351-decimal" class="anchor" href="#351-decimal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. Decimal</h4>
+<a id="user-content-451-decimal" class="anchor" href="#451-decimal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5.1. Decimal</h4>
 <p>Decimal numbers are a sequence of decimal digits (<code>0..9</code>), optionally followed by a <code>d</code> or <code>D</code> - all prefixes and suffixes are case-insensitive. Leading zeros are insignificant - note the difference from C, where a leading zero means octal.</p>
 <pre><code>ld a, 99
 ld a, 99d
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_2"></a></p>
+<a id="user-content-4_5_2"></a></p>
 <h4>
-<a id="user-content-352-hexadecimal" class="anchor" href="#352-hexadecimal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.2. Hexadecimal</h4>
+<a id="user-content-452-hexadecimal" class="anchor" href="#452-hexadecimal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5.2. Hexadecimal</h4>
 <p>Hexadecimal numbers are a sequence of hexadecimal digits (<code>0..9</code> and <code>A..F</code>, case-insensitive), either prefixed or suffixed with an hexadecimal marker. If the marker is a suffix, and the number starts with a letter, then a leading zero has to be added.</p>
 <p>The hexadecimal prefix <code>$</code> is also the <code>ASMPC</code> identifier if not followed by a hexadecimal number, i.e. the address of the instruction being assembled.</p>
-<p>The hexadecimal prefix <code>#</code> is only recognised with the option <code>[-hashhex](#2_2_3)</code>.</p>
+<p>The hexadecimal prefix <code>#</code> is only recognised with the option <code>[-hashhex](#3_2_3)</code>.</p>
 <pre><code>ld a, $FF
-ld a, #FF           ; only with option  [-hashhex](#2_2_3) 
+ld a, #FF           ; only with option  [-hashhex](#3_2_3) 
 ld a, 0xFF
 ld a, 0FFh
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_3"></a></p>
+<a id="user-content-4_5_3"></a></p>
 <h4>
-<a id="user-content-353-octal" class="anchor" href="#353-octal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.3. Octal</h4>
+<a id="user-content-453-octal" class="anchor" href="#453-octal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5.3. Octal</h4>
 <p>Octal numbers are a sequence of octal digits (<code>0..7</code>), either prefixed or suffixed with an octal marker.</p>
-<p>The octal-prefix <code>@</code> is only recognised with the option <code>[-atoctal](#2_2_1)</code>.</p>
-<pre><code>ld a, @77           ; only with option  [-atoctal](#2_2_1) 
+<p>The octal-prefix <code>@</code> is only recognised with the option <code>[-atoctal](#3_2_1)</code>.</p>
+<pre><code>ld a, @77           ; only with option  [-atoctal](#3_2_1) 
 ld a, 0o77
 ld a, 0q77
 ld a, 77o
@@ -556,22 +583,22 @@ ld a, 77q
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_4"></a></p>
+<a id="user-content-4_5_4"></a></p>
 <h4>
-<a id="user-content-354-binary" class="anchor" href="#354-binary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.4. Binary</h4>
+<a id="user-content-454-binary" class="anchor" href="#454-binary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5.4. Binary</h4>
 <p>Binary numbers are a sequence of binary digits (<code>0..1</code>), either prefixed or suffixed with a binary marker.</p>
 <p>The binary prefix <code>%</code> is also the modulus operator, if not followed by a binary digit.</p>
-<p>The binary prefix <code>@</code> is recognised unless the option <code>[-atoctal](#2_2_1)</code> is given.</p>
+<p>The binary prefix <code>@</code> is recognised unless the option <code>[-atoctal](#3_2_1)</code> is given.</p>
 <pre><code>ld a, %11
-ld a, @11           ; except with option  [-atoctal](#2_2_1) 
+ld a, @11           ; except with option  [-atoctal](#3_2_1) 
 ld a, 0b11
 ld a, 11b
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_5"></a></p>
+<a id="user-content-4_5_5"></a></p>
 <h4>
-<a id="user-content-355-bitmaps" class="anchor" href="#355-bitmaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.5. Bitmaps</h4>
+<a id="user-content-455-bitmaps" class="anchor" href="#455-bitmaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.5.5. Bitmaps</h4>
 <p>Binary numbers can be specified as bitmaps, with <code>#</code> as <code>1</code> and <code>-</code> as <code>0</code>, using the binary prefix (<code>@</code> or <code>%</code>) immediately followed by a double-quoted string of hashes and dashes.</p>
 <pre><code>defb @"---##---"
 defb @"-##--##-"
@@ -582,24 +609,24 @@ defb @"---##---"
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_6"></a></p>
+<a id="user-content-4_6"></a></p>
 <h3>
-<a id="user-content-36-keywords" class="anchor" href="#36-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6. Keywords</h3>
+<a id="user-content-46-keywords" class="anchor" href="#46-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.6. Keywords</h3>
 <p>Processor registers (<code>BC</code>, <code>DE</code>, ...) and flags (<code>NZ</code>, <code>Z</code>, ...), and assembly <code>ASMPC</code>, representing the current assembly location, are reserved keywords. They cannot be used as identifiers, and are case-insensitive.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_7"></a></p>
+<a id="user-content-4_7"></a></p>
 <h3>
-<a id="user-content-37-directives-and-opcodes" class="anchor" href="#37-directives-and-opcodes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.7. Directives and Opcodes</h3>
+<a id="user-content-47-directives-and-opcodes" class="anchor" href="#47-directives-and-opcodes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.7. Directives and Opcodes</h3>
 <p>Assembler directives (<code>[ORG](#10_25)</code>, <code>[INCLUDE](#10_18)</code>, ...) and processor opcodes (<code>NOP</code>, <code>LD</code>, ...) are interpreted as directives or opcodes when appearing at the start of the statement or after a label definition, or as regular identifiers otherwise. The directives and opcodes are case-insensitive.</p>
 <pre><code>jr: jr jr  ; silly example, jr is both a label and an opcode
            ; while correct code, it's confusing, don't do it
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-4"></a></p>
+<a id="user-content-5"></a></p>
 <h2>
-<a id="user-content-4-object-file-format" class="anchor" href="#4-object-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Object File Format</h2>
+<a id="user-content-5-object-file-format" class="anchor" href="#5-object-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Object File Format</h2>
 <p>The object and library files are stored in binary form as a set of contiguous sections. The files are cross-platform compatible, i.e. they can be created in a big-endian architecture and used in a little-endian one.</p>
 <p>The files start with a signature and a version number.</p>
 <p>A set of file pointers at the start of the object file point to the start of each section existing the in the file, or contain <em>0xFFFFFFFF</em> (-1) if that section does not exist.</p>
@@ -647,9 +674,9 @@ defb @"---##---"
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-4_1"></a></p>
+<a id="user-content-5_1"></a></p>
 <h3>
-<a id="user-content-41-object-files" class="anchor" href="#41-object-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.1. Object Files</h3>
+<a id="user-content-51-object-files" class="anchor" href="#51-object-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.1. Object Files</h3>
 <p>The format of the object files is as follows:</p>
 <table>
 <thead>
@@ -989,9 +1016,9 @@ defb @"---##---"
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-4_2"></a></p>
+<a id="user-content-5_2"></a></p>
 <h3>
-<a id="user-content-42-library-file-format" class="anchor" href="#42-library-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.2. Library File Format</h3>
+<a id="user-content-52-library-file-format" class="anchor" href="#52-library-file-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.2. Library File Format</h3>
 <p>The library file format is a sequence of object files with additional
 structures.</p>
 <table>
@@ -1045,9 +1072,9 @@ structures.</p>
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-4_3"></a></p>
+<a id="user-content-5_3"></a></p>
 <h3>
-<a id="user-content-43-format-history" class="anchor" href="#43-format-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.3. Format History</h3>
+<a id="user-content-53-format-history" class="anchor" href="#53-format-history" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3. Format History</h3>
 <table>
 <thead>
 <tr>
@@ -1117,9 +1144,9 @@ structures.</p>
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5"></a></p>
+<a id="user-content-6"></a></p>
 <h2>
-<a id="user-content-5-z80asm-syntax" class="anchor" href="#5-z80asm-syntax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. z80asm Syntax</h2>
+<a id="user-content-6-z80asm-syntax" class="anchor" href="#6-z80asm-syntax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. z80asm Syntax</h2>
 <h1>
 <a id="user-content-the--z80--cross-assembler-z88dk" class="anchor" href="#the--z80--cross-assembler-z88dk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>THE  <a href="#7">Z80</a>  CROSS ASSEMBLER (z88dk)</h1>
 <p>Version: v2.6.1 (October 3rd, 2014)</p>
@@ -1132,18 +1159,11 @@ Denmark<br>
 e-mail <a href="mailto:gbs@image.dk">gbs@image.dk</a></p>
 <h2>
 <a id="user-content-1-running-the-assembler" class="anchor" href="#1-running-the-assembler" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Running the assembler</h2>
-<p>Since assemblers are developed for programmers the user interface have been implemented according to the standard command line environment (CLI) used in most operating systems; however, if only a GUI interface is available (as in MacOS) then a command shell must be executed to allow standard command line input. The  <a href="#7">Z80</a>  Module Assembler command line interface may change if other programmers wish to implement a different interface to the assembler. You have the opportunity!</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_1"></a></p>
+<a id="user-content-6_1"></a></p>
 <h3>
-<a id="user-content-51-help-page" class="anchor" href="#51-help-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.1. Help page</h3>
-<p>When executing the assembler from the command line with the  <a href="#2_1_2">-h</a>  option, a help page is displayed. The page shortly explains the syntax of parameter specification and which parameters are available.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_2"></a></p>
-<h3>
-<a id="user-content-52-command-line" class="anchor" href="#52-command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.2. Command line</h3>
+<a id="user-content-61-command-line" class="anchor" href="#61-command-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.1. Command line</h3>
 <p>The syntax of the assembler parameters is a straightforward design. Filenames or a project file are always specified. The options may be left out:</p>
 <pre><code>z80asm [options] &lt;filename {filename}&gt; | &lt;@modulesfile&gt;
 </code></pre>
@@ -1151,30 +1171,30 @@ e-mail <a href="mailto:gbs@image.dk">gbs@image.dk</a></p>
 <p>Many of the parameters are preset with default values which gives an easy user interface when specifying the assembly parameters. Only advanced parameters need to be specified explicitly. The help page displays the default parameter values at the bottom of the page.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3"></a></p>
+<a id="user-content-6_2"></a></p>
 <h3>
-<a id="user-content-53-command-line-options" class="anchor" href="#53-command-line-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3. Command line options</h3>
+<a id="user-content-62-command-line-options" class="anchor" href="#62-command-line-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2. Command line options</h3>
 <p>Options are used to control the assembly process and output. They are recognised by the assembler when you specify a leading minus before the option identifier ('-'). Options are always specified before file names or project files.</p>
 <p>When the assembler is executed options are all preset with default values and are either switched ON or OFF (active or not). All options have a single letter identification. Upper and lower case letters are distinguished, which means that 'a' might be different command than 'A'. If an option is to be turned off, you simply specify a 'n' before the identification, e.g. -nl which selects listing files not to be created by the assembler.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_1"></a></p>
+<a id="user-content-6_2_1"></a></p>
 <h4>
-<a id="user-content-531--eext--use-alternative-source-file-extension" class="anchor" href="#531--eext--use-alternative-source-file-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.1. -e&lt;ext&gt; : Use alternative source file extension</h4>
+<a id="user-content-621--eext--use-alternative-source-file-extension" class="anchor" href="#621--eext--use-alternative-source-file-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.1. -e&lt;ext&gt; : Use alternative source file extension</h4>
 <p>The default assembler source file extension is ".asm". Using this option, you force the assembler to use another default extension, like ".opt" or ".as" for the source file.</p>
 <p>The extension is specified without the ".". Only three letters are accepted - the rest is discarded.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_2"></a></p>
+<a id="user-content-6_2_2"></a></p>
 <h4>
-<a id="user-content-532--mext--use-alternative-object-file-extension" class="anchor" href="#532--mext--use-alternative-object-file-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.2. -M&lt;ext&gt; : Use alternative object file extension</h4>
+<a id="user-content-622--mext--use-alternative-object-file-extension" class="anchor" href="#622--mext--use-alternative-object-file-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.2. -M&lt;ext&gt; : Use alternative object file extension</h4>
 <p>The default assembler object file extension is ".obj". Using this option, you force the assembler to use another default extension, like ".o" as the object file name extension.</p>
 <p>The extension is specified without the ".". Only three letters are accepted - the rest is discarded.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_3"></a></p>
+<a id="user-content-6_2_3"></a></p>
 <h4>
-<a id="user-content-533--l--create-listing-file-output" class="anchor" href="#533--l--create-listing-file-output" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.3. -l : Create listing file output</h4>
+<a id="user-content-623--l--create-listing-file-output" class="anchor" href="#623--l--create-listing-file-output" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.3. -l : Create listing file output</h4>
 <p>The information in listing files is a combination of the original source file and additional information of the generated machine code. Further, the listing file is page formatted with a header specifying the date and time of the compilation, the filename of the listing and a page number.</p>
 <p>For each line of the source file the following information is written:</p>
 <pre><code>&lt;source file line number&gt; &lt;assembler address&gt;  
@@ -1186,31 +1206,31 @@ e-mail <a href="mailto:gbs@image.dk">gbs@image.dk</a></p>
 <p>The creation of listing files imposes much more processing work of the assembler. If you want to compile your code as quickly as possible then don't create listing files. Listing files obtain their file name from the base of the source filename, and is added with the 'lst' extension.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_4"></a></p>
+<a id="user-content-6_2_4"></a></p>
 <h4>
-<a id="user-content-534--s--create-symbol-table" class="anchor" href="#534--s--create-symbol-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.4. -s : Create symbol table</h4>
+<a id="user-content-624--s--create-symbol-table" class="anchor" href="#624--s--create-symbol-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.4. -s : Create symbol table</h4>
 <p>Symbol tables contains the integer form of symbolical names and constants that has been parsed and generated during a compilation of a source file. The structure of the symbol table is divided into two columns. The first contains the parsed symbol names, converted to uppercase. The second column contains the generated value of the symbol name.</p>
 <p>All symbol values are displayed in signed 32-bit hexadecimal notation.</p>
 <p>The two columns are separated by tabulators which represents a default value of 8 spaces per tabulator. The width of the symbol name column is defined as the tabulator distance multiplied by 4. The default width of the name column is 4 * 8 = 32 spaces.</p>
 <p>The symbol table will be written to the end of the appropriate listing file, if listing file and symbol table output is enabled. If no listing file output is enabled, the symbol table will be written to a separate file, identified with the base name of the source file module and given the 'sym' extension.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_5"></a></p>
+<a id="user-content-6_2_5"></a></p>
 <h4>
-<a id="user-content-535--d--assemble-only-updated-files" class="anchor" href="#535--d--assemble-only-updated-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.5. -d : Assemble only updated files</h4>
+<a id="user-content-625--d--assemble-only-updated-files" class="anchor" href="#625--d--assemble-only-updated-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.5. -d : Assemble only updated files</h4>
 <p>Assemblers usually force compiles all specified files. This is also possible (as default) for the  <a href="#7">Z80</a>  Module Assembler. In large application project with 15 modules or more it can be quite frustrating to compile all every time. The solution is to only assemble updated files and leave the rest (since they have been compiled to the programmers knowledge).</p>
-<p>But in a long term view it is better to just compile a project without thinking of which files need to be compiled or not. That can be done with the  <a href="#7">Z80</a>  Module Assembler. By simply specifying the  <a href="#5_3_5">-d</a>  parameter at the command line, only updated source files are assembled into object files - the rest are ignored.</p>
-<p>Using the  <a href="#5_3_5">-d</a>  option in combination with a project file gives the best project setup for a large compilation; compile your projects without worrying about which module is updated or not.</p>
+<p>But in a long term view it is better to just compile a project without thinking of which files need to be compiled or not. That can be done with the  <a href="#7">Z80</a>  Module Assembler. By simply specifying the  <a href="#6_2_5">-d</a>  parameter at the command line, only updated source files are assembled into object files - the rest are ignored.</p>
+<p>Using the  <a href="#6_2_5">-d</a>  option in combination with a project file gives the best project setup for a large compilation; compile your projects without worrying about which module is updated or not.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_6"></a></p>
+<a id="user-content-6_2_6"></a></p>
 <h4>
-<a id="user-content-536--b--linkrelocate-object-files" class="anchor" href="#536--b--linkrelocate-object-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.6. -b : Link/relocate object files</h4>
-<p>The  <a href="#5_3_6">-b</a>  option must be used if you want to create an executable  <a href="#7">Z80</a>  machine code output file of your previously created object files. You may also use the  <a href="#5_3_7">-a</a>  option which is identical in functionality but also includes the  <a href="#5_3_5">-d</a>  option. In other words assemble only updated source modules and perform linking/relocation of the code afterwards.</p>
+<a id="user-content-626--b--linkrelocate-object-files" class="anchor" href="#626--b--linkrelocate-object-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.6. -b : Link/relocate object files</h4>
+<p>The  <a href="#6_2_6">-b</a>  option must be used if you want to create an executable  <a href="#7">Z80</a>  machine code output file of your previously created object files. You may also use the  <a href="#6_2_7">-a</a>  option which is identical in functionality but also includes the  <a href="#6_2_5">-d</a>  option. In other words assemble only updated source modules and perform linking/relocation of the code afterwards.</p>
 <ul>
 <li>
 <p>Pass 1:<br>
-When the linking process begins with the first object module, it is examined for an  <a href="#10_25">ORG</a>  address to perform the absolute address relocation of all the object module machine code. The  <a href="#10_25">ORG</a>  (loading address for memory) will have to be defined in the first source file module. If not, the assembler will prompt you for it on the command line. The  <a href="#10_25">ORG</a>  address must be typed in hexadecimal notation. If you never use the  <a href="#10_25">ORG</a>  directive in your source files, you can always explicitly define one at the command line with the  <a href="#5_3_9">-r</a>  option.</p>
+When the linking process begins with the first object module, it is examined for an  <a href="#10_25">ORG</a>  address to perform the absolute address relocation of all the object module machine code. The  <a href="#10_25">ORG</a>  (loading address for memory) will have to be defined in the first source file module. If not, the assembler will prompt you for it on the command line. The  <a href="#10_25">ORG</a>  address must be typed in hexadecimal notation. If you never use the  <a href="#10_25">ORG</a>  directive in your source files, you can always explicitly define one at the command line with the  <a href="#6_2_9">-r</a>  option.</p>
 <p>The next step in the linking process is loading of the machine code from each object module, in the order of the specified modules. Pass 1 is completed with loading all local and global symbol definitions of the object modules. All relocatable address symbols are assigned the correct absolute memory location (based on  <a href="#10_25">ORG</a> ).</p>
 </li>
 <li>
@@ -1221,36 +1241,36 @@ The address patching process. All expressions are now read and evaluated, then p
 </ul>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_7"></a></p>
+<a id="user-content-6_2_7"></a></p>
 <h4>
-<a id="user-content-537--a--combine--d-and--b" class="anchor" href="#537--a--combine--d-and--b" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.7. -a : Combine -d and -b</h4>
-<p>Same as providing both  <a href="#5_3_6">-b</a>  (link/relocate object files) and  <a href="#5_3_5">-d</a>  (assemble only updated files).</p>
+<a id="user-content-627--a--combine--d-and--b" class="anchor" href="#627--a--combine--d-and--b" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.7. -a : Combine -d and -b</h4>
+<p>Same as providing both  <a href="#6_2_6">-b</a>  (link/relocate object files) and  <a href="#6_2_5">-d</a>  (assemble only updated files).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_8"></a></p>
+<a id="user-content-6_2_8"></a></p>
 <h4>
-<a id="user-content-538--obinary-filename--binary-filename" class="anchor" href="#538--obinary-filename--binary-filename" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.8. -o&lt;binary-filename&gt; : Binary filename</h4>
+<a id="user-content-628--obinary-filename--binary-filename" class="anchor" href="#628--obinary-filename--binary-filename" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.8. -o&lt;binary-filename&gt; : Binary filename</h4>
 <p>Define another filename for the compiled binary output than the default source filename of the project, appended with the ".bin" extension.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_9"></a></p>
+<a id="user-content-6_2_9"></a></p>
 <h4>
-<a id="user-content-539--rhex-address--re-define-the-org-relocation-address" class="anchor" href="#539--rhex-address--re-define-the-org-relocation-address" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.9. -r&lt;hex-address&gt; : Re-define the ORG relocation address</h4>
-<p>During the linking phase of the assembler the  <a href="#10_25">ORG</a>  address that defines the position in memory where the code is to be loaded and executed, is fetched from the first object module file. You can override this by specifying an explicit address origin by entering the  <a href="#5_3_9">-r</a>  option followed by an address in hexadecimal notation at the command line, e.g.:</p>
-<pre><code>z80asm  [-b](#5_3_6)  -r4000 file.asm
+<a id="user-content-629--rhex-address--re-define-the-org-relocation-address" class="anchor" href="#629--rhex-address--re-define-the-org-relocation-address" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.9. -r&lt;hex-address&gt; : Re-define the ORG relocation address</h4>
+<p>During the linking phase of the assembler the  <a href="#10_25">ORG</a>  address that defines the position in memory where the code is to be loaded and executed, is fetched from the first object module file. You can override this by specifying an explicit address origin by entering the  <a href="#6_2_9">-r</a>  option followed by an address in hexadecimal notation at the command line, e.g.:</p>
+<pre><code>z80asm  [-b](#6_2_6)  -r4000 file.asm
 </code></pre>
 <p>which specifies that your code is to be relocated for address 4000h (16384) onward.</p>
-<p>Using the  <a href="#5_3_9">-r</a>  option supersedes a defined  <a href="#10_25">ORG</a>  in the object file. You could for example have defined the  <a href="#10_25">ORG</a>  to 8000h (32768) in your first source file, then compiled the project. This would have generated machine code for memory location 8000h (segment 2 in the Cambridge  <a href="#5_6">Z88</a> ). Since the object files are generated it is easy to link them again with another  <a href="#10_25">ORG</a>  address by just using the  <a href="#5_3_9">-r</a>  option. The linking process does not alter the information in object files - they are only read. The same project could then easily be re-linked to another address, e.g.</p>
-<pre><code>z80asm  [-b](#5_3_6)  -r2000 file.asm
+<p>Using the  <a href="#6_2_9">-r</a>  option supersedes a defined  <a href="#10_25">ORG</a>  in the object file. You could for example have defined the  <a href="#10_25">ORG</a>  to 8000h (32768) in your first source file, then compiled the project. This would have generated machine code for memory location 8000h (segment 2 in the Cambridge  <a href="#6_5">Z88</a> ). Since the object files are generated it is easy to link them again with another  <a href="#10_25">ORG</a>  address by just using the  <a href="#6_2_9">-r</a>  option. The linking process does not alter the information in object files - they are only read. The same project could then easily be re-linked to another address, e.g.</p>
+<pre><code>z80asm  [-b](#6_2_6)  -r2000 file.asm
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_10"></a></p>
+<a id="user-content-6_2_10"></a></p>
 <h4>
-<a id="user-content-5310--r--generate-address-independent-code" class="anchor" href="#5310--r--generate-address-independent-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.10. -R : Generate address independent code</h4>
+<a id="user-content-6210--r--generate-address-independent-code" class="anchor" href="#6210--r--generate-address-independent-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.10. -R : Generate address independent code</h4>
 <p>The  <a href="#7">Z80</a>  processor instruction set allows only relative jumps in maximum +/- 128 bytes using the JR and DJNZ instructions. Further, there is no program counter relative call-to-subroutine or jump-to-subroutine instruction. If you want a program to be address-independent no absolute address references may be used in jump or call instructions. If you want to program  <a href="#7">Z80</a>  address independent code you can only write small routines using the JR and DJNZ instructions. With a restricted interval of 128 bytes you can imagine the size of those routines! Programming of large applications using address Independence is simply impossible on the  <a href="#7">Z80</a>  processor with the basic instruction set available. You can only define a fixed address origin ( <a href="#10_25">ORG</a> ) for your machine code to be loaded and executed from. However, there is one solution: before the code is executed an automatic address-relocation is performed to the current position in memory. This is done only once. The penalty is that the program fills more space in memory. This is unavoidable since information must be available to define where the address relocation has to be performed in the program. Further, a small routine must be included with the program to read the relocation information and patch it into the specified locations of the program. It is impossible to determine the extra size generated with a relocation table. We assume an extra size of 3 - 3.5K for a typical 16K application program.</p>
-<p>You can generate address independent code using the  <a href="#5_3_10">-R</a>  option accompanied with the  <a href="#5_3_7">-a</a>  or  <a href="#5_3_6">-b</a>  option. There is no other requirements. The relocatable code may be useful for programmers using the Cambridge  <a href="#5_6">Z88</a>  who want to use machine code in the BBC BASIC application environment. This can easily be interfaced with the DIM statement to allocate memory for the machine code program, and issue a  <a href="#10_2">CALL</a>  or USR() to execute the machine code.</p>
-<p>Please note that the linking process with the  <a href="#5_3_10">-R</a>  option addresses your code from 0 onward. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.</p>
+<p>You can generate address independent code using the  <a href="#6_2_10">-R</a>  option accompanied with the  <a href="#6_2_7">-a</a>  or  <a href="#6_2_6">-b</a>  option. There is no other requirements. The relocatable code may be useful for programmers using the Cambridge  <a href="#6_5">Z88</a>  who want to use machine code in the BBC BASIC application environment. This can easily be interfaced with the DIM statement to allocate memory for the machine code program, and issue a  <a href="#10_2">CALL</a>  or USR() to execute the machine code.</p>
+<p>Please note that the linking process with the  <a href="#6_2_10">-R</a>  option addresses your code from 0 onward. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.</p>
 <p>The principle of relocation is in fact a self-modifying program. You cannot relocate a program that has been blown into an EPROM (cannot be modified). You may only execute relocatable programs in dynamic memory (RAM).</p>
 <p>The relocator is built into the  <a href="#7">Z80</a>  Module Assembler. The relocation table is created during the linking phase. When all object modules have been linked and the appropriate machine code generated, the process is ended with first copying the relocator routine into the executable file, then a relocation table and finally the compiled machine code program. Any defined  <a href="#10_25">ORG</a>  in your code is superseded - this is not necessary in a relocatable program!</p>
 <p>Two rules must be obeyed when using relocatable programs:</p>
@@ -1269,29 +1289,29 @@ The address patching process. All expressions are now read and evaluated, then p
 <p>When your address-independent code is stored to the file, a message is displayed which informs the user of how many bytes the relocation header consists of. This constant is useful since it informs you of the distance between the relocation header and the start of your code. The map file automatically reflects the relocation header. All addresses of your code has been modified to include the relocation header. Please note that all addresses in the map file are defined from address 0. When your code is placed in an absolute memory address, and you need to perform a debugging session, you can find your specific label address by adding the constant from the map file to the memory origin of your code. The inbuilt relocator routine may be examined by extracting the "relocate.asm" file from the " <a href="#7">Z80</a> src.zip" compressed file resource.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_11"></a></p>
+<a id="user-content-6_2_11"></a></p>
 <h4>
-<a id="user-content-5311--g--create-global-address-definition-file" class="anchor" href="#5311--g--create-global-address-definition-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.11. -g : Create global address definition file</h4>
-<p>With this option it is possible to generate a  <a href="#10_6">DEFC</a>  directive definition file of all globally declared identifiers in a file project (declared with the  <a href="#10_27">XDEF</a>  directive). These global definitions are calculated from the specified  <a href="#10_25">ORG</a>  address (from first module or the  <a href="#5_3_9">-r</a>  option). This feature is very useful, if you want to get access to routines from a separate compilation. If the two code compilation were placed in different banks of the  <a href="#5_6">Z88</a> , it would be possible to know the correct address of a routine just by using the  <a href="#10_6">DEFC</a>  address definition previously compiled. We used this facility to access routines in the two 8K halves of the segment 0 debugged version. This debugger actually swaps one of the two 8K blocks in and out of segment 0 when needed to call an 'external' routine. Applications on the  <a href="#5_6">Z88</a>  may only access the upper 8K of segment 0. A 16K application therefore needs to be split in 8K halves and paged in when needed to be run in this area. Tuff!</p>
+<a id="user-content-6211--g--create-global-address-definition-file" class="anchor" href="#6211--g--create-global-address-definition-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.11. -g : Create global address definition file</h4>
+<p>With this option it is possible to generate a  <a href="#10_6">DEFC</a>  directive definition file of all globally declared identifiers in a file project (declared with the  <a href="#10_27">XDEF</a>  directive). These global definitions are calculated from the specified  <a href="#10_25">ORG</a>  address (from first module or the  <a href="#6_2_9">-r</a>  option). This feature is very useful, if you want to get access to routines from a separate compilation. If the two code compilation were placed in different banks of the  <a href="#6_5">Z88</a> , it would be possible to know the correct address of a routine just by using the  <a href="#10_6">DEFC</a>  address definition previously compiled. We used this facility to access routines in the two 8K halves of the segment 0 debugged version. This debugger actually swaps one of the two 8K blocks in and out of segment 0 when needed to call an 'external' routine. Applications on the  <a href="#6_5">Z88</a>  may only access the upper 8K of segment 0. A 16K application therefore needs to be split in 8K halves and paged in when needed to be run in this area. Tuff!</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_12"></a></p>
+<a id="user-content-6_2_12"></a></p>
 <h4>
-<a id="user-content-5312--dsymbol--define-a-static-symbol" class="anchor" href="#5312--dsymbol--define-a-static-symbol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.12. -D&lt;symbol&gt; : Define a static symbol</h4>
-<p>This option is useful if you want to produce conditional compilations. The symbol defined here will be active throughout the compilation. We used this feature to compile machine code on different computer platforms (QL, IBM, LINUX or  <a href="#5_6">Z88</a> ). Specify the symbol immediately after the option identifier, i.e.</p>
-<pre><code>z80asm  [-b](#5_3_6)  -DZ88 file.asm
+<a id="user-content-6212--dsymbol--define-a-static-symbol" class="anchor" href="#6212--dsymbol--define-a-static-symbol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.12. -D&lt;symbol&gt; : Define a static symbol</h4>
+<p>This option is useful if you want to produce conditional compilations. The symbol defined here will be active throughout the compilation. We used this feature to compile machine code on different computer platforms (QL, IBM, LINUX or  <a href="#6_5">Z88</a> ). Specify the symbol immediately after the option identifier, i.e.</p>
+<pre><code>z80asm  [-b](#6_2_6)  -DZ88 file.asm
 </code></pre>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_13"></a></p>
+<a id="user-content-6_2_13"></a></p>
 <h4>
-<a id="user-content-5313-project-file-1316-using-a-project-file" class="anchor" href="#5313-project-file-1316-using-a-project-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.13. @&lt;project-file&gt; :1.3.16. Using a project file</h4>
+<a id="user-content-6213-project-file-1316-using-a-project-file" class="anchor" href="#6213-project-file-1316-using-a-project-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.13. @&lt;project-file&gt; :1.3.16. Using a project file</h4>
 <p>Project files defines all file names of a project. The file name standard stored in a project file obeys the operating system notation.</p>
 <p>Instead of specifying every module file name at the command line, a simple reference of a project file can be made instead. According to the rules of the specification of parameters you specify either your source file modules or use a project file. The project file specification is of course much faster. An example:</p>
-<pre><code>z80asm  [-a](#5_3_7)  main pass1 pass2 link asmdrctv z80instr
+<pre><code>z80asm  [-a](#6_2_7)  main pass1 pass2 link asmdrctv z80instr
 </code></pre>
 <p>This command line will compile all specified module file names into a single executable file called "main.bin". However if a project file 'assembler' were created already containing the same file names, the command line would have been:</p>
-<pre><code>z80asm  [-a](#5_3_7)  @assembler
+<pre><code>z80asm  [-a](#6_2_7)  @assembler
 </code></pre>
 <p>- much easier!</p>
 <p>A project file only contains file names. Each file name is separated by a newline character \n. The new line character may be different on various computer platforms - but the assembler interprets it correctly. The contents of a project file may look like this:</p>
@@ -1303,253 +1323,179 @@ modlink
 <p>Project files are easily created using a simple text editor.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_14"></a></p>
+<a id="user-content-6_2_14"></a></p>
 <h4>
-<a id="user-content-5314--ilibrary-file--include-library-modules-during-linkingrelocation" class="anchor" href="#5314--ilibrary-file--include-library-modules-during-linkingrelocation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.14. -i&lt;library-file&gt; : Include library modules during linking/relocation</h4>
-<p>This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  <a href="#5_3_14">-i</a>  identifier. If you omit the filename, a default library filename will be used by the assembler. This default filename is defined by creating the environment variable " <a href="#7">Z80</a> _STDLIB=&lt;library-file&gt;. Please refer to your operating system documentation on how to create environment variables.</p>
+<a id="user-content-6214--ilibrary-file--include-library-modules-during-linkingrelocation" class="anchor" href="#6214--ilibrary-file--include-library-modules-during-linkingrelocation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.14. -i&lt;library-file&gt; : Include library modules during linking/relocation</h4>
+<p>This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  <a href="#6_2_14">-i</a>  identifier.</p>
 <p>Library files are recognised by the ".lib" extension.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_15"></a></p>
+<a id="user-content-6_2_15"></a></p>
 <h4>
-<a id="user-content-5315--llibrary-path--add-directory-to-search-path-for-libraries" class="anchor" href="#5315--llibrary-path--add-directory-to-search-path-for-libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.15. -L&lt;library-path&gt; : Add directory to search path for libraries</h4>
-<p>Tells the assembler where to look for library files.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_16"></a></p>
-<h4>
-<a id="user-content-5316--iinclude-path--add-directory-to-search-path-for-include" class="anchor" href="#5316--iinclude-path--add-directory-to-search-path-for-include" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.16. -I&lt;include-path&gt; : Add directory to search path for INCLUDE</h4>
-<p>Tells the assembler where to look for  <a href="#10_18">INCLUDE</a>  files.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_17"></a></p>
-<h4>
-<a id="user-content-5317--x--create-a-library" class="anchor" href="#5317--x--create-a-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.17. -x : Create a library</h4>
-<p>A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  <a href="#5_3_17">-x</a>  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. As in  <a href="#5_3_14">-i</a>  you may omit the filename to use the default filename identified by the " <a href="#7">Z80</a> _STDLIB" environment variable. A library routine must be defined using a simple  <a href="#10_28">XLIB</a>  directive with an identical address name label definition. Please refer to further information later in this documentation. The " <a href="#7">Z80</a> lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.</p>
+<a id="user-content-6215--x--create-a-library" class="anchor" href="#6215--x--create-a-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.15. -x : Create a library</h4>
+<p>A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  <a href="#6_2_15">-x</a>  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  <a href="#10_28">XLIB</a>  directive with an identical address name label definition. Please refer to further information later in this documentation. The " <a href="#7">Z80</a> lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.</p>
 <p>One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_18"></a></p>
+<a id="user-content-6_2_16"></a></p>
 <h4>
-<a id="user-content-5318--tnumber--define-tabulator-distance-for-text-output-files" class="anchor" href="#5318--tnumber--define-tabulator-distance-for-text-output-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.18. -t&lt;number&gt; : Define tabulator distance for text output files</h4>
+<a id="user-content-6216--tnumber--define-tabulator-distance-for-text-output-files" class="anchor" href="#6216--tnumber--define-tabulator-distance-for-text-output-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.16. -t&lt;number&gt; : Define tabulator distance for text output files</h4>
 <p>To save storage space the  <a href="#7">Z80</a>  cross assembler output files (listing, map, symbol and  <a href="#10_27">XDEF</a>  definition files) uses a tabulator control character instead of spaces. The benefit is about 30% compressed files.</p>
 <p>The tabulator distance defines the distance of space between each tabulator it represents. The default value is 8 spaces per tabulator.</p>
 <p>The tabulators are used to separate two columns of information. The first column contains a name of some sort. Since names have variable length, a size of the column is defined. The Assembler defines the size of the column by multiplying the current tabulator distance with 4, i.e. giving a default size of 4*8 = 32 'spaces'. This is usually more than enough for most name definitions parsed from source files.</p>
-<p>You may redefine the tabulator distance by using the  <a href="#5_3_18">-t</a>  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4*4 = 16 'spaces'.</p>
+<p>You may redefine the tabulator distance by using the  <a href="#6_2_16">-t</a>  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4*4 = 16 'spaces'.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_19"></a></p>
+<a id="user-content-6_2_17"></a></p>
 <h4>
-<a id="user-content-5319--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" class="anchor" href="#5319--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.19. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's</h4>
+<a id="user-content-6217--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" class="anchor" href="#6217--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.17. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's</h4>
 <p>This option disables assembly opcodes not available in the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_20"></a></p>
+<a id="user-content-6_2_18"></a></p>
 <h4>
-<a id="user-content-5320--plus--support-for-the-ti83plus" class="anchor" href="#5320--plus--support-for-the-ti83plus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.20. -plus : Support for the Ti83Plus</h4>
+<a id="user-content-6218--plus--support-for-the-ti83plus" class="anchor" href="#6218--plus--support-for-the-ti83plus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.18. -plus : Support for the Ti83Plus</h4>
 <p>Defines how the  <a href="#10_19">INVOKE</a>  command is coded: either as a RST 28H instruction (option on) or as a regular  <a href="#10_2">CALL</a>  instruction (option off).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_3_21"></a></p>
+<a id="user-content-6_2_19"></a></p>
 <h4>
-<a id="user-content-5321--c--enable-line-directive" class="anchor" href="#5321--c--enable-line-directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.21. -C : Enable LINE directive</h4>
+<a id="user-content-6219--c--enable-line-directive" class="anchor" href="#6219--c--enable-line-directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.19. -C : Enable LINE directive</h4>
 <p>Enables the  <a href="#10_21">LINE</a>  directive to synchronize error message line numbers with the line numbers from the source file.</p>
 <h2>
 <a id="user-content-2-an-overview-of-assembler-features-and-related-files" class="anchor" href="#2-an-overview-of-assembler-features-and-related-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. An overview of assembler features and related files</h2>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_4"></a></p>
-<h3>
-<a id="user-content-54-the-z88-operating-system-definition-files" class="anchor" href="#54-the-z88-operating-system-definition-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.4. The Z88 operating system definition files</h3>
-<p>You will find header files containing all operating system definitions as defined in the  <a href="#5_6">Z88</a>  Developers' Notes V3 in the "OZdefc.zip" file. This makes the operating system interface programming a lot easier.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_5"></a></p>
-<h3>
-<a id="user-content-55-the-supplied-standard-library-z80-source-files" class="anchor" href="#55-the-supplied-standard-library-z80-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.5. The supplied standard library Z80 source files</h3>
-<p>We have supplied a standard library with useful routines for both beginners and professional machine code programmers. All source files are supplied for having the opportunity to study and improve the routines. However some routines are programmed especially for the  <a href="#5_6">Z88</a>  operating system and may not be of use for other  <a href="#7">Z80</a>  based computers unless thoroughly rewritten. The standard library source files may be found in the " <a href="#7">Z80</a> lib.zip" file.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_6"></a></p>
-<h3>
-<a id="user-content-56-z88-module-assembler-application-source" class="anchor" href="#56-z88-module-assembler-application-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.6. Z88 module assembler application source</h3>
-<p>We have supplied the complete source of the  <a href="#5_6">Z88</a>  module assembler application. This allows you to evaluate many aspects of programming applications on the  <a href="#5_6">Z88</a> . Further, most features of the assembler are mirrored in these source files; using directives, the free format of  <a href="#7">Z80</a>  mnemonics, library routine access, modular file design, labels, using expressions, comments, data structure manipulation and good programming design.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_7"></a></p>
-<h3>
-<a id="user-content-57-file-based-compilation" class="anchor" href="#57-file-based-compilation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.7. File based compilation</h3>
-<p>This assembler is completely file based, i.e. all parsing and code generation is manipulated via files on storage medias such as harddisks or floppy disks (or file based RAM-discs).</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_8"></a></p>
-<h3>
-<a id="user-content-58-modular-source-file-design" class="anchor" href="#58-modular-source-file-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.8. Modular source file design</h3>
-<p>A compilation may be split into individual source files that either can be linked together during assembly as a single module or assembled as separate source file modules. Separate source file modules saves compilation time and memory. Further, this design is much more straightforward and much more logically clear in a design phase of a large compilation project than one huge kludge of a source file.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_9"></a></p>
-<h3>
-<a id="user-content-59-scope-of-symbols-in-source-modules" class="anchor" href="#59-scope-of-symbols-in-source-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.9. Scope of symbols in source modules</h3>
-<p>All source modules may refer to each others symbols by using  <a href="#10_12">EXTERN</a>  directives. This means that you refer to external information outside the current source module. The opposite of an external module reference is to declare symbols globally available using a  <a href="#10_26">PUBLIC</a>  directive, i.e. making symbols available to other source modules. Finally it is possible to have local symbols that are not known to other source modules than the current. A label or constant that has not been declared with  <a href="#10_12">EXTERN</a> ,  <a href="#10_26">PUBLIC</a>  or  <a href="#10_14">GLOBAL</a>  is local to the module.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_10"></a></p>
-<h3>
-<a id="user-content-510-using-arithmetic-and-relational-expressions" class="anchor" href="#510-using-arithmetic-and-relational-expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.10. Using arithmetic and relational expressions</h3>
-<p>All directives that require a numerical parameter or  <a href="#7">Z80</a>  mnemonics that use an integer argument may use expressions. Expressions may be formed by all standard arithmetic operators and relational operators. Even binary operators are implemented. All expressions may contain external identifiers and is automatically resolved during the linking phase. Only certain directives require compilation time evaluable expressions.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_11"></a></p>
-<h3>
-<a id="user-content-511-source-file-manipulation" class="anchor" href="#511-source-file-manipulation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.11. Source file manipulation</h3>
-<p>To allow the Assembler to execute in multitasking environments such as LINUX and QDOS, all source input files are opened as shared I/O. This allows other programs to access the source files while the assembler is working. All output files (both text and binary files) are opened/created for exclusive use; other programs will have no access to those files until they have been closed.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_12"></a></p>
-<h3>
-<a id="user-content-512-free-format-of-assembler-source-files" class="anchor" href="#512-free-format-of-assembler-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.12. Free format of assembler source files</h3>
-<p>The source files may be written in a free format. No fixed position columns as needed as in the COBOL programming language. All text may be typed in mixed case (the assembler converts all text input to uppercase). Tabulators may be used freely (instead of spaces which also saves source file space) to suit the programmers own habits of structured text layouts. However, one rule must be obeyed: syntax of  <a href="#7">Z80</a>  assembler mnemonics and most directives must be completed on individual lines. Text files using different OS dependant line feed standard are parsed properly; line feed types CR, LF or CRLF are automatically recognized. So you can easily compile your sources from Linux/UNIX on an MSDOS platform.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_13"></a></p>
-<h3>
-<a id="user-content-513-specification-of-filenames" class="anchor" href="#513-specification-of-filenames" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.13. Specification of filenames</h3>
-<p>Specification of file names in source files are always enclosed in double quotes. The assembler just collects the filename string and uses this to open a file. This way all filename standards may be used as defined on different operating system platforms.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_14"></a></p>
-<h3>
-<a id="user-content-514-including-other-source-files-into-the-current-source-file" class="anchor" href="#514-including-other-source-files-into-the-current-source-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.14. Including other source files into the current source file</h3>
-<p>The need for header file information such as operating system constants or data structures is often indispensable for source file modules. Instead of copying the contents of those files into each module, it is possible to include them at run time (during parsing). Infinite include file levels are permitted, i.e. included files calling other files.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_15"></a></p>
-<h3>
-<a id="user-content-515-conditional-assembly-in-source-file-modules" class="anchor" href="#515-conditional-assembly-in-source-file-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.15. Conditional assembly in source file modules</h3>
-<p>Large compilation projects often need to compile the application in several variations. This can be achieved with enclosing parts of the source with conditional directives for the different variations of the application. This may also be useful if the assembler source is ported to several platforms, where inclusion of other source files (such as header files) are using different filename standards. The conditional directives  <a href="#10_15">IF</a> ,  <a href="#10_16">IFDEF</a> ,  <a href="#10_17">IFNDEF</a> , ELSE, and ENDIF may be nested into infinite levels.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_16"></a></p>
-<h3>
-<a id="user-content-516-undocumented-z80-instruction-code-generation" class="anchor" href="#516-undocumented-z80-instruction-code-generation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.16. Undocumented Z80 instruction code generation</h3>
-<p>We have included the syntax parsing and code generation of the undocumented  <a href="#7">Z80</a>  instructions for the sake of completeness. However, IM 2 interrupts must be disabled before they are executed (an interrupt may otherwise occur in the middle of the instruction execution). Many games on the ZX Spectrum have used them to protect the code from prying eyes. The  <a href="#5_6">Z88</a>  native debugger code uses some of the undocumented instructions for fast access to register variables.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_17"></a></p>
-<h3>
-<a id="user-content-517-object-file-generation" class="anchor" href="#517-object-file-generation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.17. Object file generation</h3>
-<p>The  <a href="#7">Z80</a>  Module Assembler generates object files that contains the compressed version of an assembled source module. The information herein contains declared symbols (local, global and external), expressions, address origin, module name and machine code. The object file modules are much smaller than their source file counterparts (often smaller than 2K).</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_18"></a></p>
-<h3>
-<a id="user-content-518-transfer-of-object-files-across-platforms" class="anchor" href="#518-transfer-of-object-files-across-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.18. Transfer of object files across platforms</h3>
-<p>The  <a href="#7">Z80</a>  Module Assembler is already implemented on several different computer platforms. You may freely transfer the object files and use them as a part of another cross-compilation. There is no system-dependent information in the object files.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_19"></a></p>
-<h3>
-<a id="user-content-519-date-stamp-controlled-assembly" class="anchor" href="#519-date-stamp-controlled-assembly" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.19. Date stamp controlled assembly</h3>
-<p>To avoid unnecessary compilation of source file modules, it is possible to let the assembler compile only recently updated source file modules by comparing the date stamp of the source and the object file modules. Source file modules that are older than object file modules are ignored. This facility is indispensable in large compilation projects.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_20"></a></p>
-<h3>
-<a id="user-content-520-listing-files" class="anchor" href="#520-listing-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.20. Listing files</h3>
-<p>The assembler may generate listing files that contain a copy of the source file with additional code generation information of  <a href="#7">Z80</a>  mnemonics dumped in hexadecimal format. The listing files are formatted with page headers containing time of assembly and the filename. Line numbers are included which corresponds to the source file lines.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_21"></a></p>
-<h3>
-<a id="user-content-521-symbol-information" class="anchor" href="#521-symbol-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.21. Symbol information</h3>
-<p>All symbol generated values used in source modules may be dumped to the end of the listing file or as a separate symbol file. If the symbol table is dumped into the listing file, each symbol will be written with page references of all occurrences in the listing file. Address symbols (labels) are addressed relative to the start of the module. Symbol constants are written as defined in the source. The symbol table is written in alphabetical order with corresponding values in hexadecimal format.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_22"></a></p>
-<h3>
-<a id="user-content-522-linking-and-relocation-of-object-modules-into-executable-z80-machine-code" class="anchor" href="#522-linking-and-relocation-of-object-modules-into-executable-z80-machine-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.22. Linking and relocation of object modules into executable Z80 machine code</h3>
-<p>To obtain an executable  <a href="#7">Z80</a>  machine code file it is necessary to link all assembled object modules and relocate them at a defined address, where the code is to be executed at in the computers' memory. The linking &amp; relocation is performed automatically after completed assembly of all specified source file modules. The  <a href="#10_25">ORG</a>  relocation address is specified in the first object module.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_23"></a></p>
-<h3>
-<a id="user-content-523-address-map-files" class="anchor" href="#523-address-map-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.23. Address map files</h3>
-<p>The address map is invaluable information during a debugging session of your compiled program. This file contains all symbolical address labels with their generated address constants after a completed linking/relocation of all modules into executable machine code. The map file is ordered in two groups; the first list contains all symbol names ordered alphabetically with corresponding address constants, the second list contains all symbols ordered by their address value (in chronological order).</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_24"></a></p>
-<h3>
-<a id="user-content-524-symbol-address-definition-files" class="anchor" href="#524-symbol-address-definition-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.24. Symbol address definition files</h3>
-<p>As with address map files this contains information of globally declared symbolical address labels, relocated to their absolute position as for the compiled machine code file. However, the format is completely different; all symbols are created as constant definitions to be included as a header file into another source file and assembled. This is useful if you want to call subroutines compiled separately in another project (originated in a different memory setup).</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_25"></a></p>
-<h3>
-<a id="user-content-525-error-files" class="anchor" href="#525-error-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.25. Error files</h3>
-<p>Error files are created by the assembler during processing. If any errors should occur, they will be written to stderr and copied to this file containing information of where the error occurred in the source module. If no errors were found, the error file is automatically closed and deleted.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5_26"></a></p>
-<h3>
-<a id="user-content-526-creating-and-using-object-file-libraries-for-standard-routines" class="anchor" href="#526-creating-and-using-object-file-libraries-for-standard-routines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.26. Creating and using object file libraries for standard routines</h3>
-<p>Machine programmers often re-use their standard routines. We have implemented a file format for generating libraries using the existing object file modules. Using a simple set of rules makes it very easy to create your own libraries from your source file modules. Documentation of the library file format is included in this documentation. At command line infinite number of libraries may be specified. All will be searched during linking of your object modules for referenced library routines.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6"></a></p>
-<h2>
-<a id="user-content-6-executing-the-cross-assembler-and-environment-variables" class="anchor" href="#6-executing-the-cross-assembler-and-environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Executing the cross assembler and environment variables</h2>
-<p>The following text describes how to execute the assembler and defining the environment variables used by the assembler.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6_1"></a></p>
-<h3>
-<a id="user-content-61-the-environment-variables" class="anchor" href="#61-the-environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.1. The environment variables</h3>
-<p>The assembler uses two environment variables:</p>
-<ul>
-<li>" <a href="#7">Z80</a> _STDLIB" define the default filename of the standard library filename.</li>
-<li>" <a href="#7">Z80</a> _OZFILES" define the default path of the standard  <a href="#5_6">Z88</a>  OZ system headers.</li>
-</ul>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6_2"></a></p>
-<h3>
-<a id="user-content-62-running-in-the-qdossmsq-operating-system-environment" class="anchor" href="#62-running-in-the-qdossmsq-operating-system-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2. Running in the QDOS/SMSQ operating system environment</h3>
-<p>z80asm may be compiled using the C68 compiler developed by the Walker brothers. You also need the 'env_bin' file. This is necessary to install into the operating system before using the assembler. It contains the environment variable facility integrated on UNIX, MS-DOS and many other operating systems. Include the following line into your BOOT upstart program:</p>
-<pre><code>LRESPR win1_ext_env_bin
-</code></pre>
-<p>The device and path 'win1_ext_' is just an example of where to store your system extension file. You may have it on your BOOT disk as well. If you don't have ToolKit 2 on your system use the following line in your BOOT program:</p>
-<pre><code>envext=RESPR(1024):LBYTES win1_ext_env_bin,envext: [CALL](#10_2)  envext
-</code></pre>
-<p>Use the following in your BOOT file to set the environment variables:</p>
-<pre><code>SETENV "Z80_OZFILES=win1_z80_src_oz_"  
-SETENV "Z80_STDLIB=win1_z80_standard_lib"
-</code></pre>
-<p>The example file names are only a demonstration. Change them as necessary.</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_3"></a></p>
 <h3>
-<a id="user-content-63-running-in-the-linuxunix-operating-system-environment" class="anchor" href="#63-running-in-the-linuxunix-operating-system-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.3. Running in the LINUX/UNIX operating system environment</h3>
-<p>This program can be executed on the LINUX operating system and any other UNIX. The sources are strictly ANSI C and uses only library calls that are described in Brian W. Kernighan and Dennis M. Ritchie C books. The important thing to remember before compiling it under UNIX, is in which direction the integers are stored by the processor architecture; the famous Big Endian and Little endian concept. The config.h file uses a "ENDIAN" definition when z80asm must interpret integers in big endian order. Please set this definition according to your system's processor architecture. Most people uses the Intel processor when running Linux - this is a little endian architecture (so you don't need the ENDIAN define...).</p>
-<p>You can compile z80asm using GNU C compiler simply by entering the following on your command line:</p>
-<pre><code>gcc  [-o](#5_3_8)  z80asm -O2 *.c
-</code></pre>
-<p>The environment variables needed by z80asm are easily added in your accounts login script, ".profile" or ".bash_profile" in your home directory.</p>
+<a id="user-content-63-the-z88-operating-system-definition-files" class="anchor" href="#63-the-z88-operating-system-definition-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.3. The Z88 operating system definition files</h3>
+<p>You will find header files containing all operating system definitions as defined in the  <a href="#6_5">Z88</a>  Developers' Notes V3 in the "OZdefc.zip" file. This makes the operating system interface programming a lot easier.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_4"></a></p>
 <h3>
-<a id="user-content-64-running-in-the-ms-dos-operating-system-environment" class="anchor" href="#64-running-in-the-ms-dos-operating-system-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.4. Running in the MS-DOS operating system environment</h3>
-<p>This program can be executed on all MSDOS operating systems using the INTEL 8086 processor up to high speed 80386/80486/Pentium processors on IBM &amp; compatible computers. Add the source files to your favorite C compiler system in MSDOS or Windows (here you need to specify compilation options o a console application).</p>
-<p>The environment variables are easily put into your AUTOEXEC.BAT file. Simply specify:</p>
-<pre><code>SET Z80_OZFILES=C:\ [Z80](#7) \OZ\
-SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20) 
-</code></pre>
-<p>Choose your own settings if you like.</p>
-<p>If you want the assembler to be accessible in any path, add the path location of the assembler in the PATH search line:</p>
-<pre><code>SET PATH=%PATH%;C:\ [Z80](#7) 
-</code></pre>
+<a id="user-content-64-the-supplied-standard-library-z80-source-files" class="anchor" href="#64-the-supplied-standard-library-z80-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.4. The supplied standard library Z80 source files</h3>
+<p>We have supplied a standard library with useful routines for both beginners and professional machine code programmers. All source files are supplied for having the opportunity to study and improve the routines. However some routines are programmed especially for the  <a href="#6_5">Z88</a>  operating system and may not be of use for other  <a href="#7">Z80</a>  based computers unless thoroughly rewritten. The standard library source files may be found in the " <a href="#7">Z80</a> lib.zip" file.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_5"></a></p>
+<h3>
+<a id="user-content-65-z88-module-assembler-application-source" class="anchor" href="#65-z88-module-assembler-application-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.5. Z88 module assembler application source</h3>
+<p>We have supplied the complete source of the  <a href="#6_5">Z88</a>  module assembler application. This allows you to evaluate many aspects of programming applications on the  <a href="#6_5">Z88</a> . Further, most features of the assembler are mirrored in these source files; using directives, the free format of  <a href="#7">Z80</a>  mnemonics, library routine access, modular file design, labels, using expressions, comments, data structure manipulation and good programming design.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_6"></a></p>
+<h3>
+<a id="user-content-66-file-based-compilation" class="anchor" href="#66-file-based-compilation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.6. File based compilation</h3>
+<p>This assembler is completely file based, i.e. all parsing and code generation is manipulated via files on storage medias such as harddisks or floppy disks (or file based RAM-discs).</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_7"></a></p>
+<h3>
+<a id="user-content-67-modular-source-file-design" class="anchor" href="#67-modular-source-file-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.7. Modular source file design</h3>
+<p>A compilation may be split into individual source files that either can be linked together during assembly as a single module or assembled as separate source file modules. Separate source file modules saves compilation time and memory. Further, this design is much more straightforward and much more logically clear in a design phase of a large compilation project than one huge kludge of a source file.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_8"></a></p>
+<h3>
+<a id="user-content-68-scope-of-symbols-in-source-modules" class="anchor" href="#68-scope-of-symbols-in-source-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.8. Scope of symbols in source modules</h3>
+<p>All source modules may refer to each others symbols by using  <a href="#10_12">EXTERN</a>  directives. This means that you refer to external information outside the current source module. The opposite of an external module reference is to declare symbols globally available using a  <a href="#10_26">PUBLIC</a>  directive, i.e. making symbols available to other source modules. Finally it is possible to have local symbols that are not known to other source modules than the current. A label or constant that has not been declared with  <a href="#10_12">EXTERN</a> ,  <a href="#10_26">PUBLIC</a>  or  <a href="#10_14">GLOBAL</a>  is local to the module.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_9"></a></p>
+<h3>
+<a id="user-content-69-using-arithmetic-and-relational-expressions" class="anchor" href="#69-using-arithmetic-and-relational-expressions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.9. Using arithmetic and relational expressions</h3>
+<p>All directives that require a numerical parameter or  <a href="#7">Z80</a>  mnemonics that use an integer argument may use expressions. Expressions may be formed by all standard arithmetic operators and relational operators. Even binary operators are implemented. All expressions may contain external identifiers and is automatically resolved during the linking phase. Only certain directives require compilation time evaluable expressions.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_10"></a></p>
+<h3>
+<a id="user-content-610-free-format-of-assembler-source-files" class="anchor" href="#610-free-format-of-assembler-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.10. Free format of assembler source files</h3>
+<p>The source files may be written in a free format. No fixed position columns as needed as in the COBOL programming language. All text may be typed in mixed case (the assembler converts all text input to uppercase). Tabulators may be used freely (instead of spaces which also saves source file space) to suit the programmers own habits of structured text layouts. However, one rule must be obeyed: syntax of  <a href="#7">Z80</a>  assembler mnemonics and most directives must be completed on individual lines. Text files using different OS dependant line feed standard are parsed properly; line feed types CR, LF or CRLF are automatically recognized. So you can easily compile your sources from Linux/UNIX on an MSDOS platform.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_11"></a></p>
+<h3>
+<a id="user-content-611-specification-of-filenames" class="anchor" href="#611-specification-of-filenames" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.11. Specification of filenames</h3>
+<p>Specification of file names in source files are always enclosed in double quotes. The assembler just collects the filename string and uses this to open a file. This way all filename standards may be used as defined on different operating system platforms.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_12"></a></p>
+<h3>
+<a id="user-content-612-including-other-source-files-into-the-current-source-file" class="anchor" href="#612-including-other-source-files-into-the-current-source-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.12. Including other source files into the current source file</h3>
+<p>The need for header file information such as operating system constants or data structures is often indispensable for source file modules. Instead of copying the contents of those files into each module, it is possible to include them at run time (during parsing). Infinite include file levels are permitted, i.e. included files calling other files.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_13"></a></p>
+<h3>
+<a id="user-content-613-conditional-assembly-in-source-file-modules" class="anchor" href="#613-conditional-assembly-in-source-file-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.13. Conditional assembly in source file modules</h3>
+<p>Large compilation projects often need to compile the application in several variations. This can be achieved with enclosing parts of the source with conditional directives for the different variations of the application. This may also be useful if the assembler source is ported to several platforms, where inclusion of other source files (such as header files) are using different filename standards. The conditional directives  <a href="#10_15">IF</a> ,  <a href="#10_16">IFDEF</a> ,  <a href="#10_17">IFNDEF</a> , ELSE, and ENDIF may be nested into infinite levels.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_14"></a></p>
+<h3>
+<a id="user-content-614-undocumented-z80-instruction-code-generation" class="anchor" href="#614-undocumented-z80-instruction-code-generation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.14. Undocumented Z80 instruction code generation</h3>
+<p>We have included the syntax parsing and code generation of the undocumented  <a href="#7">Z80</a>  instructions for the sake of completeness. However, IM 2 interrupts must be disabled before they are executed (an interrupt may otherwise occur in the middle of the instruction execution). Many games on the ZX Spectrum have used them to protect the code from prying eyes. The  <a href="#6_5">Z88</a>  native debugger code uses some of the undocumented instructions for fast access to register variables.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_15"></a></p>
+<h3>
+<a id="user-content-615-object-file-generation" class="anchor" href="#615-object-file-generation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.15. Object file generation</h3>
+<p>The  <a href="#7">Z80</a>  Module Assembler generates object files that contains the compressed version of an assembled source module. The information herein contains declared symbols (local, global and external), expressions, address origin, module name and machine code. The object file modules are much smaller than their source file counterparts (often smaller than 2K).</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_16"></a></p>
+<h3>
+<a id="user-content-616-transfer-of-object-files-across-platforms" class="anchor" href="#616-transfer-of-object-files-across-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.16. Transfer of object files across platforms</h3>
+<p>The  <a href="#7">Z80</a>  Module Assembler is already implemented on several different computer platforms. You may freely transfer the object files and use them as a part of another cross-compilation. There is no system-dependent information in the object files.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_17"></a></p>
+<h3>
+<a id="user-content-617-date-stamp-controlled-assembly" class="anchor" href="#617-date-stamp-controlled-assembly" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.17. Date stamp controlled assembly</h3>
+<p>To avoid unnecessary compilation of source file modules, it is possible to let the assembler compile only recently updated source file modules by comparing the date stamp of the source and the object file modules. Source file modules that are older than object file modules are ignored. This facility is indispensable in large compilation projects.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_18"></a></p>
+<h3>
+<a id="user-content-618-listing-files" class="anchor" href="#618-listing-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.18. Listing files</h3>
+<p>The assembler may generate listing files that contain a copy of the source file with additional code generation information of  <a href="#7">Z80</a>  mnemonics dumped in hexadecimal format. The listing files are formatted with page headers containing time of assembly and the filename. Line numbers are included which corresponds to the source file lines.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_19"></a></p>
+<h3>
+<a id="user-content-619-symbol-information" class="anchor" href="#619-symbol-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.19. Symbol information</h3>
+<p>All symbol generated values used in source modules may be dumped to the end of the listing file or as a separate symbol file. If the symbol table is dumped into the listing file, each symbol will be written with page references of all occurrences in the listing file. Address symbols (labels) are addressed relative to the start of the module. Symbol constants are written as defined in the source. The symbol table is written in alphabetical order with corresponding values in hexadecimal format.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_20"></a></p>
+<h3>
+<a id="user-content-620-linking-and-relocation-of-object-modules-into-executable-z80-machine-code" class="anchor" href="#620-linking-and-relocation-of-object-modules-into-executable-z80-machine-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.20. Linking and relocation of object modules into executable Z80 machine code</h3>
+<p>To obtain an executable  <a href="#7">Z80</a>  machine code file it is necessary to link all assembled object modules and relocate them at a defined address, where the code is to be executed at in the computers' memory. The linking &amp; relocation is performed automatically after completed assembly of all specified source file modules. The  <a href="#10_25">ORG</a>  relocation address is specified in the first object module.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_21"></a></p>
+<h3>
+<a id="user-content-621-address-map-files" class="anchor" href="#621-address-map-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.21. Address map files</h3>
+<p>The address map is invaluable information during a debugging session of your compiled program. This file contains all symbolical address labels with their generated address constants after a completed linking/relocation of all modules into executable machine code. The map file is ordered in two groups; the first list contains all symbol names ordered alphabetically with corresponding address constants, the second list contains all symbols ordered by their address value (in chronological order).</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_22"></a></p>
+<h3>
+<a id="user-content-622-symbol-address-definition-files" class="anchor" href="#622-symbol-address-definition-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.22. Symbol address definition files</h3>
+<p>As with address map files this contains information of globally declared symbolical address labels, relocated to their absolute position as for the compiled machine code file. However, the format is completely different; all symbols are created as constant definitions to be included as a header file into another source file and assembled. This is useful if you want to call subroutines compiled separately in another project (originated in a different memory setup).</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_23"></a></p>
+<h3>
+<a id="user-content-623-error-files" class="anchor" href="#623-error-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.23. Error files</h3>
+<p>Error files are created by the assembler during processing. If any errors should occur, they will be written to stderr and copied to this file containing information of where the error occurred in the source module. If no errors were found, the error file is automatically closed and deleted.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_24"></a></p>
+<h3>
+<a id="user-content-624-creating-and-using-object-file-libraries-for-standard-routines" class="anchor" href="#624-creating-and-using-object-file-libraries-for-standard-routines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.24. Creating and using object file libraries for standard routines</h3>
+<p>Machine programmers often re-use their standard routines. We have implemented a file format for generating libraries using the existing object file modules. Using a simple set of rules makes it very easy to create your own libraries from your source file modules. Documentation of the library file format is included in this documentation. At command line infinite number of libraries may be specified. All will be searched during linking of your object modules for referenced library routines.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-7"></a></p>
@@ -1579,14 +1525,14 @@ SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20)
 <h4>
 <a id="user-content-731-the-source-file-extension-asm" class="anchor" href="#731-the-source-file-extension-asm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.3.1. The source file extension, asm</h4>
 <p>The extension for assembler mnemonic source files is 'asm'. Source files are specified by the user with or without the extension - whatever chosen, the assembler will investigate automatically what is needed to read the source files.</p>
-<p>You may override the default extension with the  <a href="#5_3_1">-e</a>  option.</p>
+<p>You may override the default extension with the  <a href="#6_2_1">-e</a>  option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-7_3_2"></a></p>
 <h4>
 <a id="user-content-732-the-object-file-extension-obj" class="anchor" href="#732-the-object-file-extension-obj" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.3.2. The object file extension, obj</h4>
 <p>The extension for object files is 'obj'. The base file name is taken from the corresponding source file name. This file is generated by the assembler from parsing the source file and contains intermediate generated machine code, an address origin of the machine code, symbol information and expressions.</p>
-<p>You may override the default extension with the  <a href="#5_3_2">-M</a>  option.</p>
+<p>You may override the default extension with the  <a href="#6_2_2">-M</a>  option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-7_3_3"></a></p>
@@ -1611,8 +1557,8 @@ SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20)
 <a id="user-content-7_3_6"></a></p>
 <h4>
 <a id="user-content-736-the-executable-file-extension-bin" class="anchor" href="#736-the-executable-file-extension-bin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.3.6. The executable file extension, bin</h4>
-<p>The extension for executable  <a href="#7">Z80</a>  machine code files is 'bin'. The base file name is taken from the first specified source file name at the command line (or project file). This is the linked and relocated output of object files and may be executed by the  <a href="#7">Z80</a>  processor. You may override this default behaviour by using the  <a href="#5_3_8">-o</a>  option and specify your own output filename (and extension).</p>
-<p>You may override this default behavior by using the  <a href="#5_3_8">-o</a>  option and specify your own output filename and extension.</p>
+<p>The extension for executable  <a href="#7">Z80</a>  machine code files is 'bin'. The base file name is taken from the first specified source file name at the command line (or project file). This is the linked and relocated output of object files and may be executed by the  <a href="#7">Z80</a>  processor. You may override this default behaviour by using the  <a href="#6_2_8">-o</a>  option and specify your own output filename (and extension).</p>
+<p>You may override this default behavior by using the  <a href="#6_2_8">-o</a>  option and specify your own output filename and extension.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-7_3_7"></a></p>
@@ -1630,7 +1576,7 @@ SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20)
 <a id="user-content-7_3_9"></a></p>
 <h4>
 <a id="user-content-739-the-library-file-extension-lib" class="anchor" href="#739-the-library-file-extension-lib" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.3.9. The library file extension, lib</h4>
-<p>Library files are identified with the 'lib' extension. Library files may be created using the  <a href="#5_3_17">-x</a>  option. Library may be included into application code during linking of object modules with the  <a href="#5_3_14">-i</a>  option.</p>
+<p>Library files are identified with the 'lib' extension. Library files may be created using the  <a href="#6_2_15">-x</a>  option. Library may be included into application code during linking of object modules with the  <a href="#6_2_14">-i</a>  option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-8"></a></p>
@@ -1677,7 +1623,7 @@ SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20)
 <ul>
 <li>&lt;LF&gt; (used by QDOS/SMSQ/UNIX/AMIGA);</li>
 <li>&lt;CR&gt;&lt;LF&gt; (used by MSDOS);</li>
-<li>&lt;CR&gt; (used by  <a href="#5_6">Z88</a> /MacIntosh).</li>
+<li>&lt;CR&gt; (used by  <a href="#6_5">Z88</a> /MacIntosh).</li>
 </ul>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
@@ -1696,7 +1642,7 @@ SET Z80_STDLIB=C:\ [Z80](#7) \STANDARD. [LIB](#10_20)
 <a id="user-content-8_6"></a></p>
 <h3>
 <a id="user-content-86-defining-symbol-names" class="anchor" href="#86-defining-symbol-names" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.6. Defining symbol names</h3>
-<p>Good programming involves a structured approach to mnemonic identification of names in subroutines, variables, data structures and other constants. The  <a href="#7">Z80</a>  Module Assembler gives you several possibilities. The easiest and frequently used one is  <a href="#10_6">DEFC</a>  (Define Constant). We have supplied a complete set of header files (the "OZdefc.zip" file) containing the  <a href="#5_6">Z88</a>  operating system manifests as defined in the Developers' Notes V3 (the "devnotes.zip" file) which just contains  <a href="#10_6">DEFC</a>  directives.</p>
+<p>Good programming involves a structured approach to mnemonic identification of names in subroutines, variables, data structures and other constants. The  <a href="#7">Z80</a>  Module Assembler gives you several possibilities. The easiest and frequently used one is  <a href="#10_6">DEFC</a>  (Define Constant). We have supplied a complete set of header files (the "OZdefc.zip" file) containing the  <a href="#6_5">Z88</a>  operating system manifests as defined in the Developers' Notes V3 (the "devnotes.zip" file) which just contains  <a href="#10_6">DEFC</a>  directives.</p>
 <p>Each  <a href="#10_6">DEFC</a>  directive is followed by an identifier name, followed by a = symbol and then an evaluable constant expression (usually just a constant). Constant definitions are usually operating system manifest or other frequently used items. They are put into separate source files and later inserted into main source files using the  <a href="#10_18">INCLUDE</a>  directive.</p>
 <p>Though  <a href="#10_6">DEFC</a>  resolves most needs, it may be necessary to define variable areas or templates containing names with an appropriate size tag (byte, word or double word). This is possible using the  <a href="#10_11">DEFVARS</a>  directive. Here you may specify as many names as needed in the group. Then, it is easy to add, rearrange or delete any of the variable names - only a few modifications and then just re-compiling the necessary source files that use the templates. This would be a nightmare with  <a href="#10_6">DEFC</a> , since you have to keep track of the previous and next name in the group in addition to count the size of all names. All this is managed by  <a href="#10_11">DEFVARS</a>  automatically. Have a look at the syntax in the Directive Reference section.</p>
 <p>With advanced  <a href="#7">Z80</a>  programming you cannot avoid dynamic data structures like linked lists or binary trees. The fundamentals for this are known as records in PASCAL or structures in C.  <a href="#10_11">DEFVARS</a>  is well suited for this purpose. Defining each  <a href="#10_11">DEFVARS</a>  group with 0 automatically generates offset variables. The last name then automatically defines the size of the data structure. Again, refer to the directive reference for a good example.</p>
@@ -1785,13 +1731,13 @@ SLL  (IY+d)
 </code></pre>
 <p>SLL (Shift Logical Left)</p>
 <p>SLL does shift leftwards but insert a '1' in bit 0 instead of a '0'.</p>
-<p>Except for the SLL instruction all have bugs related to an interrupt being able to occur while the instructions are decoded by the processor. They are implemented on the chip, but are reported to be unreliable. We have used some of them in our debugger software for the  <a href="#5_6">Z88</a> . Until now the code has been running successfully on all our  <a href="#5_6">Z88</a>  computers.</p>
+<p>Except for the SLL instruction all have bugs related to an interrupt being able to occur while the instructions are decoded by the processor. They are implemented on the chip, but are reported to be unreliable. We have used some of them in our debugger software for the  <a href="#6_5">Z88</a> . Until now the code has been running successfully on all our  <a href="#6_5">Z88</a>  computers.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-8_12"></a></p>
 <h3>
 <a id="user-content-812-referencing-library-routines" class="anchor" href="#812-referencing-library-routines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.12. Referencing library routines</h3>
-<p>When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  <a href="#5_3_14">-i</a>  option and refer to the library routine in your source file using the  <a href="#10_20">LIB</a>  directive followed by the name of the library routine, e.g.</p>
+<p>When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  <a href="#6_2_14">-i</a>  option and refer to the library routine in your source file using the  <a href="#10_20">LIB</a>  directive followed by the name of the library routine, e.g.</p>
 <pre><code> [LIB](#10_20)  malloc, free
 </code></pre>
 <p>which will declare the two names "malloc" and "free" as external identifiers to the current source file module. Please note that you can declare the names before or after they actually are referred in your program source,. Failing to use the  <a href="#10_20">LIB</a>  directive will interpret labels as local symbols to that source file module. When the parser meets the instruction that uses one of the above names in a parameter, the parameter "expression" is automatically saved to the object file for later processing.</p>
@@ -1805,13 +1751,13 @@ SLL  (IY+d)
 <p>Creating libraries is an inbuilt feature of the assembler. The following steps are necessary to create a library:</p>
 <ol>
 <li>
-<p>Define a project file containing all filenames (without extensions) in your directory that contains all library routines (the easiest method since you later can move all files to another directory). Remember to arrange the filename in a topological order, i.e. library routines that access other routines must be placed first. This optimizes the searching through a library during the linking process.</p>
+<p>Define a project file containing all filenames (without extensions) in your directory that contains all library routines (the easiest method since you later can move all files to another directory).</p>
 </li>
 <li>
 <p>Each library source module uses the  <a href="#10_28">XLIB</a>  directive to define the name of the routine. The same name must be used for the address label definition. If your library uses other library routines then declare them with the  <a href="#10_20">LIB</a>  directive. Please note that a library routine creates the module name itself (performed by  <a href="#10_28">XLIB</a>  automatically). The module name is used to search for routines in a library.</p>
 </li>
 <li>
-<p>The command line contains the  <a href="#5_3_17">-x</a>  option immediately followed by your filename. If you don't specify a filename, the default standard filename is used (defined by the  <a href="#7">Z80</a> _STDLIB environment variable). Then you need to specify your project filename preceded by '@'.</p>
+<p>The command line contains the  <a href="#6_2_15">-x</a>  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.</p>
 </li>
 </ol>
 <p>For example:</p>
@@ -1824,7 +1770,7 @@ SLL  (IY+d)
 <a id="user-content-8_14"></a></p>
 <h3>
 <a id="user-content-814-referencing-routines-in-other-compiled-projects" class="anchor" href="#814-referencing-routines-in-other-compiled-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.14. Referencing routines in other compiled projects</h3>
-<p>It may be necessary in some situations to get access to routines previously compiled in another project. This implies however a knowledge of their absolute addresses during linking. This information is stored in the map file, but not accessible in a form suitable to be parsed by the assembler. However, this is possible in using the  <a href="#5_3_11">-g</a>  option at the assembler command line. The action performed creates a  <a href="#10_6">DEFC</a>  list file of address labels that have been declared as globally available (using the  <a href="#10_27">XDEF</a>  directive). Only compiled source files are included in the list. If you were using the  <a href="#5_3_7">-a</a>  option (compile only updated source files) and no files were updated then the  <a href="#5_3_11">-g</a>  file would be empty. If you would like a complete list of all global routines then it is needed to compile the whole project (using the  <a href="#5_3_6">-b</a>  command line option).</p>
+<p>It may be necessary in some situations to get access to routines previously compiled in another project. This implies however a knowledge of their absolute addresses during linking. This information is stored in the map file, but not accessible in a form suitable to be parsed by the assembler. However, this is possible in using the  <a href="#6_2_11">-g</a>  option at the assembler command line. The action performed creates a  <a href="#10_6">DEFC</a>  list file of address labels that have been declared as globally available (using the  <a href="#10_27">XDEF</a>  directive). Only compiled source files are included in the list. If you were using the  <a href="#6_2_7">-a</a>  option (compile only updated source files) and no files were updated then the  <a href="#6_2_11">-g</a>  file would be empty. If you would like a complete list of all global routines then it is needed to compile the whole project (using the  <a href="#6_2_6">-b</a>  command line option).</p>
 <p>When the file is generated, it can easily be  <a href="#10_18">INCLUDE</a> 'd in another project where your routines may access the external routines. You might do this in two ways:</p>
 <ol>
 <li>
@@ -1834,8 +1780,8 @@ SLL  (IY+d)
 <p>Creating a new source file that is part of your project. This file could easily be the first file in your project but could just as well be placed anywhere in your project. Declare each external name that is needed somewhere in your project as  <a href="#10_27">XDEF</a> , meaning that all names to be included are globally accessible from this module. Then specify the  <a href="#10_18">INCLUDE</a>  of the  <a href="#10_6">DEFC</a>  list of the other project file. As the names get loaded, they become global definitions. All other definitions will be ignored and not stored to the object file (they are not referred in the source module). All other modules just need to specify the external names as  <a href="#10_29">XREF</a> . During linking they all get resolved and your code has access to external routines from a previously compiled project.</p>
 </li>
 </ol>
-<p>Whenever the previous project has been re-compiled (and issued with  <a href="#5_3_11">-g</a>  option) there is a possibility that routine addresses has changed. You therefore need to recompile the extra source module in your project to get the new identifier values - the rest of your compilation is unaffected (due to the  <a href="#10_29">XREF</a>  directives). Only the linking process gets the new proper addresses. In example 1) you had to recompile all source files that would have used an  <a href="#10_18">INCLUDE</a>  of the  <a href="#10_6">DEFC</a>  list file. In example 2) only one file had to be recompiled.</p>
-<p>The principle of external addresses was used to compile the debugger version to be resided in segment 0 (into the upper 8K). The actual size of the debugger code uses 16K, but was split into two separate halves to fit into the upper 8K of segment 0. Each of the 8K code-segments had to get access to the other 8K block. The solution was the  <a href="#5_3_11">-g</a>  option and cross referencing using  <a href="#10_29">XREF</a>  and an additional source module (containing the  <a href="#10_27">XDEF</a>  declarations) that included the  <a href="#5_3_11">-g</a>  list file of the other project compilation.</p>
+<p>Whenever the previous project has been re-compiled (and issued with  <a href="#6_2_11">-g</a>  option) there is a possibility that routine addresses has changed. You therefore need to recompile the extra source module in your project to get the new identifier values - the rest of your compilation is unaffected (due to the  <a href="#10_29">XREF</a>  directives). Only the linking process gets the new proper addresses. In example 1) you had to recompile all source files that would have used an  <a href="#10_18">INCLUDE</a>  of the  <a href="#10_6">DEFC</a>  list file. In example 2) only one file had to be recompiled.</p>
+<p>The principle of external addresses was used to compile the debugger version to be resided in segment 0 (into the upper 8K). The actual size of the debugger code uses 16K, but was split into two separate halves to fit into the upper 8K of segment 0. Each of the 8K code-segments had to get access to the other 8K block. The solution was the  <a href="#6_2_11">-g</a>  option and cross referencing using  <a href="#10_29">XREF</a>  and an additional source module (containing the  <a href="#10_27">XDEF</a>  declarations) that included the  <a href="#6_2_11">-g</a>  list file of the other project compilation.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-9"></a></p>
@@ -1935,7 +1881,7 @@ SLL  (IY+d)
 <a id="user-content-10_2"></a></p>
 <h3>
 <a id="user-content-102-call_oz-expression" class="anchor" href="#102-call_oz-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.2. CALL_OZ &lt;expression&gt;</h3>
-<p>The &lt;expression&gt; may be a 16-bit expression and must evaluate to a constant. This is an easy interface call to the  <a href="#5_6">Z88</a>  operating system. This is an advanced RST 20H instruction which automatically allocates space for the size of the specified parameter (either 8-bit or 16-bit). Code is internally generated as follows:</p>
+<p>The &lt;expression&gt; may be a 16-bit expression and must evaluate to a constant. This is an easy interface call to the  <a href="#6_5">Z88</a>  operating system. This is an advanced RST 20H instruction which automatically allocates space for the size of the specified parameter (either 8-bit or 16-bit). Code is internally generated as follows:</p>
 <pre><code>RST $20  
  [DEFB](#10_3)  x ; 8-bit parameter
 </code></pre>
@@ -1966,7 +1912,7 @@ SLL  (IY+d)
 <a id="user-content-10_6"></a></p>
 <h3>
 <a id="user-content-106-defc-name32-bit-expression-name32-bit-expression" class="anchor" href="#106-defc-name32-bit-expression-name32-bit-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.6. DEFC name=&lt;32-bit expression&gt;{, name=&lt;32-bit expression&gt;}</h3>
-<p>Define a symbol variable, that may either be a constant or an expression evaluated at link time. The allowed range is a signed 32-bit integer value. All standard  <a href="#5_6">Z88</a>  operating system header files use  <a href="#10_6">DEFC</a></p>
+<p>Define a symbol variable, that may either be a constant or an expression evaluated at link time. The allowed range is a signed 32-bit integer value. All standard  <a href="#6_5">Z88</a>  operating system header files use  <a href="#10_6">DEFC</a></p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-10_7"></a></p>
@@ -2071,11 +2017,11 @@ JJJ = $40D4
 <a id="user-content-10_13"></a></p>
 <h3>
 <a id="user-content-1013-fpp-8-bit-expression" class="anchor" href="#1013-fpp-8-bit-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.13. FPP &lt;8-bit expression&gt;</h3>
-<p>Interface call to the  <a href="#5_6">Z88</a>  operating systems' floating point library. This is easier than writing:</p>
+<p>Interface call to the  <a href="#6_5">Z88</a>  operating systems' floating point library. This is easier than writing:</p>
 <pre><code>RST $18  
  [DEFB](#10_3)  mnemonic
 </code></pre>
-<p>This is an advanced RST 18H instruction which automatically allocates space for the specified parameter. All  <a href="#5_6">Z88</a>  floating point call mnemonics are defined in the "fpp.def" file.</p>
+<p>This is an advanced RST 18H instruction which automatically allocates space for the specified parameter. All  <a href="#6_5">Z88</a>  floating point call mnemonics are defined in the "fpp.def" file.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-10_14"></a></p>
@@ -2105,7 +2051,7 @@ JJJ = $40D4
 <a id="user-content-10_18"></a></p>
 <h3>
 <a id="user-content-1018-include-filename" class="anchor" href="#1018-include-filename" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.18. INCLUDE "filename"</h3>
-<p>Another component that is frequently used is to 'link' an additional source file together with the current source file. Usually this contains variable definitions that are commonly used by several modules in a project. This makes sense since there is no idea in copying the same information into several files - it simply uses redundant space of your storage media. This is certainly important on the  <a href="#5_6">Z88</a>  which not always has huge amounts of installed user/system RAM (usually 128K). The external source file will be included at the position of the  <a href="#10_18">INCLUDE</a>  directive.</p>
+<p>Another component that is frequently used is to 'link' an additional source file together with the current source file. Usually this contains variable definitions that are commonly used by several modules in a project. This makes sense since there is no idea in copying the same information into several files - it simply uses redundant space of your storage media. This is certainly important on the  <a href="#6_5">Z88</a>  which not always has huge amounts of installed user/system RAM (usually 128K). The external source file will be included at the position of the  <a href="#10_18">INCLUDE</a>  directive.</p>
 <p>The format of the filename depends on the operating system platform. As with the current source file, you may also insert files in include files. There is no limit of how many levels (of files) you specify of include files. Recursive or mutually recursive  <a href="#10_18">INCLUDE</a>  files (an  <a href="#10_18">INCLUDE</a>  file calling itself) is not possible - the assembler program will immediately return an error message back to you!</p>
 <p>Include files are usually put at the start of the source file module but may be placed anywhere in the source text. The current source file will be continued after the  <a href="#10_18">INCLUDE</a>  directive when the included file has been parsed to the end of file.</p>
 <hr>
@@ -2113,7 +2059,7 @@ JJJ = $40D4
 <a id="user-content-10_19"></a></p>
 <h3>
 <a id="user-content-1019-invoke-16-bit-expression" class="anchor" href="#1019-invoke-16-bit-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.19. INVOKE &lt;16-bit expression&gt;</h3>
-<p>Special  <a href="#10_2">CALL</a>  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  <a href="#5_3_20">-plus</a>  option is passed on the command line (for the Ti83Plus), or as a normal  <a href="#10_2">CALL</a>  instruction if the option is not passed.</p>
+<p>Special  <a href="#10_2">CALL</a>  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  <a href="#6_2_18">-plus</a>  option is passed on the command line (for the Ti83Plus), or as a normal  <a href="#10_2">CALL</a>  instruction if the option is not passed.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-10_20"></a></p>
@@ -2149,7 +2095,7 @@ JJJ = $40D4
 <a id="user-content-10_25"></a></p>
 <h3>
 <a id="user-content-1025-org-16-bit-expression" class="anchor" href="#1025-org-16-bit-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.25. ORG &lt;16-bit expression&gt;</h3>
-<p>Define address origin of compiled machine code - the position in memory where the machine is to be loaded and executed. The expression must be evaluable (containing no forward or external references). All address references will be calculated from the defined  <a href="#10_25">ORG</a>  value. The  <a href="#10_25">ORG</a>  address will be placed in the current module that is being compiled. However, during linking only the first object module is being read for an  <a href="#10_25">ORG</a>  address. The  <a href="#10_25">ORG</a>  is ignored during linking if you have specified an  <a href="#5_3_9">-r</a>  option on the command line.</p>
+<p>Define address origin of compiled machine code - the position in memory where the machine is to be loaded and executed. The expression must be evaluable (containing no forward or external references). All address references will be calculated from the defined  <a href="#10_25">ORG</a>  value. The  <a href="#10_25">ORG</a>  address will be placed in the current module that is being compiled. However, during linking only the first object module is being read for an  <a href="#10_25">ORG</a>  address. The  <a href="#10_25">ORG</a>  is ignored during linking if you have specified an  <a href="#6_2_9">-r</a>  option on the command line.</p>
 <p>When assembling programs with multiple sections, a section without an  <a href="#10_25">ORG</a>  will be appended to the end of the previous section. A section with a defined  <a href="#10_25">ORG</a>  will generate its own binary file, e.g. file_CODE.asm.</p>
 <p>A section may contain  <a href="#10_25">ORG</a>  -1 to tell the linker to split the binary file of this section, but continue the addresses sequence from the previous section.</p>
 <hr>
@@ -2196,8 +2142,8 @@ This is a message used by many routines - hence the general but descriptive mess
 This error is given if you are referring to an identifier (usually in an address reference) that was not declared. Either a label definition is missing in the current module or you have forgotten to declare an identifier as external using the  <a href="#10_29">XREF</a>  directive.</p>
 </li>
 <li>
-<p>"Not enough memory" / "No room in  <a href="#5_6">Z88</a> "<br>
-Well, well. It seems that there wasn't enough room to hold the internal data structures during parsing or linking your code. Delete any unnecessary running applications/jobs then try again. If you got the message on the  <a href="#5_6">Z88</a> , try also to delete unnecessary files from the filing system of your current RAM card.</p>
+<p>"Not enough memory" / "No room in  <a href="#6_5">Z88</a> "<br>
+Well, well. It seems that there wasn't enough room to hold the internal data structures during parsing or linking your code. Delete any unnecessary running applications/jobs then try again. If you got the message on the  <a href="#6_5">Z88</a> , try also to delete unnecessary files from the filing system of your current RAM card.</p>
 </li>
 <li>
 <p>"Integer out of range"<br>
@@ -2229,7 +2175,7 @@ You have been trying to use a name that is either not known to the parser or an 
 </li>
 <li>
 <p>"Max. code size reached"<br>
-Is that really possible? Very interesting code of yours!  <a href="#7">Z80</a>  machine code program tend to be in the 32K range (at least on the  <a href="#5_6">Z88</a> )... Well, the  <a href="#7">Z80</a>  processor cannot address more than 64K. Start changing your code to a smaller size!</p>
+Is that really possible? Very interesting code of yours!  <a href="#7">Z80</a>  machine code program tend to be in the 32K range (at least on the  <a href="#6_5">Z88</a> )... Well, the  <a href="#7">Z80</a>  processor cannot address more than 64K. Start changing your code to a smaller size!</p>
 </li>
 <li>
 <p>"errors occurred during assembly"<br>
@@ -2280,10 +2226,6 @@ The library file was found but couldn't be opened (probably already opened by an
 Your library file is not a library file (at least is not of the correct file format used by this assembler). Have you maybe used another "library" file? The  <a href="#7">Z80</a>  library file could also be corrupted (at least in the header).</p>
 </li>
 <li>
-<p>"Environment variable not defined"<br>
-The assembler reports either the " <a href="#7">Z80</a> _STDLIB" environment variable wasn't found when used by options  <a href="#5_3_17">-x</a>  and  <a href="#5_3_14">-i</a> .</p>
-</li>
-<li>
 <p>"Cannot include file recursively"<br>
 A file was tried to be included which was already included at a previous include level.  <a href="#10_18">INCLUDE</a>  "a.h" cannot contain an  <a href="#10_18">INCLUDE</a>  "a.h".</p>
 </li>
@@ -2319,10 +2261,9 @@ A file was tried to be included which was already included at a previous include
 <ul>
 <li>JP to JR optimization for size</li>
 <li>compile expressions</li>
-<li>object files store list of input files and command line so that  <a href="#5_3_5">-d</a>  can decide if it is necessary to recompile</li>
+<li>object files store list of input files and command line so that  <a href="#6_2_5">-d</a>  can decide if it is necessary to recompile</li>
 <li>object files can store same code for multiple architectures</li>
 <li>recursive parsing of @lists</li>
-<li>environment variable to pass options to assembler</li>
 <li>parse expressions</li>
 </ul>
 </li>
@@ -2351,8 +2292,8 @@ fails building z88dk because  <a href="#10_18">INCLUDE</a>  of unexistent file g
 <li>process C_LINE</li>
 <li>fix list files when parsing a .i</li>
 <li>move all directives from z80asm to z80asm2</li>
-<li>handle  <a href="#2_5_1">-m</a>  for architecture specific code</li>
-<li>handle  <a href="#5_3_12">-D</a>  and -U for top-level defines</li>
+<li>handle  <a href="#3_6_1">-m</a>  for architecture specific code</li>
+<li>handle  <a href="#6_2_12">-D</a>  and -U for top-level defines</li>
 <li>process  <a href="#10_18">INCLUDE</a>  / INCBIN /  <a href="#10_1">BINARY</a>
 </li>
 <li>generate .i file</li>
@@ -2647,37 +2588,37 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a id="user-content-16"></a></p>
 <h2>
 <a id="user-content-16-keywords" class="anchor" href="#16-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>16. Keywords</h2>
-<p><a href="#5_3_21">-C</a>
-<a href="#5_3_12">-D</a>
-<a href="#5_3_16">-I</a>
-<a href="#2_4_2">-IXIY</a>
-<a href="#5_3_15">-L</a>
-<a href="#5_3_2">-M</a>
-<a href="#5_3_10">-R</a>
-<a href="#5_3_19">-RCMX000</a>
-<a href="#5_3_7">-a</a>
-<a href="#2_2_1">-atoctal</a>
-<a href="#5_3_6">-b</a>
-<a href="#5_3_5">-d</a>
-<a href="#2_2_2">-dotdirective</a>
-<a href="#5_3_1">-e</a>
-<a href="#5_3_11">-g</a>
-<a href="#2_1_2">-h</a>
-<a href="#2_2_3">-hashhex</a>
-<a href="#5_3_14">-i</a>
-<a href="#5_3_3">-l</a>
-<a href="#2_2_4">-labelcol1</a>
-<a href="#2_5_1">-m</a>
-<a href="#2_4_1">-mCPU</a>
-<a href="#2_3_1">-noprec</a>
-<a href="#5_3_8">-o</a>
-<a href="#5_3_20">-plus</a>
-<a href="#5_3_9">-r</a>
-<a href="#5_3_4">-s</a>
-<a href="#5_3_18">-t</a>
-<a href="#2_2_5">-ucase</a>
-<a href="#2_1_3">-v</a>
-<a href="#5_3_17">-x</a>
+<p><a href="#6_2_19">-C</a>
+<a href="#6_2_12">-D</a>
+<a href="#3_4_1">-IDIR</a>
+<a href="#3_5_2">-IXIY</a>
+<a href="#3_4_2">-LDIR</a>
+<a href="#6_2_2">-M</a>
+<a href="#6_2_10">-R</a>
+<a href="#6_2_17">-RCMX000</a>
+<a href="#6_2_7">-a</a>
+<a href="#3_2_1">-atoctal</a>
+<a href="#6_2_6">-b</a>
+<a href="#6_2_5">-d</a>
+<a href="#3_2_2">-dotdirective</a>
+<a href="#6_2_1">-e</a>
+<a href="#6_2_11">-g</a>
+<a href="#3_1_2">-h</a>
+<a href="#3_2_3">-hashhex</a>
+<a href="#6_2_14">-i</a>
+<a href="#6_2_3">-l</a>
+<a href="#3_2_4">-labelcol1</a>
+<a href="#3_6_1">-m</a>
+<a href="#3_5_1">-mCPU</a>
+<a href="#3_3_1">-noprec</a>
+<a href="#6_2_8">-o</a>
+<a href="#6_2_18">-plus</a>
+<a href="#6_2_9">-r</a>
+<a href="#6_2_4">-s</a>
+<a href="#6_2_16">-t</a>
+<a href="#3_2_5">-ucase</a>
+<a href="#3_1_3">-v</a>
+<a href="#6_2_15">-x</a>
 <a href="#10_1">BINARY</a>
 <a href="#10_2">CALL</a>
 <a href="#10_3">DEFB</a>
@@ -2708,7 +2649,7 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a href="#10_28">XLIB</a>
 <a href="#10_29">XREF</a>
 <a href="#7">Z80</a>
-<a href="#5_6">Z88</a>
+<a href="#6_5">Z88</a>
 <a id="user-content-index"></a></p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
@@ -2730,221 +2671,210 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 </ul>
 </li>
 <li>
-<a href="#2">2.</a> Options
+<a href="#2">2.</a> Environment Variables</li>
+<li>
+<a href="#3">3.</a> Options
 <ul>
 <li>
-<a href="#2_1">2.1.</a> Help Options
+<a href="#3_1">3.1.</a> Help Options
 <ul>
 <li>
-<a href="#2_1_1">2.1.1.</a> no arguments (show usage)</li>
+<a href="#3_1_1">3.1.1.</a> no arguments (show usage)</li>
 <li>
-<a href="#2_1_2">2.1.2.</a>  <a href="#2_1_2">-h</a> , -?, --help (show manual)</li>
+<a href="#3_1_2">3.1.2.</a>  <a href="#3_1_2">-h</a> , -?, --help (show manual)</li>
 <li>
-<a href="#2_1_3">2.1.3.</a>  <a href="#2_1_3">-v</a> , --verbose (show progress)</li>
+<a href="#3_1_3">3.1.3.</a>  <a href="#3_1_3">-v</a> , --verbose (show progress)</li>
 </ul>
 </li>
 <li>
-<a href="#2_2">2.2.</a> Preprocessor options
+<a href="#3_2">3.2.</a> Preprocessor options
 <ul>
 <li>
-<a href="#2_2_1">2.2.1.</a>  <a href="#2_2_1">-atoctal</a>  (at is octal prefix)</li>
+<a href="#3_2_1">3.2.1.</a>  <a href="#3_2_1">-atoctal</a>  (at is octal prefix)</li>
 <li>
-<a href="#2_2_2">2.2.2.</a>  <a href="#2_2_2">-dotdirective</a>  (period is directive prefix)</li>
+<a href="#3_2_2">3.2.2.</a>  <a href="#3_2_2">-dotdirective</a>  (period is directive prefix)</li>
 <li>
-<a href="#2_2_3">2.2.3.</a>  <a href="#2_2_3">-hashhex</a>  (hash is hex prefix)</li>
+<a href="#3_2_3">3.2.3.</a>  <a href="#3_2_3">-hashhex</a>  (hash is hex prefix)</li>
 <li>
-<a href="#2_2_4">2.2.4.</a>  <a href="#2_2_4">-labelcol1</a>  (labels at column 1)</li>
+<a href="#3_2_4">3.2.4.</a>  <a href="#3_2_4">-labelcol1</a>  (labels at column 1)</li>
 <li>
-<a href="#2_2_5">2.2.5.</a>  <a href="#2_2_5">-ucase</a>  (upper case)</li>
+<a href="#3_2_5">3.2.5.</a>  <a href="#3_2_5">-ucase</a>  (upper case)</li>
 </ul>
 </li>
 <li>
-<a href="#2_3">2.3.</a> Assembly options
+<a href="#3_3">3.3.</a> Assembly options
 <ul>
 <li>
-<a href="#2_3_1">2.3.1.</a>  <a href="#2_3_1">-noprec</a>  (no precedence in expression evaluation)</li>
+<a href="#3_3_1">3.3.1.</a>  <a href="#3_3_1">-noprec</a>  (no precedence in expression evaluation)</li>
 </ul>
 </li>
 <li>
-<a href="#2_4">2.4.</a> Code Generation Options
+<a href="#3_4">3.4.</a> Environment Options
 <ul>
 <li>
-<a href="#2_4_1">2.4.1.</a>  <a href="#2_4_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<a href="#3_4_1">3.4.1.</a>  <a href="#3_4_1">-IDIR</a> , --inc-path=DIR (directory for source files)</li>
 <li>
-<a href="#2_4_2">2.4.2.</a>  <a href="#2_4_2">-IXIY</a> , - <a href="#2_4_2">-IXIY</a>  (swap IX and IY)</li>
-<li>
-<a href="#2_4_3">2.4.3.</a> --opt=speed (optimise for speed)</li>
-<li>
-<a href="#2_4_4">2.4.4.</a> --debug (debug information)</li>
+<a href="#3_4_2">3.4.2.</a>  <a href="#3_4_2">-LDIR</a> , --lib-path=DIR (directory for library)</li>
 </ul>
 </li>
 <li>
-<a href="#2_5">2.5.</a> Output File Options
+<a href="#3_5">3.5.</a> Code Generation Options
 <ul>
 <li>
-<a href="#2_5_1">2.5.1.</a>  <a href="#2_5_1">-m</a> , --map (create map file)</li>
+<a href="#3_5_1">3.5.1.</a>  <a href="#3_5_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<li>
+<a href="#3_5_2">3.5.2.</a>  <a href="#3_5_2">-IXIY</a> , - <a href="#3_5_2">-IXIY</a>  (swap IX and IY)</li>
+<li>
+<a href="#3_5_3">3.5.3.</a> --opt=speed (optimise for speed)</li>
+<li>
+<a href="#3_5_4">3.5.4.</a> --debug (debug information)</li>
+</ul>
+</li>
+<li>
+<a href="#3_6">3.6.</a> Output File Options
+<ul>
+<li>
+<a href="#3_6_1">3.6.1.</a>  <a href="#3_6_1">-m</a> , --map (create map file)</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<a href="#3">3.</a> Input Files
+<a href="#4">4.</a> Input Files
 <ul>
 <li>
-<a href="#3_1">3.1.</a> Source File Format</li>
+<a href="#4_1">4.1.</a> Source File Format</li>
 <li>
-<a href="#3_2">3.2.</a> Comments</li>
+<a href="#4_2">4.2.</a> Comments</li>
 <li>
-<a href="#3_3">3.3.</a> Symbols</li>
+<a href="#4_3">4.3.</a> Symbols</li>
 <li>
-<a href="#3_4">3.4.</a> Labels</li>
+<a href="#4_4">4.4.</a> Labels</li>
 <li>
-<a href="#3_5">3.5.</a> Numbers
+<a href="#4_5">4.5.</a> Numbers
 <ul>
 <li>
-<a href="#3_5_1">3.5.1.</a> Decimal</li>
+<a href="#4_5_1">4.5.1.</a> Decimal</li>
 <li>
-<a href="#3_5_2">3.5.2.</a> Hexadecimal</li>
+<a href="#4_5_2">4.5.2.</a> Hexadecimal</li>
 <li>
-<a href="#3_5_3">3.5.3.</a> Octal</li>
+<a href="#4_5_3">4.5.3.</a> Octal</li>
 <li>
-<a href="#3_5_4">3.5.4.</a> Binary</li>
+<a href="#4_5_4">4.5.4.</a> Binary</li>
 <li>
-<a href="#3_5_5">3.5.5.</a> Bitmaps</li>
+<a href="#4_5_5">4.5.5.</a> Bitmaps</li>
 </ul>
 </li>
 <li>
-<a href="#3_6">3.6.</a> Keywords</li>
+<a href="#4_6">4.6.</a> Keywords</li>
 <li>
-<a href="#3_7">3.7.</a> Directives and Opcodes</li>
+<a href="#4_7">4.7.</a> Directives and Opcodes</li>
 </ul>
 </li>
 <li>
-<a href="#4">4.</a> Object File Format
+<a href="#5">5.</a> Object File Format
 <ul>
 <li>
-<a href="#4_1">4.1.</a> Object Files</li>
+<a href="#5_1">5.1.</a> Object Files</li>
 <li>
-<a href="#4_2">4.2.</a> Library File Format</li>
+<a href="#5_2">5.2.</a> Library File Format</li>
 <li>
-<a href="#4_3">4.3.</a> Format History</li>
+<a href="#5_3">5.3.</a> Format History</li>
 </ul>
 </li>
 <li>
-<a href="#5">5.</a> z80asm Syntax
+<a href="#6">6.</a> z80asm Syntax
 <ul>
 <li>
-<a href="#5_1">5.1.</a> Help page</li>
+<a href="#6_1">6.1.</a> Command line</li>
 <li>
-<a href="#5_2">5.2.</a> Command line</li>
-<li>
-<a href="#5_3">5.3.</a> Command line options
+<a href="#6_2">6.2.</a> Command line options
 <ul>
 <li>
-<a href="#5_3_1">5.3.1.</a>  <a href="#5_3_1">-e</a> &lt;ext&gt; : Use alternative source file extension</li>
+<a href="#6_2_1">6.2.1.</a>  <a href="#6_2_1">-e</a> &lt;ext&gt; : Use alternative source file extension</li>
 <li>
-<a href="#5_3_2">5.3.2.</a>  <a href="#5_3_2">-M</a> &lt;ext&gt; : Use alternative object file extension</li>
+<a href="#6_2_2">6.2.2.</a>  <a href="#6_2_2">-M</a> &lt;ext&gt; : Use alternative object file extension</li>
 <li>
-<a href="#5_3_3">5.3.3.</a>  <a href="#5_3_3">-l</a>  : Create listing file output</li>
+<a href="#6_2_3">6.2.3.</a>  <a href="#6_2_3">-l</a>  : Create listing file output</li>
 <li>
-<a href="#5_3_4">5.3.4.</a>  <a href="#5_3_4">-s</a>  : Create symbol table</li>
+<a href="#6_2_4">6.2.4.</a>  <a href="#6_2_4">-s</a>  : Create symbol table</li>
 <li>
-<a href="#5_3_5">5.3.5.</a>  <a href="#5_3_5">-d</a>  : Assemble only updated files</li>
+<a href="#6_2_5">6.2.5.</a>  <a href="#6_2_5">-d</a>  : Assemble only updated files</li>
 <li>
-<a href="#5_3_6">5.3.6.</a>  <a href="#5_3_6">-b</a>  : Link/relocate object files</li>
+<a href="#6_2_6">6.2.6.</a>  <a href="#6_2_6">-b</a>  : Link/relocate object files</li>
 <li>
-<a href="#5_3_7">5.3.7.</a>  <a href="#5_3_7">-a</a>  : Combine  <a href="#5_3_5">-d</a>  and  <a href="#5_3_6">-b</a>
+<a href="#6_2_7">6.2.7.</a>  <a href="#6_2_7">-a</a>  : Combine  <a href="#6_2_5">-d</a>  and  <a href="#6_2_6">-b</a>
 </li>
 <li>
-<a href="#5_3_8">5.3.8.</a>  <a href="#5_3_8">-o</a> &lt;binary-filename&gt; : Binary filename</li>
+<a href="#6_2_8">6.2.8.</a>  <a href="#6_2_8">-o</a> &lt;binary-filename&gt; : Binary filename</li>
 <li>
-<a href="#5_3_9">5.3.9.</a>  <a href="#5_3_9">-r</a> &lt;hex-address&gt; : Re-define the  <a href="#10_25">ORG</a>  relocation address</li>
+<a href="#6_2_9">6.2.9.</a>  <a href="#6_2_9">-r</a> &lt;hex-address&gt; : Re-define the  <a href="#10_25">ORG</a>  relocation address</li>
 <li>
-<a href="#5_3_10">5.3.10.</a>  <a href="#5_3_10">-R</a>  : Generate address independent code</li>
+<a href="#6_2_10">6.2.10.</a>  <a href="#6_2_10">-R</a>  : Generate address independent code</li>
 <li>
-<a href="#5_3_11">5.3.11.</a>  <a href="#5_3_11">-g</a>  : Create global address definition file</li>
+<a href="#6_2_11">6.2.11.</a>  <a href="#6_2_11">-g</a>  : Create global address definition file</li>
 <li>
-<a href="#5_3_12">5.3.12.</a>  <a href="#5_3_12">-D</a> &lt;symbol&gt; : Define a static symbol</li>
+<a href="#6_2_12">6.2.12.</a>  <a href="#6_2_12">-D</a> &lt;symbol&gt; : Define a static symbol</li>
 <li>
-<a href="#5_3_13">5.3.13.</a> @&lt;project-file&gt; :1.3.16. Using a project file</li>
+<a href="#6_2_13">6.2.13.</a> @&lt;project-file&gt; :1.3.16. Using a project file</li>
 <li>
-<a href="#5_3_14">5.3.14.</a>  <a href="#5_3_14">-i</a> &lt;library-file&gt; : Include library modules during linking/relocation</li>
+<a href="#6_2_14">6.2.14.</a>  <a href="#6_2_14">-i</a> &lt;library-file&gt; : Include library modules during linking/relocation</li>
 <li>
-<a href="#5_3_15">5.3.15.</a>  <a href="#5_3_15">-L</a> &lt;library-path&gt; : Add directory to search path for libraries</li>
+<a href="#6_2_15">6.2.15.</a>  <a href="#6_2_15">-x</a>  : Create a library</li>
 <li>
-<a href="#5_3_16">5.3.16.</a>  <a href="#5_3_16">-I</a> &lt;include-path&gt; : Add directory to search path for  <a href="#10_18">INCLUDE</a>
-</li>
+<a href="#6_2_16">6.2.16.</a>  <a href="#6_2_16">-t</a> &lt;number&gt; : Define tabulator distance for text output files</li>
 <li>
-<a href="#5_3_17">5.3.17.</a>  <a href="#5_3_17">-x</a>  : Create a library</li>
+<a href="#6_2_17">6.2.17.</a>  <a href="#6_2_17">-RCMX000</a>  : Support the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's</li>
 <li>
-<a href="#5_3_18">5.3.18.</a>  <a href="#5_3_18">-t</a> &lt;number&gt; : Define tabulator distance for text output files</li>
+<a href="#6_2_18">6.2.18.</a>  <a href="#6_2_18">-plus</a>  : Support for the Ti83Plus</li>
 <li>
-<a href="#5_3_19">5.3.19.</a>  <a href="#5_3_19">-RCMX000</a>  : Support the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's</li>
-<li>
-<a href="#5_3_20">5.3.20.</a>  <a href="#5_3_20">-plus</a>  : Support for the Ti83Plus</li>
-<li>
-<a href="#5_3_21">5.3.21.</a>  <a href="#5_3_21">-C</a>  : Enable  <a href="#10_21">LINE</a>  directive</li>
+<a href="#6_2_19">6.2.19.</a>  <a href="#6_2_19">-C</a>  : Enable  <a href="#10_21">LINE</a>  directive</li>
 </ul>
 </li>
 <li>
-<a href="#5_4">5.4.</a> The  <a href="#5_6">Z88</a>  operating system definition files</li>
+<a href="#6_3">6.3.</a> The  <a href="#6_5">Z88</a>  operating system definition files</li>
 <li>
-<a href="#5_5">5.5.</a> The supplied standard library  <a href="#7">Z80</a>  source files</li>
+<a href="#6_4">6.4.</a> The supplied standard library  <a href="#7">Z80</a>  source files</li>
 <li>
-<a href="#5_6">5.6.</a>  <a href="#5_6">Z88</a>  module assembler application source</li>
+<a href="#6_5">6.5.</a>  <a href="#6_5">Z88</a>  module assembler application source</li>
 <li>
-<a href="#5_7">5.7.</a> File based compilation</li>
+<a href="#6_6">6.6.</a> File based compilation</li>
 <li>
-<a href="#5_8">5.8.</a> Modular source file design</li>
+<a href="#6_7">6.7.</a> Modular source file design</li>
 <li>
-<a href="#5_9">5.9.</a> Scope of symbols in source modules</li>
+<a href="#6_8">6.8.</a> Scope of symbols in source modules</li>
 <li>
-<a href="#5_10">5.10.</a> Using arithmetic and relational expressions</li>
+<a href="#6_9">6.9.</a> Using arithmetic and relational expressions</li>
 <li>
-<a href="#5_11">5.11.</a> Source file manipulation</li>
+<a href="#6_10">6.10.</a> Free format of assembler source files</li>
 <li>
-<a href="#5_12">5.12.</a> Free format of assembler source files</li>
+<a href="#6_11">6.11.</a> Specification of filenames</li>
 <li>
-<a href="#5_13">5.13.</a> Specification of filenames</li>
+<a href="#6_12">6.12.</a> Including other source files into the current source file</li>
 <li>
-<a href="#5_14">5.14.</a> Including other source files into the current source file</li>
+<a href="#6_13">6.13.</a> Conditional assembly in source file modules</li>
 <li>
-<a href="#5_15">5.15.</a> Conditional assembly in source file modules</li>
+<a href="#6_14">6.14.</a> Undocumented  <a href="#7">Z80</a>  instruction code generation</li>
 <li>
-<a href="#5_16">5.16.</a> Undocumented  <a href="#7">Z80</a>  instruction code generation</li>
+<a href="#6_15">6.15.</a> Object file generation</li>
 <li>
-<a href="#5_17">5.17.</a> Object file generation</li>
+<a href="#6_16">6.16.</a> Transfer of object files across platforms</li>
 <li>
-<a href="#5_18">5.18.</a> Transfer of object files across platforms</li>
+<a href="#6_17">6.17.</a> Date stamp controlled assembly</li>
 <li>
-<a href="#5_19">5.19.</a> Date stamp controlled assembly</li>
+<a href="#6_18">6.18.</a> Listing files</li>
 <li>
-<a href="#5_20">5.20.</a> Listing files</li>
+<a href="#6_19">6.19.</a> Symbol information</li>
 <li>
-<a href="#5_21">5.21.</a> Symbol information</li>
+<a href="#6_20">6.20.</a> Linking and relocation of object modules into executable  <a href="#7">Z80</a>  machine code</li>
 <li>
-<a href="#5_22">5.22.</a> Linking and relocation of object modules into executable  <a href="#7">Z80</a>  machine code</li>
+<a href="#6_21">6.21.</a> Address map files</li>
 <li>
-<a href="#5_23">5.23.</a> Address map files</li>
+<a href="#6_22">6.22.</a> Symbol address definition files</li>
 <li>
-<a href="#5_24">5.24.</a> Symbol address definition files</li>
+<a href="#6_23">6.23.</a> Error files</li>
 <li>
-<a href="#5_25">5.25.</a> Error files</li>
-<li>
-<a href="#5_26">5.26.</a> Creating and using object file libraries for standard routines</li>
-</ul>
-</li>
-<li>
-<a href="#6">6.</a> Executing the cross assembler and environment variables
-<ul>
-<li>
-<a href="#6_1">6.1.</a> The environment variables</li>
-<li>
-<a href="#6_2">6.2.</a> Running in the QDOS/SMSQ operating system environment</li>
-<li>
-<a href="#6_3">6.3.</a> Running in the LINUX/UNIX operating system environment</li>
-<li>
-<a href="#6_4">6.4.</a> Running in the MS-DOS operating system environment</li>
+<a href="#6_24">6.24.</a> Creating and using object file libraries for standard routines</li>
 </ul>
 </li>
 <li>

@@ -26,6 +26,16 @@ Link the object files together and with any requested libraries into a set of bi
 
 Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the `-i` option.
 
+## Environment Variables
+
+The syntax `${ENV_VAR}` can be used whenever a file name or a command line option is expected, and expands to the value of the given environment variable, or the empty string if it is not defined.
+
+The environment variable `Z80ASM`, if defined, contains additional options that are used in every invocation of **z80asm**.
+
+The environment variable `ZCCCFG` is used to search for the **z80asm** libraries at its parent directory, i.e. `${ZCCCFG}/..`. These libraries define emulation routines for certain opcodes not available in all platforms. 
+
+**TODO**: table with all emulated opcodes.
+
 ## Options 
 
 ### Help Options
@@ -41,6 +51,18 @@ Show this document. The output can be piped to `more` for pagination.
 #### -v, --verbose (show progress)
 
 Show progress messages on `stdout`.
+
+### Environment Options
+
+#### -IDIR, --inc-path=DIR (directory for source files)
+ 
+Append the specified directory to the search path for source and include files.
+
+While each source file is being assembled, its parent directory is automatically added to the search path, so that `INCLUDE` can refer to include files via a relative path to the source.
+
+#### -LDIR, --lib-path=DIR (directory for library)
+
+Append the specified directory to the search path for library files.
 
 ### Code Generation Options
 

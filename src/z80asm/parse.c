@@ -491,7 +491,7 @@ bool parse_file(const char *filename)
 	ctx = ParseCtx_new();
 	src_push();
 	{
-		if (src_open(filename, opts.inc_path)) {
+		if (src_open(filename, true)) {
 			if (OptionVerbose())
 				printf("Reading '%s' = '%s'\n", path_canon(filename), path_canon(src_filename()));	/* display name of file */
 

@@ -58,23 +58,39 @@ Build a library containing all the object files passed as argument. That library
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=2></a>
 
-## 2. Options
+## 2. Environment Variables
+
+The syntax `${ENV_VAR}` can be used whenever a file name or a command line option is expected, and expands to the value of the given environment variable, or the empty string if it is not defined.
+
+The environment variable `Z80ASM`, if defined, contains additional options that are used in every invocation of **z80asm**.
+
+The environment variable `ZCCCFG` is used to search for the **z80asm** libraries at its parent directory, i.e. `${ZCCCFG}/..`. These libraries define emulation routines for certain opcodes not available in all platforms. 
+
+**TODO**: table with all emulated opcodes.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1></a>
+<a id=3></a>
 
-### 2.1. Help Options
+## 3. Options
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_1></a>
+<a id=3_1></a>
 
-#### 2.1.1. no arguments (show usage)
+### 3.1. Help Options
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_1_1></a>
+
+#### 3.1.1. no arguments (show usage)
 
 Show a help screen with the available options. 
 
@@ -82,9 +98,9 @@ Show a help screen with the available options.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_2></a>
+<a id=3_1_2></a>
 
-#### 2.1.2. -h, -?, --help (show manual)
+#### 3.1.2. -h, -?, --help (show manual)
 
 Show this document. The output can be piped to `more` for pagination.
 
@@ -92,9 +108,9 @@ Show this document. The output can be piped to `more` for pagination.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_1_3></a>
+<a id=3_1_3></a>
 
-#### 2.1.3. -v, --verbose (show progress)
+#### 3.1.3. -v, --verbose (show progress)
 
 Show progress messages on `stdout`.
 
@@ -102,17 +118,47 @@ Show progress messages on `stdout`.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_2></a>
+<a id=3_2></a>
 
-### 2.2. Code Generation Options
+### 3.2. Environment Options
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_2_1></a>
+<a id=3_2_1></a>
 
-#### 2.2.1. -mCPU, --cpu=CPU (select CPU)
+#### 3.2.1. -IDIR, --inc-path=DIR (directory for source files)
+ 
+Append the specified directory to the search path for source and include files.
+
+While each source file is being assembled, its parent directory is automatically added to the search path, so that `INCLUDE` can refer to include files via a relative path to the source.
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_2_2></a>
+
+#### 3.2.2. -LDIR, --lib-path=DIR (directory for library)
+
+Append the specified directory to the search path for library files.
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_3></a>
+
+### 3.3. Code Generation Options
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_3_1></a>
+
+#### 3.3.1. -mCPU, --cpu=CPU (select CPU)
 
 Assemble for the given CPU. The following CPU's are supported:
 
@@ -149,9 +195,9 @@ Assemble for the given CPU. The following CPU's are supported:
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_2_2></a>
+<a id=3_3_2></a>
 
-#### 2.2.2. -IXIY, --IXIY (swap IX and IY)
+#### 3.3.2. -IXIY, --IXIY (swap IX and IY)
 
 Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`IXH`, `IXL`, `IYH` and `IYL`).
 
@@ -159,9 +205,9 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_2_3></a>
+<a id=3_3_3></a>
 
-#### 2.2.3. --opt=speed (optimise for speed)
+#### 3.3.3. --opt=speed (optimise for speed)
 
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
@@ -169,9 +215,9 @@ Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_2_4></a>
+<a id=3_3_4></a>
 
-#### 2.2.4. --debug (debug information)
+#### 3.3.4. --debug (debug information)
 
 Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
 
@@ -179,17 +225,17 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_3></a>
+<a id=3_4></a>
 
-### 2.3. Output File Options
+### 3.4. Output File Options
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=2_3_1></a>
+<a id=3_4_1></a>
 
-#### 2.3.1. -m, --map (create map file)
+#### 3.4.1. -m, --map (create map file)
 
 Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
@@ -220,9 +266,9 @@ Creates a map file at the end of the link phase. The map file contains one line 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3></a>
+<a id=4></a>
 
-## 3. Copyright
+## 4. Copyright
 
 The original z80asm module assembler was written by Gunther Strube. 
 It was converted from QL SuperBASIC version 0.956, initially ported to Lattice C,
@@ -237,9 +283,9 @@ Copyright (C) Paulo Custodio, 2011-2020
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=4></a>
+<a id=5></a>
 
-## 4. License
+## 5. License
 
 Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 
@@ -249,40 +295,46 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=5></a>
+<a id=6></a>
 
-## 5. Keywords
- [-IXIY](#2_2_2) 
- [-h](#2_1_2) 
- [-m](#2_3_1) 
- [-mCPU](#2_2_1) 
- [-v](#2_1_3) 
+## 6. Keywords
+ [-IDIR](#3_2_1) 
+ [-IXIY](#3_3_2) 
+ [-LDIR](#3_2_2) 
+ [-h](#3_1_2) 
+ [-m](#3_4_1) 
+ [-mCPU](#3_3_1) 
+ [-v](#3_1_3) 
 <a id=index></a>
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6></a>
+<a id=7></a>
 
-## 6. Index
+## 7. Index
 - [1.](#1) Usage ...
   - [1.1.](#1_1) ... as assembler
   - [1.2.](#1_2) ... as linker
   - [1.3.](#1_3) ... as librarian
-- [2.](#2) Options
-  - [2.1.](#2_1) Help Options
-    - [2.1.1.](#2_1_1) no arguments (show usage)
-    - [2.1.2.](#2_1_2)  [-h](#2_1_2) , -?, --help (show manual)
-    - [2.1.3.](#2_1_3)  [-v](#2_1_3) , --verbose (show progress)
-  - [2.2.](#2_2) Code Generation Options
-    - [2.2.1.](#2_2_1)  [-mCPU](#2_2_1) , --cpu=CPU (select CPU)
-    - [2.2.2.](#2_2_2)  [-IXIY](#2_2_2) , - [-IXIY](#2_2_2)  (swap IX and IY)
-    - [2.2.3.](#2_2_3) --opt=speed (optimise for speed)
-    - [2.2.4.](#2_2_4) --debug (debug information)
-  - [2.3.](#2_3) Output File Options
-    - [2.3.1.](#2_3_1)  [-m](#2_3_1) , --map (create map file)
-- [3.](#3) Copyright
-- [4.](#4) License
-- [5.](#5) Keywords
-- [6.](#6) Index
+- [2.](#2) Environment Variables
+- [3.](#3) Options
+  - [3.1.](#3_1) Help Options
+    - [3.1.1.](#3_1_1) no arguments (show usage)
+    - [3.1.2.](#3_1_2)  [-h](#3_1_2) , -?, --help (show manual)
+    - [3.1.3.](#3_1_3)  [-v](#3_1_3) , --verbose (show progress)
+  - [3.2.](#3_2) Environment Options
+    - [3.2.1.](#3_2_1)  [-IDIR](#3_2_1) , --inc-path=DIR (directory for source files)
+    - [3.2.2.](#3_2_2)  [-LDIR](#3_2_2) , --lib-path=DIR (directory for library)
+  - [3.3.](#3_3) Code Generation Options
+    - [3.3.1.](#3_3_1)  [-mCPU](#3_3_1) , --cpu=CPU (select CPU)
+    - [3.3.2.](#3_3_2)  [-IXIY](#3_3_2) , - [-IXIY](#3_3_2)  (swap IX and IY)
+    - [3.3.3.](#3_3_3) --opt=speed (optimise for speed)
+    - [3.3.4.](#3_3_4) --debug (debug information)
+  - [3.4.](#3_4) Output File Options
+    - [3.4.1.](#3_4_1)  [-m](#3_4_1) , --map (create map file)
+- [4.](#4) Copyright
+- [5.](#5) License
+- [6.](#6) Keywords
+- [7.](#7) Index

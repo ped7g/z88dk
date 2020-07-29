@@ -82,12 +82,15 @@
 -m    \z |
 --map \z		{ theOptions.doMapFile = true; return true; }
 
-/*
 -I = .+			{ theOptions.includePath.push_back(text() + 3);  return true; }
 -I   .+			{ theOptions.includePath.push_back(text() + 2);  return true; }
 --inc-path = .+	{ theOptions.includePath.push_back(text() + 11); return true; }
 --inc-path   .+	{ theOptions.includePath.push_back(text() + 10); return true; }
-*/
+
+-L = .+			{ theOptions.libraryPath.push_back(text() + 3);  return true; }
+-L   .+			{ theOptions.libraryPath.push_back(text() + 2);  return true; }
+--lib-path = .+	{ theOptions.libraryPath.push_back(text() + 11); return true; }
+--lib-path   .+	{ theOptions.libraryPath.push_back(text() + 10); return true; }
 
 .				{ return false; }
 

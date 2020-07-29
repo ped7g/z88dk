@@ -29,6 +29,7 @@ bool CmdArgs::ParseEnv(const std::string & envVariable)
 	string arg;
 
 	while (iss >> arg) {
+		arg = ExpandEnvironmentVars(arg);
 		in(arg);
 		if (!lex()) {						// TODO: error handling
 			envPendingOpts += arg + " ";	// pass options not parsed to the C code
@@ -48,7 +49,8 @@ bool CmdArgs::ParseArgs(int argc, char * argv[])
 
 	// parse options
 	for (int i = 1; i < argc; ++i) {
-		in(argv[i]);
+		string arg = ExpandEnvironmentVars(argv[i]);
+		in(arg);
 		if (lex())
 			argv[i][0] = '\0';		// cancel this argument for next pass
 		else {						// TODO: error handling

@@ -25,6 +25,12 @@
     <Filter Include="Source Files\doc">
       <UniqueIdentifier>{e0c74665-92f5-4168-9b9d-ea221567919b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ext">
+      <UniqueIdentifier>{a5864973-9f82-4486-b56f-4666ce8da025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ext\filesystem">
+      <UniqueIdentifier>{080f82b7-4004-4ee3-8935-27fc5f5d22bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\z80asm\lib\alloc.c">
@@ -301,6 +307,15 @@
     </ClInclude>
     <ClInclude Include="..\..\src\z80asm\cpp\Arch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\filesystem\filesystem\path.h">
+      <Filter>Header Files\ext\filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\filesystem\filesystem\fwd.h">
+      <Filter>Header Files\ext\filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\filesystem\filesystem\resolver.h">
+      <Filter>Header Files\ext\filesystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

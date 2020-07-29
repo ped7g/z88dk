@@ -27,7 +27,7 @@ extern void model_init(void);
 *----------------------------------------------------------------------------*/
 
 /* interface to SrcFile singleton */
-extern bool  src_open(const char *filename, UT_array *dir_list );
+extern bool  src_open(const char *filename, bool search_include_path);
 extern char *src_getline( void );
 extern void  src_ungetline(const char *lines );
 extern const char *src_filename( void );

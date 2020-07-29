@@ -198,7 +198,7 @@ bool library_file_append(const char * filename) {
 	}
 
 	// search library path
-	filename = path_search(get_lib_filename(filename), opts.lib_path);
+	filename = SearchLibraryFile(get_lib_filename(filename));
 
 	// check if file exists and version is correct
 	if (!check_library_file(filename))

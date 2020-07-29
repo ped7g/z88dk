@@ -26,6 +26,6 @@ struct Options {
 // singleton
 extern Options theOptions;
 
-// Help
 void ExitUsage();
 void ExitManual();
+std::string ExpandEnvironmentVars(std::string str);

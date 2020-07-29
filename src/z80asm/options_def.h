@@ -36,9 +36,6 @@ OPT_VAR(const char *,	lib_file,	NULL	)	/* set by -x */
 OPT_VAR(const char *,    consol_obj_file, NULL)	/* set by -o and no -b */
 OPT_VAR(const char *,    output_directory, NULL)	/* set by -O */
 
-OPT_VAR(argv_t *,	inc_path, NULL)			/* path for include files */
-OPT_VAR(argv_t *,	lib_path, NULL)			/* path for library files */
-
 OPT_VAR(argv_t *,	files,	  NULL)			/* list of input files */
 
 OPT_VAR(int,		filler,		0)			/* filler byte for defs */
@@ -59,9 +56,7 @@ OPT_TITLE("Help Options:")
 OPT_TITLE("Code Generation Options:")
 
 OPT_TITLE("Environment:")
-OPT(OptStringList, &opts.inc_path, "-I", "", "Add directory to include search path", "PATH")
-OPT(OptStringList, &opts.lib_path, "-L", "", "Add directory to library search path", "PATH")
-OPT(OptCallArg, option_define, "-D", "", "Define a static symbol", "SYMBOL[=VALUE]")
+OPT(OptCallArg, option_define, "-D", "", "Define a static symbol", "SYMBOL")
 
 OPT_TITLE("Libraries:")
 OPT(OptCallArg, option_make_lib, "-x", "", "Create a library file" FILEEXT_LIB, "FILE")

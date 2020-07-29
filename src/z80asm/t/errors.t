@@ -327,10 +327,13 @@ t_z80asm_error("defs 65536, 0xAA \n defb 0xAA \n",
 
 #------------------------------------------------------------------------------
 # error_illegal_src_filename
-unlink_testfiles();
-write_file(asm_file(), "nop");
-t_z80asm_capture(asm_file()." -IllegalFilename", "",
-		"Error: cannot read file '-IllegalFilename'\n", 1);
+if (0) {
+	warn "can mix options and files - needs to test";
+	unlink_testfiles();
+	write_file(asm_file(), "nop");
+	t_z80asm_capture(asm_file()." -IllegalFilename", "",
+			"Error: cannot read file '-IllegalFilename'\n", 1);
+}
 
 #------------------------------------------------------------------------------
 # error_org_redefined - tested in directives.t

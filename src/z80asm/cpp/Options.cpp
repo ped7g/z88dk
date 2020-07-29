@@ -9,6 +9,7 @@
 #include "z80asm_usage.h"
 
 #include <iostream>
+#include <cstring>
 
 #ifndef Z88DK_VERSION
 #define Z88DK_VERSION "build " __DATE__
@@ -35,4 +36,29 @@ void ExitManual()
 	using namespace std;
 	cout << z80asm_manual;
 	exit(EXIT_SUCCESS);
+}
+
+std::string ExpandEnvironmentVars(std::string str)
+{
+	using namespace std;
+
+	size_t pos1 = str.find("${");
+	while (pos1 != string::npos) {
+		size_t pos2 = str.find("}", pos1 + 2);
+		if (pos2 != string::npos) {		// found ${ENVVAR}
+			string var = str.substr(pos1 + 2, pos2 - pos1 - 2);
+			const char *value = getenv(var.c_str());
+			if (value == nullptr)
+				value = "";
+			str = str.substr(0, pos1) + value + str.substr(pos2 + 1);
+			pos1 += strlen(value);
+		}
+		else
+			pos1 += 2;
+
+		// search next
+		pos1 = str.find("${", pos1);
+	}
+
+	return str;
 }

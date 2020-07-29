@@ -11,6 +11,10 @@
 #include "Cpu.h"
 #include "Options.h"
 
+#include "filesystem/path.h"
+
+#include <unordered_set>
+
 const char* CPU_Z80_NAME = "z80";
 const char* CPU_Z80N_NAME = "z80n";
 const char* CPU_Z180_NAME = "z180";
@@ -86,3 +90,75 @@ const char* GetEnvPendingOpts()
 {
 	return theCmdArgs.GetEnvPendingOpts();
 }
+
+const char * AddStringPool(const char * str)
+{
+	using namespace std;
+
+	if (!str)
+		return nullptr;
+
+	static unordered_set<string> pool;
+	const char* pooledString = pool.insert(str).first->c_str();
+	return pooledString;
+}
+
+const char * ExpandEnvironmentVarsC(const char * str_)
+{
+	using namespace std;
+
+	string str{ str_ };
+	str = ExpandEnvironmentVars(str);
+	return AddStringPool(str.c_str());
+}
+
+void PushSourceDirname(const char * filename)
+{
+	using namespace filesystem;
+
+	auto dirname = path(filename).parent_path();
+	theOptions.includePath.push_back(dirname.str(path::posix_path));
+}
+
+void PopSourceDirname()
+{
+	if (!theOptions.includePath.empty())
+		theOptions.includePath.pop_back();
+}
+
+static filesystem::path SearchFile(const filesystem::path& file,
+	const std::vector<std::string>& dirs)
+{
+	using namespace filesystem;
+
+	// if no directory list or file exists, return filename
+	if (dirs.empty() || file.is_file())
+		return file;
+
+	// search in dir list
+	for (const auto& dir : dirs) {
+		path testFile = path(dir) / file;
+		if (testFile.is_file())
+			return testFile;
+	}
+
+	// not found, return original file name
+	return file;
+}
+
+const char * SearchIncludeFile(const char * filename)
+{
+	using namespace filesystem;
+
+	path file = SearchFile(path(filename), theOptions.includePath);
+	return AddStringPool(file.str(path::posix_path).c_str());
+}
+
+const char * SearchLibraryFile(const char * filename)
+{
+	using namespace filesystem;
+
+	path file = SearchFile(path(filename), theOptions.libraryPath);
+	return AddStringPool(file.str(path::posix_path).c_str());
+}
+

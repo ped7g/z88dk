@@ -72,9 +72,6 @@ static void process_files( int arg, int argc, char *argv[] );
 static void expand_source_glob(const char *pattern);
 static void expand_list_glob(const char *filename);
 
-static const char *expand_environment_variables(const char *arg);
-static char *replace_str(const char *str, const char *old, const char *new);
-
 /*-----------------------------------------------------------------------------
 *   singleton opts
 *----------------------------------------------------------------------------*/
@@ -109,15 +106,11 @@ static OptsLU opts_lu[] =
 *----------------------------------------------------------------------------*/
 DEFINE_init_module()
 {
-	opts.inc_path = argv_new();
-	opts.lib_path = argv_new();
 	opts.files = argv_new();
 }
 
 DEFINE_dtor_module()
 {
-	argv_free(opts.inc_path);
-	argv_free(opts.lib_path);
 	argv_free(opts.files);
 }
 
@@ -279,7 +272,7 @@ static void process_opt(int *parg, int argc, char *argv[])
 
 			case OptCallArg:
 				if (*opt_arg_ptr) {
-					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
 					((void(*)(const char *))(opts_lu[j].arg))(opt_arg_ptr);
 				}
 				else
@@ -289,7 +282,7 @@ static void process_opt(int *parg, int argc, char *argv[])
 
 			case OptString:
 				if (*opt_arg_ptr) {
-					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
 					*((const char **)(opts_lu[j].arg)) = opt_arg_ptr;
 				}
 				else
@@ -301,7 +294,7 @@ static void process_opt(int *parg, int argc, char *argv[])
 				if (*opt_arg_ptr)
 				{
 					UT_array **p_path = (UT_array **)opts_lu[j].arg;
-					opt_arg_ptr = expand_environment_variables(opt_arg_ptr);
+					opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
 					argv_push(*p_path, opt_arg_ptr);
 				}
 				else
@@ -360,7 +353,7 @@ static const char *search_source(const char *filename)
 	if (file_exists(filename))
 		return filename;
 
-	f = path_search(filename, opts.inc_path);
+	f = SearchIncludeFile(filename);
 	if (file_exists(f))
 		return f;
 
@@ -368,7 +361,7 @@ static const char *search_source(const char *filename)
 	if (file_exists(f))
 		return f;
 
-	f = path_search(f, opts.inc_path);
+	f = SearchIncludeFile(f);
 	if (file_exists(f))
 		return f;
 
@@ -376,7 +369,7 @@ static const char *search_source(const char *filename)
 	if (file_exists(f))
 		return f;
 
-	f = path_search(f, opts.inc_path);
+	f = SearchIncludeFile(f);
 	if (file_exists(f))
 		return f;
 
@@ -395,14 +388,14 @@ static void process_file(char *filename )
 	case '@':		/* file list */
 		filename++;						/* point to after '@' */
 		strstrip(filename);
-		filename = (char *)expand_environment_variables(filename);
+		filename = (char *)ExpandEnvironmentVarsC(filename);
 		expand_list_glob(filename);
 		break;
 	case ';':     /* comment */
 	case '#':
 		break;
 	default:
-		filename = (char *)expand_environment_variables(filename);
+		filename = (char *)ExpandEnvironmentVarsC(filename);
 		expand_source_glob(filename);
 	}
 }
@@ -441,15 +434,15 @@ void expand_list_glob(const char *filename)
 				char *line;
 
 				// append the directoy of the list file to the include path	and remove it at the end
-				argv_push(opts.inc_path, path_dir(filename));
+				PushSourceDirname(filename);
 
-				if (src_open(filename, NULL)) {
+				if (src_open(filename, false)) {
 					while ((line = src_getline()) != NULL)
 						process_file(line);
 				}
 
 				// finished assembly, remove dirname from include path
-				argv_pop(opts.inc_path);
+				PopSourceDirname();
 			}
 			src_pop();
 		}
@@ -461,97 +454,18 @@ void expand_list_glob(const char *filename)
 			char *line;
 
 			// append the directoy of the list file to the include path	and remove it at the end
-			argv_push(opts.inc_path, path_dir(filename));
+			PushSourceDirname(filename);
 
-			if (src_open(filename, NULL)) {
+			if (src_open(filename, false)) {
 				while ((line = src_getline()) != NULL)
 					process_file(line);
 			}
 
 			// finished assembly, remove dirname from include path
-			argv_pop(opts.inc_path);
+			PopSourceDirname();
 		}
 		src_pop();
 	}
-}
-
-/*-----------------------------------------------------------------------------
-*   replace environment variables in filenames
-*----------------------------------------------------------------------------*/
-
-static const char *expand_environment_variables(const char *arg)
-{
-	char  *ptr, *nval = NULL;
-	char  *rep, *start;
-	char  *value = strdup(arg);
-	char   varname[300];
-	const char  *ret;
-
-	start = value;
-	while ((ptr = strchr(start, '$')) != NULL) 
-	{
-		if (*(ptr + 1) == '{') 
-		{
-			char  *end = strchr(ptr + 1, '}');
-
-			if (end != NULL) {
-				snprintf(varname, sizeof(varname), "%.*s", (int)(end - ptr - 2), ptr + 2);
-				rep = getenv(varname);
-				if (rep == NULL) 
-				{
-					rep = "";
-				}
-
-				snprintf(varname, sizeof(varname), "%.*s", (int)(end - ptr + 1), ptr);
-				nval = replace_str(value, varname, rep);
-				free(value);
-				value = nval;
-				start = value + (ptr - start);
-			}
-		}
-		else 
-		{
-			start++;
-		}
-	}
-
-	ret = spool_add(value);		// free memory, return pooled string
-	free(value);
-	return ret;
-}
-
-/* From: http://creativeandcritical.net/str-replace-c/ */
-static char *replace_str(const char *str, const char *old, const char *new)
-{
-	char *ret, *r;
-	const char *p, *q;
-	size_t oldlen = strlen(old);
-	size_t count, retlen, newlen = strlen(new);
-
-	if (oldlen != newlen) 
-	{
-		for (count = 0, p = str; (q = strstr(p, old)) != NULL; p = q + oldlen)
-			count++;
-		/* this is undefined if p - str > PTRDIFF_MAX */
-		retlen = p - str + strlen(p) + count * (newlen - oldlen);
-	}
-	else
-		retlen = strlen(str);
-
-	ret = malloc(retlen + 1);
-
-	for (r = ret, p = str; (q = strstr(p, old)) != NULL; p = q + oldlen) 
-	{
-		/* this is undefined if q - p > PTRDIFF_MAX */
-		ptrdiff_t l = q - p;
-		memcpy(r, p, l);
-		r += l;
-		memcpy(r, new, newlen);
-		r += newlen;
-	}
-	strcpy(r, p);
-
-	return ret;
 }
 
 /*-----------------------------------------------------------------------------
@@ -857,7 +771,7 @@ static const char *search_z80asm_lib()
 		return ret;
 
 	/* try to read form -L path */
-	ret = path_search(get_lib_filename(lib_name), opts.lib_path);
+	ret = SearchLibraryFile(get_lib_filename(lib_name));
 	if (strcmp(ret, lib_name) != 0) {		// found one in path
 		if (check_library(ret))
 			return ret;
@@ -865,7 +779,7 @@ static const char *search_z80asm_lib()
 
 	/* try to read from ZCCCFG/.. */
 	Str_sprintf(f, "${ZCCCFG}/../%s", lib_name);
-	ret = expand_environment_variables(Str_data(f));
+	ret = ExpandEnvironmentVarsC(Str_data(f));
 	if (check_library(ret))
 		return ret;
 

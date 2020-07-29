@@ -69,6 +69,14 @@ extern "C" {
 	bool OptionMapFile();
 	const char* GetEnvPendingOpts();
 
+	const char* AddStringPool(const char* str);
+	const char* ExpandEnvironmentVarsC(const char* str);
+
+	void PushSourceDirname(const char* filename);
+	void PopSourceDirname();
+	const char* SearchIncludeFile(const char* filename);
+	const char* SearchLibraryFile(const char* filename);
+
 #ifdef __cplusplus
 };
 #endif

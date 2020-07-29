@@ -11,6 +11,8 @@ Copyright (C) Paulo Custodio, 2011-2020
 License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 */
 
+#include "legacy.h"
+
 #include "../errors.h"		// TODO: rename errors.h, conflicts with msys2 include
 #include "alloc.h"
 #include "die.h"
@@ -141,7 +143,7 @@ static bool check_recursive_include( SrcFile *self, const char *filename )
 
 /* Open the source file for reading, closing any previously open file.
    If dir_list is not NULL, calls path_search() to search the file in dir_list */
-bool SrcFile_open( SrcFile *self, const char *filename, UT_array *dir_list )
+bool SrcFile_open( SrcFile *self, const char *filename, bool search_include_path)
 {
 	/* close last file */
 	if (self->file != NULL)
@@ -151,7 +153,11 @@ bool SrcFile_open( SrcFile *self, const char *filename, UT_array *dir_list )
 	}
 
 	/* search path, add to strpool */
-	const char *filename_path = path_search(filename, dir_list);
+	const char *filename_path;
+	if (search_include_path)
+		filename_path = SearchIncludeFile(filename);
+	else
+		filename_path = filename;
 
 	/* check for recursive includes, return if found */
 	if (!check_recursive_include(self, filename_path))

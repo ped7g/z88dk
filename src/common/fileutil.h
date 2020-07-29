@@ -92,6 +92,3 @@ extern void path_rmdir(const char *path);
 extern bool file_exists(const char *filename);
 extern bool dir_exists(const char *dirname);
 extern long file_size(const char *filename);		// -1 if not regular file
-
-// search for a file on the given directory list, return full path name in strin pool
-extern const char *path_search(const char *filename, argv_t *dir_list);

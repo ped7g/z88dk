@@ -68,6 +68,7 @@ FLAGS			:= $(OPT) -MMD -g -Wall \
 				   -I.. \
 				   -I../common \
 				   -I../../ext/RE-flex/include \
+				   -I../../ext/filesystem \
 				   -I../../ext/optparse \
 				   -I../../ext/regex \
 				   -I../../ext/uthash/src \

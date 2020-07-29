@@ -32,6 +32,16 @@ Link the object files together and with any requested libraries into a set of bi
 
 Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the `-i` option.
 
+## Environment Variables
+
+The syntax `${ENV_VAR}` can be used whenever a file name or a command line option is expected, and expands to the value of the given environment variable, or the empty string if it is not defined.
+
+The environment variable `Z80ASM`, if defined, contains additional options that are used in every invocation of **z80asm**.
+
+The environment variable `ZCCCFG` is used to search for the **z80asm** libraries at its parent directory, i.e. `${ZCCCFG}/..`. These libraries define emulation routines for certain opcodes not available in all platforms. 
+
+**TODO**: table with all emulated opcodes.
+
 ## Options 
 
 ### Help Options
@@ -105,6 +115,18 @@ By default **z80asm** follows the C-precedence rules while evaluating expression
 | 15        | ?:         | Ternary conditional                      | right-to-left |
 
 With the `-noprec` expressions are evaluated strictly left-to-right.
+
+### Environment Options
+
+#### -IDIR, --inc-path=DIR (directory for source files)
+
+Append the specified directory to the search path for source and include files.
+
+While each source file is being assembled, its parent directory is automatically added to the search path, so that `INCLUDE` can refer to include files via a relative path to the source.
+
+#### -LDIR, --lib-path=DIR (directory for library)
+
+Append the specified directory to the search path for library files.
 
 ### Code Generation Options
 
@@ -434,12 +456,6 @@ e-mail [gbs@image.dk](mailto:gbs@image.dk)
 1\. Running the assembler
 -------------------------
 
-Since assemblers are developed for programmers the user interface have been implemented according to the standard command line environment (CLI) used in most operating systems; however, if only a GUI interface is available (as in MacOS) then a command shell must be executed to allow standard command line input. The Z80 Module Assembler command line interface may change if other programmers wish to implement a different interface to the assembler. You have the opportunity!
-
-### Help page
-
-When executing the assembler from the command line with the -h option, a help page is displayed. The page shortly explains the syntax of parameter specification and which parameters are available.
-
 ### Command line
 
 The syntax of the assembler parameters is a straightforward design. Filenames or a project file are always specified. The options may be left out:
@@ -597,21 +613,13 @@ Project files are easily created using a simple text editor.
 
 #### -i\<library-file\> : Include library modules during linking/relocation
 
-This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the -i identifier. If you omit the filename, a default library filename will be used by the assembler. This default filename is defined by creating the environment variable "Z80\_STDLIB=\<library-file\>. Please refer to your operating system documentation on how to create environment variables.
+This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the -i identifier. 
 
 Library files are recognised by the ".lib" extension.
 
-#### -L\<library-path\> : Add directory to search path for libraries
-
-Tells the assembler where to look for library files.
-
-#### -I\<include-path\> : Add directory to search path for INCLUDE
-
-Tells the assembler where to look for INCLUDE files.
-
 #### -x : Create a library
 
-A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single -x option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. As in -i you may omit the filename to use the default filename identified by the "Z80\_STDLIB" environment variable. A library routine must be defined using a simple XLIB directive with an identical address name label definition. Please refer to further information later in this documentation. The "Z80lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
+A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single -x option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple XLIB directive with an identical address name label definition. Please refer to further information later in this documentation. The "Z80lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
 
 One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.
 
@@ -667,10 +675,6 @@ All source modules may refer to each others symbols by using EXTERN directives. 
 ### Using arithmetic and relational expressions
 
 All directives that require a numerical parameter or Z80 mnemonics that use an integer argument may use expressions. Expressions may be formed by all standard arithmetic operators and relational operators. Even binary operators are implemented. All expressions may contain external identifiers and is automatically resolved during the linking phase. Only certain directives require compilation time evaluable expressions.
-
-### Source file manipulation
-
-To allow the Assembler to execute in multitasking environments such as LINUX and QDOS, all source input files are opened as shared I/O. This allows other programs to access the source files while the assembler is working. All output files (both text and binary files) are opened/created for exclusive use; other programs will have no access to those files until they have been closed.
 
 ### Free format of assembler source files
 
@@ -731,59 +735,6 @@ Error files are created by the assembler during processing. If any errors should
 ### Creating and using object file libraries for standard routines
 
 Machine programmers often re-use their standard routines. We have implemented a file format for generating libraries using the existing object file modules. Using a simple set of rules makes it very easy to create your own libraries from your source file modules. Documentation of the library file format is included in this documentation. At command line infinite number of libraries may be specified. All will be searched during linking of your object modules for referenced library routines.
-
-## Executing the cross assembler and environment variables
-
-The following text describes how to execute the assembler and defining the environment variables used by the assembler.
-
-### The environment variables
-
-The assembler uses two environment variables:
-
-*   "Z80\_STDLIB" define the default filename of the standard library filename.
-*   "Z80\_OZFILES" define the default path of the standard Z88 OZ system headers.
-
-### Running in the QDOS/SMSQ operating system environment
-
-z80asm may be compiled using the C68 compiler developed by the Walker brothers. You also need the 'env\_bin' file. This is necessary to install into the operating system before using the assembler. It contains the environment variable facility integrated on UNIX, MS-DOS and many other operating systems. Include the following line into your BOOT upstart program:
-
-    LRESPR win1_ext_env_bin
-
-The device and path 'win1\_ext\_' is just an example of where to store your system extension file. You may have it on your BOOT disk as well. If you don't have ToolKit 2 on your system use the following line in your BOOT program:
-
-    envext=RESPR(1024):LBYTES win1_ext_env_bin,envext:CALL envext
-
-Use the following in your BOOT file to set the environment variables:
-
-    SETENV "Z80_OZFILES=win1_z80_src_oz_"  
-    SETENV "Z80_STDLIB=win1_z80_standard_lib"
-
-The example file names are only a demonstration. Change them as necessary.
-
-### Running in the LINUX/UNIX operating system environment
-
-This program can be executed on the LINUX operating system and any other UNIX. The sources are strictly ANSI C and uses only library calls that are described in Brian W. Kernighan and Dennis M. Ritchie C books. The important thing to remember before compiling it under UNIX, is in which direction the integers are stored by the processor architecture; the famous Big Endian and Little endian concept. The config.h file uses a "ENDIAN" definition when z80asm must interpret integers in big endian order. Please set this definition according to your system's processor architecture. Most people uses the Intel processor when running Linux - this is a little endian architecture (so you don't need the ENDIAN define...).
-
-You can compile z80asm using GNU C compiler simply by entering the following on your command line:
-
-    gcc -o z80asm -O2 *.c
-
-The environment variables needed by z80asm are easily added in your accounts login script, ".profile" or ".bash\_profile" in your home directory.
-
-### Running in the MS-DOS operating system environment
-
-This program can be executed on all MSDOS operating systems using the INTEL 8086 processor up to high speed 80386/80486/Pentium processors on IBM & compatible computers. Add the source files to your favorite C compiler system in MSDOS or Windows (here you need to specify compilation options o a console application).
-
-The environment variables are easily put into your AUTOEXEC.BAT file. Simply specify:
-
-    SET Z80_OZFILES=C:\Z80\OZ\
-    SET Z80_STDLIB=C:\Z80\STANDARD.LIB
-
-Choose your own settings if you like.
-
-If you want the assembler to be accessible in any path, add the path location of the assembler in the PATH search line:
-
-    SET PATH=%PATH%;C:\Z80
 
 ## Z80 module assembler file types
 
@@ -1005,11 +956,11 @@ Much application programming can be saved in "re-inventing the wheel" if you sto
 
 Creating libraries is an inbuilt feature of the assembler. The following steps are necessary to create a library:
 
-1.  Define a project file containing all filenames (without extensions) in your directory that contains all library routines (the easiest method since you later can move all files to another directory). Remember to arrange the filename in a topological order, i.e. library routines that access other routines must be placed first. This optimizes the searching through a library during the linking process.  
+1.  Define a project file containing all filenames (without extensions) in your directory that contains all library routines (the easiest method since you later can move all files to another directory). 
     
 2.  Each library source module uses the XLIB directive to define the name of the routine. The same name must be used for the address label definition. If your library uses other library routines then declare them with the LIB directive. Please note that a library routine creates the module name itself (performed by XLIB automatically). The module name is used to search for routines in a library.  
     
-3.  The command line contains the -x option immediately followed by your filename. If you don't specify a filename, the default standard filename is used (defined by the Z80\_STDLIB environment variable). Then you need to specify your project filename preceded by '@'.
+3.  The command line contains the -x option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.
 
 For example:
 
@@ -1401,9 +1352,6 @@ The following error messages will be written toe the error files corresponding t
 *   "Not a library file"  
     Your library file is not a library file (at least is not of the correct file format used by this assembler). Have you maybe used another "library" file? The Z80 library file could also be corrupted (at least in the header).  
     
-*   "Environment variable not defined"  
-    The assembler reports either the "Z80\_STDLIB" environment variable wasn't found when used by options -x and -i.  
-    
 *   "Cannot include file recursively"  
     A file was tried to be included which was already included at a previous include level. INCLUDE "a.h" cannot contain an INCLUDE "a.h".
 
@@ -1429,7 +1377,6 @@ The following error messages will be written toe the error files corresponding t
     - object files store list of input files and command line so that -d can decide if it is necessary to recompile
     - object files can store same code for multiple architectures
     - recursive parsing of @lists
-    - environment variable to pass options to assembler
     - parse expressions  
 
 - Linker

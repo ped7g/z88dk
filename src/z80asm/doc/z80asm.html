@@ -114,40 +114,67 @@
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-2"></a></p>
 <h2>
-<a id="user-content-2-options" class="anchor" href="#2-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Options</h2>
+<a id="user-content-2-environment-variables" class="anchor" href="#2-environment-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Environment Variables</h2>
+<p>The syntax <code>${ENV_VAR}</code> can be used whenever a file name or a command line option is expected, and expands to the value of the given environment variable, or the empty string if it is not defined.</p>
+<p>The environment variable <code>Z80ASM</code>, if defined, contains additional options that are used in every invocation of <strong>z80asm</strong>.</p>
+<p>The environment variable <code>ZCCCFG</code> is used to search for the <strong>z80asm</strong> libraries at its parent directory, i.e. <code>${ZCCCFG}/..</code>. These libraries define emulation routines for certain opcodes not available in all platforms.</p>
+<p><strong>TODO</strong>: table with all emulated opcodes.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1"></a></p>
+<a id="user-content-3"></a></p>
+<h2>
+<a id="user-content-3-options" class="anchor" href="#3-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Options</h2>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_1"></a></p>
 <h3>
-<a id="user-content-21-help-options" class="anchor" href="#21-help-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1. Help Options</h3>
+<a id="user-content-31-help-options" class="anchor" href="#31-help-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1. Help Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_1"></a></p>
+<a id="user-content-3_1_1"></a></p>
 <h4>
-<a id="user-content-211-no-arguments-show-usage" class="anchor" href="#211-no-arguments-show-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.1. no arguments (show usage)</h4>
+<a id="user-content-311-no-arguments-show-usage" class="anchor" href="#311-no-arguments-show-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.1. no arguments (show usage)</h4>
 <p>Show a help screen with the available options.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_2"></a></p>
+<a id="user-content-3_1_2"></a></p>
 <h4>
-<a id="user-content-212--h-----help-show-manual" class="anchor" href="#212--h-----help-show-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.2. -h, -?, --help (show manual)</h4>
+<a id="user-content-312--h-----help-show-manual" class="anchor" href="#312--h-----help-show-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.2. -h, -?, --help (show manual)</h4>
 <p>Show this document. The output can be piped to <code>more</code> for pagination.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_1_3"></a></p>
+<a id="user-content-3_1_3"></a></p>
 <h4>
-<a id="user-content-213--v---verbose-show-progress" class="anchor" href="#213--v---verbose-show-progress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.1.3. -v, --verbose (show progress)</h4>
+<a id="user-content-313--v---verbose-show-progress" class="anchor" href="#313--v---verbose-show-progress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1.3. -v, --verbose (show progress)</h4>
 <p>Show progress messages on <code>stdout</code>.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2"></a></p>
+<a id="user-content-3_2"></a></p>
 <h3>
-<a id="user-content-22-code-generation-options" class="anchor" href="#22-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2. Code Generation Options</h3>
+<a id="user-content-32-environment-options" class="anchor" href="#32-environment-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2. Environment Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_1"></a></p>
+<a id="user-content-3_2_1"></a></p>
 <h4>
-<a id="user-content-221--mcpu---cpucpu-select-cpu" class="anchor" href="#221--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.1. -mCPU, --cpu=CPU (select CPU)</h4>
+<a id="user-content-321--idir---inc-pathdir-directory-for-source-files" class="anchor" href="#321--idir---inc-pathdir-directory-for-source-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.1. -IDIR, --inc-path=DIR (directory for source files)</h4>
+<p>Append the specified directory to the search path for source and include files.</p>
+<p>While each source file is being assembled, its parent directory is automatically added to the search path, so that <code>INCLUDE</code> can refer to include files via a relative path to the source.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_2_2"></a></p>
+<h4>
+<a id="user-content-322--ldir---lib-pathdir-directory-for-library" class="anchor" href="#322--ldir---lib-pathdir-directory-for-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2.2. -LDIR, --lib-path=DIR (directory for library)</h4>
+<p>Append the specified directory to the search path for library files.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_3"></a></p>
+<h3>
+<a id="user-content-33-code-generation-options" class="anchor" href="#33-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3. Code Generation Options</h3>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_3_1"></a></p>
+<h4>
+<a id="user-content-331--mcpu---cpucpu-select-cpu" class="anchor" href="#331--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.1. -mCPU, --cpu=CPU (select CPU)</h4>
 <p>Assemble for the given CPU. The following CPU's are supported:</p>
 <table>
 <thead>
@@ -246,32 +273,32 @@
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_2"></a></p>
+<a id="user-content-3_3_2"></a></p>
 <h4>
-<a id="user-content-222--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#222--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.2. -IXIY, --IXIY (swap IX and IY)</h4>
+<a id="user-content-332--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#332--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.2. -IXIY, --IXIY (swap IX and IY)</h4>
 <p>Swap all occurrences of registers <code>IX</code> and <code>IY</code>, and also their 8-bit halves (<code>IXH</code>, <code>IXL</code>, <code>IYH</code> and <code>IYL</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_3"></a></p>
+<a id="user-content-3_3_3"></a></p>
 <h4>
-<a id="user-content-223---optspeed-optimise-for-speed" class="anchor" href="#223---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.3. --opt=speed (optimise for speed)</h4>
+<a id="user-content-333---optspeed-optimise-for-speed" class="anchor" href="#333---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.3. --opt=speed (optimise for speed)</h4>
 <p>Replace all occurrences of <code>JR</code> by <code>JP</code>, as the later are faster. <code>DJNZ</code> is not replaced by <code>DEC B \ JP</code> as the later is slower.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_2_4"></a></p>
+<a id="user-content-3_3_4"></a></p>
 <h4>
-<a id="user-content-224---debug-debug-information" class="anchor" href="#224---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.2.4. --debug (debug information)</h4>
+<a id="user-content-334---debug-debug-information" class="anchor" href="#334---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.4. --debug (debug information)</h4>
 <p>Add debug information to the map file: new symbols <code>__C_LINE_nn</code> and <code>__ASM_LINE_nn</code> are created on each <code>C_LINE</code> statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_3"></a></p>
+<a id="user-content-3_4"></a></p>
 <h3>
-<a id="user-content-23-output-file-options" class="anchor" href="#23-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3. Output File Options</h3>
+<a id="user-content-34-output-file-options" class="anchor" href="#34-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4. Output File Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-2_3_1"></a></p>
+<a id="user-content-3_4_1"></a></p>
 <h4>
-<a id="user-content-231--m---map-create-map-file" class="anchor" href="#231--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.3.1. -m, --map (create map file)</h4>
+<a id="user-content-341--m---map-create-map-file" class="anchor" href="#341--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.1. -m, --map (create map file)</h4>
 <p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
 <ul>
 <li>symbol name</li>
@@ -294,9 +321,9 @@
 </ul>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3"></a></p>
+<a id="user-content-4"></a></p>
 <h2>
-<a id="user-content-3-copyright" class="anchor" href="#3-copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Copyright</h2>
+<a id="user-content-4-copyright" class="anchor" href="#4-copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Copyright</h2>
 <p>The original z80asm module assembler was written by Gunther Strube.
 It was converted from QL SuperBASIC version 0.956, initially ported to Lattice C,
 and then to C68 on QDOS.</p>
@@ -305,27 +332,29 @@ and then to C68 on QDOS.</p>
 Copyright (C) Paulo Custodio, 2011-2020</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-4"></a></p>
+<a id="user-content-5"></a></p>
 <h2>
-<a id="user-content-4-license" class="anchor" href="#4-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. License</h2>
+<a id="user-content-5-license" class="anchor" href="#5-license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. License</h2>
 <p>Artistic License 2.0 (<a href="http://www.perlfoundation.org/artisticlicense2_0" rel="nofollow">http://www.perlfoundation.org/artisticlicense2_0</a>)</p>
 <p><a id="user-content-keywords"></a></p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-5"></a></p>
+<a id="user-content-6"></a></p>
 <h2>
-<a id="user-content-5-keywords" class="anchor" href="#5-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Keywords</h2>
-<p><a href="#2_2_2">-IXIY</a>
-<a href="#2_1_2">-h</a>
-<a href="#2_3_1">-m</a>
-<a href="#2_2_1">-mCPU</a>
-<a href="#2_1_3">-v</a>
+<a id="user-content-6-keywords" class="anchor" href="#6-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Keywords</h2>
+<p><a href="#3_2_1">-IDIR</a>
+<a href="#3_3_2">-IXIY</a>
+<a href="#3_2_2">-LDIR</a>
+<a href="#3_1_2">-h</a>
+<a href="#3_4_1">-m</a>
+<a href="#3_3_1">-mCPU</a>
+<a href="#3_1_3">-v</a>
 <a id="user-content-index"></a></p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6"></a></p>
+<a id="user-content-7"></a></p>
 <h2>
-<a id="user-content-6-index" class="anchor" href="#6-index" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Index</h2>
+<a id="user-content-7-index" class="anchor" href="#7-index" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Index</h2>
 <ul>
 <li>
 <a href="#1">1.</a> Usage ...
@@ -339,49 +368,60 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 </ul>
 </li>
 <li>
-<a href="#2">2.</a> Options
+<a href="#2">2.</a> Environment Variables</li>
+<li>
+<a href="#3">3.</a> Options
 <ul>
 <li>
-<a href="#2_1">2.1.</a> Help Options
+<a href="#3_1">3.1.</a> Help Options
 <ul>
 <li>
-<a href="#2_1_1">2.1.1.</a> no arguments (show usage)</li>
+<a href="#3_1_1">3.1.1.</a> no arguments (show usage)</li>
 <li>
-<a href="#2_1_2">2.1.2.</a>  <a href="#2_1_2">-h</a> , -?, --help (show manual)</li>
+<a href="#3_1_2">3.1.2.</a>  <a href="#3_1_2">-h</a> , -?, --help (show manual)</li>
 <li>
-<a href="#2_1_3">2.1.3.</a>  <a href="#2_1_3">-v</a> , --verbose (show progress)</li>
+<a href="#3_1_3">3.1.3.</a>  <a href="#3_1_3">-v</a> , --verbose (show progress)</li>
 </ul>
 </li>
 <li>
-<a href="#2_2">2.2.</a> Code Generation Options
+<a href="#3_2">3.2.</a> Environment Options
 <ul>
 <li>
-<a href="#2_2_1">2.2.1.</a>  <a href="#2_2_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<a href="#3_2_1">3.2.1.</a>  <a href="#3_2_1">-IDIR</a> , --inc-path=DIR (directory for source files)</li>
 <li>
-<a href="#2_2_2">2.2.2.</a>  <a href="#2_2_2">-IXIY</a> , - <a href="#2_2_2">-IXIY</a>  (swap IX and IY)</li>
-<li>
-<a href="#2_2_3">2.2.3.</a> --opt=speed (optimise for speed)</li>
-<li>
-<a href="#2_2_4">2.2.4.</a> --debug (debug information)</li>
+<a href="#3_2_2">3.2.2.</a>  <a href="#3_2_2">-LDIR</a> , --lib-path=DIR (directory for library)</li>
 </ul>
 </li>
 <li>
-<a href="#2_3">2.3.</a> Output File Options
+<a href="#3_3">3.3.</a> Code Generation Options
 <ul>
 <li>
-<a href="#2_3_1">2.3.1.</a>  <a href="#2_3_1">-m</a> , --map (create map file)</li>
+<a href="#3_3_1">3.3.1.</a>  <a href="#3_3_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<li>
+<a href="#3_3_2">3.3.2.</a>  <a href="#3_3_2">-IXIY</a> , - <a href="#3_3_2">-IXIY</a>  (swap IX and IY)</li>
+<li>
+<a href="#3_3_3">3.3.3.</a> --opt=speed (optimise for speed)</li>
+<li>
+<a href="#3_3_4">3.3.4.</a> --debug (debug information)</li>
+</ul>
+</li>
+<li>
+<a href="#3_4">3.4.</a> Output File Options
+<ul>
+<li>
+<a href="#3_4_1">3.4.1.</a>  <a href="#3_4_1">-m</a> , --map (create map file)</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>
-<a href="#3">3.</a> Copyright</li>
+<a href="#4">4.</a> Copyright</li>
 <li>
-<a href="#4">4.</a> License</li>
+<a href="#5">5.</a> License</li>
 <li>
-<a href="#5">5.</a> Keywords</li>
+<a href="#6">6.</a> Keywords</li>
 <li>
-<a href="#6">6.</a> Index</li>
+<a href="#7">7.</a> Index</li>
 </ul>
 
               </article>

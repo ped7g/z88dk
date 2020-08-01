@@ -169,12 +169,18 @@
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-3_3"></a></p>
 <h3>
-<a id="user-content-33-code-generation-options" class="anchor" href="#33-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3. Code Generation Options</h3>
+<a id="user-content-33--dvariable---definevariable-define-a-static-symbol" class="anchor" href="#33--dvariable---definevariable-define-a-static-symbol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3. -DVARIABLE, --define=VARIABLE (define a static symbol)</h3>
+<p>Define the given symbol as a static symbol with value 1.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_3_1"></a></p>
+<a id="user-content-3_4"></a></p>
+<h3>
+<a id="user-content-34-code-generation-options" class="anchor" href="#34-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4. Code Generation Options</h3>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_4_1"></a></p>
 <h4>
-<a id="user-content-331--mcpu---cpucpu-select-cpu" class="anchor" href="#331--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.1. -mCPU, --cpu=CPU (select CPU)</h4>
+<a id="user-content-341--mcpu---cpucpu-select-cpu" class="anchor" href="#341--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.1. -mCPU, --cpu=CPU (select CPU)</h4>
 <p>Assemble for the given CPU. The following CPU's are supported:</p>
 <table>
 <thead>
@@ -273,32 +279,32 @@
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_3_2"></a></p>
+<a id="user-content-3_4_2"></a></p>
 <h4>
-<a id="user-content-332--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#332--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.2. -IXIY, --IXIY (swap IX and IY)</h4>
+<a id="user-content-342--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#342--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.2. -IXIY, --IXIY (swap IX and IY)</h4>
 <p>Swap all occurrences of registers <code>IX</code> and <code>IY</code>, and also their 8-bit halves (<code>IXH</code>, <code>IXL</code>, <code>IYH</code> and <code>IYL</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_3_3"></a></p>
+<a id="user-content-3_4_3"></a></p>
 <h4>
-<a id="user-content-333---optspeed-optimise-for-speed" class="anchor" href="#333---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.3. --opt=speed (optimise for speed)</h4>
+<a id="user-content-343---optspeed-optimise-for-speed" class="anchor" href="#343---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.3. --opt=speed (optimise for speed)</h4>
 <p>Replace all occurrences of <code>JR</code> by <code>JP</code>, as the later are faster. <code>DJNZ</code> is not replaced by <code>DEC B \ JP</code> as the later is slower.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_3_4"></a></p>
+<a id="user-content-3_4_4"></a></p>
 <h4>
-<a id="user-content-334---debug-debug-information" class="anchor" href="#334---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3.4. --debug (debug information)</h4>
+<a id="user-content-344---debug-debug-information" class="anchor" href="#344---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.4. --debug (debug information)</h4>
 <p>Add debug information to the map file: new symbols <code>__C_LINE_nn</code> and <code>__ASM_LINE_nn</code> are created on each <code>C_LINE</code> statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_4"></a></p>
+<a id="user-content-3_5"></a></p>
 <h3>
-<a id="user-content-34-output-file-options" class="anchor" href="#34-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4. Output File Options</h3>
+<a id="user-content-35-output-file-options" class="anchor" href="#35-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5. Output File Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_4_1"></a></p>
+<a id="user-content-3_5_1"></a></p>
 <h4>
-<a id="user-content-341--m---map-create-map-file" class="anchor" href="#341--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4.1. -m, --map (create map file)</h4>
+<a id="user-content-351--m---map-create-map-file" class="anchor" href="#351--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. -m, --map (create map file)</h4>
 <p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
 <ul>
 <li>symbol name</li>
@@ -342,12 +348,13 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a id="user-content-6"></a></p>
 <h2>
 <a id="user-content-6-keywords" class="anchor" href="#6-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Keywords</h2>
-<p><a href="#3_2_1">-IDIR</a>
-<a href="#3_3_2">-IXIY</a>
+<p><a href="#3_3">-DVARIABLE</a>
+<a href="#3_2_1">-IDIR</a>
+<a href="#3_4_2">-IXIY</a>
 <a href="#3_2_2">-LDIR</a>
 <a href="#3_1_2">-h</a>
-<a href="#3_4_1">-m</a>
-<a href="#3_3_1">-mCPU</a>
+<a href="#3_5_1">-m</a>
+<a href="#3_4_1">-mCPU</a>
 <a href="#3_1_3">-v</a>
 <a id="user-content-index"></a></p>
 <hr>
@@ -393,23 +400,25 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 </ul>
 </li>
 <li>
-<a href="#3_3">3.3.</a> Code Generation Options
+<a href="#3_3">3.3.</a>  <a href="#3_3">-DVARIABLE</a> , --define=VARIABLE (define a static symbol)</li>
+<li>
+<a href="#3_4">3.4.</a> Code Generation Options
 <ul>
 <li>
-<a href="#3_3_1">3.3.1.</a>  <a href="#3_3_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<a href="#3_4_1">3.4.1.</a>  <a href="#3_4_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
 <li>
-<a href="#3_3_2">3.3.2.</a>  <a href="#3_3_2">-IXIY</a> , - <a href="#3_3_2">-IXIY</a>  (swap IX and IY)</li>
+<a href="#3_4_2">3.4.2.</a>  <a href="#3_4_2">-IXIY</a> , - <a href="#3_4_2">-IXIY</a>  (swap IX and IY)</li>
 <li>
-<a href="#3_3_3">3.3.3.</a> --opt=speed (optimise for speed)</li>
+<a href="#3_4_3">3.4.3.</a> --opt=speed (optimise for speed)</li>
 <li>
-<a href="#3_3_4">3.3.4.</a> --debug (debug information)</li>
+<a href="#3_4_4">3.4.4.</a> --debug (debug information)</li>
 </ul>
 </li>
 <li>
-<a href="#3_4">3.4.</a> Output File Options
+<a href="#3_5">3.5.</a> Output File Options
 <ul>
 <li>
-<a href="#3_4_1">3.4.1.</a>  <a href="#3_4_1">-m</a> , --map (create map file)</li>
+<a href="#3_5_1">3.5.1.</a>  <a href="#3_5_1">-m</a> , --map (create map file)</li>
 </ul>
 </li>
 </ul>

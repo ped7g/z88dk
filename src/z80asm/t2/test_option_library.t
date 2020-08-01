@@ -29,7 +29,7 @@ asm_ok($asm, "-i${test}_dir/${test}.lib", @bin);
 asm_ok($asm, "-i${test}_dir/${test}    ", @bin);
 
 # no -L, only file name : error
-path("{test}.asm")->spew($asm);
+path("${test}.asm")->spew($asm);
 run_nok("z80asm -i${test}.lib ${test}.asm", "", <<END);
 Error: cannot read file '${test}.lib'
 END

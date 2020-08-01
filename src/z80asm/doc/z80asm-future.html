@@ -116,7 +116,7 @@
 <a id="user-content-14--as-librarian" class="anchor" href="#14--as-librarian" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.4. ... as librarian</h3>
 <pre><code>z80asm -xlibrary.lib [options] file...
 </code></pre>
-<p>Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the <code>[-i](#6_2_14)</code> option.</p>
+<p>Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the <code>[-i](#6_2_13)</code> option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-2"></a></p>
@@ -330,12 +330,18 @@
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-3_5"></a></p>
 <h3>
-<a id="user-content-35-code-generation-options" class="anchor" href="#35-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5. Code Generation Options</h3>
+<a id="user-content-35--dvariable---definevariable-define-a-static-symbol" class="anchor" href="#35--dvariable---definevariable-define-a-static-symbol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5. -DVARIABLE, --define=VARIABLE (define a static symbol)</h3>
+<p>Define the given symbol as a static symbol with value 1.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_1"></a></p>
+<a id="user-content-3_6"></a></p>
+<h3>
+<a id="user-content-36-code-generation-options" class="anchor" href="#36-code-generation-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6. Code Generation Options</h3>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_6_1"></a></p>
 <h4>
-<a id="user-content-351--mcpu---cpucpu-select-cpu" class="anchor" href="#351--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. -mCPU, --cpu=CPU (select CPU)</h4>
+<a id="user-content-361--mcpu---cpucpu-select-cpu" class="anchor" href="#361--mcpu---cpucpu-select-cpu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.1. -mCPU, --cpu=CPU (select CPU)</h4>
 <p>Assemble for the given CPU. The following CPU's are supported:</p>
 <table>
 <thead>
@@ -441,32 +447,32 @@
 </table>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_2"></a></p>
+<a id="user-content-3_6_2"></a></p>
 <h4>
-<a id="user-content-352--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#352--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.2. -IXIY, --IXIY (swap IX and IY)</h4>
+<a id="user-content-362--ixiy---ixiy-swap-ix-and-iy" class="anchor" href="#362--ixiy---ixiy-swap-ix-and-iy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.2. -IXIY, --IXIY (swap IX and IY)</h4>
 <p>Swap all occurrences of registers <code>IX</code> and <code>IY</code>, and also their 8-bit halves (<code>IXH</code>, <code>IXL</code>, <code>IYH</code> and <code>IYL</code>).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_3"></a></p>
+<a id="user-content-3_6_3"></a></p>
 <h4>
-<a id="user-content-353---optspeed-optimise-for-speed" class="anchor" href="#353---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.3. --opt=speed (optimise for speed)</h4>
+<a id="user-content-363---optspeed-optimise-for-speed" class="anchor" href="#363---optspeed-optimise-for-speed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.3. --opt=speed (optimise for speed)</h4>
 <p>Replace all occurrences of <code>JR</code> by <code>JP</code>, as the later are faster. <code>DJNZ</code> is not replaced by <code>DEC B \ JP</code> as the later is slower.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_5_4"></a></p>
+<a id="user-content-3_6_4"></a></p>
 <h4>
-<a id="user-content-354---debug-debug-information" class="anchor" href="#354---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.4. --debug (debug information)</h4>
+<a id="user-content-364---debug-debug-information" class="anchor" href="#364---debug-debug-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.4. --debug (debug information)</h4>
 <p>Add debug information to the map file: new symbols <code>__C_LINE_nn</code> and <code>__ASM_LINE_nn</code> are created on each <code>C_LINE</code> statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_6"></a></p>
+<a id="user-content-3_7"></a></p>
 <h3>
-<a id="user-content-36-output-file-options" class="anchor" href="#36-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6. Output File Options</h3>
+<a id="user-content-37-output-file-options" class="anchor" href="#37-output-file-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.7. Output File Options</h3>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-3_6_1"></a></p>
+<a id="user-content-3_7_1"></a></p>
 <h4>
-<a id="user-content-361--m---map-create-map-file" class="anchor" href="#361--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.6.1. -m, --map (create map file)</h4>
+<a id="user-content-371--m---map-create-map-file" class="anchor" href="#371--m---map-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.7.1. -m, --map (create map file)</h4>
 <p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
 <ul>
 <li>symbol name</li>
@@ -492,7 +498,7 @@
 <a id="user-content-4"></a></p>
 <h2>
 <a id="user-content-4-input-files" class="anchor" href="#4-input-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Input Files</h2>
-<p><strong>z80asm</strong> reads text files in the syntax supported by the specific processor being assembled for (see <code>[-mCPU](#3_5_1)</code> option) and produces the corresponding object files.</p>
+<p><strong>z80asm</strong> reads text files in the syntax supported by the specific processor being assembled for (see <code>[-mCPU](#3_6_1)</code> option) and produces the corresponding object files.</p>
 <p>An input file with a <code>.o</code> extension is assumed to be already in object file format and is just read by the linker. Any other extension is considered an assembly source file (conventionally <code>.asm</code>).</p>
 <p>A project list file may be supplied in the command line prefixed by the at-sign (e.g. <code>@project.lst</code>). The list file contains one input file name per line, or another project list prefixed with an at-sign, which is opened recursively. Hash signs (<code>#</code>) and semi-colons (<code>;</code>) may be used at the start of lines in the list files to include comments.</p>
 <p>Both the command line and the list files support wild-cards to expand all the files that match the given pattern.</p>
@@ -1297,15 +1303,7 @@ The address patching process. All expressions are now read and evaluated, then p
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_12"></a></p>
 <h4>
-<a id="user-content-6212--dsymbol--define-a-static-symbol" class="anchor" href="#6212--dsymbol--define-a-static-symbol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.12. -D&lt;symbol&gt; : Define a static symbol</h4>
-<p>This option is useful if you want to produce conditional compilations. The symbol defined here will be active throughout the compilation. We used this feature to compile machine code on different computer platforms (QL, IBM, LINUX or  <a href="#6_5">Z88</a> ). Specify the symbol immediately after the option identifier, i.e.</p>
-<pre><code>z80asm  [-b](#6_2_6)  -DZ88 file.asm
-</code></pre>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6_2_13"></a></p>
-<h4>
-<a id="user-content-6213-project-file-1316-using-a-project-file" class="anchor" href="#6213-project-file-1316-using-a-project-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.13. @&lt;project-file&gt; :1.3.16. Using a project file</h4>
+<a id="user-content-6212-project-file-1316-using-a-project-file" class="anchor" href="#6212-project-file-1316-using-a-project-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.12. @&lt;project-file&gt; :1.3.16. Using a project file</h4>
 <p>Project files defines all file names of a project. The file name standard stored in a project file obeys the operating system notation.</p>
 <p>Instead of specifying every module file name at the command line, a simple reference of a project file can be made instead. According to the rules of the specification of parameters you specify either your source file modules or use a project file. The project file specification is of course much faster. An example:</p>
 <pre><code>z80asm  [-a](#6_2_7)  main pass1 pass2 link asmdrctv z80instr
@@ -1323,44 +1321,44 @@ modlink
 <p>Project files are easily created using a simple text editor.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-6_2_13"></a></p>
+<h4>
+<a id="user-content-6213--ilibrary-file--include-library-modules-during-linkingrelocation" class="anchor" href="#6213--ilibrary-file--include-library-modules-during-linkingrelocation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.13. -i&lt;library-file&gt; : Include library modules during linking/relocation</h4>
+<p>This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  <a href="#6_2_13">-i</a>  identifier.</p>
+<p>Library files are recognised by the ".lib" extension.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_14"></a></p>
 <h4>
-<a id="user-content-6214--ilibrary-file--include-library-modules-during-linkingrelocation" class="anchor" href="#6214--ilibrary-file--include-library-modules-during-linkingrelocation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.14. -i&lt;library-file&gt; : Include library modules during linking/relocation</h4>
-<p>This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  <a href="#6_2_14">-i</a>  identifier.</p>
-<p>Library files are recognised by the ".lib" extension.</p>
+<a id="user-content-6214--x--create-a-library" class="anchor" href="#6214--x--create-a-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.14. -x : Create a library</h4>
+<p>A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  <a href="#6_2_14">-x</a>  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  <a href="#10_28">XLIB</a>  directive with an identical address name label definition. Please refer to further information later in this documentation. The " <a href="#7">Z80</a> lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.</p>
+<p>One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_15"></a></p>
 <h4>
-<a id="user-content-6215--x--create-a-library" class="anchor" href="#6215--x--create-a-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.15. -x : Create a library</h4>
-<p>A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  <a href="#6_2_15">-x</a>  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  <a href="#10_28">XLIB</a>  directive with an identical address name label definition. Please refer to further information later in this documentation. The " <a href="#7">Z80</a> lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.</p>
-<p>One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.</p>
+<a id="user-content-6215--tnumber--define-tabulator-distance-for-text-output-files" class="anchor" href="#6215--tnumber--define-tabulator-distance-for-text-output-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.15. -t&lt;number&gt; : Define tabulator distance for text output files</h4>
+<p>To save storage space the  <a href="#7">Z80</a>  cross assembler output files (listing, map, symbol and  <a href="#10_27">XDEF</a>  definition files) uses a tabulator control character instead of spaces. The benefit is about 30% compressed files.</p>
+<p>The tabulator distance defines the distance of space between each tabulator it represents. The default value is 8 spaces per tabulator.</p>
+<p>The tabulators are used to separate two columns of information. The first column contains a name of some sort. Since names have variable length, a size of the column is defined. The Assembler defines the size of the column by multiplying the current tabulator distance with 4, i.e. giving a default size of 4*8 = 32 'spaces'. This is usually more than enough for most name definitions parsed from source files.</p>
+<p>You may redefine the tabulator distance by using the  <a href="#6_2_15">-t</a>  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4*4 = 16 'spaces'.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_16"></a></p>
 <h4>
-<a id="user-content-6216--tnumber--define-tabulator-distance-for-text-output-files" class="anchor" href="#6216--tnumber--define-tabulator-distance-for-text-output-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.16. -t&lt;number&gt; : Define tabulator distance for text output files</h4>
-<p>To save storage space the  <a href="#7">Z80</a>  cross assembler output files (listing, map, symbol and  <a href="#10_27">XDEF</a>  definition files) uses a tabulator control character instead of spaces. The benefit is about 30% compressed files.</p>
-<p>The tabulator distance defines the distance of space between each tabulator it represents. The default value is 8 spaces per tabulator.</p>
-<p>The tabulators are used to separate two columns of information. The first column contains a name of some sort. Since names have variable length, a size of the column is defined. The Assembler defines the size of the column by multiplying the current tabulator distance with 4, i.e. giving a default size of 4*8 = 32 'spaces'. This is usually more than enough for most name definitions parsed from source files.</p>
-<p>You may redefine the tabulator distance by using the  <a href="#6_2_16">-t</a>  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4*4 = 16 'spaces'.</p>
+<a id="user-content-6216--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" class="anchor" href="#6216--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.16. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's</h4>
+<p>This option disables assembly opcodes not available in the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_17"></a></p>
 <h4>
-<a id="user-content-6217--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" class="anchor" href="#6217--rcmx000--support-the-rcm2000rcm3000-series-of-z80-like-cpus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.17. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's</h4>
-<p>This option disables assembly opcodes not available in the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's.</p>
+<a id="user-content-6217--plus--support-for-the-ti83plus" class="anchor" href="#6217--plus--support-for-the-ti83plus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.17. -plus : Support for the Ti83Plus</h4>
+<p>Defines how the  <a href="#10_19">INVOKE</a>  command is coded: either as a RST 28H instruction (option on) or as a regular  <a href="#10_2">CALL</a>  instruction (option off).</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-6_2_18"></a></p>
 <h4>
-<a id="user-content-6218--plus--support-for-the-ti83plus" class="anchor" href="#6218--plus--support-for-the-ti83plus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.18. -plus : Support for the Ti83Plus</h4>
-<p>Defines how the  <a href="#10_19">INVOKE</a>  command is coded: either as a RST 28H instruction (option on) or as a regular  <a href="#10_2">CALL</a>  instruction (option off).</p>
-<hr>
-<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
-<a id="user-content-6_2_19"></a></p>
-<h4>
-<a id="user-content-6219--c--enable-line-directive" class="anchor" href="#6219--c--enable-line-directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.19. -C : Enable LINE directive</h4>
+<a id="user-content-6218--c--enable-line-directive" class="anchor" href="#6218--c--enable-line-directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2.18. -C : Enable LINE directive</h4>
 <p>Enables the  <a href="#10_21">LINE</a>  directive to synchronize error message line numbers with the line numbers from the source file.</p>
 <h2>
 <a id="user-content-2-an-overview-of-assembler-features-and-related-files" class="anchor" href="#2-an-overview-of-assembler-features-and-related-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. An overview of assembler features and related files</h2>
@@ -1576,7 +1574,7 @@ modlink
 <a id="user-content-7_3_9"></a></p>
 <h4>
 <a id="user-content-739-the-library-file-extension-lib" class="anchor" href="#739-the-library-file-extension-lib" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.3.9. The library file extension, lib</h4>
-<p>Library files are identified with the 'lib' extension. Library files may be created using the  <a href="#6_2_15">-x</a>  option. Library may be included into application code during linking of object modules with the  <a href="#6_2_14">-i</a>  option.</p>
+<p>Library files are identified with the 'lib' extension. Library files may be created using the  <a href="#6_2_14">-x</a>  option. Library may be included into application code during linking of object modules with the  <a href="#6_2_13">-i</a>  option.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-8"></a></p>
@@ -1737,7 +1735,7 @@ SLL  (IY+d)
 <a id="user-content-8_12"></a></p>
 <h3>
 <a id="user-content-812-referencing-library-routines" class="anchor" href="#812-referencing-library-routines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.12. Referencing library routines</h3>
-<p>When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  <a href="#6_2_14">-i</a>  option and refer to the library routine in your source file using the  <a href="#10_20">LIB</a>  directive followed by the name of the library routine, e.g.</p>
+<p>When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  <a href="#6_2_13">-i</a>  option and refer to the library routine in your source file using the  <a href="#10_20">LIB</a>  directive followed by the name of the library routine, e.g.</p>
 <pre><code> [LIB](#10_20)  malloc, free
 </code></pre>
 <p>which will declare the two names "malloc" and "free" as external identifiers to the current source file module. Please note that you can declare the names before or after they actually are referred in your program source,. Failing to use the  <a href="#10_20">LIB</a>  directive will interpret labels as local symbols to that source file module. When the parser meets the instruction that uses one of the above names in a parameter, the parameter "expression" is automatically saved to the object file for later processing.</p>
@@ -1757,7 +1755,7 @@ SLL  (IY+d)
 <p>Each library source module uses the  <a href="#10_28">XLIB</a>  directive to define the name of the routine. The same name must be used for the address label definition. If your library uses other library routines then declare them with the  <a href="#10_20">LIB</a>  directive. Please note that a library routine creates the module name itself (performed by  <a href="#10_28">XLIB</a>  automatically). The module name is used to search for routines in a library.</p>
 </li>
 <li>
-<p>The command line contains the  <a href="#6_2_15">-x</a>  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.</p>
+<p>The command line contains the  <a href="#6_2_14">-x</a>  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.</p>
 </li>
 </ol>
 <p>For example:</p>
@@ -2059,7 +2057,7 @@ JJJ = $40D4
 <a id="user-content-10_19"></a></p>
 <h3>
 <a id="user-content-1019-invoke-16-bit-expression" class="anchor" href="#1019-invoke-16-bit-expression" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.19. INVOKE &lt;16-bit expression&gt;</h3>
-<p>Special  <a href="#10_2">CALL</a>  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  <a href="#6_2_18">-plus</a>  option is passed on the command line (for the Ti83Plus), or as a normal  <a href="#10_2">CALL</a>  instruction if the option is not passed.</p>
+<p>Special  <a href="#10_2">CALL</a>  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  <a href="#6_2_17">-plus</a>  option is passed on the command line (for the Ti83Plus), or as a normal  <a href="#10_2">CALL</a>  instruction if the option is not passed.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-10_20"></a></p>
@@ -2292,8 +2290,8 @@ fails building z88dk because  <a href="#10_18">INCLUDE</a>  of unexistent file g
 <li>process C_LINE</li>
 <li>fix list files when parsing a .i</li>
 <li>move all directives from z80asm to z80asm2</li>
-<li>handle  <a href="#3_6_1">-m</a>  for architecture specific code</li>
-<li>handle  <a href="#6_2_12">-D</a>  and -U for top-level defines</li>
+<li>handle  <a href="#3_7_1">-m</a>  for architecture specific code</li>
+<li>handle -D and -U for top-level defines</li>
 <li>process  <a href="#10_18">INCLUDE</a>  / INCBIN /  <a href="#10_1">BINARY</a>
 </li>
 <li>generate .i file</li>
@@ -2588,14 +2586,14 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a id="user-content-16"></a></p>
 <h2>
 <a id="user-content-16-keywords" class="anchor" href="#16-keywords" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>16. Keywords</h2>
-<p><a href="#6_2_19">-C</a>
-<a href="#6_2_12">-D</a>
+<p><a href="#6_2_18">-C</a>
+<a href="#3_5">-DVARIABLE</a>
 <a href="#3_4_1">-IDIR</a>
-<a href="#3_5_2">-IXIY</a>
+<a href="#3_6_2">-IXIY</a>
 <a href="#3_4_2">-LDIR</a>
 <a href="#6_2_2">-M</a>
 <a href="#6_2_10">-R</a>
-<a href="#6_2_17">-RCMX000</a>
+<a href="#6_2_16">-RCMX000</a>
 <a href="#6_2_7">-a</a>
 <a href="#3_2_1">-atoctal</a>
 <a href="#6_2_6">-b</a>
@@ -2605,20 +2603,20 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a href="#6_2_11">-g</a>
 <a href="#3_1_2">-h</a>
 <a href="#3_2_3">-hashhex</a>
-<a href="#6_2_14">-i</a>
+<a href="#6_2_13">-i</a>
 <a href="#6_2_3">-l</a>
 <a href="#3_2_4">-labelcol1</a>
-<a href="#3_6_1">-m</a>
-<a href="#3_5_1">-mCPU</a>
+<a href="#3_7_1">-m</a>
+<a href="#3_6_1">-mCPU</a>
 <a href="#3_3_1">-noprec</a>
 <a href="#6_2_8">-o</a>
-<a href="#6_2_18">-plus</a>
+<a href="#6_2_17">-plus</a>
 <a href="#6_2_9">-r</a>
 <a href="#6_2_4">-s</a>
-<a href="#6_2_16">-t</a>
+<a href="#6_2_15">-t</a>
 <a href="#3_2_5">-ucase</a>
 <a href="#3_1_3">-v</a>
-<a href="#6_2_15">-x</a>
+<a href="#6_2_14">-x</a>
 <a href="#10_1">BINARY</a>
 <a href="#10_2">CALL</a>
 <a href="#10_3">DEFB</a>
@@ -2718,23 +2716,25 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 </ul>
 </li>
 <li>
-<a href="#3_5">3.5.</a> Code Generation Options
+<a href="#3_5">3.5.</a>  <a href="#3_5">-DVARIABLE</a> , --define=VARIABLE (define a static symbol)</li>
+<li>
+<a href="#3_6">3.6.</a> Code Generation Options
 <ul>
 <li>
-<a href="#3_5_1">3.5.1.</a>  <a href="#3_5_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
+<a href="#3_6_1">3.6.1.</a>  <a href="#3_6_1">-mCPU</a> , --cpu=CPU (select CPU)</li>
 <li>
-<a href="#3_5_2">3.5.2.</a>  <a href="#3_5_2">-IXIY</a> , - <a href="#3_5_2">-IXIY</a>  (swap IX and IY)</li>
+<a href="#3_6_2">3.6.2.</a>  <a href="#3_6_2">-IXIY</a> , - <a href="#3_6_2">-IXIY</a>  (swap IX and IY)</li>
 <li>
-<a href="#3_5_3">3.5.3.</a> --opt=speed (optimise for speed)</li>
+<a href="#3_6_3">3.6.3.</a> --opt=speed (optimise for speed)</li>
 <li>
-<a href="#3_5_4">3.5.4.</a> --debug (debug information)</li>
+<a href="#3_6_4">3.6.4.</a> --debug (debug information)</li>
 </ul>
 </li>
 <li>
-<a href="#3_6">3.6.</a> Output File Options
+<a href="#3_7">3.7.</a> Output File Options
 <ul>
 <li>
-<a href="#3_6_1">3.6.1.</a>  <a href="#3_6_1">-m</a> , --map (create map file)</li>
+<a href="#3_7_1">3.7.1.</a>  <a href="#3_7_1">-m</a> , --map (create map file)</li>
 </ul>
 </li>
 </ul>
@@ -2814,21 +2814,19 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <li>
 <a href="#6_2_11">6.2.11.</a>  <a href="#6_2_11">-g</a>  : Create global address definition file</li>
 <li>
-<a href="#6_2_12">6.2.12.</a>  <a href="#6_2_12">-D</a> &lt;symbol&gt; : Define a static symbol</li>
+<a href="#6_2_12">6.2.12.</a> @&lt;project-file&gt; :1.3.16. Using a project file</li>
 <li>
-<a href="#6_2_13">6.2.13.</a> @&lt;project-file&gt; :1.3.16. Using a project file</li>
+<a href="#6_2_13">6.2.13.</a>  <a href="#6_2_13">-i</a> &lt;library-file&gt; : Include library modules during linking/relocation</li>
 <li>
-<a href="#6_2_14">6.2.14.</a>  <a href="#6_2_14">-i</a> &lt;library-file&gt; : Include library modules during linking/relocation</li>
+<a href="#6_2_14">6.2.14.</a>  <a href="#6_2_14">-x</a>  : Create a library</li>
 <li>
-<a href="#6_2_15">6.2.15.</a>  <a href="#6_2_15">-x</a>  : Create a library</li>
+<a href="#6_2_15">6.2.15.</a>  <a href="#6_2_15">-t</a> &lt;number&gt; : Define tabulator distance for text output files</li>
 <li>
-<a href="#6_2_16">6.2.16.</a>  <a href="#6_2_16">-t</a> &lt;number&gt; : Define tabulator distance for text output files</li>
+<a href="#6_2_16">6.2.16.</a>  <a href="#6_2_16">-RCMX000</a>  : Support the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's</li>
 <li>
-<a href="#6_2_17">6.2.17.</a>  <a href="#6_2_17">-RCMX000</a>  : Support the RCM2000/RCM3000 series of  <a href="#7">Z80</a> -like CPU's</li>
+<a href="#6_2_17">6.2.17.</a>  <a href="#6_2_17">-plus</a>  : Support for the Ti83Plus</li>
 <li>
-<a href="#6_2_18">6.2.18.</a>  <a href="#6_2_18">-plus</a>  : Support for the Ti83Plus</li>
-<li>
-<a href="#6_2_19">6.2.19.</a>  <a href="#6_2_19">-C</a>  : Enable  <a href="#10_21">LINE</a>  directive</li>
+<a href="#6_2_18">6.2.18.</a>  <a href="#6_2_18">-C</a>  : Enable  <a href="#10_21">LINE</a>  directive</li>
 </ul>
 </li>
 <li>

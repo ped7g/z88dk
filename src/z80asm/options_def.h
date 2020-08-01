@@ -51,13 +51,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 #define OPT(type, arg, short_opt, long_opt, help_text, help_arg)
 #endif
 
-OPT_TITLE("Help Options:")
-
-OPT_TITLE("Code Generation Options:")
-
-OPT_TITLE("Environment:")
-OPT(OptCallArg, option_define, "-D", "", "Define a static symbol", "SYMBOL")
-
 OPT_TITLE("Libraries:")
 OPT(OptCallArg, option_make_lib, "-x", "", "Create a library file" FILEEXT_LIB, "FILE")
 OPT(OptCallArg, option_use_lib, "-l", "", "Use library file" FILEEXT_LIB, "FILE")

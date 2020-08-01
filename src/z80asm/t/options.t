@@ -307,47 +307,7 @@ z80asm(
 );
 
 #------------------------------------------------------------------------------
-# -D, --define
-#------------------------------------------------------------------------------
-
-$asm = "ld a,_value23";		# BUG_0045
-
-# no -D
-t_z80asm_error($asm, "Error at file 'test.asm' line 1: symbol '_value23' not defined");
-
-# invalid -D
-for my $options ('-D23', quote_os('-Da*')) {		# quote because of '*'
-	write_file(asm_file(), "");
-	t_z80asm_capture("$options ".asm_file(), "", 
-					"Error: illegal identifier\n", 1);
-}
-
-for my $options ('aaa=', 'aaa=a', 'aaa=!', 'aaa=1x') {
-	write_file(asm_file(), "");
-	t_z80asm_capture("-D${options} ".asm_file(), "", 
-					"Error: invalid -DVAR=VAL option '${options}'\n", 1);
-}
-
-# -D
-t_z80asm_ok(0, $asm, "\x3E\x01", "-D_value23");
-
-# -Dvar=value
-for my $value (255, "0xff", "0XFF", "0ffh", "0FFH", "\$FF") {
-	t_z80asm_ok(0, $asm, "\x3E\xFF", quote_os("-D_value23=${value}"));		# quote because of '$'
-}
-
-# -D with environment variables
-$ENV{TEST_ENV} = 'value';
-t_z80asm_ok(0, $asm, "\x3E\x01", '"-D=_${TEST_ENV}23"');
-
-$ENV{TEST_ENV} = '127';
-t_z80asm_ok(0, $asm, "\x3E\x7f", '"-D=_value23=${TEST_ENV}"');
-
-delete $ENV{TEST_ENV};
-t_z80asm_ok(0, $asm, "\x3E\x01", '"-D=_value${TEST_ENV}23"');
-
-#------------------------------------------------------------------------------
-# -l, -x
+# -i, --use-lib, -x, --make-lib
 #------------------------------------------------------------------------------
 
 unlink_testfiles();

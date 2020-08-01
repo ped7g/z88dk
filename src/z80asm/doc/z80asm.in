@@ -64,6 +64,10 @@ While each source file is being assembled, its parent directory is automatically
 
 Append the specified directory to the search path for library files.
 
+### -DVARIABLE, --define=VARIABLE (define a static symbol)
+
+Define the given symbol as a static symbol with value 1.
+
 ### Code Generation Options
 
 #### -mCPU, --cpu=CPU (select CPU)

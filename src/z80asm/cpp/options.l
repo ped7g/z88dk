@@ -26,6 +26,8 @@
 
 %option freespace dotall
 
+ident		[a-zA-Z_] [a-zA-Z0-9_]*
+
 %%
 
 -v        \z | \
@@ -91,6 +93,11 @@
 -L   .+			{ theOptions.libraryPath.push_back(text() + 2);  return true; }
 --lib-path = .+	{ theOptions.libraryPath.push_back(text() + 11); return true; }
 --lib-path   .+	{ theOptions.libraryPath.push_back(text() + 10); return true; }
+
+-D = 	   {ident} \z	{ theOptions.defines.push_back({ text() + 3, 1}); return true; }
+-D		   {ident} \z	{ theOptions.defines.push_back({ text() + 2, 1}); return true; }
+--define = {ident} \z	{ theOptions.defines.push_back({ text() + 9, 1}); return true; }
+--define   {ident} \z	{ theOptions.defines.push_back({ text() + 8, 1}); return true; }
 
 .				{ return false; }
 

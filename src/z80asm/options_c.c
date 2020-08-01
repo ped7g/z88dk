@@ -56,7 +56,6 @@ enum OptType
 
 /* declare functions */
 static void option_origin(const char *origin );
-static void option_define(const char *symbol );
 static void option_make_lib(const char *library );
 static void option_use_lib(const char *library );
 static void option_appmake_zx(void);
@@ -533,38 +532,6 @@ static void option_filler(const char *filler_arg )
 		error_invalid_filler_option(filler_arg);
 	else
 		opts.filler = value;
-}
-
-static void option_define(const char *symbol )
-{
-    int i;
-
-    /* check syntax - BUG_0045 */
-	if (!isalpha(symbol[0]) && symbol[0] != '_') {
-		error_illegal_ident();
-		return;
-	}
-
-	for (i = 1; symbol[i] != 0 && symbol[i] != '='; i++) {
-		if (!isalnum(symbol[i]) && symbol[i] != '_') {
-			error_illegal_ident();
-			return;
-		}
-	}
-
-	if (symbol[i] != '=') {		// -Dvar
-		define_static_def_sym(symbol, 1);
-	}
-	else {						// -Dvar=nn
-		char* variable = xstrdup(symbol);
-		variable[i] = '\0';		// truncate after variable name
-		int value = number_arg(symbol + i + 1);
-		if (value < 0)
-			error_invalid_define_option(symbol);
-		else
-			define_static_def_sym(variable, value);
-		xfree(variable);
-	}
 }
 
 static void option_make_lib(const char *library )

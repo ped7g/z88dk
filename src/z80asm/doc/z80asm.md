@@ -150,15 +150,25 @@ Append the specified directory to the search path for library files.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_3></a>
 
-### 3.3. Code Generation Options
+### 3.3. -DVARIABLE, --define=VARIABLE (define a static symbol)
+
+Define the given symbol as a static symbol with value 1.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_3_1></a>
+<a id=3_4></a>
 
-#### 3.3.1. -mCPU, --cpu=CPU (select CPU)
+### 3.4. Code Generation Options
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_4_1></a>
+
+#### 3.4.1. -mCPU, --cpu=CPU (select CPU)
 
 Assemble for the given CPU. The following CPU's are supported:
 
@@ -195,9 +205,9 @@ Assemble for the given CPU. The following CPU's are supported:
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_3_2></a>
+<a id=3_4_2></a>
 
-#### 3.3.2. -IXIY, --IXIY (swap IX and IY)
+#### 3.4.2. -IXIY, --IXIY (swap IX and IY)
 
 Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`IXH`, `IXL`, `IYH` and `IYL`).
 
@@ -205,9 +215,9 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_3_3></a>
+<a id=3_4_3></a>
 
-#### 3.3.3. --opt=speed (optimise for speed)
+#### 3.4.3. --opt=speed (optimise for speed)
 
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
@@ -215,9 +225,9 @@ Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_3_4></a>
+<a id=3_4_4></a>
 
-#### 3.3.4. --debug (debug information)
+#### 3.4.4. --debug (debug information)
 
 Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
 
@@ -225,17 +235,17 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_4></a>
+<a id=3_5></a>
 
-### 3.4. Output File Options
+### 3.5. Output File Options
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_4_1></a>
+<a id=3_5_1></a>
 
-#### 3.4.1. -m, --map (create map file)
+#### 3.5.1. -m, --map (create map file)
 
 Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
@@ -298,12 +308,13 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 <a id=6></a>
 
 ## 6. Keywords
+ [-DVARIABLE](#3_3) 
  [-IDIR](#3_2_1) 
- [-IXIY](#3_3_2) 
+ [-IXIY](#3_4_2) 
  [-LDIR](#3_2_2) 
  [-h](#3_1_2) 
- [-m](#3_4_1) 
- [-mCPU](#3_3_1) 
+ [-m](#3_5_1) 
+ [-mCPU](#3_4_1) 
  [-v](#3_1_3) 
 <a id=index></a>
 
@@ -327,13 +338,14 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
   - [3.2.](#3_2) Environment Options
     - [3.2.1.](#3_2_1)  [-IDIR](#3_2_1) , --inc-path=DIR (directory for source files)
     - [3.2.2.](#3_2_2)  [-LDIR](#3_2_2) , --lib-path=DIR (directory for library)
-  - [3.3.](#3_3) Code Generation Options
-    - [3.3.1.](#3_3_1)  [-mCPU](#3_3_1) , --cpu=CPU (select CPU)
-    - [3.3.2.](#3_3_2)  [-IXIY](#3_3_2) , - [-IXIY](#3_3_2)  (swap IX and IY)
-    - [3.3.3.](#3_3_3) --opt=speed (optimise for speed)
-    - [3.3.4.](#3_3_4) --debug (debug information)
-  - [3.4.](#3_4) Output File Options
-    - [3.4.1.](#3_4_1)  [-m](#3_4_1) , --map (create map file)
+  - [3.3.](#3_3)  [-DVARIABLE](#3_3) , --define=VARIABLE (define a static symbol)
+  - [3.4.](#3_4) Code Generation Options
+    - [3.4.1.](#3_4_1)  [-mCPU](#3_4_1) , --cpu=CPU (select CPU)
+    - [3.4.2.](#3_4_2)  [-IXIY](#3_4_2) , - [-IXIY](#3_4_2)  (swap IX and IY)
+    - [3.4.3.](#3_4_3) --opt=speed (optimise for speed)
+    - [3.4.4.](#3_4_4) --debug (debug information)
+  - [3.5.](#3_5) Output File Options
+    - [3.5.1.](#3_5_1)  [-m](#3_5_1) , --map (create map file)
 - [4.](#4) Copyright
 - [5.](#5) License
 - [6.](#6) Keywords

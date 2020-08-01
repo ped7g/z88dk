@@ -62,7 +62,7 @@ Link the object files together and with any requested libraries into a set of bi
 
     z80asm -xlibrary.lib [options] file...
 
-Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the ` [-i](#6_2_14) ` option.
+Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the ` [-i](#6_2_13) ` option.
 
 
 ----
@@ -268,15 +268,25 @@ Append the specified directory to the search path for library files.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_5></a>
 
-### 3.5. Code Generation Options
+### 3.5. -DVARIABLE, --define=VARIABLE (define a static symbol)
+
+Define the given symbol as a static symbol with value 1.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_1></a>
+<a id=3_6></a>
 
-#### 3.5.1. -mCPU, --cpu=CPU (select CPU)
+### 3.6. Code Generation Options
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_6_1></a>
+
+#### 3.6.1. -mCPU, --cpu=CPU (select CPU)
 
 Assemble for the given CPU. The following CPU's are supported:
 
@@ -313,9 +323,9 @@ Assemble for the given CPU. The following CPU's are supported:
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_2></a>
+<a id=3_6_2></a>
 
-#### 3.5.2. -IXIY, --IXIY (swap IX and IY)
+#### 3.6.2. -IXIY, --IXIY (swap IX and IY)
 
 Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`IXH`, `IXL`, `IYH` and `IYL`).
 
@@ -323,9 +333,9 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_3></a>
+<a id=3_6_3></a>
 
-#### 3.5.3. --opt=speed (optimise for speed)
+#### 3.6.3. --opt=speed (optimise for speed)
 
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
@@ -333,9 +343,9 @@ Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_5_4></a>
+<a id=3_6_4></a>
 
-#### 3.5.4. --debug (debug information)
+#### 3.6.4. --debug (debug information)
 
 Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
 
@@ -343,17 +353,17 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_6></a>
+<a id=3_7></a>
 
-### 3.6. Output File Options
+### 3.7. Output File Options
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=3_6_1></a>
+<a id=3_7_1></a>
 
-#### 3.6.1. -m, --map (create map file)
+#### 3.7.1. -m, --map (create map file)
 
 Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
@@ -383,7 +393,7 @@ Creates a map file at the end of the link phase. The map file contains one line 
 
 ## 4. Input Files
 
-**z80asm** reads text files in the syntax supported by the specific processor being assembled for (see ` [-mCPU](#3_5_1) ` option) and produces the corresponding object files.
+**z80asm** reads text files in the syntax supported by the specific processor being assembled for (see ` [-mCPU](#3_6_1) ` option) and produces the corresponding object files.
 
 An input file with a `.o` extension is assumed to be already in object file format and is just read by the linker. Any other extension is considered an assembly source file (conventionally `.asm`).
 
@@ -950,19 +960,7 @@ With this option it is possible to generate a  [DEFC](#10_6)  directive definiti
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=6_2_12></a>
 
-#### 6.2.12. -D\<symbol\> : Define a static symbol
-
-This option is useful if you want to produce conditional compilations. The symbol defined here will be active throughout the compilation. We used this feature to compile machine code on different computer platforms (QL, IBM, LINUX or  [Z88](#6_5) ). Specify the symbol immediately after the option identifier, i.e.
-
-    z80asm  [-b](#6_2_6)  -DZ88 file.asm
-
-
-----
-
-[(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_13></a>
-
-#### 6.2.13. @\<project-file\> :1.3.16. Using a project file
+#### 6.2.12. @\<project-file\> :1.3.16. Using a project file
 
 Project files defines all file names of a project. The file name standard stored in a project file obeys the operating system notation.
 
@@ -989,11 +987,11 @@ Project files are easily created using a simple text editor.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_14></a>
+<a id=6_2_13></a>
 
-#### 6.2.14. -i\<library-file\> : Include library modules during linking/relocation
+#### 6.2.13. -i\<library-file\> : Include library modules during linking/relocation
 
-This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  [-i](#6_2_14)  identifier. 
+This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  [-i](#6_2_13)  identifier. 
 
 Library files are recognised by the ".lib" extension.
 
@@ -1001,11 +999,11 @@ Library files are recognised by the ".lib" extension.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_15></a>
+<a id=6_2_14></a>
 
-#### 6.2.15. -x : Create a library
+#### 6.2.14. -x : Create a library
 
-A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  [-x](#6_2_15)  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  [XLIB](#10_28)  directive with an identical address name label definition. Please refer to further information later in this documentation. The " [Z80](#7) lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
+A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  [-x](#6_2_14)  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  [XLIB](#10_28)  directive with an identical address name label definition. Please refer to further information later in this documentation. The " [Z80](#7) lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
 
 One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.
 
@@ -1013,9 +1011,9 @@ One very important aspect of libraries is the time that the assembler spends sea
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_16></a>
+<a id=6_2_15></a>
 
-#### 6.2.16. -t\<number\> : Define tabulator distance for text output files
+#### 6.2.15. -t\<number\> : Define tabulator distance for text output files
 
 To save storage space the  [Z80](#7)  cross assembler output files (listing, map, symbol and  [XDEF](#10_27)  definition files) uses a tabulator control character instead of spaces. The benefit is about 30% compressed files.
 
@@ -1023,15 +1021,15 @@ The tabulator distance defines the distance of space between each tabulator it r
 
 The tabulators are used to separate two columns of information. The first column contains a name of some sort. Since names have variable length, a size of the column is defined. The Assembler defines the size of the column by multiplying the current tabulator distance with 4, i.e. giving a default size of 4\*8 = 32 'spaces'. This is usually more than enough for most name definitions parsed from source files.
 
-You may redefine the tabulator distance by using the  [-t](#6_2_16)  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4\*4 = 16 'spaces'.
+You may redefine the tabulator distance by using the  [-t](#6_2_15)  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4\*4 = 16 'spaces'.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_17></a>
+<a id=6_2_16></a>
 
-#### 6.2.17. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
+#### 6.2.16. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
 
 This option disables assembly opcodes not available in the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's.
 
@@ -1039,9 +1037,9 @@ This option disables assembly opcodes not available in the RCM2000/RCM3000 serie
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_18></a>
+<a id=6_2_17></a>
 
-#### 6.2.18. -plus : Support for the Ti83Plus
+#### 6.2.17. -plus : Support for the Ti83Plus
 
 Defines how the  [INVOKE](#10_19)  command is coded: either as a RST 28H instruction (option on) or as a regular  [CALL](#10_2)  instruction (option off).
 
@@ -1049,9 +1047,9 @@ Defines how the  [INVOKE](#10_19)  command is coded: either as a RST 28H instruc
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_19></a>
+<a id=6_2_18></a>
 
-#### 6.2.19. -C : Enable LINE directive
+#### 6.2.18. -C : Enable LINE directive
 
 Enables the  [LINE](#10_21)  directive to synchronize error message line numbers with the line numbers from the source file.
 
@@ -1412,7 +1410,7 @@ The extension for global address label definition files is 'def'. The base file 
 
 #### 7.3.9. The library file extension, lib
 
-Library files are identified with the 'lib' extension. Library files may be created using the  [-x](#6_2_15)  option. Library may be included into application code during linking of object modules with the  [-i](#6_2_14)  option.
+Library files are identified with the 'lib' extension. Library files may be created using the  [-x](#6_2_14)  option. Library may be included into application code during linking of object modules with the  [-i](#6_2_13)  option.
 
 
 ----
@@ -1652,7 +1650,7 @@ Except for the SLL instruction all have bugs related to an interrupt being able 
 
 ### 8.12. Referencing library routines
 
-When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  [-i](#6_2_14)  option and refer to the library routine in your source file using the  [LIB](#10_20)  directive followed by the name of the library routine, e.g.
+When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  [-i](#6_2_13)  option and refer to the library routine in your source file using the  [LIB](#10_20)  directive followed by the name of the library routine, e.g.
 
      [LIB](#10_20)  malloc, free
 
@@ -1676,7 +1674,7 @@ Creating libraries is an inbuilt feature of the assembler. The following steps a
     
 2.  Each library source module uses the  [XLIB](#10_28)  directive to define the name of the routine. The same name must be used for the address label definition. If your library uses other library routines then declare them with the  [LIB](#10_20)  directive. Please note that a library routine creates the module name itself (performed by  [XLIB](#10_28)  automatically). The module name is used to search for routines in a library.  
     
-3.  The command line contains the  [-x](#6_2_15)  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.
+3.  The command line contains the  [-x](#6_2_14)  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.
 
 For example:
 
@@ -2108,7 +2106,7 @@ Include files are usually put at the start of the source file module but may be 
 
 ### 10.19. INVOKE \<16-bit expression\>
 
-Special  [CALL](#10_2)  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  [-plus](#6_2_18)  option is passed on the command line (for the Ti83Plus), or as a normal  [CALL](#10_2)  instruction if the option is not passed.
+Special  [CALL](#10_2)  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  [-plus](#6_2_17)  option is passed on the command line (for the Ti83Plus), or as a normal  [CALL](#10_2)  instruction if the option is not passed.
 
 
 ----
@@ -2346,8 +2344,8 @@ The following error messages will be written toe the error files corresponding t
     - process C_LINE  
     - fix list files when parsing a .i
     - move all directives from z80asm to z80asm2  
-    - handle  [-m](#3_6_1)  for architecture specific code  
-    - handle  [-D](#6_2_12)  and -U for top-level defines
+    - handle  [-m](#3_7_1)  for architecture specific code  
+    - handle -D and -U for top-level defines
     - process  [INCLUDE](#10_18)  / INCBIN /  [BINARY](#10_1)   
     - generate .i file  
     - indicate syntax error location  
@@ -2537,14 +2535,14 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 <a id=16></a>
 
 ## 16. Keywords
- [-C](#6_2_19) 
- [-D](#6_2_12) 
+ [-C](#6_2_18) 
+ [-DVARIABLE](#3_5) 
  [-IDIR](#3_4_1) 
- [-IXIY](#3_5_2) 
+ [-IXIY](#3_6_2) 
  [-LDIR](#3_4_2) 
  [-M](#6_2_2) 
  [-R](#6_2_10) 
- [-RCMX000](#6_2_17) 
+ [-RCMX000](#6_2_16) 
  [-a](#6_2_7) 
  [-atoctal](#3_2_1) 
  [-b](#6_2_6) 
@@ -2554,20 +2552,20 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
  [-g](#6_2_11) 
  [-h](#3_1_2) 
  [-hashhex](#3_2_3) 
- [-i](#6_2_14) 
+ [-i](#6_2_13) 
  [-l](#6_2_3) 
  [-labelcol1](#3_2_4) 
- [-m](#3_6_1) 
- [-mCPU](#3_5_1) 
+ [-m](#3_7_1) 
+ [-mCPU](#3_6_1) 
  [-noprec](#3_3_1) 
  [-o](#6_2_8) 
- [-plus](#6_2_18) 
+ [-plus](#6_2_17) 
  [-r](#6_2_9) 
  [-s](#6_2_4) 
- [-t](#6_2_16) 
+ [-t](#6_2_15) 
  [-ucase](#3_2_5) 
  [-v](#3_1_3) 
- [-x](#6_2_15) 
+ [-x](#6_2_14) 
  [BINARY](#10_1) 
  [CALL](#10_2) 
  [DEFB](#10_3) 
@@ -2630,13 +2628,14 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
   - [3.4.](#3_4) Environment Options
     - [3.4.1.](#3_4_1)  [-IDIR](#3_4_1) , --inc-path=DIR (directory for source files)
     - [3.4.2.](#3_4_2)  [-LDIR](#3_4_2) , --lib-path=DIR (directory for library)
-  - [3.5.](#3_5) Code Generation Options
-    - [3.5.1.](#3_5_1)  [-mCPU](#3_5_1) , --cpu=CPU (select CPU)
-    - [3.5.2.](#3_5_2)  [-IXIY](#3_5_2) , - [-IXIY](#3_5_2)  (swap IX and IY)
-    - [3.5.3.](#3_5_3) --opt=speed (optimise for speed)
-    - [3.5.4.](#3_5_4) --debug (debug information)
-  - [3.6.](#3_6) Output File Options
-    - [3.6.1.](#3_6_1)  [-m](#3_6_1) , --map (create map file)
+  - [3.5.](#3_5)  [-DVARIABLE](#3_5) , --define=VARIABLE (define a static symbol)
+  - [3.6.](#3_6) Code Generation Options
+    - [3.6.1.](#3_6_1)  [-mCPU](#3_6_1) , --cpu=CPU (select CPU)
+    - [3.6.2.](#3_6_2)  [-IXIY](#3_6_2) , - [-IXIY](#3_6_2)  (swap IX and IY)
+    - [3.6.3.](#3_6_3) --opt=speed (optimise for speed)
+    - [3.6.4.](#3_6_4) --debug (debug information)
+  - [3.7.](#3_7) Output File Options
+    - [3.7.1.](#3_7_1)  [-m](#3_7_1) , --map (create map file)
 - [4.](#4) Input Files
   - [4.1.](#4_1) Source File Format
   - [4.2.](#4_2) Comments
@@ -2668,14 +2667,13 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
     - [6.2.9.](#6_2_9)  [-r](#6_2_9) \<hex-address\> : Re-define the  [ORG](#10_25)  relocation address
     - [6.2.10.](#6_2_10)  [-R](#6_2_10)  : Generate address independent code
     - [6.2.11.](#6_2_11)  [-g](#6_2_11)  : Create global address definition file
-    - [6.2.12.](#6_2_12)  [-D](#6_2_12) \<symbol\> : Define a static symbol
-    - [6.2.13.](#6_2_13) @\<project-file\> :1.3.16. Using a project file
-    - [6.2.14.](#6_2_14)  [-i](#6_2_14) \<library-file\> : Include library modules during linking/relocation
-    - [6.2.15.](#6_2_15)  [-x](#6_2_15)  : Create a library
-    - [6.2.16.](#6_2_16)  [-t](#6_2_16) \<number\> : Define tabulator distance for text output files
-    - [6.2.17.](#6_2_17)  [-RCMX000](#6_2_17)  : Support the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's
-    - [6.2.18.](#6_2_18)  [-plus](#6_2_18)  : Support for the Ti83Plus
-    - [6.2.19.](#6_2_19)  [-C](#6_2_19)  : Enable  [LINE](#10_21)  directive
+    - [6.2.12.](#6_2_12) @\<project-file\> :1.3.16. Using a project file
+    - [6.2.13.](#6_2_13)  [-i](#6_2_13) \<library-file\> : Include library modules during linking/relocation
+    - [6.2.14.](#6_2_14)  [-x](#6_2_14)  : Create a library
+    - [6.2.15.](#6_2_15)  [-t](#6_2_15) \<number\> : Define tabulator distance for text output files
+    - [6.2.16.](#6_2_16)  [-RCMX000](#6_2_16)  : Support the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's
+    - [6.2.17.](#6_2_17)  [-plus](#6_2_17)  : Support for the Ti83Plus
+    - [6.2.18.](#6_2_18)  [-C](#6_2_18)  : Enable  [LINE](#10_21)  directive
   - [6.3.](#6_3) The  [Z88](#6_5)  operating system definition files
   - [6.4.](#6_4) The supplied standard library  [Z80](#7)  source files
   - [6.5.](#6_5)  [Z88](#6_5)  module assembler application source

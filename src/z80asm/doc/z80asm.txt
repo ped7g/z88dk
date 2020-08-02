@@ -143,9 +143,15 @@
 
    [41](top) [42](keywords) [43](index)
 
-  3.3. -DVARIABLE, --define=VARIABLE (define a static symbol)
+  3.3. -DVARIABLE [= value], --define=VARIABLE [= value] (define a static
+  symbol)
 
-   Define the given symbol as a static symbol with value 1.
+   Define the given variable as a static symbol with the given value, or 1 if
+   not supplied.
+
+   The value can be written in decimal (e.g. -Dvar=255) or hexadecimal (e.g.
+   -Dvar=0xff or -Dvar=0ffh or -Dvar=$ff). Note that the '$' may need to be
+   escaped from the shell.
 
    ══════════════════════════════════════════════════════════════════════════
 
@@ -314,8 +320,8 @@
                • [101]3.2.2. [102]-LDIR , --lib-path=DIR (directory for
                  library)
 
-          • [103]3.3. [104]-DVARIABLE , --define=VARIABLE (define a static
-            symbol)
+          • [103]3.3. [104]-DVARIABLE [= value], --define=VARIABLE [= value]
+            (define a static symbol)
           • [105]3.4. Code Generation Options
 
                • [106]3.4.1. [107]-mCPU , --cpu=CPU (select CPU)

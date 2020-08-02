@@ -128,9 +128,11 @@ While each source file is being assembled, its parent directory is automatically
 
 Append the specified directory to the search path for library files.
 
-### -DVARIABLE, --define=VARIABLE (define a static symbol)
+### -DVARIABLE [= value], --define=VARIABLE [= value] (define a static symbol)
 
-Define the given symbol as a static symbol with value 1.
+Define the given variable as a static symbol with the given value, or 1 if not supplied.
+
+The value can be written in decimal (e.g. -Dvar=255) or hexadecimal (e.g. -Dvar=0xff or -Dvar=0ffh or -Dvar=$ff). Note that the '$' may need to be escaped from the shell.
 
 ### Code Generation Options
 

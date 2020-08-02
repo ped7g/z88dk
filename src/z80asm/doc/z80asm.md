@@ -129,7 +129,7 @@ Show progress messages on `stdout`.
 <a id=3_2_1></a>
 
 #### 3.2.1. -IDIR, --inc-path=DIR (directory for source files)
- 
+
 Append the specified directory to the search path for source and include files.
 
 While each source file is being assembled, its parent directory is automatically added to the search path, so that `INCLUDE` can refer to include files via a relative path to the source.
@@ -150,9 +150,11 @@ Append the specified directory to the search path for library files.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_3></a>
 
-### 3.3. -DVARIABLE, --define=VARIABLE (define a static symbol)
+### 3.3. -DVARIABLE [= value], --define=VARIABLE [= value] (define a static symbol)
 
-Define the given symbol as a static symbol with value 1.
+Define the given variable as a static symbol with the given value, or 1 if not supplied.
+
+The value can be written in decimal (e.g. -Dvar=255) or hexadecimal (e.g. -Dvar=0xff or -Dvar=0ffh or -Dvar=$ff). Note that the '$' may need to be escaped from the shell.
 
 
 ----
@@ -338,7 +340,7 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
   - [3.2.](#3_2) Environment Options
     - [3.2.1.](#3_2_1)  [-IDIR](#3_2_1) , --inc-path=DIR (directory for source files)
     - [3.2.2.](#3_2_2)  [-LDIR](#3_2_2) , --lib-path=DIR (directory for library)
-  - [3.3.](#3_3)  [-DVARIABLE](#3_3) , --define=VARIABLE (define a static symbol)
+  - [3.3.](#3_3)  [-DVARIABLE](#3_3)  [= value], --define=VARIABLE [= value] (define a static symbol)
   - [3.4.](#3_4) Code Generation Options
     - [3.4.1.](#3_4_1)  [-mCPU](#3_4_1) , --cpu=CPU (select CPU)
     - [3.4.2.](#3_4_2)  [-IXIY](#3_4_2) , - [-IXIY](#3_4_2)  (swap IX and IY)

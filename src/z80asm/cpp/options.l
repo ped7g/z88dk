@@ -67,8 +67,7 @@ num			{num16} | {num10}
 -mti83plus \z 	{ theCpu.Init(Cpu::Type::Z80);
 				  theArch.Init(Arch::Type::TI83PLUS);
 				  return true; }
--IXIY  \z | \
---IXIY \z		{ theOptions.swapIxIy = true; return true; /* TODO: remove --IXIY after master is merged */ }
+-IXIY \z		{ theOptions.swapIxIy = true; return true; }
 -opt-speed	\z	{ theOptions.optimizeSpeed = true; return true; }
 -debug \z		{ theOptions.debugInfo = true; 
 				  theOptions.doMapFile = true; 

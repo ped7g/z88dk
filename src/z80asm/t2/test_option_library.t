@@ -6,7 +6,7 @@
 # License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 #------------------------------------------------------------------------------
 
-# Test -L, --lib-path
+# Test -L
 
 use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
@@ -39,10 +39,8 @@ Error: cannot read file '${test}.lib'
 END
 
 # -L : OK
-for my $option ('-L', '-L=', '--lib-path', '--lib-path=') {
-	asm_ok($asm, "${option}${test}_dir -i${test}.lib", @bin);
-	asm_ok($asm, "${option}${test}_dir -i${test}    ", @bin);
-}
+asm_ok($asm, "-L${test}_dir -i${test}.lib", @bin);
+asm_ok($asm, "-L${test}_dir -i${test}    ", @bin);
 
 # use environment variable in -L
 $ENV{TEST_ENV} = 'dir';

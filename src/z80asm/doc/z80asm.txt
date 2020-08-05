@@ -100,7 +100,7 @@
 
    [26](top) [27](keywords) [28](index)
 
-    3.1.2. -h, -?, --help (show manual)
+    3.1.2. -h, -? (show manual)
 
    Show this document. The output can be piped to more for pagination.
 
@@ -108,7 +108,7 @@
 
    [29](top) [30](keywords) [31](index)
 
-    3.1.3. -v, --verbose (show progress)
+    3.1.3. -v (show progress)
 
    Show progress messages on stdout.
 
@@ -122,7 +122,7 @@
 
    [35](top) [36](keywords) [37](index)
 
-    3.2.1. -IDIR, --inc-path=DIR (directory for source files)
+    3.2.1. -IDIR (directory for source files)
 
    Append the specified directory to the search path for source and include
    files.
@@ -135,7 +135,7 @@
 
    [38](top) [39](keywords) [40](index)
 
-    3.2.2. -LDIR, --lib-path=DIR (directory for library)
+    3.2.2. -LDIR (directory for library)
 
    Append the specified directory to the search path for library files.
 
@@ -143,8 +143,7 @@
 
    [41](top) [42](keywords) [43](index)
 
-  3.3. -DVARIABLE [= value], --define=VARIABLE [= value] (define a static
-  symbol)
+  3.3. -DVAR[=num] (define a static symbol)
 
    Define the given variable as a static symbol with the given value, or 1 if
    not supplied.
@@ -163,7 +162,7 @@
 
    [47](top) [48](keywords) [49](index)
 
-    3.4.1. -mCPU, --cpu=CPU (select CPU)
+    3.4.1. -mCPU (select CPU)
 
    Assemble for the given CPU. The following CPU's are supported:
 
@@ -199,7 +198,7 @@
 
    [50](top) [51](keywords) [52](index)
 
-    3.4.2. -IXIY, --IXIY (swap IX and IY)
+    3.4.2. -IXIY (swap IX and IY)
 
    Swap all occurrences of registers IX and IY, and also their 8-bit halves
    (IXH, IXL, IYH and IYL).
@@ -208,7 +207,7 @@
 
    [53](top) [54](keywords) [55](index)
 
-    3.4.3. --opt=speed (optimise for speed)
+    3.4.3. -opt-speed (optimise for speed)
 
    Replace all occurrences of JR by JP, as the later are faster. DJNZ is not
    replaced by DEC B \ JP as the later is slower.
@@ -217,7 +216,7 @@
 
    [56](top) [57](keywords) [58](index)
 
-    3.4.4. --debug (debug information)
+    3.4.4. -debug (debug information)
 
    Add debug information to the map file: new symbols __C_LINE_nn and
    __ASM_LINE_nn are created on each C_LINE statement (supplied by the C
@@ -234,7 +233,7 @@
 
    [62](top) [63](keywords) [64](index)
 
-    3.5.1. -m, --map (create map file)
+    3.5.1. -m (create map file)
 
    Creates a map file at the end of the link phase. The map file contains one
    line per defined symbol, with the following information:
@@ -289,54 +288,51 @@
 
 6. Keywords
 
-   [75]-DVARIABLE [76]-IDIR [77]-IXIY [78]-LDIR [79]-h [80]-m [81]-mCPU
-   [82]-v
+   [75]-DVAR [76]-IDIR [77]-IXIY [78]-LDIR [79]-debug [80]-h [81]-m [82]-mCPU
+   [83]-opt [84]-v
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [83](top) [84](keywords) [85](index)
+   [85](top) [86](keywords) [87](index)
 
 7. Index
 
-     • [86]1. Usage ...
+     • [88]1. Usage ...
 
-          • [87]1.1. ... as assembler
-          • [88]1.2. ... as linker
-          • [89]1.3. ... as librarian
+          • [89]1.1. ... as assembler
+          • [90]1.2. ... as linker
+          • [91]1.3. ... as librarian
 
-     • [90]2. Environment Variables
-     • [91]3. Options
+     • [92]2. Environment Variables
+     • [93]3. Options
 
-          • [92]3.1. Help Options
+          • [94]3.1. Help Options
 
-               • [93]3.1.1. no arguments (show usage)
-               • [94]3.1.2. [95]-h , -?, --help (show manual)
-               • [96]3.1.3. [97]-v , --verbose (show progress)
+               • [95]3.1.1. no arguments (show usage)
+               • [96]3.1.2. [97]-h , -? (show manual)
+               • [98]3.1.3. [99]-v (show progress)
 
-          • [98]3.2. Environment Options
+          • [100]3.2. Environment Options
 
-               • [99]3.2.1. [100]-IDIR , --inc-path=DIR (directory for source
-                 files)
-               • [101]3.2.2. [102]-LDIR , --lib-path=DIR (directory for
-                 library)
+               • [101]3.2.1. [102]-IDIR (directory for source files)
+               • [103]3.2.2. [104]-LDIR (directory for library)
 
-          • [103]3.3. [104]-DVARIABLE [= value], --define=VARIABLE [= value]
-            (define a static symbol)
-          • [105]3.4. Code Generation Options
+          • [105]3.3. [106]-DVAR [=num] (define a static symbol)
+          • [107]3.4. Code Generation Options
 
-               • [106]3.4.1. [107]-mCPU , --cpu=CPU (select CPU)
-               • [108]3.4.2. [109]-IXIY , - [110]-IXIY (swap IX and IY)
-               • [111]3.4.3. --opt=speed (optimise for speed)
-               • [112]3.4.4. --debug (debug information)
+               • [108]3.4.1. [109]-mCPU (select CPU)
+               • [110]3.4.2. [111]-IXIY (swap IX and IY)
+               • [112]3.4.3. [113]-opt -speed (optimise for speed)
+               • [114]3.4.4. [115]-debug (debug information)
 
-          • [113]3.5. Output File Options
+          • [116]3.5. Output File Options
 
-               • [114]3.5.1. [115]-m , --map (create map file)
+               • [117]3.5.1. [118]-m (create map file)
 
-     • [116]4. Copyright
-     • [117]5. License
-     • [118]6. Keywords
-     • [119]7. Index
+     • [119]4. Copyright
+     • [120]5. License
+     • [121]6. Keywords
+     • [122]7. Index
 
     
 
@@ -421,44 +417,47 @@ References
   76. file://z80asm.html#3_2_1
   77. file://z80asm.html#3_4_2
   78. file://z80asm.html#3_2_2
-  79. file://z80asm.html#3_1_2
-  80. file://z80asm.html#3_5_1
-  81. file://z80asm.html#3_4_1
-  82. file://z80asm.html#3_1_3
-  83. file://z80asm.html#top
-  84. file://z80asm.html#keywords
-  85. file://z80asm.html#index
-  86. file://z80asm.html#1
-  87. file://z80asm.html#1_1
-  88. file://z80asm.html#1_2
-  89. file://z80asm.html#1_3
-  90. file://z80asm.html#2
-  91. file://z80asm.html#3
-  92. file://z80asm.html#3_1
-  93. file://z80asm.html#3_1_1
-  94. file://z80asm.html#3_1_2
-  95. file://z80asm.html#3_1_2
-  96. file://z80asm.html#3_1_3
-  97. file://z80asm.html#3_1_3
-  98. file://z80asm.html#3_2
-  99. file://z80asm.html#3_2_1
- 100. file://z80asm.html#3_2_1
- 101. file://z80asm.html#3_2_2
- 102. file://z80asm.html#3_2_2
- 103. file://z80asm.html#3_3
- 104. file://z80asm.html#3_3
- 105. file://z80asm.html#3_4
- 106. file://z80asm.html#3_4_1
- 107. file://z80asm.html#3_4_1
- 108. file://z80asm.html#3_4_2
- 109. file://z80asm.html#3_4_2
+  79. file://z80asm.html#3_4_4
+  80. file://z80asm.html#3_1_2
+  81. file://z80asm.html#3_5_1
+  82. file://z80asm.html#3_4_1
+  83. file://z80asm.html#3_4_3
+  84. file://z80asm.html#3_1_3
+  85. file://z80asm.html#top
+  86. file://z80asm.html#keywords
+  87. file://z80asm.html#index
+  88. file://z80asm.html#1
+  89. file://z80asm.html#1_1
+  90. file://z80asm.html#1_2
+  91. file://z80asm.html#1_3
+  92. file://z80asm.html#2
+  93. file://z80asm.html#3
+  94. file://z80asm.html#3_1
+  95. file://z80asm.html#3_1_1
+  96. file://z80asm.html#3_1_2
+  97. file://z80asm.html#3_1_2
+  98. file://z80asm.html#3_1_3
+  99. file://z80asm.html#3_1_3
+ 100. file://z80asm.html#3_2
+ 101. file://z80asm.html#3_2_1
+ 102. file://z80asm.html#3_2_1
+ 103. file://z80asm.html#3_2_2
+ 104. file://z80asm.html#3_2_2
+ 105. file://z80asm.html#3_3
+ 106. file://z80asm.html#3_3
+ 107. file://z80asm.html#3_4
+ 108. file://z80asm.html#3_4_1
+ 109. file://z80asm.html#3_4_1
  110. file://z80asm.html#3_4_2
- 111. file://z80asm.html#3_4_3
- 112. file://z80asm.html#3_4_4
- 113. file://z80asm.html#3_5
- 114. file://z80asm.html#3_5_1
- 115. file://z80asm.html#3_5_1
- 116. file://z80asm.html#4
- 117. file://z80asm.html#5
- 118. file://z80asm.html#6
- 119. file://z80asm.html#7
+ 111. file://z80asm.html#3_4_2
+ 112. file://z80asm.html#3_4_3
+ 113. file://z80asm.html#3_4_3
+ 114. file://z80asm.html#3_4_4
+ 115. file://z80asm.html#3_4_4
+ 116. file://z80asm.html#3_5
+ 117. file://z80asm.html#3_5_1
+ 118. file://z80asm.html#3_5_1
+ 119. file://z80asm.html#4
+ 120. file://z80asm.html#5
+ 121. file://z80asm.html#6
+ 122. file://z80asm.html#7

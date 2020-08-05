@@ -17,25 +17,25 @@ Usage:
 
 Help Options:
   (no arguments)        Show this page
-  -h, -?, --help        Show manual, pipe through 'more' to paginate
-  -v, --verbose         Be verbose
+  -h, -?                Show manual, pipe through 'more' to paginate
+  -v                    Be verbose
 
 Code Generation Options:
-  -mCPU, --cpu=CPU      Assemble for the given CPU:
+  -mCPU                 Assemble for the given CPU:
                             z80:    standard Z80   |z180:   Z180
                             z80n:   ZX Next Z80    |gbz80:  GameBoy Z80
                             8080:   Intel 8080(*)  |8085:   Intel 8085(*)
                             r2k:    Rabbit 2000    |r3k:    Rabbit 3000
                             ti83:   TI83           |ti83plus: TI83Plus
                             (*) with Zilog or Intel mnemonics
-  -IXIY, --IXIY         Swap IX and IY registers
-  --opt=speed           Optimize for speed
-  --debug               Add debug info to map file
+  -IXIY                 Swap IX and IY registers
+  -opt-speed            Optimize for speed
+  -debug                Add debug info to map file
 
 Environment:
-  -I, --inc-path=PATH   Add directory to include search path
-  -L, --lib-path=PATH   Add directory to library search path
-  -D, --define=SYMBOL   Define a static symbol
+  -IDIR                 Add directory to include search path
+  -LDIR                 Add directory to library search path
+  -DVAR[=num]           Define a static symbol, number like 127|0x7f|07fh|$7f
 
 Libraries:
   -x, --make-lib=FILE   Create a library file.lib
@@ -55,7 +55,7 @@ Binary Output:
 Output File Options:
   -s, --symtable        Create symbol table file.sym
   -l, --list            Create listing file.lis
-  -m, --map             Create address map file.map
+  -m                    Create address map file.map
   -g, --globaldef       Create global definition file.def
 
 Appmake Options:

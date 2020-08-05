@@ -46,7 +46,7 @@ END
 system_ok("diff -w ${test}.exp ${test}.map");
 
 
-system_ok("z80asm -b --debug ${test}.asm ${test}1.asm");
+system_ok("z80asm -b -debug ${test}.asm ${test}1.asm");
 
 path("${test}.exp")->spew(<<END);
 main                            = \$0000 ; addr, local, , ${test}, , ${test}.asm:3
@@ -79,7 +79,7 @@ path("${test}.c")->spew(<<END);
 	}
 END
 
-system_ok("zcc +z80 -m -clib=new -Cc-gcline -Ca--debug ${test}.c ${test}1.asm -o${test}.bin");
+system_ok("zcc +z80 -m -clib=new -Cc-gcline -Ca-debug ${test}.c ${test}1.asm -o${test}.bin");
 system_ok("grep ${test} ${test}.map | grep -v '\\.i:[0-9]' > ${test}.map1");
 path("${test}.exp")->spew(<<END);
 __C_LINE_0                      = \$0000 ; addr, local, , ${test}_c, , ${test}.c:0

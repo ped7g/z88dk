@@ -36,14 +36,14 @@ ok $bin eq  "\x00", "bin ok";
 
 my $manual = path("doc/z80asm.txt")->slurp;
 
-for my $help (qw( -? -h --help )) {
+for my $help (qw( -? -h )) {
 	unlink "$test.bin";
 	$ENV{Z80ASM} = $help;
 	run_ok("z80asm -b $test.asm", $manual, '');
 	ok ! -f "$test.bin", "$test.bin not assembled";
 }
 
-for my $illegal (qw( -hx --hx -h=1 -help --helpx --HELP --help=1 )) {
+for my $illegal (qw( -hx --hx -h=1 -?x --?x -?=1 )) {
 	$ENV{Z80ASM} = $illegal;
 	run_nok("z80asm -b $test.asm", '', <<"ERR");
 Error: illegal option: $illegal

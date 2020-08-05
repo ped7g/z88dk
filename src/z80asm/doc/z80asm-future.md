@@ -112,7 +112,7 @@ Show a help screen with the available options.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_1_2></a>
 
-#### 3.1.2. -h, -?, --help (show manual)
+#### 3.1.2. -h, -? (show manual)
 
 Show this document. The output can be piped to `more` for pagination.
 
@@ -122,7 +122,7 @@ Show this document. The output can be piped to `more` for pagination.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_1_3></a>
 
-#### 3.1.3. -v, --verbose (show progress)
+#### 3.1.3. -v (show progress)
 
 Show progress messages on `stdout`.
 
@@ -246,7 +246,7 @@ With the ` [-noprec](#3_3_1) ` expressions are evaluated strictly left-to-right.
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_4_1></a>
 
-#### 3.4.1. -IDIR, --inc-path=DIR (directory for source files)
+#### 3.4.1. -IDIR (directory for source files)
 
 Append the specified directory to the search path for source and include files.
 
@@ -258,7 +258,7 @@ While each source file is being assembled, its parent directory is automatically
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_4_2></a>
 
-#### 3.4.2. -LDIR, --lib-path=DIR (directory for library)
+#### 3.4.2. -LDIR (directory for library)
 
 Append the specified directory to the search path for library files.
 
@@ -288,7 +288,7 @@ The value can be written in decimal (e.g. -Dvar=255) or hexadecimal (e.g. -Dvar=
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_6_1></a>
 
-#### 3.6.1. -mCPU, --cpu=CPU (select CPU)
+#### 3.6.1. -mCPU (select CPU)
 
 Assemble for the given CPU. The following CPU's are supported:
 
@@ -327,7 +327,7 @@ Assemble for the given CPU. The following CPU's are supported:
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_6_2></a>
 
-#### 3.6.2. -IXIY, --IXIY (swap IX and IY)
+#### 3.6.2. -IXIY (swap IX and IY)
 
 Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`IXH`, `IXL`, `IYH` and `IYL`).
 
@@ -337,7 +337,7 @@ Swap all occurrences of registers `IX` and `IY`, and also their 8-bit halves (`I
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_6_3></a>
 
-#### 3.6.3. --opt=speed (optimise for speed)
+#### 3.6.3. -opt-speed (optimise for speed)
 
 Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not replaced by `DEC B \ JP` as the later is slower.
 
@@ -347,7 +347,7 @@ Replace all occurrences of `JR` by `JP`, as the later are faster. `DJNZ` is not 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_6_4></a>
 
-#### 3.6.4. --debug (debug information)
+#### 3.6.4. -debug (debug information)
 
 Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE_nn` are created on each `C_LINE` statement (supplied by the C compiler) and each asm line, and listed in the map file together with their source file location.
 
@@ -365,7 +365,7 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_7_1></a>
 
-#### 3.7.1. -m, --map (create map file)
+#### 3.7.1. -m (create map file)
 
 Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
@@ -2549,6 +2549,7 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
  [-atoctal](#3_2_1) 
  [-b](#6_2_6) 
  [-d](#6_2_5) 
+ [-debug](#3_6_4) 
  [-dotdirective](#3_2_2) 
  [-e](#6_2_1) 
  [-g](#6_2_11) 
@@ -2561,6 +2562,7 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
  [-mCPU](#3_6_1) 
  [-noprec](#3_3_1) 
  [-o](#6_2_8) 
+ [-opt](#3_6_3) 
  [-plus](#6_2_17) 
  [-r](#6_2_9) 
  [-s](#6_2_4) 
@@ -2617,8 +2619,8 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 - [3.](#3) Options
   - [3.1.](#3_1) Help Options
     - [3.1.1.](#3_1_1) no arguments (show usage)
-    - [3.1.2.](#3_1_2)  [-h](#3_1_2) , -?, --help (show manual)
-    - [3.1.3.](#3_1_3)  [-v](#3_1_3) , --verbose (show progress)
+    - [3.1.2.](#3_1_2)  [-h](#3_1_2) , -? (show manual)
+    - [3.1.3.](#3_1_3)  [-v](#3_1_3)  (show progress)
   - [3.2.](#3_2) Preprocessor options
     - [3.2.1.](#3_2_1)  [-atoctal](#3_2_1)  (at is octal prefix)
     - [3.2.2.](#3_2_2)  [-dotdirective](#3_2_2)  (period is directive prefix)
@@ -2628,16 +2630,16 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
   - [3.3.](#3_3) Assembly options
     - [3.3.1.](#3_3_1)  [-noprec](#3_3_1)  (no precedence in expression evaluation)
   - [3.4.](#3_4) Environment Options
-    - [3.4.1.](#3_4_1)  [-IDIR](#3_4_1) , --inc-path=DIR (directory for source files)
-    - [3.4.2.](#3_4_2)  [-LDIR](#3_4_2) , --lib-path=DIR (directory for library)
+    - [3.4.1.](#3_4_1)  [-IDIR](#3_4_1)  (directory for source files)
+    - [3.4.2.](#3_4_2)  [-LDIR](#3_4_2)  (directory for library)
   - [3.5.](#3_5)  [-DVARIABLE](#3_5)  [= value], --define=VARIABLE [= value] (define a static symbol)
   - [3.6.](#3_6) Code Generation Options
-    - [3.6.1.](#3_6_1)  [-mCPU](#3_6_1) , --cpu=CPU (select CPU)
-    - [3.6.2.](#3_6_2)  [-IXIY](#3_6_2) , - [-IXIY](#3_6_2)  (swap IX and IY)
-    - [3.6.3.](#3_6_3) --opt=speed (optimise for speed)
-    - [3.6.4.](#3_6_4) --debug (debug information)
+    - [3.6.1.](#3_6_1)  [-mCPU](#3_6_1)  (select CPU)
+    - [3.6.2.](#3_6_2)  [-IXIY](#3_6_2)  (swap IX and IY)
+    - [3.6.3.](#3_6_3)  [-opt](#3_6_3) -speed (optimise for speed)
+    - [3.6.4.](#3_6_4)  [-debug](#3_6_4)  (debug information)
   - [3.7.](#3_7) Output File Options
-    - [3.7.1.](#3_7_1)  [-m](#3_7_1) , --map (create map file)
+    - [3.7.1.](#3_7_1)  [-m](#3_7_1)  (create map file)
 - [4.](#4) Input Files
   - [4.1.](#4_1) Source File Format
   - [4.2.](#4_2) Comments

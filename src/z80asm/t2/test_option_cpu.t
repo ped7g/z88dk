@@ -10,7 +10,7 @@ use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-for my $cpu ("", "--cpuz80", "--cpu=z80", "-mz80", "-m=z80") {
+for my $cpu ("", "-mz80") {
 	asm_ok(<<END, $cpu, 0x76);
 		if __CPU_Z80__
 		halt

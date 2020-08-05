@@ -15,8 +15,8 @@ Z88DK Z80 Module Assembler Change Log
 2019
 ----
 - 2019-01-27 New option --opt=speed to convert JR into JP
-- 2019-07-14 Convert Spectrum Next CPU to (--cpu=z80n) (thank you Phillip Stevens)
-- 2019-07-20 Support Intel 8080 with Zilog syntax (--cpu=8080) (thank you @suborb)
+- 2019-07-14 Convert Spectrum Next CPU to (-mz80n) (thank you Phillip Stevens)
+- 2019-07-20 Support Intel 8080 with Zilog syntax (-m8080) (thank you @suborb)
 - 2019-07-22 Support Intel 8080/8085 with Intel syntax, except Jump Positive (jp conflicts with Zilog jump) and Call Positive (cp conflicts with Zilog compare). Support alternative j_p and c_p for Jump Positive and Call Positive.
 - 2019-12-17 Add linker support for sign-extended 8-bit values
 
@@ -29,8 +29,8 @@ Z88DK Z80 Module Assembler Change Log
 - 2018-07-10 Add directive to store 16-bit words in big-endian format
 - 2018-07-17 ELIF assembly directive
 - 2018-07-26 Allow "jr $+offset" to parse code for other assemblers
-- 2018-08-12 Support both --IXIY and -IXIY
-- 2018-10-25 Add -mCPU as synonym to --cpu=CPU
+- 2018-08-12 Support -IXIY
+- 2018-10-25 Add -mCPU
 - 2018-11-29 Allow dot-name and name-colon in EQU
 
 2017
@@ -43,8 +43,8 @@ Z88DK Z80 Module Assembler Change Log
 - 2017-04-12 Fix #159 allow environment variables ${VAR} in the command line options and arguments
              and list files (thank you @suborb)
 - 2017-04-25 Fix #194 wrong assembly of DDCB with no index
-- 2017-04-30 Fix #209 add a --cpu=z80 option
-- 2017-04-30 Fix #216 replace --RCMX000 by --cpu=r2k and --cpu=r3k
+- 2017-04-30 Fix #209 add a -mz80 option
+- 2017-04-30 Fix #216 replace --RCMX000 by -mr2k and -mr3k
 - 2017-05-03 Fix #222 z80asm: add +zx and +zx81 options to z80asm to generate .tap and .P files
 - 2017-05-21 Fix #233 force the name of the output file to use section names with defined ORG
 - 2017-05-23 Fix #235 raise warning if (N) is used where N is expected
@@ -67,13 +67,13 @@ Z88DK Z80 Module Assembler Change Log
 - 2017-09-11 Fix #350 Fix the clean and install-clean targets
 - 2017-09-13 Fix #340 Emulation library for DAA on a Rabbit
 - 2017-09-14 Fix #320 show predefined constants with -v
-- 2017-09-19 Fix #341 add --debug option to z80asm
+- 2017-09-19 Fix #341 add -debug option to z80asm
 - 2017-09-23 Fix #341 Add new directive C_LINE to pass debug information from the C compiler to z80asm
 - 2017-09-23 Fix #222 add a map file if +zx or +zx81 are given
 - 2017-09-23 Fix #17 bug with filenames interpreting escape sequences
 - 2017-09-23 Fix #222 map file is not required for +zx or +zx81
 - 2017-09-25 Fix #341 Produce a debugger-friendly map file
-- 2017-09-25 Fix #312 ZX Next (--cpu=z80-zxn) opcodes in z80asm
+- 2017-09-25 Fix #312 ZX Next (-mz80-zxn) opcodes in z80asm
 - 2017-09-28 Fix #422 add back deprecated XDEF, XLIB, XREF and XLIB
 - 2017-09-29 Fix #411 Searches PREFIX and -L library path for its support libraries
 - 2017-09-30 Fix #429 add phase and dephase directives
@@ -113,7 +113,7 @@ Z88DK Z80 Module Assembler Change Log
 [z80asm] Make symbol files, map files and reloc files optional; do not merge symbols in the list file; do not paginate and cross-reference symbols in list file; rename list file to file.lis (@file.lst is used as project list)
 [z80asm] Unify format used in map files, symbol files and global define files, output list of symbols only once
 [z80asm] Include symbols computed at link time in the global define file
-[z80asm] Simplify output of --verbose
+[z80asm] Simplify output of -v
 
 - 2016-10-16
 
@@ -225,7 +225,7 @@ Z88DK Z80 Module Assembler Change Log
 
   Remove -nl and --no-list options.
 
-  Simplify output of -v and --verbose.
+  Simplify output of -v
 
 - 2016-06-28
 
@@ -240,7 +240,7 @@ Z88DK Z80 Module Assembler Change Log
 
 - 2016-06-27
 
-  Only generate .map file if -m or --map option is given.
+  Only generate .map file if -m option is given.
   Map file contains only one list of symbols, ordered by value, and in
   '$'-hex notation, e.g. $1234.
 

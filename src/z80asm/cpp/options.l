@@ -50,74 +50,34 @@ num			{num16} | {num10}
 
 %%
 
--v        \z | \
---verbose \z	{ theOptions.verbose = true; return true; }
+-v \z 			{ theOptions.verbose = true; return true; }
+-\? \z | -h \z 	{ ExitManual(); }
 
--\?    \z | \
--h     \z | \
---help \z		{ ExitManual(); }
-
--m    =? z80 \z | \
---cpu =? z80 \z { theCpu.Init(Cpu::Type::Z80); return true; }
-
--m    =? z80n \z | \
---cpu =? z80n \z { theCpu.Init(Cpu::Type::Z80N); return true; }
-
--m    =? z180 \z | \
---cpu =? z180 \z { theCpu.Init(Cpu::Type::Z180); return true; }
-
--m    =? r2k \z | \
---cpu =? r2k \z { theCpu.Init(Cpu::Type::R2K); return true; }
-
--m    =? r3k \z | \
---cpu =? r3k \z { theCpu.Init(Cpu::Type::R3K); return true; }
-
--m    =? 8080 \z | \
---cpu =? 8080 \z { theCpu.Init(Cpu::Type::I8080); return true; }
-
--m    =? 8085 \z | \
---cpu =? 8085 \z { theCpu.Init(Cpu::Type::I8085); return true; }
-
--m    =? gbz80 \z | \
---cpu =? gbz80 \z { theCpu.Init(Cpu::Type::GBZ80); return true; }
-
--m    =? ti83 \z | \
---cpu =? ti83 \z {	theCpu.Init(Cpu::Type::Z80); 
-					theArch.Init(Arch::Type::TI83); 
-					return true; }
-
--m    =? ti83plus \z | \
---cpu =? ti83plus \z { 
-					theCpu.Init(Cpu::Type::Z80);
-					theArch.Init(Arch::Type::TI83PLUS);
-					return true; }
-
+-mz80   \z		{ theCpu.Init(Cpu::Type::Z80); return true; }
+-mz80n  \z		{ theCpu.Init(Cpu::Type::Z80N); return true; }
+-mz180  \z 	 	{ theCpu.Init(Cpu::Type::Z180); return true; }
+-mr2k   \z 		{ theCpu.Init(Cpu::Type::R2K); return true; }
+-mr3k   \z		{ theCpu.Init(Cpu::Type::R3K); return true; }
+-m8080  \z		{ theCpu.Init(Cpu::Type::I8080); return true; }
+-m8085  \z 		{ theCpu.Init(Cpu::Type::I8085); return true; }
+-mgbz80 \z 		{ theCpu.Init(Cpu::Type::GBZ80); return true; }
+-mti83  \z 		{ theCpu.Init(Cpu::Type::Z80); 
+				  theArch.Init(Arch::Type::TI83); 
+				  return true; }
+-mti83plus \z 	{ theCpu.Init(Cpu::Type::Z80);
+				  theArch.Init(Arch::Type::TI83PLUS);
+				  return true; }
 -IXIY  \z | \
---IXIY \z		{ theOptions.swapIxIy = true; return true; }
-
---opt=speed	\z	{ theOptions.optimizeSpeed = true; return true; }
-
---debug \z		{	theOptions.debugInfo = true; 
-					theOptions.doMapFile = true; 
-					return true; }
-
--m    \z |
---map \z		{ theOptions.doMapFile = true; return true; }
-
--I = .+			{ optionInludePath(text() + 3);  return true; }
--I   .+			{ optionInludePath(text() + 2);  return true; }
---inc-path = .+	{ optionInludePath(text() + 11); return true; }
---inc-path   .+	{ optionInludePath(text() + 10); return true; }
-
--L = .+			{ optionLibraryPath(text() + 3);  return true; }
--L   .+			{ optionLibraryPath(text() + 2);  return true; }
---lib-path = .+	{ optionLibraryPath(text() + 11); return true; }
---lib-path   .+	{ optionLibraryPath(text() + 10); return true; }
-
--D = 	   {ident} ( = {num} )? \z	{ optionDefine(text() + 3); return true; }
--D		   {ident} ( = {num} )? \z	{ optionDefine(text() + 2); return true; }
---define = {ident} ( = {num} )? \z	{ optionDefine(text() + 9); return true; }
---define   {ident} ( = {num} )? \z	{ optionDefine(text() + 8); return true; }
+--IXIY \z		{ theOptions.swapIxIy = true; return true; /* TODO: remove --IXIY after master is merged */ }
+-opt-speed	\z	{ theOptions.optimizeSpeed = true; return true; }
+-debug \z		{ theOptions.debugInfo = true; 
+				  theOptions.doMapFile = true; 
+				  return true; }
+-m \z			{ theOptions.doMapFile = true; return true; }
+-I .+ \z		{ optionInludePath(text() + 2);  return true; }
+-L .+ \z		{ optionLibraryPath(text() + 2);  return true; }
+-D {ident} ( = {num} )? \z	{ 
+				  optionDefine(text() + 2); return true; }
 
 .				{ return false; }
 

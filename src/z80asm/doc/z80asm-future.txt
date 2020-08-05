@@ -107,7 +107,7 @@
 
    [30](top) [31](keywords) [32](index)
 
-    3.1.2. -h, -?, --help (show manual)
+    3.1.2. -h, -? (show manual)
 
    Show this document. The output can be piped to more for pagination.
 
@@ -115,7 +115,7 @@
 
    [33](top) [34](keywords) [35](index)
 
-    3.1.3. -v, --verbose (show progress)
+    3.1.3. -v (show progress)
 
    Show progress messages on stdout.
 
@@ -234,7 +234,7 @@
 
    [63](top) [64](keywords) [65](index)
 
-    3.4.1. -IDIR, --inc-path=DIR (directory for source files)
+    3.4.1. -IDIR (directory for source files)
 
    Append the specified directory to the search path for source and include
    files.
@@ -247,7 +247,7 @@
 
    [66](top) [67](keywords) [68](index)
 
-    3.4.2. -LDIR, --lib-path=DIR (directory for library)
+    3.4.2. -LDIR (directory for library)
 
    Append the specified directory to the search path for library files.
 
@@ -275,7 +275,7 @@
 
    [75](top) [76](keywords) [77](index)
 
-    3.6.1. -mCPU, --cpu=CPU (select CPU)
+    3.6.1. -mCPU (select CPU)
 
    Assemble for the given CPU. The following CPU's are supported:
 
@@ -311,7 +311,7 @@
 
    [87](top) [88](keywords) [89](index)
 
-    3.6.2. -IXIY, --IXIY (swap IX and IY)
+    3.6.2. -IXIY (swap IX and IY)
 
    Swap all occurrences of registers IX and IY, and also their 8-bit halves
    (IXH, IXL, IYH and IYL).
@@ -320,7 +320,7 @@
 
    [90](top) [91](keywords) [92](index)
 
-    3.6.3. --opt=speed (optimise for speed)
+    3.6.3. -opt-speed (optimise for speed)
 
    Replace all occurrences of JR by JP, as the later are faster. DJNZ is not
    replaced by DEC B \ JP as the later is slower.
@@ -329,7 +329,7 @@
 
    [93](top) [94](keywords) [95](index)
 
-    3.6.4. --debug (debug information)
+    3.6.4. -debug (debug information)
 
    Add debug information to the map file: new symbols __C_LINE_nn and
    __ASM_LINE_nn are created on each C_LINE statement (supplied by the C
@@ -346,7 +346,7 @@
 
    [99](top) [100](keywords) [101](index)
 
-    3.7.1. -m, --map (create map file)
+    3.7.1. -m (create map file)
 
    Creates a map file at the end of the link phase. The map file contains one
    line per defined symbol, with the following information:
@@ -3271,241 +3271,239 @@
 16. Keywords
 
    [777]-C [778]-DVARIABLE [779]-IDIR [780]-IXIY [781]-LDIR [782]-M [783]-R
-   [784]-RCMX000 [785]-a [786]-atoctal [787]-b [788]-d [789]-dotdirective
-   [790]-e [791]-g [792]-h [793]-hashhex [794]-i [795]-l [796]-labelcol1
-   [797]-m [798]-mCPU [799]-noprec [800]-o [801]-plus [802]-r [803]-s [804]-t
-   [805]-ucase [806]-v [807]-x [808]BINARY [809]CALL [810]DEFB [811]DEFC
-   [812]DEFGROUP [813]DEFINE [814]DEFL [815]DEFM [816]DEFS [817]DEFVARS
-   [818]DEFW [819]EXTERN [820]FPP [821]GLOBAL [822]IF [823]IFDEF [824]IFNDEF
-   [825]INCLUDE [826]INVOKE [827]LIB [828]LINE [829]LSTOFF [830]LSTON
-   [831]MODULE [832]ORG [833]PUBLIC [834]XDEF [835]XLIB [836]XREF [837]Z80
-   [838]Z88
+   [784]-RCMX000 [785]-a [786]-atoctal [787]-b [788]-d [789]-debug
+   [790]-dotdirective [791]-e [792]-g [793]-h [794]-hashhex [795]-i [796]-l
+   [797]-labelcol1 [798]-m [799]-mCPU [800]-noprec [801]-o [802]-opt
+   [803]-plus [804]-r [805]-s [806]-t [807]-ucase [808]-v [809]-x [810]BINARY
+   [811]CALL [812]DEFB [813]DEFC [814]DEFGROUP [815]DEFINE [816]DEFL
+   [817]DEFM [818]DEFS [819]DEFVARS [820]DEFW [821]EXTERN [822]FPP
+   [823]GLOBAL [824]IF [825]IFDEF [826]IFNDEF [827]INCLUDE [828]INVOKE
+   [829]LIB [830]LINE [831]LSTOFF [832]LSTON [833]MODULE [834]ORG [835]PUBLIC
+   [836]XDEF [837]XLIB [838]XREF [839]Z80 [840]Z88
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [839](top) [840](keywords) [841](index)
+   [841](top) [842](keywords) [843](index)
 
 17. Index
 
-     • [842]1. Usage ...
+     • [844]1. Usage ...
 
-          • [843]1.1. ... as preprocessor
-          • [844]1.2. ... as assembler
-          • [845]1.3. ... as linker
-          • [846]1.4. ... as librarian
+          • [845]1.1. ... as preprocessor
+          • [846]1.2. ... as assembler
+          • [847]1.3. ... as linker
+          • [848]1.4. ... as librarian
 
-     • [847]2. Environment Variables
-     • [848]3. Options
+     • [849]2. Environment Variables
+     • [850]3. Options
 
-          • [849]3.1. Help Options
+          • [851]3.1. Help Options
 
-               • [850]3.1.1. no arguments (show usage)
-               • [851]3.1.2. [852]-h , -?, --help (show manual)
-               • [853]3.1.3. [854]-v , --verbose (show progress)
+               • [852]3.1.1. no arguments (show usage)
+               • [853]3.1.2. [854]-h , -? (show manual)
+               • [855]3.1.3. [856]-v (show progress)
 
-          • [855]3.2. Preprocessor options
+          • [857]3.2. Preprocessor options
 
-               • [856]3.2.1. [857]-atoctal (at is octal prefix)
-               • [858]3.2.2. [859]-dotdirective (period is directive prefix)
-               • [860]3.2.3. [861]-hashhex (hash is hex prefix)
-               • [862]3.2.4. [863]-labelcol1 (labels at column 1)
-               • [864]3.2.5. [865]-ucase (upper case)
+               • [858]3.2.1. [859]-atoctal (at is octal prefix)
+               • [860]3.2.2. [861]-dotdirective (period is directive prefix)
+               • [862]3.2.3. [863]-hashhex (hash is hex prefix)
+               • [864]3.2.4. [865]-labelcol1 (labels at column 1)
+               • [866]3.2.5. [867]-ucase (upper case)
 
-          • [866]3.3. Assembly options
+          • [868]3.3. Assembly options
 
-               • [867]3.3.1. [868]-noprec (no precedence in expression
+               • [869]3.3.1. [870]-noprec (no precedence in expression
                  evaluation)
 
-          • [869]3.4. Environment Options
+          • [871]3.4. Environment Options
 
-               • [870]3.4.1. [871]-IDIR , --inc-path=DIR (directory for
-                 source files)
-               • [872]3.4.2. [873]-LDIR , --lib-path=DIR (directory for
-                 library)
+               • [872]3.4.1. [873]-IDIR (directory for source files)
+               • [874]3.4.2. [875]-LDIR (directory for library)
 
-          • [874]3.5. [875]-DVARIABLE [= value], --define=VARIABLE [= value]
+          • [876]3.5. [877]-DVARIABLE [= value], --define=VARIABLE [= value]
             (define a static symbol)
-          • [876]3.6. Code Generation Options
+          • [878]3.6. Code Generation Options
 
-               • [877]3.6.1. [878]-mCPU , --cpu=CPU (select CPU)
-               • [879]3.6.2. [880]-IXIY , - [881]-IXIY (swap IX and IY)
-               • [882]3.6.3. --opt=speed (optimise for speed)
-               • [883]3.6.4. --debug (debug information)
+               • [879]3.6.1. [880]-mCPU (select CPU)
+               • [881]3.6.2. [882]-IXIY (swap IX and IY)
+               • [883]3.6.3. [884]-opt -speed (optimise for speed)
+               • [885]3.6.4. [886]-debug (debug information)
 
-          • [884]3.7. Output File Options
+          • [887]3.7. Output File Options
 
-               • [885]3.7.1. [886]-m , --map (create map file)
+               • [888]3.7.1. [889]-m (create map file)
 
-     • [887]4. Input Files
+     • [890]4. Input Files
 
-          • [888]4.1. Source File Format
-          • [889]4.2. Comments
-          • [890]4.3. Symbols
-          • [891]4.4. Labels
-          • [892]4.5. Numbers
+          • [891]4.1. Source File Format
+          • [892]4.2. Comments
+          • [893]4.3. Symbols
+          • [894]4.4. Labels
+          • [895]4.5. Numbers
 
-               • [893]4.5.1. Decimal
-               • [894]4.5.2. Hexadecimal
-               • [895]4.5.3. Octal
-               • [896]4.5.4. Binary
-               • [897]4.5.5. Bitmaps
+               • [896]4.5.1. Decimal
+               • [897]4.5.2. Hexadecimal
+               • [898]4.5.3. Octal
+               • [899]4.5.4. Binary
+               • [900]4.5.5. Bitmaps
 
-          • [898]4.6. Keywords
-          • [899]4.7. Directives and Opcodes
+          • [901]4.6. Keywords
+          • [902]4.7. Directives and Opcodes
 
-     • [900]5. Object File Format
+     • [903]5. Object File Format
 
-          • [901]5.1. Object Files
-          • [902]5.2. Library File Format
-          • [903]5.3. Format History
+          • [904]5.1. Object Files
+          • [905]5.2. Library File Format
+          • [906]5.3. Format History
 
-     • [904]6. z80asm Syntax
+     • [907]6. z80asm Syntax
 
-          • [905]6.1. Command line
-          • [906]6.2. Command line options
+          • [908]6.1. Command line
+          • [909]6.2. Command line options
 
-               • [907]6.2.1. [908]-e <ext> : Use alternative source file
+               • [910]6.2.1. [911]-e <ext> : Use alternative source file
                  extension
-               • [909]6.2.2. [910]-M <ext> : Use alternative object file
+               • [912]6.2.2. [913]-M <ext> : Use alternative object file
                  extension
-               • [911]6.2.3. [912]-l : Create listing file output
-               • [913]6.2.4. [914]-s : Create symbol table
-               • [915]6.2.5. [916]-d : Assemble only updated files
-               • [917]6.2.6. [918]-b : Link/relocate object files
-               • [919]6.2.7. [920]-a : Combine [921]-d and [922]-b
-               • [923]6.2.8. [924]-o <binary-filename> : Binary filename
-               • [925]6.2.9. [926]-r <hex-address> : Re-define the [927]ORG
+               • [914]6.2.3. [915]-l : Create listing file output
+               • [916]6.2.4. [917]-s : Create symbol table
+               • [918]6.2.5. [919]-d : Assemble only updated files
+               • [920]6.2.6. [921]-b : Link/relocate object files
+               • [922]6.2.7. [923]-a : Combine [924]-d and [925]-b
+               • [926]6.2.8. [927]-o <binary-filename> : Binary filename
+               • [928]6.2.9. [929]-r <hex-address> : Re-define the [930]ORG
                  relocation address
-               • [928]6.2.10. [929]-R : Generate address independent code
-               • [930]6.2.11. [931]-g : Create global address definition file
-               • [932]6.2.12. @<project-file> :1.3.16. Using a project file
-               • [933]6.2.13. [934]-i <library-file> : Include library
+               • [931]6.2.10. [932]-R : Generate address independent code
+               • [933]6.2.11. [934]-g : Create global address definition file
+               • [935]6.2.12. @<project-file> :1.3.16. Using a project file
+               • [936]6.2.13. [937]-i <library-file> : Include library
                  modules during linking/relocation
-               • [935]6.2.14. [936]-x : Create a library
-               • [937]6.2.15. [938]-t <number> : Define tabulator distance
+               • [938]6.2.14. [939]-x : Create a library
+               • [940]6.2.15. [941]-t <number> : Define tabulator distance
                  for text output files
-               • [939]6.2.16. [940]-RCMX000 : Support the RCM2000/RCM3000
-                 series of [941]Z80 -like CPU's
-               • [942]6.2.17. [943]-plus : Support for the Ti83Plus
-               • [944]6.2.18. [945]-C : Enable [946]LINE directive
+               • [942]6.2.16. [943]-RCMX000 : Support the RCM2000/RCM3000
+                 series of [944]Z80 -like CPU's
+               • [945]6.2.17. [946]-plus : Support for the Ti83Plus
+               • [947]6.2.18. [948]-C : Enable [949]LINE directive
 
-          • [947]6.3. The [948]Z88 operating system definition files
-          • [949]6.4. The supplied standard library [950]Z80 source files
-          • [951]6.5. [952]Z88 module assembler application source
-          • [953]6.6. File based compilation
-          • [954]6.7. Modular source file design
-          • [955]6.8. Scope of symbols in source modules
-          • [956]6.9. Using arithmetic and relational expressions
-          • [957]6.10. Free format of assembler source files
-          • [958]6.11. Specification of filenames
-          • [959]6.12. Including other source files into the current source
+          • [950]6.3. The [951]Z88 operating system definition files
+          • [952]6.4. The supplied standard library [953]Z80 source files
+          • [954]6.5. [955]Z88 module assembler application source
+          • [956]6.6. File based compilation
+          • [957]6.7. Modular source file design
+          • [958]6.8. Scope of symbols in source modules
+          • [959]6.9. Using arithmetic and relational expressions
+          • [960]6.10. Free format of assembler source files
+          • [961]6.11. Specification of filenames
+          • [962]6.12. Including other source files into the current source
             file
-          • [960]6.13. Conditional assembly in source file modules
-          • [961]6.14. Undocumented [962]Z80 instruction code generation
-          • [963]6.15. Object file generation
-          • [964]6.16. Transfer of object files across platforms
-          • [965]6.17. Date stamp controlled assembly
-          • [966]6.18. Listing files
-          • [967]6.19. Symbol information
-          • [968]6.20. Linking and relocation of object modules into
-            executable [969]Z80 machine code
-          • [970]6.21. Address map files
-          • [971]6.22. Symbol address definition files
-          • [972]6.23. Error files
-          • [973]6.24. Creating and using object file libraries for standard
+          • [963]6.13. Conditional assembly in source file modules
+          • [964]6.14. Undocumented [965]Z80 instruction code generation
+          • [966]6.15. Object file generation
+          • [967]6.16. Transfer of object files across platforms
+          • [968]6.17. Date stamp controlled assembly
+          • [969]6.18. Listing files
+          • [970]6.19. Symbol information
+          • [971]6.20. Linking and relocation of object modules into
+            executable [972]Z80 machine code
+          • [973]6.21. Address map files
+          • [974]6.22. Symbol address definition files
+          • [975]6.23. Error files
+          • [976]6.24. Creating and using object file libraries for standard
             routines
 
-     • [974]7. [975]Z80 module assembler file types
+     • [977]7. [978]Z80 module assembler file types
 
-          • [976]7.1. The assembler file types and their extension names
-          • [977]7.2. The file name extension identifier
-          • [978]7.3. File types
+          • [979]7.1. The assembler file types and their extension names
+          • [980]7.2. The file name extension identifier
+          • [981]7.3. File types
 
-               • [979]7.3.1. The source file extension, asm
-               • [980]7.3.2. The object file extension, obj
-               • [981]7.3.3. The error file extension, err
-               • [982]7.3.4. The listing file extension, lst
-               • [983]7.3.5. The symbol file extension, sym
-               • [984]7.3.6. The executable file extension, bin
-               • [985]7.3.7. The address map file extension, map
-               • [986]7.3.8. The definition file extension, def
-               • [987]7.3.9. The library file extension, lib
+               • [982]7.3.1. The source file extension, asm
+               • [983]7.3.2. The object file extension, obj
+               • [984]7.3.3. The error file extension, err
+               • [985]7.3.4. The listing file extension, lst
+               • [986]7.3.5. The symbol file extension, sym
+               • [987]7.3.6. The executable file extension, bin
+               • [988]7.3.7. The address map file extension, map
+               • [989]7.3.8. The definition file extension, def
+               • [990]7.3.9. The library file extension, lib
 
-     • [988]8. Compiling files
+     • [991]8. Compiling files
 
-          • [989]8.1. The assembler compiling process
+          • [992]8.1. The assembler compiling process
 
-               • [990]8.1.1. Stage 1, parsing and code generation of all
+               • [993]8.1.1. Stage 1, parsing and code generation of all
                  source files, object file generation
-               • [991]8.1.2. Stage 2, linking object files and library
+               • [994]8.1.2. Stage 2, linking object files and library
                  modules, producing executable code
 
-          • [992]8.2. File names
-          • [993]8.3. Portability of assembler file names
-          • [994]8.4. Source file structure
-          • [995]8.5. Using local, global and external symbols
-          • [996]8.6. Defining symbol names
-          • [997]8.7. Comments in source files
-          • [998]8.8. Defining symbolic address labels
-          • [999]8.9. Writing [1000]Z80 mnemonic instructions
-          • [1001]8.10. Optional [1002]Z80 mnemonic instruction syntax
-          • [1003]8.11. The undocumented [1004]Z80 instructions
-          • [1005]8.12. Referencing library routines
-          • [1006]8.13. Creating/updating libraries
-          • [1007]8.14. Referencing routines in other compiled projects
+          • [995]8.2. File names
+          • [996]8.3. Portability of assembler file names
+          • [997]8.4. Source file structure
+          • [998]8.5. Using local, global and external symbols
+          • [999]8.6. Defining symbol names
+          • [1000]8.7. Comments in source files
+          • [1001]8.8. Defining symbolic address labels
+          • [1002]8.9. Writing [1003]Z80 mnemonic instructions
+          • [1004]8.10. Optional [1005]Z80 mnemonic instruction syntax
+          • [1006]8.11. The undocumented [1007]Z80 instructions
+          • [1008]8.12. Referencing library routines
+          • [1009]8.13. Creating/updating libraries
+          • [1010]8.14. Referencing routines in other compiled projects
 
-     • [1008]9. Using expressions
+     • [1011]9. Using expressions
 
-          • [1009]9.1. Constant identifiers
-          • [1010]9.2. Arithmetic operators
-          • [1011]9.3. Relational operators
-          • [1012]9.4. The ASMPC standard function
-          • [1013]9.5. Symbol identifiers in expressions
+          • [1012]9.1. Constant identifiers
+          • [1013]9.2. Arithmetic operators
+          • [1014]9.3. Relational operators
+          • [1015]9.4. The ASMPC standard function
+          • [1016]9.5. Symbol identifiers in expressions
 
-     • [1014]10. Directive reference
+     • [1017]10. Directive reference
 
-          • [1015]10.1. [1016]BINARY "filename"
-          • [1017]10.2. [1018]CALL _OZ <expression>
-          • [1019]10.3. [1020]DEFB <8-bit expr>,{<8-bit expr>} (-128; 255)
-          • [1021]10.4. [1022]DEFW <16-bit expr>,{<16-bit expr>} (-32768;
+          • [1018]10.1. [1019]BINARY "filename"
+          • [1020]10.2. [1021]CALL _OZ <expression>
+          • [1022]10.3. [1023]DEFB <8-bit expr>,{<8-bit expr>} (-128; 255)
+          • [1024]10.4. [1025]DEFW <16-bit expr>,{<16-bit expr>} (-32768;
             65535)
-          • [1023]10.5. [1024]DEFL <32-bit expr>,{<32-bit expr>}
+          • [1026]10.5. [1027]DEFL <32-bit expr>,{<32-bit expr>}
             (-2147483647; 4294967295)
-          • [1025]10.6. [1026]DEFC name=<32-bit expression>{, name=<32-bit
+          • [1028]10.6. [1029]DEFC name=<32-bit expression>{, name=<32-bit
             expression>}
-          • [1027]10.7. [1028]DEFM <string expression>|<8-bit expr>,...
-          • [1029]10.8. [1030]DEFGROUP '{' name {',' name ['=' <8-bit
+          • [1030]10.7. [1031]DEFM <string expression>|<8-bit expr>,...
+          • [1032]10.8. [1033]DEFGROUP '{' name {',' name ['=' <8-bit
             expression>]} '}'
-          • [1031]10.9. [1032]DEFINE name,{name}
-          • [1033]10.10. [1034]DEFS <size>{, <fill-byte>}
-          • [1035]10.11. [1036]DEFVARS <16-bit expression> '{' [<name>]
+          • [1034]10.9. [1035]DEFINE name,{name}
+          • [1036]10.10. [1037]DEFS <size>{, <fill-byte>}
+          • [1038]10.11. [1039]DEFVARS <16-bit expression> '{' [<name>]
             [<storage_size> <size_multiplier>] '}'
-          • [1037]10.12. [1038]EXTERN name {, name}
-          • [1039]10.13. [1040]FPP <8-bit expression>
-          • [1041]10.14. [1042]GLOBAL name {, name}
-          • [1043]10.15. [1044]IF <logical expression> ... [ELSE] ... ENDIF
-          • [1045]10.16. [1046]IFDEF <name> ... [ELSE] ... ENDIF
-          • [1047]10.17. [1048]IFNDEF <name> ... [ELSE] ... ENDIF
-          • [1049]10.18. [1050]INCLUDE "filename"
-          • [1051]10.19. [1052]INVOKE <16-bit expression>
-          • [1053]10.20. [1054]LIB name {,name}
-          • [1055]10.21. [1056]LINE <32-bit expr> [ , "file-name" ]
-          • [1057]10.22. [1058]LSTOFF
-          • [1059]10.23. [1060]LSTON
-          • [1061]10.24. [1062]MODULE name
-          • [1063]10.25. [1064]ORG <16-bit expression>
-          • [1065]10.26. [1066]PUBLIC name {, name}
-          • [1067]10.27. [1068]XDEF name {, name}
-          • [1069]10.28. [1070]XLIB name
-          • [1071]10.29. [1072]XREF name {, name}
+          • [1040]10.12. [1041]EXTERN name {, name}
+          • [1042]10.13. [1043]FPP <8-bit expression>
+          • [1044]10.14. [1045]GLOBAL name {, name}
+          • [1046]10.15. [1047]IF <logical expression> ... [ELSE] ... ENDIF
+          • [1048]10.16. [1049]IFDEF <name> ... [ELSE] ... ENDIF
+          • [1050]10.17. [1051]IFNDEF <name> ... [ELSE] ... ENDIF
+          • [1052]10.18. [1053]INCLUDE "filename"
+          • [1054]10.19. [1055]INVOKE <16-bit expression>
+          • [1056]10.20. [1057]LIB name {,name}
+          • [1058]10.21. [1059]LINE <32-bit expr> [ , "file-name" ]
+          • [1060]10.22. [1061]LSTOFF
+          • [1062]10.23. [1063]LSTON
+          • [1064]10.24. [1065]MODULE name
+          • [1066]10.25. [1067]ORG <16-bit expression>
+          • [1068]10.26. [1069]PUBLIC name {, name}
+          • [1070]10.27. [1071]XDEF name {, name}
+          • [1072]10.28. [1073]XLIB name
+          • [1074]10.29. [1075]XREF name {, name}
 
-     • [1073]11. Run time error messages
-     • [1074]12. Backlog
-     • [1075]13. References
-     • [1076]14. Copyright
-     • [1077]15. License
-     • [1078]16. Keywords
-     • [1079]17. Index
+     • [1076]11. Run time error messages
+     • [1077]12. Backlog
+     • [1078]13. References
+     • [1079]14. Copyright
+     • [1080]15. License
+     • [1081]16. Keywords
+     • [1082]17. Index
 
     
 
@@ -4300,294 +4298,297 @@ References
  786. file://z80asm-future.html#3_2_1
  787. file://z80asm-future.html#6_2_6
  788. file://z80asm-future.html#6_2_5
- 789. file://z80asm-future.html#3_2_2
- 790. file://z80asm-future.html#6_2_1
- 791. file://z80asm-future.html#6_2_11
- 792. file://z80asm-future.html#3_1_2
- 793. file://z80asm-future.html#3_2_3
- 794. file://z80asm-future.html#6_2_13
- 795. file://z80asm-future.html#6_2_3
- 796. file://z80asm-future.html#3_2_4
- 797. file://z80asm-future.html#3_7_1
- 798. file://z80asm-future.html#3_6_1
- 799. file://z80asm-future.html#3_3_1
- 800. file://z80asm-future.html#6_2_8
- 801. file://z80asm-future.html#6_2_17
- 802. file://z80asm-future.html#6_2_9
- 803. file://z80asm-future.html#6_2_4
- 804. file://z80asm-future.html#6_2_15
- 805. file://z80asm-future.html#3_2_5
- 806. file://z80asm-future.html#3_1_3
- 807. file://z80asm-future.html#6_2_14
- 808. file://z80asm-future.html#10_1
- 809. file://z80asm-future.html#10_2
- 810. file://z80asm-future.html#10_3
- 811. file://z80asm-future.html#10_6
- 812. file://z80asm-future.html#10_8
- 813. file://z80asm-future.html#10_9
- 814. file://z80asm-future.html#10_5
- 815. file://z80asm-future.html#10_7
- 816. file://z80asm-future.html#10_10
- 817. file://z80asm-future.html#10_11
- 818. file://z80asm-future.html#10_4
- 819. file://z80asm-future.html#10_12
- 820. file://z80asm-future.html#10_13
- 821. file://z80asm-future.html#10_14
- 822. file://z80asm-future.html#10_15
- 823. file://z80asm-future.html#10_16
- 824. file://z80asm-future.html#10_17
- 825. file://z80asm-future.html#10_18
- 826. file://z80asm-future.html#10_19
- 827. file://z80asm-future.html#10_20
- 828. file://z80asm-future.html#10_21
- 829. file://z80asm-future.html#10_22
- 830. file://z80asm-future.html#10_23
- 831. file://z80asm-future.html#10_24
- 832. file://z80asm-future.html#10_25
- 833. file://z80asm-future.html#10_26
- 834. file://z80asm-future.html#10_27
- 835. file://z80asm-future.html#10_28
- 836. file://z80asm-future.html#10_29
- 837. file://z80asm-future.html#7
- 838. file://z80asm-future.html#6_5
- 839. file://z80asm-future.html#top
- 840. file://z80asm-future.html#keywords
- 841. file://z80asm-future.html#index
- 842. file://z80asm-future.html#1
- 843. file://z80asm-future.html#1_1
- 844. file://z80asm-future.html#1_2
- 845. file://z80asm-future.html#1_3
- 846. file://z80asm-future.html#1_4
- 847. file://z80asm-future.html#2
- 848. file://z80asm-future.html#3
- 849. file://z80asm-future.html#3_1
- 850. file://z80asm-future.html#3_1_1
- 851. file://z80asm-future.html#3_1_2
- 852. file://z80asm-future.html#3_1_2
- 853. file://z80asm-future.html#3_1_3
- 854. file://z80asm-future.html#3_1_3
- 855. file://z80asm-future.html#3_2
- 856. file://z80asm-future.html#3_2_1
- 857. file://z80asm-future.html#3_2_1
- 858. file://z80asm-future.html#3_2_2
- 859. file://z80asm-future.html#3_2_2
- 860. file://z80asm-future.html#3_2_3
- 861. file://z80asm-future.html#3_2_3
- 862. file://z80asm-future.html#3_2_4
- 863. file://z80asm-future.html#3_2_4
- 864. file://z80asm-future.html#3_2_5
- 865. file://z80asm-future.html#3_2_5
- 866. file://z80asm-future.html#3_3
- 867. file://z80asm-future.html#3_3_1
- 868. file://z80asm-future.html#3_3_1
- 869. file://z80asm-future.html#3_4
- 870. file://z80asm-future.html#3_4_1
- 871. file://z80asm-future.html#3_4_1
- 872. file://z80asm-future.html#3_4_2
- 873. file://z80asm-future.html#3_4_2
- 874. file://z80asm-future.html#3_5
- 875. file://z80asm-future.html#3_5
- 876. file://z80asm-future.html#3_6
- 877. file://z80asm-future.html#3_6_1
- 878. file://z80asm-future.html#3_6_1
- 879. file://z80asm-future.html#3_6_2
- 880. file://z80asm-future.html#3_6_2
+ 789. file://z80asm-future.html#3_6_4
+ 790. file://z80asm-future.html#3_2_2
+ 791. file://z80asm-future.html#6_2_1
+ 792. file://z80asm-future.html#6_2_11
+ 793. file://z80asm-future.html#3_1_2
+ 794. file://z80asm-future.html#3_2_3
+ 795. file://z80asm-future.html#6_2_13
+ 796. file://z80asm-future.html#6_2_3
+ 797. file://z80asm-future.html#3_2_4
+ 798. file://z80asm-future.html#3_7_1
+ 799. file://z80asm-future.html#3_6_1
+ 800. file://z80asm-future.html#3_3_1
+ 801. file://z80asm-future.html#6_2_8
+ 802. file://z80asm-future.html#3_6_3
+ 803. file://z80asm-future.html#6_2_17
+ 804. file://z80asm-future.html#6_2_9
+ 805. file://z80asm-future.html#6_2_4
+ 806. file://z80asm-future.html#6_2_15
+ 807. file://z80asm-future.html#3_2_5
+ 808. file://z80asm-future.html#3_1_3
+ 809. file://z80asm-future.html#6_2_14
+ 810. file://z80asm-future.html#10_1
+ 811. file://z80asm-future.html#10_2
+ 812. file://z80asm-future.html#10_3
+ 813. file://z80asm-future.html#10_6
+ 814. file://z80asm-future.html#10_8
+ 815. file://z80asm-future.html#10_9
+ 816. file://z80asm-future.html#10_5
+ 817. file://z80asm-future.html#10_7
+ 818. file://z80asm-future.html#10_10
+ 819. file://z80asm-future.html#10_11
+ 820. file://z80asm-future.html#10_4
+ 821. file://z80asm-future.html#10_12
+ 822. file://z80asm-future.html#10_13
+ 823. file://z80asm-future.html#10_14
+ 824. file://z80asm-future.html#10_15
+ 825. file://z80asm-future.html#10_16
+ 826. file://z80asm-future.html#10_17
+ 827. file://z80asm-future.html#10_18
+ 828. file://z80asm-future.html#10_19
+ 829. file://z80asm-future.html#10_20
+ 830. file://z80asm-future.html#10_21
+ 831. file://z80asm-future.html#10_22
+ 832. file://z80asm-future.html#10_23
+ 833. file://z80asm-future.html#10_24
+ 834. file://z80asm-future.html#10_25
+ 835. file://z80asm-future.html#10_26
+ 836. file://z80asm-future.html#10_27
+ 837. file://z80asm-future.html#10_28
+ 838. file://z80asm-future.html#10_29
+ 839. file://z80asm-future.html#7
+ 840. file://z80asm-future.html#6_5
+ 841. file://z80asm-future.html#top
+ 842. file://z80asm-future.html#keywords
+ 843. file://z80asm-future.html#index
+ 844. file://z80asm-future.html#1
+ 845. file://z80asm-future.html#1_1
+ 846. file://z80asm-future.html#1_2
+ 847. file://z80asm-future.html#1_3
+ 848. file://z80asm-future.html#1_4
+ 849. file://z80asm-future.html#2
+ 850. file://z80asm-future.html#3
+ 851. file://z80asm-future.html#3_1
+ 852. file://z80asm-future.html#3_1_1
+ 853. file://z80asm-future.html#3_1_2
+ 854. file://z80asm-future.html#3_1_2
+ 855. file://z80asm-future.html#3_1_3
+ 856. file://z80asm-future.html#3_1_3
+ 857. file://z80asm-future.html#3_2
+ 858. file://z80asm-future.html#3_2_1
+ 859. file://z80asm-future.html#3_2_1
+ 860. file://z80asm-future.html#3_2_2
+ 861. file://z80asm-future.html#3_2_2
+ 862. file://z80asm-future.html#3_2_3
+ 863. file://z80asm-future.html#3_2_3
+ 864. file://z80asm-future.html#3_2_4
+ 865. file://z80asm-future.html#3_2_4
+ 866. file://z80asm-future.html#3_2_5
+ 867. file://z80asm-future.html#3_2_5
+ 868. file://z80asm-future.html#3_3
+ 869. file://z80asm-future.html#3_3_1
+ 870. file://z80asm-future.html#3_3_1
+ 871. file://z80asm-future.html#3_4
+ 872. file://z80asm-future.html#3_4_1
+ 873. file://z80asm-future.html#3_4_1
+ 874. file://z80asm-future.html#3_4_2
+ 875. file://z80asm-future.html#3_4_2
+ 876. file://z80asm-future.html#3_5
+ 877. file://z80asm-future.html#3_5
+ 878. file://z80asm-future.html#3_6
+ 879. file://z80asm-future.html#3_6_1
+ 880. file://z80asm-future.html#3_6_1
  881. file://z80asm-future.html#3_6_2
- 882. file://z80asm-future.html#3_6_3
- 883. file://z80asm-future.html#3_6_4
- 884. file://z80asm-future.html#3_7
- 885. file://z80asm-future.html#3_7_1
- 886. file://z80asm-future.html#3_7_1
- 887. file://z80asm-future.html#4
- 888. file://z80asm-future.html#4_1
- 889. file://z80asm-future.html#4_2
- 890. file://z80asm-future.html#4_3
- 891. file://z80asm-future.html#4_4
- 892. file://z80asm-future.html#4_5
- 893. file://z80asm-future.html#4_5_1
- 894. file://z80asm-future.html#4_5_2
- 895. file://z80asm-future.html#4_5_3
- 896. file://z80asm-future.html#4_5_4
- 897. file://z80asm-future.html#4_5_5
- 898. file://z80asm-future.html#4_6
- 899. file://z80asm-future.html#4_7
- 900. file://z80asm-future.html#5
- 901. file://z80asm-future.html#5_1
- 902. file://z80asm-future.html#5_2
- 903. file://z80asm-future.html#5_3
- 904. file://z80asm-future.html#6
- 905. file://z80asm-future.html#6_1
- 906. file://z80asm-future.html#6_2
- 907. file://z80asm-future.html#6_2_1
- 908. file://z80asm-future.html#6_2_1
- 909. file://z80asm-future.html#6_2_2
- 910. file://z80asm-future.html#6_2_2
- 911. file://z80asm-future.html#6_2_3
- 912. file://z80asm-future.html#6_2_3
- 913. file://z80asm-future.html#6_2_4
- 914. file://z80asm-future.html#6_2_4
- 915. file://z80asm-future.html#6_2_5
- 916. file://z80asm-future.html#6_2_5
- 917. file://z80asm-future.html#6_2_6
- 918. file://z80asm-future.html#6_2_6
- 919. file://z80asm-future.html#6_2_7
- 920. file://z80asm-future.html#6_2_7
- 921. file://z80asm-future.html#6_2_5
- 922. file://z80asm-future.html#6_2_6
- 923. file://z80asm-future.html#6_2_8
- 924. file://z80asm-future.html#6_2_8
- 925. file://z80asm-future.html#6_2_9
- 926. file://z80asm-future.html#6_2_9
- 927. file://z80asm-future.html#10_25
- 928. file://z80asm-future.html#6_2_10
- 929. file://z80asm-future.html#6_2_10
- 930. file://z80asm-future.html#6_2_11
- 931. file://z80asm-future.html#6_2_11
- 932. file://z80asm-future.html#6_2_12
- 933. file://z80asm-future.html#6_2_13
- 934. file://z80asm-future.html#6_2_13
- 935. file://z80asm-future.html#6_2_14
- 936. file://z80asm-future.html#6_2_14
- 937. file://z80asm-future.html#6_2_15
- 938. file://z80asm-future.html#6_2_15
- 939. file://z80asm-future.html#6_2_16
- 940. file://z80asm-future.html#6_2_16
- 941. file://z80asm-future.html#7
- 942. file://z80asm-future.html#6_2_17
- 943. file://z80asm-future.html#6_2_17
- 944. file://z80asm-future.html#6_2_18
- 945. file://z80asm-future.html#6_2_18
- 946. file://z80asm-future.html#10_21
- 947. file://z80asm-future.html#6_3
- 948. file://z80asm-future.html#6_5
- 949. file://z80asm-future.html#6_4
- 950. file://z80asm-future.html#7
+ 882. file://z80asm-future.html#3_6_2
+ 883. file://z80asm-future.html#3_6_3
+ 884. file://z80asm-future.html#3_6_3
+ 885. file://z80asm-future.html#3_6_4
+ 886. file://z80asm-future.html#3_6_4
+ 887. file://z80asm-future.html#3_7
+ 888. file://z80asm-future.html#3_7_1
+ 889. file://z80asm-future.html#3_7_1
+ 890. file://z80asm-future.html#4
+ 891. file://z80asm-future.html#4_1
+ 892. file://z80asm-future.html#4_2
+ 893. file://z80asm-future.html#4_3
+ 894. file://z80asm-future.html#4_4
+ 895. file://z80asm-future.html#4_5
+ 896. file://z80asm-future.html#4_5_1
+ 897. file://z80asm-future.html#4_5_2
+ 898. file://z80asm-future.html#4_5_3
+ 899. file://z80asm-future.html#4_5_4
+ 900. file://z80asm-future.html#4_5_5
+ 901. file://z80asm-future.html#4_6
+ 902. file://z80asm-future.html#4_7
+ 903. file://z80asm-future.html#5
+ 904. file://z80asm-future.html#5_1
+ 905. file://z80asm-future.html#5_2
+ 906. file://z80asm-future.html#5_3
+ 907. file://z80asm-future.html#6
+ 908. file://z80asm-future.html#6_1
+ 909. file://z80asm-future.html#6_2
+ 910. file://z80asm-future.html#6_2_1
+ 911. file://z80asm-future.html#6_2_1
+ 912. file://z80asm-future.html#6_2_2
+ 913. file://z80asm-future.html#6_2_2
+ 914. file://z80asm-future.html#6_2_3
+ 915. file://z80asm-future.html#6_2_3
+ 916. file://z80asm-future.html#6_2_4
+ 917. file://z80asm-future.html#6_2_4
+ 918. file://z80asm-future.html#6_2_5
+ 919. file://z80asm-future.html#6_2_5
+ 920. file://z80asm-future.html#6_2_6
+ 921. file://z80asm-future.html#6_2_6
+ 922. file://z80asm-future.html#6_2_7
+ 923. file://z80asm-future.html#6_2_7
+ 924. file://z80asm-future.html#6_2_5
+ 925. file://z80asm-future.html#6_2_6
+ 926. file://z80asm-future.html#6_2_8
+ 927. file://z80asm-future.html#6_2_8
+ 928. file://z80asm-future.html#6_2_9
+ 929. file://z80asm-future.html#6_2_9
+ 930. file://z80asm-future.html#10_25
+ 931. file://z80asm-future.html#6_2_10
+ 932. file://z80asm-future.html#6_2_10
+ 933. file://z80asm-future.html#6_2_11
+ 934. file://z80asm-future.html#6_2_11
+ 935. file://z80asm-future.html#6_2_12
+ 936. file://z80asm-future.html#6_2_13
+ 937. file://z80asm-future.html#6_2_13
+ 938. file://z80asm-future.html#6_2_14
+ 939. file://z80asm-future.html#6_2_14
+ 940. file://z80asm-future.html#6_2_15
+ 941. file://z80asm-future.html#6_2_15
+ 942. file://z80asm-future.html#6_2_16
+ 943. file://z80asm-future.html#6_2_16
+ 944. file://z80asm-future.html#7
+ 945. file://z80asm-future.html#6_2_17
+ 946. file://z80asm-future.html#6_2_17
+ 947. file://z80asm-future.html#6_2_18
+ 948. file://z80asm-future.html#6_2_18
+ 949. file://z80asm-future.html#10_21
+ 950. file://z80asm-future.html#6_3
  951. file://z80asm-future.html#6_5
- 952. file://z80asm-future.html#6_5
- 953. file://z80asm-future.html#6_6
- 954. file://z80asm-future.html#6_7
- 955. file://z80asm-future.html#6_8
- 956. file://z80asm-future.html#6_9
- 957. file://z80asm-future.html#6_10
- 958. file://z80asm-future.html#6_11
- 959. file://z80asm-future.html#6_12
- 960. file://z80asm-future.html#6_13
- 961. file://z80asm-future.html#6_14
- 962. file://z80asm-future.html#7
- 963. file://z80asm-future.html#6_15
- 964. file://z80asm-future.html#6_16
- 965. file://z80asm-future.html#6_17
- 966. file://z80asm-future.html#6_18
- 967. file://z80asm-future.html#6_19
- 968. file://z80asm-future.html#6_20
- 969. file://z80asm-future.html#7
- 970. file://z80asm-future.html#6_21
- 971. file://z80asm-future.html#6_22
- 972. file://z80asm-future.html#6_23
- 973. file://z80asm-future.html#6_24
- 974. file://z80asm-future.html#7
- 975. file://z80asm-future.html#7
- 976. file://z80asm-future.html#7_1
- 977. file://z80asm-future.html#7_2
- 978. file://z80asm-future.html#7_3
- 979. file://z80asm-future.html#7_3_1
- 980. file://z80asm-future.html#7_3_2
- 981. file://z80asm-future.html#7_3_3
- 982. file://z80asm-future.html#7_3_4
- 983. file://z80asm-future.html#7_3_5
- 984. file://z80asm-future.html#7_3_6
- 985. file://z80asm-future.html#7_3_7
- 986. file://z80asm-future.html#7_3_8
- 987. file://z80asm-future.html#7_3_9
- 988. file://z80asm-future.html#8
- 989. file://z80asm-future.html#8_1
- 990. file://z80asm-future.html#8_1_1
- 991. file://z80asm-future.html#8_1_2
- 992. file://z80asm-future.html#8_2
- 993. file://z80asm-future.html#8_3
- 994. file://z80asm-future.html#8_4
- 995. file://z80asm-future.html#8_5
- 996. file://z80asm-future.html#8_6
- 997. file://z80asm-future.html#8_7
- 998. file://z80asm-future.html#8_8
- 999. file://z80asm-future.html#8_9
-1000. file://z80asm-future.html#7
-1001. file://z80asm-future.html#8_10
-1002. file://z80asm-future.html#7
-1003. file://z80asm-future.html#8_11
-1004. file://z80asm-future.html#7
-1005. file://z80asm-future.html#8_12
-1006. file://z80asm-future.html#8_13
-1007. file://z80asm-future.html#8_14
-1008. file://z80asm-future.html#9
-1009. file://z80asm-future.html#9_1
-1010. file://z80asm-future.html#9_2
-1011. file://z80asm-future.html#9_3
-1012. file://z80asm-future.html#9_4
-1013. file://z80asm-future.html#9_5
-1014. file://z80asm-future.html#10
-1015. file://z80asm-future.html#10_1
-1016. file://z80asm-future.html#10_1
-1017. file://z80asm-future.html#10_2
-1018. file://z80asm-future.html#10_2
-1019. file://z80asm-future.html#10_3
-1020. file://z80asm-future.html#10_3
-1021. file://z80asm-future.html#10_4
-1022. file://z80asm-future.html#10_4
-1023. file://z80asm-future.html#10_5
-1024. file://z80asm-future.html#10_5
-1025. file://z80asm-future.html#10_6
-1026. file://z80asm-future.html#10_6
-1027. file://z80asm-future.html#10_7
-1028. file://z80asm-future.html#10_7
-1029. file://z80asm-future.html#10_8
-1030. file://z80asm-future.html#10_8
-1031. file://z80asm-future.html#10_9
-1032. file://z80asm-future.html#10_9
-1033. file://z80asm-future.html#10_10
-1034. file://z80asm-future.html#10_10
-1035. file://z80asm-future.html#10_11
-1036. file://z80asm-future.html#10_11
-1037. file://z80asm-future.html#10_12
-1038. file://z80asm-future.html#10_12
-1039. file://z80asm-future.html#10_13
-1040. file://z80asm-future.html#10_13
-1041. file://z80asm-future.html#10_14
-1042. file://z80asm-future.html#10_14
-1043. file://z80asm-future.html#10_15
-1044. file://z80asm-future.html#10_15
-1045. file://z80asm-future.html#10_16
-1046. file://z80asm-future.html#10_16
-1047. file://z80asm-future.html#10_17
-1048. file://z80asm-future.html#10_17
-1049. file://z80asm-future.html#10_18
-1050. file://z80asm-future.html#10_18
-1051. file://z80asm-future.html#10_19
-1052. file://z80asm-future.html#10_19
-1053. file://z80asm-future.html#10_20
-1054. file://z80asm-future.html#10_20
-1055. file://z80asm-future.html#10_21
-1056. file://z80asm-future.html#10_21
-1057. file://z80asm-future.html#10_22
-1058. file://z80asm-future.html#10_22
-1059. file://z80asm-future.html#10_23
-1060. file://z80asm-future.html#10_23
-1061. file://z80asm-future.html#10_24
-1062. file://z80asm-future.html#10_24
-1063. file://z80asm-future.html#10_25
-1064. file://z80asm-future.html#10_25
-1065. file://z80asm-future.html#10_26
-1066. file://z80asm-future.html#10_26
-1067. file://z80asm-future.html#10_27
-1068. file://z80asm-future.html#10_27
-1069. file://z80asm-future.html#10_28
-1070. file://z80asm-future.html#10_28
-1071. file://z80asm-future.html#10_29
-1072. file://z80asm-future.html#10_29
-1073. file://z80asm-future.html#11
-1074. file://z80asm-future.html#12
-1075. file://z80asm-future.html#13
-1076. file://z80asm-future.html#14
-1077. file://z80asm-future.html#15
-1078. file://z80asm-future.html#16
-1079. file://z80asm-future.html#17
+ 952. file://z80asm-future.html#6_4
+ 953. file://z80asm-future.html#7
+ 954. file://z80asm-future.html#6_5
+ 955. file://z80asm-future.html#6_5
+ 956. file://z80asm-future.html#6_6
+ 957. file://z80asm-future.html#6_7
+ 958. file://z80asm-future.html#6_8
+ 959. file://z80asm-future.html#6_9
+ 960. file://z80asm-future.html#6_10
+ 961. file://z80asm-future.html#6_11
+ 962. file://z80asm-future.html#6_12
+ 963. file://z80asm-future.html#6_13
+ 964. file://z80asm-future.html#6_14
+ 965. file://z80asm-future.html#7
+ 966. file://z80asm-future.html#6_15
+ 967. file://z80asm-future.html#6_16
+ 968. file://z80asm-future.html#6_17
+ 969. file://z80asm-future.html#6_18
+ 970. file://z80asm-future.html#6_19
+ 971. file://z80asm-future.html#6_20
+ 972. file://z80asm-future.html#7
+ 973. file://z80asm-future.html#6_21
+ 974. file://z80asm-future.html#6_22
+ 975. file://z80asm-future.html#6_23
+ 976. file://z80asm-future.html#6_24
+ 977. file://z80asm-future.html#7
+ 978. file://z80asm-future.html#7
+ 979. file://z80asm-future.html#7_1
+ 980. file://z80asm-future.html#7_2
+ 981. file://z80asm-future.html#7_3
+ 982. file://z80asm-future.html#7_3_1
+ 983. file://z80asm-future.html#7_3_2
+ 984. file://z80asm-future.html#7_3_3
+ 985. file://z80asm-future.html#7_3_4
+ 986. file://z80asm-future.html#7_3_5
+ 987. file://z80asm-future.html#7_3_6
+ 988. file://z80asm-future.html#7_3_7
+ 989. file://z80asm-future.html#7_3_8
+ 990. file://z80asm-future.html#7_3_9
+ 991. file://z80asm-future.html#8
+ 992. file://z80asm-future.html#8_1
+ 993. file://z80asm-future.html#8_1_1
+ 994. file://z80asm-future.html#8_1_2
+ 995. file://z80asm-future.html#8_2
+ 996. file://z80asm-future.html#8_3
+ 997. file://z80asm-future.html#8_4
+ 998. file://z80asm-future.html#8_5
+ 999. file://z80asm-future.html#8_6
+1000. file://z80asm-future.html#8_7
+1001. file://z80asm-future.html#8_8
+1002. file://z80asm-future.html#8_9
+1003. file://z80asm-future.html#7
+1004. file://z80asm-future.html#8_10
+1005. file://z80asm-future.html#7
+1006. file://z80asm-future.html#8_11
+1007. file://z80asm-future.html#7
+1008. file://z80asm-future.html#8_12
+1009. file://z80asm-future.html#8_13
+1010. file://z80asm-future.html#8_14
+1011. file://z80asm-future.html#9
+1012. file://z80asm-future.html#9_1
+1013. file://z80asm-future.html#9_2
+1014. file://z80asm-future.html#9_3
+1015. file://z80asm-future.html#9_4
+1016. file://z80asm-future.html#9_5
+1017. file://z80asm-future.html#10
+1018. file://z80asm-future.html#10_1
+1019. file://z80asm-future.html#10_1
+1020. file://z80asm-future.html#10_2
+1021. file://z80asm-future.html#10_2
+1022. file://z80asm-future.html#10_3
+1023. file://z80asm-future.html#10_3
+1024. file://z80asm-future.html#10_4
+1025. file://z80asm-future.html#10_4
+1026. file://z80asm-future.html#10_5
+1027. file://z80asm-future.html#10_5
+1028. file://z80asm-future.html#10_6
+1029. file://z80asm-future.html#10_6
+1030. file://z80asm-future.html#10_7
+1031. file://z80asm-future.html#10_7
+1032. file://z80asm-future.html#10_8
+1033. file://z80asm-future.html#10_8
+1034. file://z80asm-future.html#10_9
+1035. file://z80asm-future.html#10_9
+1036. file://z80asm-future.html#10_10
+1037. file://z80asm-future.html#10_10
+1038. file://z80asm-future.html#10_11
+1039. file://z80asm-future.html#10_11
+1040. file://z80asm-future.html#10_12
+1041. file://z80asm-future.html#10_12
+1042. file://z80asm-future.html#10_13
+1043. file://z80asm-future.html#10_13
+1044. file://z80asm-future.html#10_14
+1045. file://z80asm-future.html#10_14
+1046. file://z80asm-future.html#10_15
+1047. file://z80asm-future.html#10_15
+1048. file://z80asm-future.html#10_16
+1049. file://z80asm-future.html#10_16
+1050. file://z80asm-future.html#10_17
+1051. file://z80asm-future.html#10_17
+1052. file://z80asm-future.html#10_18
+1053. file://z80asm-future.html#10_18
+1054. file://z80asm-future.html#10_19
+1055. file://z80asm-future.html#10_19
+1056. file://z80asm-future.html#10_20
+1057. file://z80asm-future.html#10_20
+1058. file://z80asm-future.html#10_21
+1059. file://z80asm-future.html#10_21
+1060. file://z80asm-future.html#10_22
+1061. file://z80asm-future.html#10_22
+1062. file://z80asm-future.html#10_23
+1063. file://z80asm-future.html#10_23
+1064. file://z80asm-future.html#10_24
+1065. file://z80asm-future.html#10_24
+1066. file://z80asm-future.html#10_25
+1067. file://z80asm-future.html#10_25
+1068. file://z80asm-future.html#10_26
+1069. file://z80asm-future.html#10_26
+1070. file://z80asm-future.html#10_27
+1071. file://z80asm-future.html#10_27
+1072. file://z80asm-future.html#10_28
+1073. file://z80asm-future.html#10_28
+1074. file://z80asm-future.html#10_29
+1075. file://z80asm-future.html#10_29
+1076. file://z80asm-future.html#11
+1077. file://z80asm-future.html#12
+1078. file://z80asm-future.html#13
+1079. file://z80asm-future.html#14
+1080. file://z80asm-future.html#15
+1081. file://z80asm-future.html#16
+1082. file://z80asm-future.html#17

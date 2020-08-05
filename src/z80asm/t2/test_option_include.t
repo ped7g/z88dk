@@ -32,7 +32,7 @@ asm_ok(<<END, "", 0..10);
 	defb 10
 END
 
-# -I, --inc-path
+# -I
 mkdir("${test}_dir");
 path("${test}_dir/${test}.inc")->spew('defb 11');
 
@@ -48,19 +48,17 @@ Error at file '${test}.asm' line 1: cannot read file '${test}.inc'
 END
 
 # -I : OK
-for my $options ('-I', '-I=', '--inc-path', '--inc-path=') {
-	unlink "${test}.bin";
-	asm_ok("include \"${test}.inc\"", "${options}${test}_dir", 11);
+unlink "${test}.bin";
+asm_ok("include \"${test}.inc\"", "-I${test}_dir", 11);
 
-	# test -I using environment variables
-	$ENV{TEST_ENV} = $test;
-	unlink "${test}.bin";
-	asm_ok("include \"${test}.inc\"", "${options}\${TEST_ENV}_dir", 11);
-	
-	delete $ENV{TEST_ENV};
-	unlink "${test}.bin";
-	asm_ok("include \"${test}.inc\"", "${options}${test}\${TEST_ENV}_dir", 11);
-}
+# test -I using environment variables
+$ENV{TEST_ENV} = $test;
+unlink "${test}.bin";
+asm_ok("include \"${test}.inc\"", "-I\${TEST_ENV}_dir", 11);
+
+delete $ENV{TEST_ENV};
+unlink "${test}.bin";
+asm_ok("include \"${test}.inc\"", "-I${test}\${TEST_ENV}_dir", 11);
 
 # -I, full path : OK
 unlink "${test}.bin";

@@ -48,7 +48,7 @@ By default, i.e. without any options, assemble each of the listed files into rel
 
 ### 1.3. ... as linker
 
-    z80asm  [-b](#6_2_6)  [options] [-ilibrary.lib...] file...
+    z80asm  [-b](#6_2_4)  [options] [-ilibrary.lib...] file...
 
 Link the object files together and with any requested libraries into a set of binary files.
 
@@ -62,7 +62,7 @@ Link the object files together and with any requested libraries into a set of bi
 
     z80asm -xlibrary.lib [options] file...
 
-Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the ` [-i](#6_2_13) ` option.
+Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the ` [-i](#6_2_10) ` option.
 
 
 ----
@@ -365,9 +365,29 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_7_1></a>
 
-#### 3.7.1. -m (create map file)
+#### 3.7.1. -s (create symbol table)
 
-Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+Creates a symbol table `file.sym` at the end of the assembly phase, containing all the symbols from the assembled file. The format of the file is the same as the map file (see ` [-m](#3_7_3) `).
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_7_2></a>
+
+#### 3.7.2. -l (create list file)
+
+Creates a symbol table `file.lis` containing the source code parsed and the corresponding generated object code. The list file is created during assembly, i.e. before linking, and therefore all addresses that will be resolved by the linker are shown as zero in the list file.
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_7_3></a>
+
+#### 3.7.3. -m (create map file)
+
+Creates a map file `file.map` at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
   - symbol name
   - '='
@@ -387,6 +407,16 @@ Creates a map file at the end of the link phase. The map file contains one line 
   - ':'
   - source line number where symbol was defined
   
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_7_4></a>
+
+#### 3.7.4. -g (global definitions file)
+
+Creates an assembly include file `file.def` containing the values of all the global symbols after linking in the form of ` [DEFC](#10_6) ` statements. This file can be included in another assembly source file to uses these symbols.
+
 
 ----
 
@@ -810,22 +840,13 @@ The extension is specified without the ".". Only three letters are accepted - th
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=6_2_3></a>
 
-#### 6.2.3. -l : Create listing file output
+#### 6.2.3. -d : Assemble only updated files
 
-The information in listing files is a combination of the original source file and additional information of the generated machine code. Further, the listing file is page formatted with a header specifying the date and time of the compilation, the filename of the listing and a page number.
+Assemblers usually force compiles all specified files. This is also possible (as default) for the  [Z80](#7)  Module Assembler. In large application project with 15 modules or more it can be quite frustrating to compile all every time. The solution is to only assemble updated files and leave the rest (since they have been compiled to the programmers knowledge).
 
-For each line of the source file the following information is written:
+But in a long term view it is better to just compile a project without thinking of which files need to be compiled or not. That can be done with the  [Z80](#7)  Module Assembler. By simply specifying the  [-d](#6_2_3)  parameter at the command line, only updated source files are assembled into object files - the rest are ignored.
 
-    <source file line number> <assembler address>  
-    <machine code hex dump> <source line>
-
-The machine code and assembler address output are written in hexadecimal notation. If the machine code uses more the 4 bytes, the source file line is written on the following line. This usually happens when you have defined a string constant or a relatively large amount of constant definitions.
-
-The assembler address is always beginning at zero, i.e. the beginning of the current modules' machine code. In a relocated context of the machine code, where all code is positioned at fixed addresses, you will have the opportunity to view the addresses of your code relative to the start of individual modules using the assembler output addresses. Further, the last assembler address can be interpreted as the size of the modules' generated machine code.
-
-Listing files also serves the purpose of a hard copy on paper of your programs, and are useful in a debugging phase (identifying opcodes versus the mnemonic representation of instructions).
-
-The creation of listing files imposes much more processing work of the assembler. If you want to compile your code as quickly as possible then don't create listing files. Listing files obtain their file name from the base of the source filename, and is added with the 'lst' extension.
+Using the  [-d](#6_2_3)  option in combination with a project file gives the best project setup for a large compilation; compile your projects without worrying about which module is updated or not.
 
 
 ----
@@ -833,42 +854,12 @@ The creation of listing files imposes much more processing work of the assembler
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=6_2_4></a>
 
-#### 6.2.4. -s : Create symbol table
+#### 6.2.4. -b : Link/relocate object files
 
-Symbol tables contains the integer form of symbolical names and constants that has been parsed and generated during a compilation of a source file. The structure of the symbol table is divided into two columns. The first contains the parsed symbol names, converted to uppercase. The second column contains the generated value of the symbol name.
-
-All symbol values are displayed in signed 32-bit hexadecimal notation.
-
-The two columns are separated by tabulators which represents a default value of 8 spaces per tabulator. The width of the symbol name column is defined as the tabulator distance multiplied by 4. The default width of the name column is 4 \* 8 = 32 spaces.
-
-The symbol table will be written to the end of the appropriate listing file, if listing file and symbol table output is enabled. If no listing file output is enabled, the symbol table will be written to a separate file, identified with the base name of the source file module and given the 'sym' extension.
-
-
-----
-
-[(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_5></a>
-
-#### 6.2.5. -d : Assemble only updated files
-
-Assemblers usually force compiles all specified files. This is also possible (as default) for the  [Z80](#7)  Module Assembler. In large application project with 15 modules or more it can be quite frustrating to compile all every time. The solution is to only assemble updated files and leave the rest (since they have been compiled to the programmers knowledge).
-
-But in a long term view it is better to just compile a project without thinking of which files need to be compiled or not. That can be done with the  [Z80](#7)  Module Assembler. By simply specifying the  [-d](#6_2_5)  parameter at the command line, only updated source files are assembled into object files - the rest are ignored.
-
-Using the  [-d](#6_2_5)  option in combination with a project file gives the best project setup for a large compilation; compile your projects without worrying about which module is updated or not.
-
-
-----
-
-[(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_6></a>
-
-#### 6.2.6. -b : Link/relocate object files
-
-The  [-b](#6_2_6)  option must be used if you want to create an executable  [Z80](#7)  machine code output file of your previously created object files. You may also use the  [-a](#6_2_7)  option which is identical in functionality but also includes the  [-d](#6_2_5)  option. In other words assemble only updated source modules and perform linking/relocation of the code afterwards.
+The  [-b](#6_2_4)  option must be used if you want to create an executable  [Z80](#7)  machine code output file of your previously created object files. You may also use the  [-a](#6_2_5)  option which is identical in functionality but also includes the  [-d](#6_2_3)  option. In other words assemble only updated source modules and perform linking/relocation of the code afterwards.
 
 *   Pass 1:  
-    When the linking process begins with the first object module, it is examined for an  [ORG](#10_25)  address to perform the absolute address relocation of all the object module machine code. The  [ORG](#10_25)  (loading address for memory) will have to be defined in the first source file module. If not, the assembler will prompt you for it on the command line. The  [ORG](#10_25)  address must be typed in hexadecimal notation. If you never use the  [ORG](#10_25)  directive in your source files, you can always explicitly define one at the command line with the  [-r](#6_2_9)  option.  
+    When the linking process begins with the first object module, it is examined for an  [ORG](#10_25)  address to perform the absolute address relocation of all the object module machine code. The  [ORG](#10_25)  (loading address for memory) will have to be defined in the first source file module. If not, the assembler will prompt you for it on the command line. The  [ORG](#10_25)  address must be typed in hexadecimal notation. If you never use the  [ORG](#10_25)  directive in your source files, you can always explicitly define one at the command line with the  [-r](#6_2_7)  option.  
       
     The next step in the linking process is loading of the machine code from each object module, in the order of the specified modules. Pass 1 is completed with loading all local and global symbol definitions of the object modules. All relocatable address symbols are assigned the correct absolute memory location (based on  [ORG](#10_25) ).  
     
@@ -881,19 +872,19 @@ The  [-b](#6_2_6)  option must be used if you want to create an executable  [Z80
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_7></a>
+<a id=6_2_5></a>
 
-#### 6.2.7. -a : Combine -d and -b
+#### 6.2.5. -a : Combine -d and -b
 
-Same as providing both  [-b](#6_2_6)  (link/relocate object files) and  [-d](#6_2_5)  (assemble only updated files).
+Same as providing both  [-b](#6_2_4)  (link/relocate object files) and  [-d](#6_2_3)  (assemble only updated files).
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_8></a>
+<a id=6_2_6></a>
 
-#### 6.2.8. -o\<binary-filename\> : Binary filename
+#### 6.2.6. -o\<binary-filename\> : Binary filename
 
 Define another filename for the compiled binary output than the default source filename of the project, appended with the ".bin" extension.
 
@@ -901,33 +892,33 @@ Define another filename for the compiled binary output than the default source f
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_9></a>
+<a id=6_2_7></a>
 
-#### 6.2.9. -r\<hex-address\> : Re-define the ORG relocation address
+#### 6.2.7. -r\<hex-address\> : Re-define the ORG relocation address
 
-During the linking phase of the assembler the  [ORG](#10_25)  address that defines the position in memory where the code is to be loaded and executed, is fetched from the first object module file. You can override this by specifying an explicit address origin by entering the  [-r](#6_2_9)  option followed by an address in hexadecimal notation at the command line, e.g.:
+During the linking phase of the assembler the  [ORG](#10_25)  address that defines the position in memory where the code is to be loaded and executed, is fetched from the first object module file. You can override this by specifying an explicit address origin by entering the  [-r](#6_2_7)  option followed by an address in hexadecimal notation at the command line, e.g.:
 
-    z80asm  [-b](#6_2_6)  -r4000 file.asm
+    z80asm  [-b](#6_2_4)  -r4000 file.asm
 
 which specifies that your code is to be relocated for address 4000h (16384) onward.
 
-Using the  [-r](#6_2_9)  option supersedes a defined  [ORG](#10_25)  in the object file. You could for example have defined the  [ORG](#10_25)  to 8000h (32768) in your first source file, then compiled the project. This would have generated machine code for memory location 8000h (segment 2 in the Cambridge  [Z88](#6_5) ). Since the object files are generated it is easy to link them again with another  [ORG](#10_25)  address by just using the  [-r](#6_2_9)  option. The linking process does not alter the information in object files - they are only read. The same project could then easily be re-linked to another address, e.g.
+Using the  [-r](#6_2_7)  option supersedes a defined  [ORG](#10_25)  in the object file. You could for example have defined the  [ORG](#10_25)  to 8000h (32768) in your first source file, then compiled the project. This would have generated machine code for memory location 8000h (segment 2 in the Cambridge  [Z88](#6_5) ). Since the object files are generated it is easy to link them again with another  [ORG](#10_25)  address by just using the  [-r](#6_2_7)  option. The linking process does not alter the information in object files - they are only read. The same project could then easily be re-linked to another address, e.g.
 
-    z80asm  [-b](#6_2_6)  -r2000 file.asm
+    z80asm  [-b](#6_2_4)  -r2000 file.asm
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_10></a>
+<a id=6_2_8></a>
 
-#### 6.2.10. -R : Generate address independent code
+#### 6.2.8. -R : Generate address independent code
 
 The  [Z80](#7)  processor instruction set allows only relative jumps in maximum +/- 128 bytes using the JR and DJNZ instructions. Further, there is no program counter relative call-to-subroutine or jump-to-subroutine instruction. If you want a program to be address-independent no absolute address references may be used in jump or call instructions. If you want to program  [Z80](#7)  address independent code you can only write small routines using the JR and DJNZ instructions. With a restricted interval of 128 bytes you can imagine the size of those routines! Programming of large applications using address Independence is simply impossible on the  [Z80](#7)  processor with the basic instruction set available. You can only define a fixed address origin ( [ORG](#10_25) ) for your machine code to be loaded and executed from. However, there is one solution: before the code is executed an automatic address-relocation is performed to the current position in memory. This is done only once. The penalty is that the program fills more space in memory. This is unavoidable since information must be available to define where the address relocation has to be performed in the program. Further, a small routine must be included with the program to read the relocation information and patch it into the specified locations of the program. It is impossible to determine the extra size generated with a relocation table. We assume an extra size of 3 - 3.5K for a typical 16K application program.
 
-You can generate address independent code using the  [-R](#6_2_10)  option accompanied with the  [-a](#6_2_7)  or  [-b](#6_2_6)  option. There is no other requirements. The relocatable code may be useful for programmers using the Cambridge  [Z88](#6_5)  who want to use machine code in the BBC BASIC application environment. This can easily be interfaced with the DIM statement to allocate memory for the machine code program, and issue a  [CALL](#10_2)  or USR() to execute the machine code.
+You can generate address independent code using the  [-R](#6_2_8)  option accompanied with the  [-a](#6_2_5)  or  [-b](#6_2_4)  option. There is no other requirements. The relocatable code may be useful for programmers using the Cambridge  [Z88](#6_5)  who want to use machine code in the BBC BASIC application environment. This can easily be interfaced with the DIM statement to allocate memory for the machine code program, and issue a  [CALL](#10_2)  or USR() to execute the machine code.
 
-Please note that the linking process with the  [-R](#6_2_10)  option addresses your code from 0 onward. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.
+Please note that the linking process with the  [-R](#6_2_8)  option addresses your code from 0 onward. This is necessary when the runtime relocation is performed by the relocator (just before your program is executed). This can be examined by loading the address map file into a text editor.
 
 The principle of relocation is in fact a self-modifying program. You cannot relocate a program that has been blown into an EPROM (cannot be modified). You may only execute relocatable programs in dynamic memory (RAM).
 
@@ -950,29 +941,19 @@ When your address-independent code is stored to the file, a message is displayed
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_11></a>
+<a id=6_2_9></a>
 
-#### 6.2.11. -g : Create global address definition file
-
-With this option it is possible to generate a  [DEFC](#10_6)  directive definition file of all globally declared identifiers in a file project (declared with the  [XDEF](#10_27)  directive). These global definitions are calculated from the specified  [ORG](#10_25)  address (from first module or the  [-r](#6_2_9)  option). This feature is very useful, if you want to get access to routines from a separate compilation. If the two code compilation were placed in different banks of the  [Z88](#6_5) , it would be possible to know the correct address of a routine just by using the  [DEFC](#10_6)  address definition previously compiled. We used this facility to access routines in the two 8K halves of the segment 0 debugged version. This debugger actually swaps one of the two 8K blocks in and out of segment 0 when needed to call an 'external' routine. Applications on the  [Z88](#6_5)  may only access the upper 8K of segment 0. A 16K application therefore needs to be split in 8K halves and paged in when needed to be run in this area. Tuff!
-
-
-----
-
-[(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_12></a>
-
-#### 6.2.12. @\<project-file\> :1.3.16. Using a project file
+#### 6.2.9. @\<project-file\> :1.3.16. Using a project file
 
 Project files defines all file names of a project. The file name standard stored in a project file obeys the operating system notation.
 
 Instead of specifying every module file name at the command line, a simple reference of a project file can be made instead. According to the rules of the specification of parameters you specify either your source file modules or use a project file. The project file specification is of course much faster. An example:
 
-    z80asm  [-a](#6_2_7)  main pass1 pass2 link asmdrctv z80instr
+    z80asm  [-a](#6_2_5)  main pass1 pass2 link asmdrctv z80instr
 
 This command line will compile all specified module file names into a single executable file called "main.bin". However if a project file 'assembler' were created already containing the same file names, the command line would have been:
 
-    z80asm  [-a](#6_2_7)  @assembler
+    z80asm  [-a](#6_2_5)  @assembler
 
 \- much easier!
 
@@ -989,11 +970,11 @@ Project files are easily created using a simple text editor.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_13></a>
+<a id=6_2_10></a>
 
-#### 6.2.13. -i\<library-file\> : Include library modules during linking/relocation
+#### 6.2.10. -i\<library-file\> : Include library modules during linking/relocation
 
-This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  [-i](#6_2_13)  identifier. 
+This option allows compilation time linking of external machine code, better known as library routines. Much, much programming time can be saved by producing a set of standard routines compiled into library files. These may then be included later in application project compilations. The command line option allows specification of several library files. For each library reference in an application module, all library files will be scanned for that particular module. The filename (inclusive directory path) of the library may be specified explicitly on the command line immediately after the  [-i](#6_2_10)  identifier. 
 
 Library files are recognised by the ".lib" extension.
 
@@ -1001,11 +982,11 @@ Library files are recognised by the ".lib" extension.
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_14></a>
+<a id=6_2_11></a>
 
-#### 6.2.14. -x : Create a library
+#### 6.2.11. -x : Create a library
 
-A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  [-x](#6_2_14)  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  [XLIB](#10_28)  directive with an identical address name label definition. Please refer to further information later in this documentation. The " [Z80](#7) lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
+A library file is composed of object files surrounded by a few file structures. The library file format (and object file format) may be found at the end of this documentation. A library is simply a set of independent routines (that may refer to each other) put together in a sequential form. You may only specify a single  [-x](#6_2_11)  option on the command line. A filename may be explicitly defined (including device and path information) to determine the storage location of the library. A library routine must be defined using a simple  [XLIB](#10_28)  directive with an identical address name label definition. Please refer to further information later in this documentation. The " [Z80](#7) lib.zip" contains the standard library with all corresponding source files. Have a look at them - they clearly displays how to compose a library routine.
 
 One very important aspect of libraries is the time that the assembler spends searching through them. To optimize the search you should place your routines in a "topological" order, i.e. routines that access other library routines should be placed first. In most situations you avoid redundant sequential searching through the library.
 
@@ -1013,9 +994,9 @@ One very important aspect of libraries is the time that the assembler spends sea
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_15></a>
+<a id=6_2_12></a>
 
-#### 6.2.15. -t\<number\> : Define tabulator distance for text output files
+#### 6.2.12. -t\<number\> : Define tabulator distance for text output files
 
 To save storage space the  [Z80](#7)  cross assembler output files (listing, map, symbol and  [XDEF](#10_27)  definition files) uses a tabulator control character instead of spaces. The benefit is about 30% compressed files.
 
@@ -1023,15 +1004,15 @@ The tabulator distance defines the distance of space between each tabulator it r
 
 The tabulators are used to separate two columns of information. The first column contains a name of some sort. Since names have variable length, a size of the column is defined. The Assembler defines the size of the column by multiplying the current tabulator distance with 4, i.e. giving a default size of 4\*8 = 32 'spaces'. This is usually more than enough for most name definitions parsed from source files.
 
-You may redefine the tabulator distance by using the  [-t](#6_2_15)  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4\*4 = 16 'spaces'.
+You may redefine the tabulator distance by using the  [-t](#6_2_12)  option immediately followed by a decimal number, e.g. -t4 for defining a tabulator distance of 4. The width of the first column will then be 4\*4 = 16 'spaces'.
 
 
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_16></a>
+<a id=6_2_13></a>
 
-#### 6.2.16. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
+#### 6.2.13. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
 
 This option disables assembly opcodes not available in the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's.
 
@@ -1039,9 +1020,9 @@ This option disables assembly opcodes not available in the RCM2000/RCM3000 serie
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_17></a>
+<a id=6_2_14></a>
 
-#### 6.2.17. -plus : Support for the Ti83Plus
+#### 6.2.14. -plus : Support for the Ti83Plus
 
 Defines how the  [INVOKE](#10_19)  command is coded: either as a RST 28H instruction (option on) or as a regular  [CALL](#10_2)  instruction (option off).
 
@@ -1049,9 +1030,9 @@ Defines how the  [INVOKE](#10_19)  command is coded: either as a RST 28H instruc
 ----
 
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
-<a id=6_2_18></a>
+<a id=6_2_15></a>
 
-#### 6.2.18. -C : Enable LINE directive
+#### 6.2.15. -C : Enable LINE directive
 
 Enables the  [LINE](#10_21)  directive to synchronize error message line numbers with the line numbers from the source file.
 
@@ -1380,9 +1361,9 @@ The extension for symbol table files is 'sym'. The base file name is taken from 
 
 #### 7.3.6. The executable file extension, bin
 
-The extension for executable  [Z80](#7)  machine code files is 'bin'. The base file name is taken from the first specified source file name at the command line (or project file). This is the linked and relocated output of object files and may be executed by the  [Z80](#7)  processor. You may override this default behaviour by using the  [-o](#6_2_8)  option and specify your own output filename (and extension).
+The extension for executable  [Z80](#7)  machine code files is 'bin'. The base file name is taken from the first specified source file name at the command line (or project file). This is the linked and relocated output of object files and may be executed by the  [Z80](#7)  processor. You may override this default behaviour by using the  [-o](#6_2_6)  option and specify your own output filename (and extension).
 
-You may override this default behavior by using the  [-o](#6_2_8)  option and specify your own output filename and extension.
+You may override this default behavior by using the  [-o](#6_2_6)  option and specify your own output filename and extension.
 
 
 ----
@@ -1412,7 +1393,7 @@ The extension for global address label definition files is 'def'. The base file 
 
 #### 7.3.9. The library file extension, lib
 
-Library files are identified with the 'lib' extension. Library files may be created using the  [-x](#6_2_14)  option. Library may be included into application code during linking of object modules with the  [-i](#6_2_13)  option.
+Library files are identified with the 'lib' extension. Library files may be created using the  [-x](#6_2_11)  option. Library may be included into application code during linking of object modules with the  [-i](#6_2_10)  option.
 
 
 ----
@@ -1652,7 +1633,7 @@ Except for the SLL instruction all have bugs related to an interrupt being able 
 
 ### 8.12. Referencing library routines
 
-When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  [-i](#6_2_13)  option and refer to the library routine in your source file using the  [LIB](#10_20)  directive followed by the name of the library routine, e.g.
+When you need to use a library routine in your application code, you need to do two things; include a library file at the assembler command line with the  [-i](#6_2_10)  option and refer to the library routine in your source file using the  [LIB](#10_20)  directive followed by the name of the library routine, e.g.
 
      [LIB](#10_20)  malloc, free
 
@@ -1676,7 +1657,7 @@ Creating libraries is an inbuilt feature of the assembler. The following steps a
     
 2.  Each library source module uses the  [XLIB](#10_28)  directive to define the name of the routine. The same name must be used for the address label definition. If your library uses other library routines then declare them with the  [LIB](#10_20)  directive. Please note that a library routine creates the module name itself (performed by  [XLIB](#10_28)  automatically). The module name is used to search for routines in a library.  
     
-3.  The command line contains the  [-x](#6_2_14)  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.
+3.  The command line contains the  [-x](#6_2_11)  option immediately followed by your filename. Then you need to specify your project filename preceded by '@'.
 
 For example:
 
@@ -1694,7 +1675,7 @@ Please note that no binary file is created (a library is NOT an executable file)
 
 ### 8.14. Referencing routines in other compiled projects
 
-It may be necessary in some situations to get access to routines previously compiled in another project. This implies however a knowledge of their absolute addresses during linking. This information is stored in the map file, but not accessible in a form suitable to be parsed by the assembler. However, this is possible in using the  [-g](#6_2_11)  option at the assembler command line. The action performed creates a  [DEFC](#10_6)  list file of address labels that have been declared as globally available (using the  [XDEF](#10_27)  directive). Only compiled source files are included in the list. If you were using the  [-a](#6_2_7)  option (compile only updated source files) and no files were updated then the  [-g](#6_2_11)  file would be empty. If you would like a complete list of all global routines then it is needed to compile the whole project (using the  [-b](#6_2_6)  command line option).
+It may be necessary in some situations to get access to routines previously compiled in another project. This implies however a knowledge of their absolute addresses during linking. This information is stored in the map file, but not accessible in a form suitable to be parsed by the assembler. However, this is possible in using the  [-g](#3_7_4)  option at the assembler command line. The action performed creates a  [DEFC](#10_6)  list file of address labels that have been declared as globally available (using the  [XDEF](#10_27)  directive). Only compiled source files are included in the list. If you were using the  [-a](#6_2_5)  option (compile only updated source files) and no files were updated then the  [-g](#3_7_4)  file would be empty. If you would like a complete list of all global routines then it is needed to compile the whole project (using the  [-b](#6_2_4)  command line option).
 
 When the file is generated, it can easily be  [INCLUDE](#10_18) 'd in another project where your routines may access the external routines. You might do this in two ways:
 
@@ -1702,9 +1683,9 @@ When the file is generated, it can easily be  [INCLUDE](#10_18) 'd in another pr
     
 2.  Creating a new source file that is part of your project. This file could easily be the first file in your project but could just as well be placed anywhere in your project. Declare each external name that is needed somewhere in your project as  [XDEF](#10_27) , meaning that all names to be included are globally accessible from this module. Then specify the  [INCLUDE](#10_18)  of the  [DEFC](#10_6)  list of the other project file. As the names get loaded, they become global definitions. All other definitions will be ignored and not stored to the object file (they are not referred in the source module). All other modules just need to specify the external names as  [XREF](#10_29) . During linking they all get resolved and your code has access to external routines from a previously compiled project.
 
-Whenever the previous project has been re-compiled (and issued with  [-g](#6_2_11)  option) there is a possibility that routine addresses has changed. You therefore need to recompile the extra source module in your project to get the new identifier values - the rest of your compilation is unaffected (due to the  [XREF](#10_29)  directives). Only the linking process gets the new proper addresses. In example 1) you had to recompile all source files that would have used an  [INCLUDE](#10_18)  of the  [DEFC](#10_6)  list file. In example 2) only one file had to be recompiled.
+Whenever the previous project has been re-compiled (and issued with  [-g](#3_7_4)  option) there is a possibility that routine addresses has changed. You therefore need to recompile the extra source module in your project to get the new identifier values - the rest of your compilation is unaffected (due to the  [XREF](#10_29)  directives). Only the linking process gets the new proper addresses. In example 1) you had to recompile all source files that would have used an  [INCLUDE](#10_18)  of the  [DEFC](#10_6)  list file. In example 2) only one file had to be recompiled.
 
-The principle of external addresses was used to compile the debugger version to be resided in segment 0 (into the upper 8K). The actual size of the debugger code uses 16K, but was split into two separate halves to fit into the upper 8K of segment 0. Each of the 8K code-segments had to get access to the other 8K block. The solution was the  [-g](#6_2_11)  option and cross referencing using  [XREF](#10_29)  and an additional source module (containing the  [XDEF](#10_27)  declarations) that included the  [-g](#6_2_11)  list file of the other project compilation.
+The principle of external addresses was used to compile the debugger version to be resided in segment 0 (into the upper 8K). The actual size of the debugger code uses 16K, but was split into two separate halves to fit into the upper 8K of segment 0. Each of the 8K code-segments had to get access to the other 8K block. The solution was the  [-g](#3_7_4)  option and cross referencing using  [XREF](#10_29)  and an additional source module (containing the  [XDEF](#10_27)  declarations) that included the  [-g](#3_7_4)  list file of the other project compilation.
 
 
 ----
@@ -2108,7 +2089,7 @@ Include files are usually put at the start of the source file module but may be 
 
 ### 10.19. INVOKE \<16-bit expression\>
 
-Special  [CALL](#10_2)  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  [-plus](#6_2_17)  option is passed on the command line (for the Ti83Plus), or as a normal  [CALL](#10_2)  instruction if the option is not passed.
+Special  [CALL](#10_2)  instruction for the Ti83 calculator; it is coded as a RST 28H followed by the 16-bit expression, if the  [-plus](#6_2_14)  option is passed on the command line (for the Ti83Plus), or as a normal  [CALL](#10_2)  instruction if the option is not passed.
 
 
 ----
@@ -2168,7 +2149,7 @@ This defines the name of the current module. This may be defined only once for a
 
 ### 10.25. ORG \<16-bit expression\>
 
-Define address origin of compiled machine code - the position in memory where the machine is to be loaded and executed. The expression must be evaluable (containing no forward or external references). All address references will be calculated from the defined  [ORG](#10_25)  value. The  [ORG](#10_25)  address will be placed in the current module that is being compiled. However, during linking only the first object module is being read for an  [ORG](#10_25)  address. The  [ORG](#10_25)  is ignored during linking if you have specified an  [-r](#6_2_9)  option on the command line.
+Define address origin of compiled machine code - the position in memory where the machine is to be loaded and executed. The expression must be evaluable (containing no forward or external references). All address references will be calculated from the defined  [ORG](#10_25)  value. The  [ORG](#10_25)  address will be placed in the current module that is being compiled. However, during linking only the first object module is being read for an  [ORG](#10_25)  address. The  [ORG](#10_25)  is ignored during linking if you have specified an  [-r](#6_2_7)  option on the command line.
 
 When assembling programs with multiple sections, a section without an  [ORG](#10_25)  will be appended to the end of the previous section. A section with a defined  [ORG](#10_25)  will generate its own binary file, e.g. file\_CODE.asm.
 
@@ -2324,7 +2305,7 @@ The following error messages will be written toe the error files corresponding t
 - Assembler
     - JP to JR optimization for size
     - compile expressions
-    - object files store list of input files and command line so that  [-d](#6_2_5)  can decide if it is necessary to recompile
+    - object files store list of input files and command line so that  [-d](#6_2_3)  can decide if it is necessary to recompile
     - object files can store same code for multiple architectures
     - recursive parsing of @lists
     - parse expressions  
@@ -2346,7 +2327,7 @@ The following error messages will be written toe the error files corresponding t
     - process C_LINE  
     - fix list files when parsing a .i
     - move all directives from z80asm to z80asm2  
-    - handle  [-m](#3_7_1)  for architecture specific code  
+    - handle  [-m](#3_7_3)  for architecture specific code  
     - handle -D and -U for top-level defines
     - process  [INCLUDE](#10_18)  / INCBIN /  [BINARY](#10_1)   
     - generate .i file  
@@ -2537,39 +2518,39 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
 <a id=16></a>
 
 ## 16. Keywords
- [-C](#6_2_18) 
+ [-C](#6_2_15) 
  [-DVARIABLE](#3_5) 
  [-IDIR](#3_4_1) 
  [-IXIY](#3_6_2) 
  [-LDIR](#3_4_2) 
  [-M](#6_2_2) 
- [-R](#6_2_10) 
- [-RCMX000](#6_2_16) 
- [-a](#6_2_7) 
+ [-R](#6_2_8) 
+ [-RCMX000](#6_2_13) 
+ [-a](#6_2_5) 
  [-atoctal](#3_2_1) 
- [-b](#6_2_6) 
- [-d](#6_2_5) 
+ [-b](#6_2_4) 
+ [-d](#6_2_3) 
  [-debug](#3_6_4) 
  [-dotdirective](#3_2_2) 
  [-e](#6_2_1) 
- [-g](#6_2_11) 
+ [-g](#3_7_4) 
  [-h](#3_1_2) 
  [-hashhex](#3_2_3) 
- [-i](#6_2_13) 
- [-l](#6_2_3) 
+ [-i](#6_2_10) 
+ [-l](#3_7_2) 
  [-labelcol1](#3_2_4) 
- [-m](#3_7_1) 
+ [-m](#3_7_3) 
  [-mCPU](#3_6_1) 
  [-noprec](#3_3_1) 
- [-o](#6_2_8) 
+ [-o](#6_2_6) 
  [-opt](#3_6_3) 
- [-plus](#6_2_17) 
- [-r](#6_2_9) 
- [-s](#6_2_4) 
- [-t](#6_2_15) 
+ [-plus](#6_2_14) 
+ [-r](#6_2_7) 
+ [-s](#3_7_1) 
+ [-t](#6_2_12) 
  [-ucase](#3_2_5) 
  [-v](#3_1_3) 
- [-x](#6_2_14) 
+ [-x](#6_2_11) 
  [BINARY](#10_1) 
  [CALL](#10_2) 
  [DEFB](#10_3) 
@@ -2639,7 +2620,10 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
     - [3.6.3.](#3_6_3)  [-opt](#3_6_3) -speed (optimise for speed)
     - [3.6.4.](#3_6_4)  [-debug](#3_6_4)  (debug information)
   - [3.7.](#3_7) Output File Options
-    - [3.7.1.](#3_7_1)  [-m](#3_7_1)  (create map file)
+    - [3.7.1.](#3_7_1)  [-s](#3_7_1)  (create symbol table)
+    - [3.7.2.](#3_7_2)  [-l](#3_7_2)  (create list file)
+    - [3.7.3.](#3_7_3)  [-m](#3_7_3)  (create map file)
+    - [3.7.4.](#3_7_4)  [-g](#3_7_4)  (global definitions file)
 - [4.](#4) Input Files
   - [4.1.](#4_1) Source File Format
   - [4.2.](#4_2) Comments
@@ -2662,22 +2646,19 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
   - [6.2.](#6_2) Command line options
     - [6.2.1.](#6_2_1)  [-e](#6_2_1) \<ext\> : Use alternative source file extension
     - [6.2.2.](#6_2_2)  [-M](#6_2_2) \<ext\> : Use alternative object file extension
-    - [6.2.3.](#6_2_3)  [-l](#6_2_3)  : Create listing file output
-    - [6.2.4.](#6_2_4)  [-s](#6_2_4)  : Create symbol table
-    - [6.2.5.](#6_2_5)  [-d](#6_2_5)  : Assemble only updated files
-    - [6.2.6.](#6_2_6)  [-b](#6_2_6)  : Link/relocate object files
-    - [6.2.7.](#6_2_7)  [-a](#6_2_7)  : Combine  [-d](#6_2_5)  and  [-b](#6_2_6) 
-    - [6.2.8.](#6_2_8)  [-o](#6_2_8) \<binary-filename\> : Binary filename
-    - [6.2.9.](#6_2_9)  [-r](#6_2_9) \<hex-address\> : Re-define the  [ORG](#10_25)  relocation address
-    - [6.2.10.](#6_2_10)  [-R](#6_2_10)  : Generate address independent code
-    - [6.2.11.](#6_2_11)  [-g](#6_2_11)  : Create global address definition file
-    - [6.2.12.](#6_2_12) @\<project-file\> :1.3.16. Using a project file
-    - [6.2.13.](#6_2_13)  [-i](#6_2_13) \<library-file\> : Include library modules during linking/relocation
-    - [6.2.14.](#6_2_14)  [-x](#6_2_14)  : Create a library
-    - [6.2.15.](#6_2_15)  [-t](#6_2_15) \<number\> : Define tabulator distance for text output files
-    - [6.2.16.](#6_2_16)  [-RCMX000](#6_2_16)  : Support the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's
-    - [6.2.17.](#6_2_17)  [-plus](#6_2_17)  : Support for the Ti83Plus
-    - [6.2.18.](#6_2_18)  [-C](#6_2_18)  : Enable  [LINE](#10_21)  directive
+    - [6.2.3.](#6_2_3)  [-d](#6_2_3)  : Assemble only updated files
+    - [6.2.4.](#6_2_4)  [-b](#6_2_4)  : Link/relocate object files
+    - [6.2.5.](#6_2_5)  [-a](#6_2_5)  : Combine  [-d](#6_2_3)  and  [-b](#6_2_4) 
+    - [6.2.6.](#6_2_6)  [-o](#6_2_6) \<binary-filename\> : Binary filename
+    - [6.2.7.](#6_2_7)  [-r](#6_2_7) \<hex-address\> : Re-define the  [ORG](#10_25)  relocation address
+    - [6.2.8.](#6_2_8)  [-R](#6_2_8)  : Generate address independent code
+    - [6.2.9.](#6_2_9) @\<project-file\> :1.3.16. Using a project file
+    - [6.2.10.](#6_2_10)  [-i](#6_2_10) \<library-file\> : Include library modules during linking/relocation
+    - [6.2.11.](#6_2_11)  [-x](#6_2_11)  : Create a library
+    - [6.2.12.](#6_2_12)  [-t](#6_2_12) \<number\> : Define tabulator distance for text output files
+    - [6.2.13.](#6_2_13)  [-RCMX000](#6_2_13)  : Support the RCM2000/RCM3000 series of  [Z80](#7) -like CPU's
+    - [6.2.14.](#6_2_14)  [-plus](#6_2_14)  : Support for the Ti83Plus
+    - [6.2.15.](#6_2_15)  [-C](#6_2_15)  : Enable  [LINE](#10_21)  directive
   - [6.3.](#6_3) The  [Z88](#6_5)  operating system definition files
   - [6.4.](#6_4) The supplied standard library  [Z80](#7)  source files
   - [6.5.](#6_5)  [Z88](#6_5)  module assembler application source

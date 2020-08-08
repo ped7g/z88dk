@@ -53,10 +53,10 @@ Binary Output:
   --filler=BYTE         Default value to fill in DEFS (decimal or hex)
 
 Output File Options:
-  -s, --symtable        Create symbol table file.sym
-  -l, --list            Create listing file.lis
+  -s                    Create symbol table file.sym
+  -l                    Create listing file.lis
   -m                    Create address map file.map
-  -g, --globaldef       Create global definition file.def
+  -g                    Create global definition file.def
 
 Appmake Options:
   +zx81                 Generate ZX81 .P file, origin at 16514

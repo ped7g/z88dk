@@ -47,7 +47,7 @@
 
   1.3. ... as linker
 
- z80asm  [-b](#6_2_6)  [options] [-ilibrary.lib...] file...
+ z80asm  [-b](#6_2_4)  [options] [-ilibrary.lib...] file...
 
    Link the object files together and with any requested libraries into a set
    of binary files.
@@ -62,7 +62,7 @@
 
    Build a library containing all the object files passed as argument. That
    library can then be used during linking by specifying it with the
-   [-i](#6_2_13) option.
+   [-i](#6_2_10) option.
 
    ══════════════════════════════════════════════════════════════════════════
 
@@ -346,10 +346,31 @@
 
    [99](top) [100](keywords) [101](index)
 
-    3.7.1. -m (create map file)
+    3.7.1. -s (create symbol table)
 
-   Creates a map file at the end of the link phase. The map file contains one
-   line per defined symbol, with the following information:
+   Creates a symbol table file.sym at the end of the assembly phase,
+   containing all the symbols from the assembled file. The format of the file
+   is the same as the map file (see [-m](#3_7_3)).
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [102](top) [103](keywords) [104](index)
+
+    3.7.2. -l (create list file)
+
+   Creates a symbol table file.lis containing the source code parsed and the
+   corresponding generated object code. The list file is created during
+   assembly, i.e. before linking, and therefore all addresses that will be
+   resolved by the linker are shown as zero in the list file.
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [105](top) [106](keywords) [107](index)
+
+    3.7.3. -m (create map file)
+
+   Creates a map file file.map at the end of the link phase. The map file
+   contains one line per defined symbol, with the following information:
 
      • symbol name
      • '='
@@ -373,7 +394,18 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [102](top) [103](keywords) [104](index)
+   [108](top) [109](keywords) [110](index)
+
+    3.7.4. -g (global definitions file)
+
+   Creates an assembly include file file.def containing the values of all the
+   global symbols after linking in the form of [DEFC](#10_6) statements. This
+   file can be included in another assembly source file to uses these
+   symbols.
+
+   ══════════════════════════════════════════════════════════════════════════
+
+   [111](top) [112](keywords) [113](index)
 
 4. Input Files
 
@@ -405,7 +437,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [105](top) [106](keywords) [107](index)
+   [114](top) [115](keywords) [116](index)
 
   4.1. Source File Format
 
@@ -428,7 +460,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [108](top) [109](keywords) [110](index)
+   [117](top) [118](keywords) [119](index)
 
   4.2. Comments
 
@@ -444,7 +476,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [111](top) [112](keywords) [113](index)
+   [120](top) [121](keywords) [122](index)
 
   4.3. Symbols
 
@@ -455,7 +487,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [114](top) [115](keywords) [116](index)
+   [123](top) [124](keywords) [125](index)
 
   4.4. Labels
 
@@ -466,7 +498,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [117](top) [118](keywords) [119](index)
+   [126](top) [127](keywords) [128](index)
 
   4.5. Numbers
 
@@ -495,7 +527,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [120](top) [121](keywords) [122](index)
+   [129](top) [130](keywords) [131](index)
 
     4.5.1. Decimal
 
@@ -509,7 +541,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [123](top) [124](keywords) [125](index)
+   [132](top) [133](keywords) [134](index)
 
     4.5.2. Hexadecimal
 
@@ -531,7 +563,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [126](top) [127](keywords) [128](index)
+   [135](top) [136](keywords) [137](index)
 
     4.5.3. Octal
 
@@ -548,7 +580,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [129](top) [130](keywords) [131](index)
+   [138](top) [139](keywords) [140](index)
 
     4.5.4. Binary
 
@@ -568,7 +600,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [132](top) [133](keywords) [134](index)
+   [141](top) [142](keywords) [143](index)
 
     4.5.5. Bitmaps
 
@@ -585,7 +617,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [135](top) [136](keywords) [137](index)
+   [144](top) [145](keywords) [146](index)
 
   4.6. Keywords
 
@@ -595,7 +627,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [138](top) [139](keywords) [140](index)
+   [147](top) [148](keywords) [149](index)
 
   4.7. Directives and Opcodes
 
@@ -610,7 +642,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [141](top) [142](keywords) [143](index)
+   [150](top) [151](keywords) [152](index)
 
 5. Object File Format
 
@@ -630,9 +662,9 @@
     Type   Size (bytes)                      Description
    char    1            ASCII character
    byte    1            unsigned 8-bit value
-   word    2            unsigned 16-bit value, little-endian ( [144]Z80
+   word    2            unsigned 16-bit value, little-endian ( [153]Z80
                         /Intel)
-   dword   4            signed 32-bit value, little-endian ( [145]Z80 /Intel)
+   dword   4            signed 32-bit value, little-endian ( [154]Z80 /Intel)
    string  1+length     one byte with the string length followed by the
                         characters of the string
    lstring 2+length     one word with the string length followed by the
@@ -640,7 +672,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [146](top) [147](keywords) [148](index)
+   [155](top) [156](keywords) [157](index)
 
   5.1. Object Files
 
@@ -722,14 +754,14 @@
                                    code, up to end marker
            dword        length     Code length, -1 to signal the end
            string       section    Section name of code
-                                   User defined [149]ORG address for the
-                                   start of this section, -1 for no [150]ORG
+                                   User defined [158]ORG address for the
+                                   start of this section, -1 for no [159]ORG
                                    address was defined, or -2 to split
                                    section to a different binary file. If
            dword        origin     multiple sections are given with an
-                                   [151]ORG address each, the assembler
+                                   [160]ORG address each, the assembler
                                    generates one binary file for each section
-                                   with a defined [152]ORG , followed by all
+                                   with a defined [161]ORG , followed by all
                                    sections without one.
                                    Address alignment of this section, -1 if
            dword        align      not defined. The previous section is
@@ -740,7 +772,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [153](top) [154](keywords) [155](index)
+   [162](top) [163](keywords) [164](index)
 
   5.2. Library File Format
 
@@ -761,7 +793,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [156](top) [157](keywords) [158](index)
+   [165](top) [166](keywords) [167](index)
 
   5.3. Format History
 
@@ -777,10 +809,10 @@
            meaningful link-time error messages.
    05      include source code sections.
    06      incomplete implementation, fixed in version 07
-           include [159]DEFC symbols that are defined as an expression using
+           include [168]DEFC symbols that are defined as an expression using
    07      other symbols and are computed at link time, after all addresses
            are allocated.
-   08      include a user defined [160]ORG address per section.
+   08      include a user defined [169]ORG address per section.
    09      include the file and line number where each symbol was defined.
    10      allow a section alignment to be defined.
    11      allow big-endian 16-bit expressions to be patched; these
@@ -792,11 +824,11 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [161](top) [162](keywords) [163](index)
+   [170](top) [171](keywords) [172](index)
 
 6. z80asm Syntax
 
-                      THE [164]Z80 CROSS ASSEMBLER (z88dk)
+                      THE [173]Z80 CROSS ASSEMBLER (z88dk)
 
    Version: v2.6.1 (October 3rd, 2014)
 
@@ -804,7 +836,7 @@
    effort to program an easy user interface and efficient assembler source
    file compiling. The object file and library format is an invention of our
    own and has also been included in this documentation. We hope that you
-   will enjoy your [165]Z80 machine code programming with our assembler.
+   will enjoy your [174]Z80 machine code programming with our assembler.
 
    We have made an effort to produce a fairly easy-to-understand
    documentation. If you have any comments or corrections, please don't
@@ -814,13 +846,13 @@
    Gl. Kongevej 37, 4.tv.
    DK-1610 Kobenhavn V
    Denmark
-   e-mail [166]gbs@image.dk
+   e-mail [175]gbs@image.dk
 
 1. Running the assembler
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [167](top) [168](keywords) [169](index)
+   [176](top) [177](keywords) [178](index)
 
   6.1. Command line
 
@@ -845,7 +877,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [170](top) [171](keywords) [172](index)
+   [179](top) [180](keywords) [181](index)
 
   6.2. Command line options
 
@@ -864,7 +896,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [173](top) [174](keywords) [175](index)
+   [182](top) [183](keywords) [184](index)
 
     6.2.1. -e<ext> : Use alternative source file extension
 
@@ -877,7 +909,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [176](top) [177](keywords) [178](index)
+   [185](top) [186](keywords) [187](index)
 
     6.2.2. -M<ext> : Use alternative object file extension
 
@@ -890,76 +922,12 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [179](top) [180](keywords) [181](index)
+   [188](top) [189](keywords) [190](index)
 
-    6.2.3. -l : Create listing file output
-
-   The information in listing files is a combination of the original source
-   file and additional information of the generated machine code. Further,
-   the listing file is page formatted with a header specifying the date and
-   time of the compilation, the filename of the listing and a page number.
-
-   For each line of the source file the following information is written:
-
- <source file line number> <assembler address>
- <machine code hex dump> <source line>
-
-   The machine code and assembler address output are written in hexadecimal
-   notation. If the machine code uses more the 4 bytes, the source file line
-   is written on the following line. This usually happens when you have
-   defined a string constant or a relatively large amount of constant
-   definitions.
-
-   The assembler address is always beginning at zero, i.e. the beginning of
-   the current modules' machine code. In a relocated context of the machine
-   code, where all code is positioned at fixed addresses, you will have the
-   opportunity to view the addresses of your code relative to the start of
-   individual modules using the assembler output addresses. Further, the last
-   assembler address can be interpreted as the size of the modules' generated
-   machine code.
-
-   Listing files also serves the purpose of a hard copy on paper of your
-   programs, and are useful in a debugging phase (identifying opcodes versus
-   the mnemonic representation of instructions).
-
-   The creation of listing files imposes much more processing work of the
-   assembler. If you want to compile your code as quickly as possible then
-   don't create listing files. Listing files obtain their file name from the
-   base of the source filename, and is added with the 'lst' extension.
-
-   ══════════════════════════════════════════════════════════════════════════
-
-   [182](top) [183](keywords) [184](index)
-
-    6.2.4. -s : Create symbol table
-
-   Symbol tables contains the integer form of symbolical names and constants
-   that has been parsed and generated during a compilation of a source file.
-   The structure of the symbol table is divided into two columns. The first
-   contains the parsed symbol names, converted to uppercase. The second
-   column contains the generated value of the symbol name.
-
-   All symbol values are displayed in signed 32-bit hexadecimal notation.
-
-   The two columns are separated by tabulators which represents a default
-   value of 8 spaces per tabulator. The width of the symbol name column is
-   defined as the tabulator distance multiplied by 4. The default width of
-   the name column is 4 * 8 = 32 spaces.
-
-   The symbol table will be written to the end of the appropriate listing
-   file, if listing file and symbol table output is enabled. If no listing
-   file output is enabled, the symbol table will be written to a separate
-   file, identified with the base name of the source file module and given
-   the 'sym' extension.
-
-   ══════════════════════════════════════════════════════════════════════════
-
-   [185](top) [186](keywords) [187](index)
-
-    6.2.5. -d : Assemble only updated files
+    6.2.3. -d : Assemble only updated files
 
    Assemblers usually force compiles all specified files. This is also
-   possible (as default) for the [188]Z80 Module Assembler. In large
+   possible (as default) for the [191]Z80 Module Assembler. In large
    application project with 15 modules or more it can be quite frustrating to
    compile all every time. The solution is to only assemble updated files and
    leave the rest (since they have been compiled to the programmers
@@ -967,42 +935,42 @@
 
    But in a long term view it is better to just compile a project without
    thinking of which files need to be compiled or not. That can be done with
-   the [189]Z80 Module Assembler. By simply specifying the [190]-d parameter
+   the [192]Z80 Module Assembler. By simply specifying the [193]-d parameter
    at the command line, only updated source files are assembled into object
    files - the rest are ignored.
 
-   Using the [191]-d option in combination with a project file gives the best
+   Using the [194]-d option in combination with a project file gives the best
    project setup for a large compilation; compile your projects without
    worrying about which module is updated or not.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [192](top) [193](keywords) [194](index)
+   [195](top) [196](keywords) [197](index)
 
-    6.2.6. -b : Link/relocate object files
+    6.2.4. -b : Link/relocate object files
 
-   The [195]-b option must be used if you want to create an executable
-   [196]Z80 machine code output file of your previously created object files.
-   You may also use the [197]-a option which is identical in functionality
-   but also includes the [198]-d option. In other words assemble only updated
+   The [198]-b option must be used if you want to create an executable
+   [199]Z80 machine code output file of your previously created object files.
+   You may also use the [200]-a option which is identical in functionality
+   but also includes the [201]-d option. In other words assemble only updated
    source modules and perform linking/relocation of the code afterwards.
 
      • Pass 1:
        When the linking process begins with the first object module, it is
-       examined for an [199]ORG address to perform the absolute address
-       relocation of all the object module machine code. The [200]ORG
+       examined for an [202]ORG address to perform the absolute address
+       relocation of all the object module machine code. The [203]ORG
        (loading address for memory) will have to be defined in the first
        source file module. If not, the assembler will prompt you for it on
-       the command line. The [201]ORG address must be typed in hexadecimal
-       notation. If you never use the [202]ORG directive in your source
+       the command line. The [204]ORG address must be typed in hexadecimal
+       notation. If you never use the [205]ORG directive in your source
        files, you can always explicitly define one at the command line with
-       the [203]-r option.
+       the [206]-r option.
 
        The next step in the linking process is loading of the machine code
        from each object module, in the order of the specified modules. Pass 1
        is completed with loading all local and global symbol definitions of
        the object modules. All relocatable address symbols are assigned the
-       correct absolute memory location (based on [204]ORG ).
+       correct absolute memory location (based on [207]ORG ).
 
      • Pass 2:
        The address patching process. All expressions are now read and
@@ -1015,69 +983,69 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [205](top) [206](keywords) [207](index)
+   [208](top) [209](keywords) [210](index)
 
-    6.2.7. -a : Combine -d and -b
+    6.2.5. -a : Combine -d and -b
 
-   Same as providing both [208]-b (link/relocate object files) and [209]-d
+   Same as providing both [211]-b (link/relocate object files) and [212]-d
    (assemble only updated files).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [210](top) [211](keywords) [212](index)
+   [213](top) [214](keywords) [215](index)
 
-    6.2.8. -o<binary-filename> : Binary filename
+    6.2.6. -o<binary-filename> : Binary filename
 
    Define another filename for the compiled binary output than the default
    source filename of the project, appended with the ".bin" extension.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [213](top) [214](keywords) [215](index)
+   [216](top) [217](keywords) [218](index)
 
-    6.2.9. -r<hex-address> : Re-define the ORG relocation address
+    6.2.7. -r<hex-address> : Re-define the ORG relocation address
 
-   During the linking phase of the assembler the [216]ORG address that
+   During the linking phase of the assembler the [219]ORG address that
    defines the position in memory where the code is to be loaded and
    executed, is fetched from the first object module file. You can override
-   this by specifying an explicit address origin by entering the [217]-r
+   this by specifying an explicit address origin by entering the [220]-r
    option followed by an address in hexadecimal notation at the command line,
    e.g.:
 
- z80asm  [-b](#6_2_6)  -r4000 file.asm
+ z80asm  [-b](#6_2_4)  -r4000 file.asm
 
    which specifies that your code is to be relocated for address 4000h
    (16384) onward.
 
-   Using the [218]-r option supersedes a defined [219]ORG in the object file.
-   You could for example have defined the [220]ORG to 8000h (32768) in your
+   Using the [221]-r option supersedes a defined [222]ORG in the object file.
+   You could for example have defined the [223]ORG to 8000h (32768) in your
    first source file, then compiled the project. This would have generated
    machine code for memory location 8000h (segment 2 in the Cambridge
-   [221]Z88 ). Since the object files are generated it is easy to link them
-   again with another [222]ORG address by just using the [223]-r option. The
+   [224]Z88 ). Since the object files are generated it is easy to link them
+   again with another [225]ORG address by just using the [226]-r option. The
    linking process does not alter the information in object files - they are
    only read. The same project could then easily be re-linked to another
    address, e.g.
 
- z80asm  [-b](#6_2_6)  -r2000 file.asm
+ z80asm  [-b](#6_2_4)  -r2000 file.asm
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [224](top) [225](keywords) [226](index)
+   [227](top) [228](keywords) [229](index)
 
-    6.2.10. -R : Generate address independent code
+    6.2.8. -R : Generate address independent code
 
-   The [227]Z80 processor instruction set allows only relative jumps in
+   The [230]Z80 processor instruction set allows only relative jumps in
    maximum +/- 128 bytes using the JR and DJNZ instructions. Further, there
    is no program counter relative call-to-subroutine or jump-to-subroutine
    instruction. If you want a program to be address-independent no absolute
    address references may be used in jump or call instructions. If you want
-   to program [228]Z80 address independent code you can only write small
+   to program [231]Z80 address independent code you can only write small
    routines using the JR and DJNZ instructions. With a restricted interval of
    128 bytes you can imagine the size of those routines! Programming of large
    applications using address Independence is simply impossible on the
-   [229]Z80 processor with the basic instruction set available. You can only
-   define a fixed address origin ( [230]ORG ) for your machine code to be
+   [232]Z80 processor with the basic instruction set available. You can only
+   define a fixed address origin ( [233]ORG ) for your machine code to be
    loaded and executed from. However, there is one solution: before the code
    is executed an automatic address-relocation is performed to the current
    position in memory. This is done only once. The penalty is that the
@@ -1089,15 +1057,15 @@
    extra size generated with a relocation table. We assume an extra size of 3
    - 3.5K for a typical 16K application program.
 
-   You can generate address independent code using the [231]-R option
-   accompanied with the [232]-a or [233]-b option. There is no other
+   You can generate address independent code using the [234]-R option
+   accompanied with the [235]-a or [236]-b option. There is no other
    requirements. The relocatable code may be useful for programmers using the
-   Cambridge [234]Z88 who want to use machine code in the BBC BASIC
+   Cambridge [237]Z88 who want to use machine code in the BBC BASIC
    application environment. This can easily be interfaced with the DIM
    statement to allocate memory for the machine code program, and issue a
-   [235]CALL or USR() to execute the machine code.
+   [238]CALL or USR() to execute the machine code.
 
-   Please note that the linking process with the [236]-R option addresses
+   Please note that the linking process with the [239]-R option addresses
    your code from 0 onward. This is necessary when the runtime relocation is
    performed by the relocator (just before your program is executed). This
    can be examined by loading the address map file into a text editor.
@@ -1107,12 +1075,12 @@
    modified). You may only execute relocatable programs in dynamic memory
    (RAM).
 
-   The relocator is built into the [237]Z80 Module Assembler. The relocation
+   The relocator is built into the [240]Z80 Module Assembler. The relocation
    table is created during the linking phase. When all object modules have
    been linked and the appropriate machine code generated, the process is
    ended with first copying the relocator routine into the executable file,
    then a relocation table and finally the compiled machine code program. Any
-   defined [238]ORG in your code is superseded - this is not necessary in a
+   defined [241]ORG in your code is superseded - this is not necessary in a
    relocatable program!
 
    Two rules must be obeyed when using relocatable programs:
@@ -1145,35 +1113,13 @@
    session, you can find your specific label address by adding the constant
    from the map file to the memory origin of your code. The inbuilt relocator
    routine may be examined by extracting the "relocate.asm" file from the "
-   [239]Z80 src.zip" compressed file resource.
+   [242]Z80 src.zip" compressed file resource.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [240](top) [241](keywords) [242](index)
+   [243](top) [244](keywords) [245](index)
 
-    6.2.11. -g : Create global address definition file
-
-   With this option it is possible to generate a [243]DEFC directive
-   definition file of all globally declared identifiers in a file project
-   (declared with the [244]XDEF directive). These global definitions are
-   calculated from the specified [245]ORG address (from first module or the
-   [246]-r option). This feature is very useful, if you want to get access to
-   routines from a separate compilation. If the two code compilation were
-   placed in different banks of the [247]Z88 , it would be possible to know
-   the correct address of a routine just by using the [248]DEFC address
-   definition previously compiled. We used this facility to access routines
-   in the two 8K halves of the segment 0 debugged version. This debugger
-   actually swaps one of the two 8K blocks in and out of segment 0 when
-   needed to call an 'external' routine. Applications on the [249]Z88 may
-   only access the upper 8K of segment 0. A 16K application therefore needs
-   to be split in 8K halves and paged in when needed to be run in this area.
-   Tuff!
-
-   ══════════════════════════════════════════════════════════════════════════
-
-   [250](top) [251](keywords) [252](index)
-
-    6.2.12. @<project-file> :1.3.16. Using a project file
+    6.2.9. @<project-file> :1.3.16. Using a project file
 
    Project files defines all file names of a project. The file name standard
    stored in a project file obeys the operating system notation.
@@ -1184,14 +1130,14 @@
    modules or use a project file. The project file specification is of course
    much faster. An example:
 
- z80asm  [-a](#6_2_7)  main pass1 pass2 link asmdrctv z80instr
+ z80asm  [-a](#6_2_5)  main pass1 pass2 link asmdrctv z80instr
 
    This command line will compile all specified module file names into a
    single executable file called "main.bin". However if a project file
    'assembler' were created already containing the same file names, the
    command line would have been:
 
- z80asm  [-a](#6_2_7)  @assembler
+ z80asm  [-a](#6_2_5)  @assembler
 
    - much easier!
 
@@ -1209,9 +1155,9 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [253](top) [254](keywords) [255](index)
+   [246](top) [247](keywords) [248](index)
 
-    6.2.13. -i<library-file> : Include library modules during linking/relocation
+    6.2.10. -i<library-file> : Include library modules during linking/relocation
 
    This option allows compilation time linking of external machine code,
    better known as library routines. Much, much programming time can be saved
@@ -1221,26 +1167,26 @@
    each library reference in an application module, all library files will be
    scanned for that particular module. The filename (inclusive directory
    path) of the library may be specified explicitly on the command line
-   immediately after the [256]-i identifier.
+   immediately after the [249]-i identifier.
 
    Library files are recognised by the ".lib" extension.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [257](top) [258](keywords) [259](index)
+   [250](top) [251](keywords) [252](index)
 
-    6.2.14. -x : Create a library
+    6.2.11. -x : Create a library
 
    A library file is composed of object files surrounded by a few file
    structures. The library file format (and object file format) may be found
    at the end of this documentation. A library is simply a set of independent
    routines (that may refer to each other) put together in a sequential form.
-   You may only specify a single [260]-x option on the command line. A
+   You may only specify a single [253]-x option on the command line. A
    filename may be explicitly defined (including device and path information)
    to determine the storage location of the library. A library routine must
-   be defined using a simple [261]XLIB directive with an identical address
+   be defined using a simple [254]XLIB directive with an identical address
    name label definition. Please refer to further information later in this
-   documentation. The " [262]Z80 lib.zip" contains the standard library with
+   documentation. The " [255]Z80 lib.zip" contains the standard library with
    all corresponding source files. Have a look at them - they clearly
    displays how to compose a library routine.
 
@@ -1252,12 +1198,12 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [263](top) [264](keywords) [265](index)
+   [256](top) [257](keywords) [258](index)
 
-    6.2.15. -t<number> : Define tabulator distance for text output files
+    6.2.12. -t<number> : Define tabulator distance for text output files
 
-   To save storage space the [266]Z80 cross assembler output files (listing,
-   map, symbol and [267]XDEF definition files) uses a tabulator control
+   To save storage space the [259]Z80 cross assembler output files (listing,
+   map, symbol and [260]XDEF definition files) uses a tabulator control
    character instead of spaces. The benefit is about 30% compressed files.
 
    The tabulator distance defines the distance of space between each
@@ -1270,82 +1216,82 @@
    default size of 4*8 = 32 'spaces'. This is usually more than enough for
    most name definitions parsed from source files.
 
-   You may redefine the tabulator distance by using the [268]-t option
+   You may redefine the tabulator distance by using the [261]-t option
    immediately followed by a decimal number, e.g. -t4 for defining a
    tabulator distance of 4. The width of the first column will then be 4*4 =
    16 'spaces'.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [269](top) [270](keywords) [271](index)
+   [262](top) [263](keywords) [264](index)
 
-    6.2.16. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
+    6.2.13. -RCMX000 : Support the RCM2000/RCM3000 series of Z80-like CPU's
 
    This option disables assembly opcodes not available in the RCM2000/RCM3000
-   series of [272]Z80 -like CPU's.
+   series of [265]Z80 -like CPU's.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [273](top) [274](keywords) [275](index)
+   [266](top) [267](keywords) [268](index)
 
-    6.2.17. -plus : Support for the Ti83Plus
+    6.2.14. -plus : Support for the Ti83Plus
 
-   Defines how the [276]INVOKE command is coded: either as a RST 28H
-   instruction (option on) or as a regular [277]CALL instruction (option
+   Defines how the [269]INVOKE command is coded: either as a RST 28H
+   instruction (option on) or as a regular [270]CALL instruction (option
    off).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [278](top) [279](keywords) [280](index)
+   [271](top) [272](keywords) [273](index)
 
-    6.2.18. -C : Enable LINE directive
+    6.2.15. -C : Enable LINE directive
 
-   Enables the [281]LINE directive to synchronize error message line numbers
+   Enables the [274]LINE directive to synchronize error message line numbers
    with the line numbers from the source file.
 
 2. An overview of assembler features and related files
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [282](top) [283](keywords) [284](index)
+   [275](top) [276](keywords) [277](index)
 
   6.3. The Z88 operating system definition files
 
    You will find header files containing all operating system definitions as
-   defined in the [285]Z88 Developers' Notes V3 in the "OZdefc.zip" file.
+   defined in the [278]Z88 Developers' Notes V3 in the "OZdefc.zip" file.
    This makes the operating system interface programming a lot easier.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [286](top) [287](keywords) [288](index)
+   [279](top) [280](keywords) [281](index)
 
   6.4. The supplied standard library Z80 source files
 
    We have supplied a standard library with useful routines for both
    beginners and professional machine code programmers. All source files are
    supplied for having the opportunity to study and improve the routines.
-   However some routines are programmed especially for the [289]Z88 operating
-   system and may not be of use for other [290]Z80 based computers unless
+   However some routines are programmed especially for the [282]Z88 operating
+   system and may not be of use for other [283]Z80 based computers unless
    thoroughly rewritten. The standard library source files may be found in
-   the " [291]Z80 lib.zip" file.
+   the " [284]Z80 lib.zip" file.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [292](top) [293](keywords) [294](index)
+   [285](top) [286](keywords) [287](index)
 
   6.5. Z88 module assembler application source
 
-   We have supplied the complete source of the [295]Z88 module assembler
+   We have supplied the complete source of the [288]Z88 module assembler
    application. This allows you to evaluate many aspects of programming
-   applications on the [296]Z88 . Further, most features of the assembler are
+   applications on the [289]Z88 . Further, most features of the assembler are
    mirrored in these source files; using directives, the free format of
-   [297]Z80 mnemonics, library routine access, modular file design, labels,
+   [290]Z80 mnemonics, library routine access, modular file design, labels,
    using expressions, comments, data structure manipulation and good
    programming design.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [298](top) [299](keywords) [300](index)
+   [291](top) [292](keywords) [293](index)
 
   6.6. File based compilation
 
@@ -1355,7 +1301,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [301](top) [302](keywords) [303](index)
+   [294](top) [295](keywords) [296](index)
 
   6.7. Modular source file design
 
@@ -1368,26 +1314,26 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [304](top) [305](keywords) [306](index)
+   [297](top) [298](keywords) [299](index)
 
   6.8. Scope of symbols in source modules
 
-   All source modules may refer to each others symbols by using [307]EXTERN
+   All source modules may refer to each others symbols by using [300]EXTERN
    directives. This means that you refer to external information outside the
    current source module. The opposite of an external module reference is to
-   declare symbols globally available using a [308]PUBLIC directive, i.e.
+   declare symbols globally available using a [301]PUBLIC directive, i.e.
    making symbols available to other source modules. Finally it is possible
    to have local symbols that are not known to other source modules than the
-   current. A label or constant that has not been declared with [309]EXTERN ,
-   [310]PUBLIC or [311]GLOBAL is local to the module.
+   current. A label or constant that has not been declared with [302]EXTERN ,
+   [303]PUBLIC or [304]GLOBAL is local to the module.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [312](top) [313](keywords) [314](index)
+   [305](top) [306](keywords) [307](index)
 
   6.9. Using arithmetic and relational expressions
 
-   All directives that require a numerical parameter or [315]Z80 mnemonics
+   All directives that require a numerical parameter or [308]Z80 mnemonics
    that use an integer argument may use expressions. Expressions may be
    formed by all standard arithmetic operators and relational operators. Even
    binary operators are implemented. All expressions may contain external
@@ -1396,7 +1342,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [316](top) [317](keywords) [318](index)
+   [309](top) [310](keywords) [311](index)
 
   6.10. Free format of assembler source files
 
@@ -1405,7 +1351,7 @@
    typed in mixed case (the assembler converts all text input to uppercase).
    Tabulators may be used freely (instead of spaces which also saves source
    file space) to suit the programmers own habits of structured text layouts.
-   However, one rule must be obeyed: syntax of [319]Z80 assembler mnemonics
+   However, one rule must be obeyed: syntax of [312]Z80 assembler mnemonics
    and most directives must be completed on individual lines. Text files
    using different OS dependant line feed standard are parsed properly; line
    feed types CR, LF or CRLF are automatically recognized. So you can easily
@@ -1413,7 +1359,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [320](top) [321](keywords) [322](index)
+   [313](top) [314](keywords) [315](index)
 
   6.11. Specification of filenames
 
@@ -1424,7 +1370,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [323](top) [324](keywords) [325](index)
+   [316](top) [317](keywords) [318](index)
 
   6.12. Including other source files into the current source file
 
@@ -1436,7 +1382,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [326](top) [327](keywords) [328](index)
+   [319](top) [320](keywords) [321](index)
 
   6.13. Conditional assembly in source file modules
 
@@ -1446,30 +1392,30 @@
    application. This may also be useful if the assembler source is ported to
    several platforms, where inclusion of other source files (such as header
    files) are using different filename standards. The conditional directives
-   [329]IF , [330]IFDEF , [331]IFNDEF , ELSE, and ENDIF may be nested into
+   [322]IF , [323]IFDEF , [324]IFNDEF , ELSE, and ENDIF may be nested into
    infinite levels.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [332](top) [333](keywords) [334](index)
+   [325](top) [326](keywords) [327](index)
 
   6.14. Undocumented Z80 instruction code generation
 
    We have included the syntax parsing and code generation of the
-   undocumented [335]Z80 instructions for the sake of completeness. However,
+   undocumented [328]Z80 instructions for the sake of completeness. However,
    IM 2 interrupts must be disabled before they are executed (an interrupt
    may otherwise occur in the middle of the instruction execution). Many
    games on the ZX Spectrum have used them to protect the code from prying
-   eyes. The [336]Z88 native debugger code uses some of the undocumented
+   eyes. The [329]Z88 native debugger code uses some of the undocumented
    instructions for fast access to register variables.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [337](top) [338](keywords) [339](index)
+   [330](top) [331](keywords) [332](index)
 
   6.15. Object file generation
 
-   The [340]Z80 Module Assembler generates object files that contains the
+   The [333]Z80 Module Assembler generates object files that contains the
    compressed version of an assembled source module. The information herein
    contains declared symbols (local, global and external), expressions,
    address origin, module name and machine code. The object file modules are
@@ -1477,18 +1423,18 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [341](top) [342](keywords) [343](index)
+   [334](top) [335](keywords) [336](index)
 
   6.16. Transfer of object files across platforms
 
-   The [344]Z80 Module Assembler is already implemented on several different
+   The [337]Z80 Module Assembler is already implemented on several different
    computer platforms. You may freely transfer the object files and use them
    as a part of another cross-compilation. There is no system-dependent
    information in the object files.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [345](top) [346](keywords) [347](index)
+   [338](top) [339](keywords) [340](index)
 
   6.17. Date stamp controlled assembly
 
@@ -1500,19 +1446,19 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [348](top) [349](keywords) [350](index)
+   [341](top) [342](keywords) [343](index)
 
   6.18. Listing files
 
    The assembler may generate listing files that contain a copy of the source
-   file with additional code generation information of [351]Z80 mnemonics
+   file with additional code generation information of [344]Z80 mnemonics
    dumped in hexadecimal format. The listing files are formatted with page
    headers containing time of assembly and the filename. Line numbers are
    included which corresponds to the source file lines.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [352](top) [353](keywords) [354](index)
+   [345](top) [346](keywords) [347](index)
 
   6.19. Symbol information
 
@@ -1527,21 +1473,21 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [355](top) [356](keywords) [357](index)
+   [348](top) [349](keywords) [350](index)
 
   6.20. Linking and relocation of object modules into executable Z80 machine
   code
 
-   To obtain an executable [358]Z80 machine code file it is necessary to link
+   To obtain an executable [351]Z80 machine code file it is necessary to link
    all assembled object modules and relocate them at a defined address, where
    the code is to be executed at in the computers' memory. The linking &
    relocation is performed automatically after completed assembly of all
-   specified source file modules. The [359]ORG relocation address is
+   specified source file modules. The [352]ORG relocation address is
    specified in the first object module.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [360](top) [361](keywords) [362](index)
+   [353](top) [354](keywords) [355](index)
 
   6.21. Address map files
 
@@ -1556,7 +1502,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [363](top) [364](keywords) [365](index)
+   [356](top) [357](keywords) [358](index)
 
   6.22. Symbol address definition files
 
@@ -1570,7 +1516,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [366](top) [367](keywords) [368](index)
+   [359](top) [360](keywords) [361](index)
 
   6.23. Error files
 
@@ -1582,7 +1528,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [369](top) [370](keywords) [371](index)
+   [362](top) [363](keywords) [364](index)
 
   6.24. Creating and using object file libraries for standard routines
 
@@ -1596,24 +1542,24 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [372](top) [373](keywords) [374](index)
+   [365](top) [366](keywords) [367](index)
 
 7. Z80 module assembler file types
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [375](top) [376](keywords) [377](index)
+   [368](top) [369](keywords) [370](index)
 
   7.1. The assembler file types and their extension names
 
-   The [378]Z80 Module Assembler uses several different filename extensions
+   The [371]Z80 Module Assembler uses several different filename extensions
    to distinguish the type of files processed. The base name of the source
    file is used to create the various assembler output file types. The
    following chapters explains the available files.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [379](top) [380](keywords) [381](index)
+   [372](top) [373](keywords) [374](index)
 
   7.2. The file name extension identifier
 
@@ -1627,13 +1573,13 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [382](top) [383](keywords) [384](index)
+   [375](top) [376](keywords) [377](index)
 
   7.3. File types
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [385](top) [386](keywords) [387](index)
+   [378](top) [379](keywords) [380](index)
 
     7.3.1. The source file extension, asm
 
@@ -1642,11 +1588,11 @@
    the assembler will investigate automatically what is needed to read the
    source files.
 
-   You may override the default extension with the [388]-e option.
+   You may override the default extension with the [381]-e option.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [389](top) [390](keywords) [391](index)
+   [382](top) [383](keywords) [384](index)
 
     7.3.2. The object file extension, obj
 
@@ -1656,11 +1602,11 @@
    machine code, an address origin of the machine code, symbol information
    and expressions.
 
-   You may override the default extension with the [392]-M option.
+   You may override the default extension with the [385]-M option.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [393](top) [394](keywords) [395](index)
+   [386](top) [387](keywords) [388](index)
 
     7.3.3. The error file extension, err
 
@@ -1675,20 +1621,20 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [396](top) [397](keywords) [398](index)
+   [389](top) [390](keywords) [391](index)
 
     7.3.4. The listing file extension, lst
 
    The extension for listing files is 'lst'. The base file name is taken from
    the corresponding source file name. This file is generated by the
    assembler and contains a hexadecimal output of the generated machine code
-   that corresponds to the [399]Z80 mnemonic instruction or directive,
+   that corresponds to the [392]Z80 mnemonic instruction or directive,
    followed by a copy of the original source line. If selected, the symbol
    table is dumped at the end of the listing file.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [400](top) [401](keywords) [402](index)
+   [393](top) [394](keywords) [395](index)
 
     7.3.5. The symbol file extension, sym
 
@@ -1700,23 +1646,23 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [403](top) [404](keywords) [405](index)
+   [396](top) [397](keywords) [398](index)
 
     7.3.6. The executable file extension, bin
 
-   The extension for executable [406]Z80 machine code files is 'bin'. The
+   The extension for executable [399]Z80 machine code files is 'bin'. The
    base file name is taken from the first specified source file name at the
    command line (or project file). This is the linked and relocated output of
-   object files and may be executed by the [407]Z80 processor. You may
-   override this default behaviour by using the [408]-o option and specify
+   object files and may be executed by the [400]Z80 processor. You may
+   override this default behaviour by using the [401]-o option and specify
    your own output filename (and extension).
 
-   You may override this default behavior by using the [409]-o option and
+   You may override this default behavior by using the [402]-o option and
    specify your own output filename and extension.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [410](top) [411](keywords) [412](index)
+   [403](top) [404](keywords) [405](index)
 
     7.3.7. The address map file extension, map
 
@@ -1728,7 +1674,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [413](top) [414](keywords) [415](index)
+   [406](top) [407](keywords) [408](index)
 
     7.3.8. The definition file extension, def
 
@@ -1742,43 +1688,43 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [416](top) [417](keywords) [418](index)
+   [409](top) [410](keywords) [411](index)
 
     7.3.9. The library file extension, lib
 
    Library files are identified with the 'lib' extension. Library files may
-   be created using the [419]-x option. Library may be included into
-   application code during linking of object modules with the [420]-i option.
+   be created using the [412]-x option. Library may be included into
+   application code during linking of object modules with the [413]-i option.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [421](top) [422](keywords) [423](index)
+   [414](top) [415](keywords) [416](index)
 
 8. Compiling files
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [424](top) [425](keywords) [426](index)
+   [417](top) [418](keywords) [419](index)
 
   8.1. The assembler compiling process
 
-   The [427]Z80 Module Assembler uses a two stage compilation process; stage
+   The [420]Z80 Module Assembler uses a two stage compilation process; stage
    1 parses source files and generates object files. Stage 2 reads the object
    files and links the object file code, completes with address patching and
    finishes with storing the executable code.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [428](top) [429](keywords) [430](index)
+   [421](top) [422](keywords) [423](index)
 
     8.1.1. Stage 1, parsing and code generation of all source files, object file
     generation
 
-   A source file is being parsed for [431]Z80 mnemonics and directives. An
+   A source file is being parsed for [424]Z80 mnemonics and directives. An
    object file is created to hold information of module name, local, global
    and external symbol identifiers, expressions and the intermediate code
    generation (but address and other constant information). During pass 1 all
-   [432]Z80 mnemonics are parsed and code is generated appropriately. All
+   [425]Z80 mnemonics are parsed and code is generated appropriately. All
    expressions are evaluated; expressions that contain relocatable address
    symbols or external symbol are automatically stored into the object file.
    Expressions that didn't evaluate are preserved for pass 2. When a source
@@ -1797,13 +1743,13 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [433](top) [434](keywords) [435](index)
+   [426](top) [427](keywords) [428](index)
 
     8.1.2. Stage 2, linking object files and library modules, producing
     executable code
 
    Pass 1 of the linking loads information from each object file in the
-   project; the [436]ORG address is fetched, identifiers (resolving scope,
+   project; the [429]ORG address is fetched, identifiers (resolving scope,
    and absolute values) loaded, and machine code linked. During this pass all
    external library modules are fetched and linked with the object modules
    (if a library is specified from the command line). When all modules have
@@ -1817,7 +1763,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [437](top) [438](keywords) [439](index)
+   [430](top) [431](keywords) [432](index)
 
   8.2. File names
 
@@ -1827,11 +1773,11 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [440](top) [441](keywords) [442](index)
+   [433](top) [434](keywords) [435](index)
 
   8.3. Portability of assembler file names
 
-   If you are going to port your [443]Z80 Module Assembler files across
+   If you are going to port your [436]Z80 Module Assembler files across
    several platforms a few hints may be worth considering:
 
    Avoid special symbols in file names like '_', '#' and '.' . They may have
@@ -1845,7 +1791,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [444](top) [445](keywords) [446](index)
+   [437](top) [438](keywords) [439](index)
 
   8.4. Source file structure
 
@@ -1857,11 +1803,11 @@
 
      • <LF> (used by QDOS/SMSQ/UNIX/AMIGA);
      • <CR><LF> (used by MSDOS);
-     • <CR> (used by [447]Z88 /MacIntosh).
+     • <CR> (used by [440]Z88 /MacIntosh).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [448](top) [449](keywords) [450](index)
+   [441](top) [442](keywords) [443](index)
 
   8.5. Using local, global and external symbols
 
@@ -1872,16 +1818,16 @@
    know where the routine is to be called by linking the modules with a few
    directives.
 
-   In the [451]Z80 Module Assembler you only need two directives to
-   accomplish just that: the [452]XREF and [453]XDEF directives.
+   In the [444]Z80 Module Assembler you only need two directives to
+   accomplish just that: the [445]XREF and [446]XDEF directives.
 
-   [454]XREF declares a symbol to be external to the current source file
+   [447]XREF declares a symbol to be external to the current source file
    module. This tells the assembler that all expressions using that symbol is
    not to be evaluated until the compiled object modules are to linked and
    relocated together. An expression that contains this symbol is simply
    stored into the object file.
 
-   [455]XDEF declares a symbol to be created in this module and made globally
+   [448]XDEF declares a symbol to be created in this module and made globally
    available to other modules during the linking/relocation phase. All
    expressions that contain a globally declared symbol is automatically
    stored into the object file.
@@ -1891,7 +1837,7 @@
    then only available to the current module during linking/relocation.
 
    If you want to access (external) library modules from a library, use the
-   [456]LIB directive followed by the name of the routine. Several routine
+   [449]LIB directive followed by the name of the routine. Several routine
    names may be specified separated by a comma.
 
    During the linking process all external and corresponding global symbols
@@ -1901,46 +1847,46 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [457](top) [458](keywords) [459](index)
+   [450](top) [451](keywords) [452](index)
 
   8.6. Defining symbol names
 
    Good programming involves a structured approach to mnemonic identification
    of names in subroutines, variables, data structures and other constants.
-   The [460]Z80 Module Assembler gives you several possibilities. The easiest
-   and frequently used one is [461]DEFC (Define Constant). We have supplied a
+   The [453]Z80 Module Assembler gives you several possibilities. The easiest
+   and frequently used one is [454]DEFC (Define Constant). We have supplied a
    complete set of header files (the "OZdefc.zip" file) containing the
-   [462]Z88 operating system manifests as defined in the Developers' Notes V3
-   (the "devnotes.zip" file) which just contains [463]DEFC directives.
+   [455]Z88 operating system manifests as defined in the Developers' Notes V3
+   (the "devnotes.zip" file) which just contains [456]DEFC directives.
 
-   Each [464]DEFC directive is followed by an identifier name, followed by a
+   Each [457]DEFC directive is followed by an identifier name, followed by a
    = symbol and then an evaluable constant expression (usually just a
    constant). Constant definitions are usually operating system manifest or
    other frequently used items. They are put into separate source files and
-   later inserted into main source files using the [465]INCLUDE directive.
+   later inserted into main source files using the [458]INCLUDE directive.
 
-   Though [466]DEFC resolves most needs, it may be necessary to define
+   Though [459]DEFC resolves most needs, it may be necessary to define
    variable areas or templates containing names with an appropriate size tag
-   (byte, word or double word). This is possible using the [467]DEFVARS
+   (byte, word or double word). This is possible using the [460]DEFVARS
    directive. Here you may specify as many names as needed in the group.
    Then, it is easy to add, rearrange or delete any of the variable names -
    only a few modifications and then just re-compiling the necessary source
-   files that use the templates. This would be a nightmare with [468]DEFC ,
+   files that use the templates. This would be a nightmare with [461]DEFC ,
    since you have to keep track of the previous and next name in the group in
    addition to count the size of all names. All this is managed by
-   [469]DEFVARS automatically. Have a look at the syntax in the Directive
+   [462]DEFVARS automatically. Have a look at the syntax in the Directive
    Reference section.
 
-   With advanced [470]Z80 programming you cannot avoid dynamic data
+   With advanced [463]Z80 programming you cannot avoid dynamic data
    structures like linked lists or binary trees. The fundamentals for this
-   are known as records in PASCAL or structures in C. [471]DEFVARS is well
-   suited for this purpose. Defining each [472]DEFVARS group with 0
+   are known as records in PASCAL or structures in C. [464]DEFVARS is well
+   suited for this purpose. Defining each [465]DEFVARS group with 0
    automatically generates offset variables. The last name then automatically
    defines the size of the data structure. Again, refer to the directive
    reference for a good example.
 
    A third possibility for an easy definition of symbols is to use the
-   [473]DEFGROUP directive. Here you're able to define a set of symbols equal
+   [466]DEFGROUP directive. Here you're able to define a set of symbols equal
    to an enumeration. It follows the same principles as for C's ENUM
    facility. The default starts at 0 and increases by 1. If you choose, a
    specific identifier may be set to a value, which then can set the next
@@ -1950,7 +1896,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [474](top) [475](keywords) [476](index)
+   [467](top) [468](keywords) [469](index)
 
   8.7. Comments in source files
 
@@ -1961,15 +1907,15 @@
    comments in machine code - we especially like to use high level language
    as comments - it avoids unnecessary text and logic is much more clear.
 
-   Comments in [477]Z80 source files are possible using a semicolon. When the
+   Comments in [470]Z80 source files are possible using a semicolon. When the
    assembler meets a semicolon the rest of the current source line is ignored
    until the linefeed. Parsing will then commence from the beginning of the
    line. The semicolon may be placed anywhere in a source line. As stated you
    cannot place mnemonics after the semicolon - they will be ignored. The
-   [478]Z80 parser will in many places accept comments without a semicolon
+   [471]Z80 parser will in many places accept comments without a semicolon
    has been set - but don't rely on it. Better use a semicolon. The context
    is much clearer. The following is an example on how to use comments in
-   [479]Z80 source files:
+   [472]Z80 source files:
 
  ; **********************
  ; main menu
@@ -1980,7 +1926,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [480](top) [481](keywords) [482](index)
+   [473](top) [474](keywords) [475](index)
 
   8.8. Defining symbolic address labels
 
@@ -2004,7 +1950,7 @@
    source file.
 
    If you want to declare an address globally accessible to other modules,
-   then use [483]PUBLIC for the address label definition, otherwise the label
+   then use [476]PUBLIC for the address label definition, otherwise the label
    definition will be interpreted as a local address label.
 
   [PUBLIC](#10_26)  mainmenu
@@ -2012,22 +1958,22 @@
  .mainmenu ; label accessible from other modules with  [EXTERN](#10_12)
 
    You may use before or after the label - z80asm automatically handles the
-   scope resolution as long as you use [484]PUBLIC to define it as globally
+   scope resolution as long as you use [477]PUBLIC to define it as globally
    accessible.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [485](top) [486](keywords) [487](index)
+   [478](top) [479](keywords) [480](index)
 
   8.9. Writing Z80 mnemonic instructions
 
-   All [488]Z80 instructions may be written in mixed case, lower or upper
+   All [481]Z80 instructions may be written in mixed case, lower or upper
    case - you decide! How you separate opcode words, register names and
    operands is your choice. Only a few rules must be obeyed:
 
     1. Each instruction mnemonic must be completed on a single line.
     2. The instruction identifier must be a word, i.e. don't use space
-       between [489]CALL .
+       between [482]CALL .
     3. Register identifiers must be a word, ie. HL not H L.
 
    A few examples which all are legal syntax:
@@ -2038,7 +1984,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [490](top) [491](keywords) [492](index)
+   [483](top) [484](keywords) [485](index)
 
   8.10. Optional Z80 mnemonic instruction syntax
 
@@ -2058,12 +2004,12 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [493](top) [494](keywords) [495](index)
+   [486](top) [487](keywords) [488](index)
 
   8.11. The undocumented Z80 instructions
 
    We have included the parsing and code generation of the undocumented
-   [496]Z80 instructions. They are as follows:
+   [489]Z80 instructions. They are as follows:
 
  LD   r,IXL  ; r = A,B,C,D,E,IXL,IXH
  LD   r,IXH
@@ -2086,19 +2032,19 @@
    Except for the SLL instruction all have bugs related to an interrupt being
    able to occur while the instructions are decoded by the processor. They
    are implemented on the chip, but are reported to be unreliable. We have
-   used some of them in our debugger software for the [497]Z88 . Until now
-   the code has been running successfully on all our [498]Z88 computers.
+   used some of them in our debugger software for the [490]Z88 . Until now
+   the code has been running successfully on all our [491]Z88 computers.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [499](top) [500](keywords) [501](index)
+   [492](top) [493](keywords) [494](index)
 
   8.12. Referencing library routines
 
    When you need to use a library routine in your application code, you need
    to do two things; include a library file at the assembler command line
-   with the [502]-i option and refer to the library routine in your source
-   file using the [503]LIB directive followed by the name of the library
+   with the [495]-i option and refer to the library routine in your source
+   file using the [496]LIB directive followed by the name of the library
    routine, e.g.
 
   [LIB](#10_20)  malloc, free
@@ -2106,7 +2052,7 @@
    which will declare the two names "malloc" and "free" as external
    identifiers to the current source file module. Please note that you can
    declare the names before or after they actually are referred in your
-   program source,. Failing to use the [504]LIB directive will interpret
+   program source,. Failing to use the [497]LIB directive will interpret
    labels as local symbols to that source file module. When the parser meets
    the instruction that uses one of the above names in a parameter, the
    parameter "expression" is automatically saved to the object file for later
@@ -2126,7 +2072,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [505](top) [506](keywords) [507](index)
+   [498](top) [499](keywords) [500](index)
 
   8.13. Creating/updating libraries
 
@@ -2137,14 +2083,14 @@
        your directory that contains all library routines (the easiest method
        since you later can move all files to another directory).
 
-    2. Each library source module uses the [508]XLIB directive to define the
+    2. Each library source module uses the [501]XLIB directive to define the
        name of the routine. The same name must be used for the address label
        definition. If your library uses other library routines then declare
-       them with the [509]LIB directive. Please note that a library routine
-       creates the module name itself (performed by [510]XLIB automatically).
+       them with the [502]LIB directive. Please note that a library routine
+       creates the module name itself (performed by [503]XLIB automatically).
        The module name is used to search for routines in a library.
 
-    3. The command line contains the [511]-x option immediately followed by
+    3. The command line contains the [504]-x option immediately followed by
        your filename. Then you need to specify your project filename preceded
        by '@'.
 
@@ -2161,7 +2107,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [512](top) [513](keywords) [514](index)
+   [505](top) [506](keywords) [507](index)
 
   8.14. Referencing routines in other compiled projects
 
@@ -2169,16 +2115,16 @@
    previously compiled in another project. This implies however a knowledge
    of their absolute addresses during linking. This information is stored in
    the map file, but not accessible in a form suitable to be parsed by the
-   assembler. However, this is possible in using the [515]-g option at the
-   assembler command line. The action performed creates a [516]DEFC list file
+   assembler. However, this is possible in using the [508]-g option at the
+   assembler command line. The action performed creates a [509]DEFC list file
    of address labels that have been declared as globally available (using the
-   [517]XDEF directive). Only compiled source files are included in the list.
-   If you were using the [518]-a option (compile only updated source files)
-   and no files were updated then the [519]-g file would be empty. If you
+   [510]XDEF directive). Only compiled source files are included in the list.
+   If you were using the [511]-a option (compile only updated source files)
+   and no files were updated then the [512]-g file would be empty. If you
    would like a complete list of all global routines then it is needed to
-   compile the whole project (using the [520]-b command line option).
+   compile the whole project (using the [513]-b command line option).
 
-   When the file is generated, it can easily be [521]INCLUDE 'd in another
+   When the file is generated, it can easily be [514]INCLUDE 'd in another
    project where your routines may access the external routines. You might do
    this in two ways:
 
@@ -2191,54 +2137,54 @@
     2. Creating a new source file that is part of your project. This file
        could easily be the first file in your project but could just as well
        be placed anywhere in your project. Declare each external name that is
-       needed somewhere in your project as [522]XDEF , meaning that all names
+       needed somewhere in your project as [515]XDEF , meaning that all names
        to be included are globally accessible from this module. Then specify
-       the [523]INCLUDE of the [524]DEFC list of the other project file. As
+       the [516]INCLUDE of the [517]DEFC list of the other project file. As
        the names get loaded, they become global definitions. All other
        definitions will be ignored and not stored to the object file (they
        are not referred in the source module). All other modules just need to
-       specify the external names as [525]XREF . During linking they all get
+       specify the external names as [518]XREF . During linking they all get
        resolved and your code has access to external routines from a
        previously compiled project.
 
    Whenever the previous project has been re-compiled (and issued with
-   [526]-g option) there is a possibility that routine addresses has changed.
+   [519]-g option) there is a possibility that routine addresses has changed.
    You therefore need to recompile the extra source module in your project to
    get the new identifier values - the rest of your compilation is unaffected
-   (due to the [527]XREF directives). Only the linking process gets the new
+   (due to the [520]XREF directives). Only the linking process gets the new
    proper addresses. In example 1) you had to recompile all source files that
-   would have used an [528]INCLUDE of the [529]DEFC list file. In example 2)
+   would have used an [521]INCLUDE of the [522]DEFC list file. In example 2)
    only one file had to be recompiled.
 
    The principle of external addresses was used to compile the debugger
    version to be resided in segment 0 (into the upper 8K). The actual size of
    the debugger code uses 16K, but was split into two separate halves to fit
    into the upper 8K of segment 0. Each of the 8K code-segments had to get
-   access to the other 8K block. The solution was the [530]-g option and
-   cross referencing using [531]XREF and an additional source module
-   (containing the [532]XDEF declarations) that included the [533]-g list
+   access to the other 8K block. The solution was the [523]-g option and
+   cross referencing using [524]XREF and an additional source module
+   (containing the [525]XDEF declarations) that included the [526]-g list
    file of the other project compilation.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [534](top) [535](keywords) [536](index)
+   [527](top) [528](keywords) [529](index)
 
 9. Using expressions
 
    Expressions are almost unavoidable in source files. They define and
-   explain things much clearer than just using a constant. The [537]Z80
+   explain things much clearer than just using a constant. The [530]Z80
    Module Assembler allows expressions wherever a parameter is needed. This
-   applies to [538]Z80 mnemonic instructions, directives and even in
+   applies to [531]Z80 mnemonic instructions, directives and even in
    character strings. The resulting value from an evaluated expression is
    always an integer. All expressions are calculated internally as 32-bit
    signed integers. However, the parameter type defines the true range of the
    expression. E.g. you cannot store a 32-bit signed integer at an 8-bit LD
    instruction like LD A, <n> . If a parameter is outside an allowed integer
    range an assembly error is reported. Finally, no floating point operations
-   are needed by the assembler. There is no real standard on [539]Z80 based
+   are needed by the assembler. There is no real standard on [532]Z80 based
    computers.
 
-   Whenever an integer is stored in a [540]Z80 file, the standard Zilog
+   Whenever an integer is stored in a [533]Z80 file, the standard Zilog
    notation is used, i.e. storing the integer in low byte, high byte order
    (this also applies to 32-bit integers). This standard is also known as
    little endian notation (also used by INTEL processors).
@@ -2249,7 +2195,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [541](top) [542](keywords) [543](index)
+   [534](top) [535](keywords) [536](index)
 
   9.1. Constant identifiers
 
@@ -2263,7 +2209,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [544](top) [545](keywords) [546](index)
+   [537](top) [538](keywords) [539](index)
 
   9.2. Arithmetic operators
 
@@ -2293,7 +2239,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [547](top) [548](keywords) [549](index)
+   [540](top) [541](keywords) [542](index)
 
   9.3. Relational operators
 
@@ -2301,7 +2247,7 @@
    true or false conditions. The resulting value of a true expression is 1.
    The resulting value of a false expression is 0. These operators are quite
    handy when you need to perform complex logic for conditional assembly in
-   [550]IF -ELSE-ENDIF statements. The following relational operators are
+   [543]IF -ELSE-ENDIF statements. The following relational operators are
    available:
 
  = : equal to
@@ -2322,7 +2268,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [551](top) [552](keywords) [553](index)
+   [544](top) [545](keywords) [546](index)
 
   9.4. The ASMPC standard function
 
@@ -2340,7 +2286,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [554](top) [555](keywords) [556](index)
+   [547](top) [548](keywords) [549](index)
 
   9.5. Symbol identifiers in expressions
 
@@ -2352,22 +2298,22 @@
    in evaluating expressions. The logic is built into the assembler parser.
    If an expression cannot be resolved in pass 1 of source file parsing, it
    will try to re-evaluate the failed expression in pass 2 of the parsing. If
-   it still fails a symbol has not been found ( [557]XREF and [558]LIB
+   it still fails a symbol has not been found ( [550]XREF and [551]LIB
    external symbols are handled during the linking phase).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [559](top) [560](keywords) [561](index)
+   [552](top) [553](keywords) [554](index)
 
 10. Directive reference
 
-   The [562]Z80 Module Assembler directives are used to manipulate the
-   [563]Z80 assembler mnemonics and to generate data structures, variables
+   The [555]Z80 Module Assembler directives are used to manipulate the
+   [556]Z80 assembler mnemonics and to generate data structures, variables
    and constants. You are even permitted to include binary files while code
    generation is performed.
 
    As the name imply they direct the assembler to perform other tasks than
-   just parsing and compiling [564]Z80 instruction mnemonics. All directives
+   just parsing and compiling [557]Z80 instruction mnemonics. All directives
    are treated as mnemonics by the assembler, i.e. it is necessary that they
    appear as the first command identifier on the source line (NOT necessarily
    the first character). Only one directive is allowed at a single source
@@ -2384,23 +2330,23 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [565](top) [566](keywords) [567](index)
+   [558](top) [559](keywords) [560](index)
 
   10.1. BINARY "filename"
 
-   [568]BINARY loads a binary file at the current location. This could for
+   [561]BINARY loads a binary file at the current location. This could for
    example be a static data structure or an executable machine code routine.
    The loaded binary file information is included into the object file code
    section. The assembler PC is updated to the end of the loaded binary code.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [569](top) [570](keywords) [571](index)
+   [562](top) [563](keywords) [564](index)
 
   10.2. CALL_OZ <expression>
 
    The <expression> may be a 16-bit expression and must evaluate to a
-   constant. This is an easy interface call to the [572]Z88 operating system.
+   constant. This is an easy interface call to the [565]Z88 operating system.
    This is an advanced RST 20H instruction which automatically allocates
    space for the size of the specified parameter (either 8-bit or 16-bit).
    Code is internally generated as follows:
@@ -2415,7 +2361,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [573](top) [574](keywords) [575](index)
+   [566](top) [567](keywords) [568](index)
 
   10.3. DEFB <8-bit expr>,{<8-bit expr>} (-128; 255)
 
@@ -2424,7 +2370,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [576](top) [577](keywords) [578](index)
+   [569](top) [570](keywords) [571](index)
 
   10.4. DEFW <16-bit expr>,{<16-bit expr>} (-32768; 65535)
 
@@ -2434,7 +2380,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [579](top) [580](keywords) [581](index)
+   [572](top) [573](keywords) [574](index)
 
   10.5. DEFL <32-bit expr>,{<32-bit expr>} (-2147483647; 4294967295)
 
@@ -2444,21 +2390,21 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [582](top) [583](keywords) [584](index)
+   [575](top) [576](keywords) [577](index)
 
   10.6. DEFC name=<32-bit expression>{, name=<32-bit expression>}
 
    Define a symbol variable, that may either be a constant or an expression
    evaluated at link time. The allowed range is a signed 32-bit integer
-   value. All standard [585]Z88 operating system header files use [586]DEFC
+   value. All standard [578]Z88 operating system header files use [579]DEFC
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [587](top) [588](keywords) [589](index)
+   [580](top) [581](keywords) [582](index)
 
   10.7. DEFM <string expression>|<8-bit expr>,...
 
-   [590]DEFM stores a string constant at the current location. Strings are
+   [583]DEFM stores a string constant at the current location. Strings are
    enclosed in double quotes, e.g. "abcdefgh". Strings may be concatenated
    with byte constants using commas. This is useful if control characters
    need to be a part of the string and cannot be typed from the keyboard.
@@ -2468,17 +2414,17 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [591](top) [592](keywords) [593](index)
+   [584](top) [585](keywords) [586](index)
 
   10.8. DEFGROUP '{' name {',' name ['=' <8-bit expression>]} '}'
 
-   [594]DEFGROUP defines a group of identifier symbols with implicit values.
+   [587]DEFGROUP defines a group of identifier symbols with implicit values.
    This is similar to the enumeration principles used in C and PASCAL. The
    initial symbol value is 0, increased by 1 for each new symbol in the list.
    You may include a <name = expression> which breaks the linear enumeration
-   from that constant. The [595]DEFGROUP directive may be spanned across
-   several lines and MUST be enclosed with { and }. [596]DEFGROUP is just a
-   more easy way than: [597]DEFC name0 = 0, name1 = name0, ...
+   from that constant. The [588]DEFGROUP directive may be spanned across
+   several lines and MUST be enclosed with { and }. [589]DEFGROUP is just a
+   more easy way than: [590]DEFC name0 = 0, name1 = name0, ...
 
    The following example illustrates a useful example of defining symbol
    values:
@@ -2491,7 +2437,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [598](top) [599](keywords) [600](index)
+   [591](top) [592](keywords) [593](index)
 
   10.9. DEFINE name,{name}
 
@@ -2501,22 +2447,22 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [601](top) [602](keywords) [603](index)
+   [594](top) [595](keywords) [596](index)
 
   10.10. DEFS <size>{, <fill-byte>}
 
-   [604]DEFS allocates a storage area of the given size with the given
+   [597]DEFS allocates a storage area of the given size with the given
    fill-byte. The fill-byte defaults to zero if not supplied. Both
    expressions need to be constants.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [605](top) [606](keywords) [607](index)
+   [598](top) [599](keywords) [600](index)
 
   10.11. DEFVARS <16-bit expression> '{' [<name>] [<storage_size>
   <size_multiplier>] '}'
 
-   [608]DEFVARS defines variable address area or offsets. First you define
+   [601]DEFVARS defines variable address area or offsets. First you define
    the origin of a variable area. This may be defined using an evaluable
    16-bit positive expression. Each variable name is followed by a size
    specifier which can be 'ds.b' (byte), 'ds.w' (word), 'ds.p' (3-byte
@@ -2551,11 +2497,11 @@
 
    A special logic is available too which can be used throughout individual
    source files during compilation. If you specify -1 as the starting
-   address, the last offset from the previous [609]DEFVARS which was not
+   address, the last offset from the previous [602]DEFVARS which was not
    specified as 0 will be used.
 
    This enables you to gradually build up a list of identifier name offsets
-   across [610]DEFVARS areas in different source files. The following example
+   across [603]DEFVARS areas in different source files. The following example
    explains everything:
 
  defvars $4000
@@ -2591,43 +2537,43 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [611](top) [612](keywords) [613](index)
+   [604](top) [605](keywords) [606](index)
 
   10.12. EXTERN name {, name}
 
    This declares symbols as external to the current module. Such a symbol
-   must have been defined as [614]PUBLIC in another module for the current
+   must have been defined as [607]PUBLIC in another module for the current
    module to be able to use the symbol (it will be linked during the linking
    phase).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [615](top) [616](keywords) [617](index)
+   [608](top) [609](keywords) [610](index)
 
   10.13. FPP <8-bit expression>
 
-   Interface call to the [618]Z88 operating systems' floating point library.
+   Interface call to the [611]Z88 operating systems' floating point library.
    This is easier than writing:
 
  RST $18
   [DEFB](#10_3)  mnemonic
 
    This is an advanced RST 18H instruction which automatically allocates
-   space for the specified parameter. All [619]Z88 floating point call
+   space for the specified parameter. All [612]Z88 floating point call
    mnemonics are defined in the "fpp.def" file.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [620](top) [621](keywords) [622](index)
+   [613](top) [614](keywords) [615](index)
 
   10.14. GLOBAL name {, name}
 
-   The [623]GLOBAL directive defines a symbol [624]PUBLIC if it has been
-   defined locally or [625]EXTERN otherwise.
+   The [616]GLOBAL directive defines a symbol [617]PUBLIC if it has been
+   defined locally or [618]EXTERN otherwise.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [626](top) [627](keywords) [628](index)
+   [619](top) [620](keywords) [621](index)
 
   10.15. IF <logical expression> ... [ELSE] ... ENDIF
 
@@ -2638,7 +2584,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [629](top) [630](keywords) [631](index)
+   [622](top) [623](keywords) [624](index)
 
   10.16. IFDEF <name> ... [ELSE] ... ENDIF
 
@@ -2649,7 +2595,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [632](top) [633](keywords) [634](index)
+   [625](top) [626](keywords) [627](index)
 
   10.17. IFNDEF <name> ... [ELSE] ... ENDIF
 
@@ -2660,7 +2606,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [635](top) [636](keywords) [637](index)
+   [628](top) [629](keywords) [630](index)
 
   10.18. INCLUDE "filename"
 
@@ -2669,46 +2615,46 @@
    variable definitions that are commonly used by several modules in a
    project. This makes sense since there is no idea in copying the same
    information into several files - it simply uses redundant space of your
-   storage media. This is certainly important on the [638]Z88 which not
+   storage media. This is certainly important on the [631]Z88 which not
    always has huge amounts of installed user/system RAM (usually 128K). The
-   external source file will be included at the position of the [639]INCLUDE
+   external source file will be included at the position of the [632]INCLUDE
    directive.
 
    The format of the filename depends on the operating system platform. As
    with the current source file, you may also insert files in include files.
    There is no limit of how many levels (of files) you specify of include
-   files. Recursive or mutually recursive [640]INCLUDE files (an [641]INCLUDE
+   files. Recursive or mutually recursive [633]INCLUDE files (an [634]INCLUDE
    file calling itself) is not possible - the assembler program will
    immediately return an error message back to you!
 
    Include files are usually put at the start of the source file module but
    may be placed anywhere in the source text. The current source file will be
-   continued after the [642]INCLUDE directive when the included file has been
+   continued after the [635]INCLUDE directive when the included file has been
    parsed to the end of file.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [643](top) [644](keywords) [645](index)
+   [636](top) [637](keywords) [638](index)
 
   10.19. INVOKE <16-bit expression>
 
-   Special [646]CALL instruction for the Ti83 calculator; it is coded as a
-   RST 28H followed by the 16-bit expression, if the [647]-plus option is
-   passed on the command line (for the Ti83Plus), or as a normal [648]CALL
+   Special [639]CALL instruction for the Ti83 calculator; it is coded as a
+   RST 28H followed by the 16-bit expression, if the [640]-plus option is
+   passed on the command line (for the Ti83Plus), or as a normal [641]CALL
    instruction if the option is not passed.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [649](top) [650](keywords) [651](index)
+   [642](top) [643](keywords) [644](index)
 
   10.20. LIB name {,name}
 
-   This directive is obsolete. It has been replaced by the [652]EXTERN
+   This directive is obsolete. It has been replaced by the [645]EXTERN
    directive (See changelog.txt at the root of the z88dk project).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [653](top) [654](keywords) [655](index)
+   [646](top) [647](keywords) [648](index)
 
   10.21. LINE <32-bit expr> [ , "file-name" ]
 
@@ -2718,7 +2664,7 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [656](top) [657](keywords) [658](index)
+   [649](top) [650](keywords) [651](index)
 
   10.22. LSTOFF
 
@@ -2727,17 +2673,17 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [659](top) [660](keywords) [661](index)
+   [652](top) [653](keywords) [654](index)
 
   10.23. LSTON
 
-   Enables listing output (usually from a previous [662]LSTOFF ). Both
-   directives may be useful when information from [663]INCLUDE files is
+   Enables listing output (usually from a previous [655]LSTOFF ). Both
+   directives may be useful when information from [656]INCLUDE files is
    redundant in the listing file, e.g. operating system definitions.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [664](top) [665](keywords) [666](index)
+   [657](top) [658](keywords) [659](index)
 
   10.24. MODULE name
 
@@ -2748,36 +2694,36 @@
    well-defined name for the source file module. The position of the module
    name is of no importance; it may be placed at the end or the start of the
    source file. However, it has more sense to put it at the top. The syntax
-   is simple - specify a legal identifier name after the [667]MODULE
-   directive, e.g. [668]MODULE main_module
+   is simple - specify a legal identifier name after the [660]MODULE
+   directive, e.g. [661]MODULE main_module
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [669](top) [670](keywords) [671](index)
+   [662](top) [663](keywords) [664](index)
 
   10.25. ORG <16-bit expression>
 
    Define address origin of compiled machine code - the position in memory
    where the machine is to be loaded and executed. The expression must be
    evaluable (containing no forward or external references). All address
-   references will be calculated from the defined [672]ORG value. The
-   [673]ORG address will be placed in the current module that is being
+   references will be calculated from the defined [665]ORG value. The
+   [666]ORG address will be placed in the current module that is being
    compiled. However, during linking only the first object module is being
-   read for an [674]ORG address. The [675]ORG is ignored during linking if
-   you have specified an [676]-r option on the command line.
+   read for an [667]ORG address. The [668]ORG is ignored during linking if
+   you have specified an [669]-r option on the command line.
 
    When assembling programs with multiple sections, a section without an
-   [677]ORG will be appended to the end of the previous section. A section
-   with a defined [678]ORG will generate its own binary file, e.g.
+   [670]ORG will be appended to the end of the previous section. A section
+   with a defined [671]ORG will generate its own binary file, e.g.
    file_CODE.asm.
 
-   A section may contain [679]ORG -1 to tell the linker to split the binary
+   A section may contain [672]ORG -1 to tell the linker to split the binary
    file of this section, but continue the addresses sequence from the
    previous section.
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [680](top) [681](keywords) [682](index)
+   [673](top) [674](keywords) [675](index)
 
   10.26. PUBLIC name {, name}
 
@@ -2786,34 +2732,34 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [683](top) [684](keywords) [685](index)
+   [676](top) [677](keywords) [678](index)
 
   10.27. XDEF name {, name}
 
-   This directive is obsolete. It has been replaced by the [686]PUBLIC
+   This directive is obsolete. It has been replaced by the [679]PUBLIC
    directive (See changelog.txt at the root of the z88dk project).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [687](top) [688](keywords) [689](index)
+   [680](top) [681](keywords) [682](index)
 
   10.28. XLIB name
 
-   This directive is obsolete. It has been replaced by the [690]PUBLIC
+   This directive is obsolete. It has been replaced by the [683]PUBLIC
    directive (See changelog.txt at the root of the z88dk project).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [691](top) [692](keywords) [693](index)
+   [684](top) [685](keywords) [686](index)
 
   10.29. XREF name {, name}
 
-   This directive is obsolete. It has been replaced by the [694]EXTERN
+   This directive is obsolete. It has been replaced by the [687]EXTERN
    directive (See changelog.txt at the root of the z88dk project).
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [695](top) [696](keywords) [697](index)
+   [688](top) [689](keywords) [690](index)
 
 11. Run time error messages
 
@@ -2831,21 +2777,21 @@
      • "Syntax error"
        This is a message used by many routines - hence the general but
        descriptive message. You have tried to use illegal registers in
-       [698]Z80 mnemonic instructions, specified an illegal parameter type
-       (string instead of integer), omitted a parameter ( [699]DEFB without
+       [691]Z80 mnemonic instructions, specified an illegal parameter type
+       (string instead of integer), omitted a parameter ( [692]DEFB without
        constant).
 
      • "Symbol not defined"
        This error is given if you are referring to an identifier (usually in
        an address reference) that was not declared. Either a label definition
        is missing in the current module or you have forgotten to declare an
-       identifier as external using the [700]XREF directive.
+       identifier as external using the [693]XREF directive.
 
-     • "Not enough memory" / "No room in [701]Z88 "
+     • "Not enough memory" / "No room in [694]Z88 "
        Well, well. It seems that there wasn't enough room to hold the
        internal data structures during parsing or linking your code. Delete
        any unnecessary running applications/jobs then try again. If you got
-       the message on the [702]Z88 , try also to delete unnecessary files
+       the message on the [695]Z88 , try also to delete unnecessary files
        from the filing system of your current RAM card.
 
      • "Integer out of range"
@@ -2873,7 +2819,7 @@
        between an option and a filename parameter.
 
      • "Unknown identifier"
-       The parser expected a legal identifier, i.e. a directive or [703]Z80
+       The parser expected a legal identifier, i.e. a directive or [696]Z80
        mnemonic. You have probably omitted the '.' in front of a label
        definition, misspelled a name or used a comment without a leading ';'.
 
@@ -2883,9 +2829,9 @@
        register that is not allowed in a LD instruction, e.g. LD A,F .
 
      • "Max. code size reached"
-       Is that really possible? Very interesting code of yours! [704]Z80
+       Is that really possible? Very interesting code of yours! [697]Z80
        machine code program tend to be in the 32K range (at least on the
-       [705]Z88 )... Well, the [706]Z80 processor cannot address more than
+       [698]Z88 )... Well, the [699]Z80 processor cannot address more than
        64K. Start changing your code to a smaller size!
 
      • "errors occurred during assembly"
@@ -2897,15 +2843,15 @@
      • "Symbol already defined"
        In the current source file, you have tried to create two identical
        address label definitions, or other name identifier creators (using
-       [707]DEFC , [708]DEFVARS , [709]DEFGROUP ).
+       [700]DEFC , [701]DEFVARS , [702]DEFGROUP ).
 
      • "Module name already defined"
-       You have used the [710]MODULE directive more than once in your source
-       file, or used both a [711]MODULE and [712]XLIB directive (library
-       modules only need an [713]XLIB ).
+       You have used the [703]MODULE directive more than once in your source
+       file, or used both a [704]MODULE and [705]XLIB directive (library
+       modules only need an [706]XLIB ).
 
      • "Symbol already declared local"
-       You have tried to declare a symbol as [714]XREF , but it was already
+       You have tried to declare a symbol as [707]XREF , but it was already
        defined local, eg. using a ".lbaddr" in your source.
 
      • "Illegal source filename"
@@ -2914,24 +2860,24 @@
        project files.
 
      • "Symbol declared global in another module"
-       You have two identical [715]XDEF definitions in separate modules. One
-       of them should probably be an [716]XREF instead.
+       You have two identical [708]XDEF definitions in separate modules. One
+       of them should probably be an [709]XREF instead.
 
      • "Re-declaration not allowed"
-       You are trying to specify an [717]XDEF for a name that has already
-       been [718]XREF 'ed in the same module (or the other way around).
+       You are trying to specify an [710]XDEF for a name that has already
+       been [711]XREF 'ed in the same module (or the other way around).
 
-     • " [719]ORG already defined"
-       Only one [720]ORG statement is allowed per section.
+     • " [712]ORG already defined"
+       Only one [713]ORG statement is allowed per section.
 
      • "Relative jump address must be local"
        You have tried to JR to a label address that is declared as external
-       (with [721]XREF or [722]LIB ). JR must be performed in the current
+       (with [714]XREF or [715]LIB ). JR must be performed in the current
        source file module.
 
      • "Not a relocatable file" / "Not an object file"
        The assembler opened a supposed object file (with the proper ".obj"
-       extension) but realised it wasn't conforming to the [723]Z80 assembler
+       extension) but realised it wasn't conforming to the [716]Z80 assembler
        standard object file format.
 
      • "Couldn't open library file"
@@ -2941,17 +2887,17 @@
      • "Not a library file"
        Your library file is not a library file (at least is not of the
        correct file format used by this assembler). Have you maybe used
-       another "library" file? The [724]Z80 library file could also be
+       another "library" file? The [717]Z80 library file could also be
        corrupted (at least in the header).
 
      • "Cannot include file recursively"
        A file was tried to be included which was already included at a
-       previous include level. [725]INCLUDE "a.h" cannot contain an
-       [726]INCLUDE "a.h".
+       previous include level. [718]INCLUDE "a.h" cannot contain an
+       [719]INCLUDE "a.h".
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [727](top) [728](keywords) [729](index)
+   [720](top) [721](keywords) [722](index)
 
 12. Backlog
 
@@ -2976,7 +2922,7 @@
           • JP to JR optimization for size
           • compile expressions
           • object files store list of input files and command line so that
-            [730]-d can decide if it is necessary to recompile
+            [723]-d can decide if it is necessary to recompile
           • object files can store same code for multiple architectures
           • recursive parsing of @lists
           • parse expressions
@@ -2995,25 +2941,25 @@
      • Unsorted Backlog
 
           • compute compile-time constants
-          • execute compile-time [731]IF /ELSE/ENDIF
+          • execute compile-time [724]IF /ELSE/ENDIF
           • do not process preprocessor directives in the false branch of
-            [732]IF
-            fails building z88dk because [733]INCLUDE of unexistent file
-            guarded by [734]IF FALSE is processed and assembly fails
+            [725]IF
+            fails building z88dk because [726]INCLUDE of unexistent file
+            guarded by [727]IF FALSE is processed and assembly fails
           • process C_LINE
           • fix list files when parsing a .i
           • move all directives from z80asm to z80asm2
-          • handle [735]-m for architecture specific code
+          • handle [728]-m for architecture specific code
           • handle -D and -U for top-level defines
-          • process [736]INCLUDE / INCBIN / [737]BINARY
+          • process [729]INCLUDE / INCBIN / [730]BINARY
           • generate .i file
           • indicate syntax error location
           • process labels
-          • process [738]INCLUDE
-          • process [739]BINARY /INCBIN
+          • process [731]INCLUDE
+          • process [732]BINARY /INCBIN
           • bug rst label
           • Implement recursive includes in Coco/R parser/scanner
-          • Separate standard [740]Z80 assembly from extensions; add macro
+          • Separate standard [733]Z80 assembly from extensions; add macro
             files for extensions.
           • Port to C++
           • Parse command line
@@ -3026,7 +2972,7 @@
           • Assembling
           • Linking
           • List file
-          • allow EQU as synonym to [741]DEFC
+          • allow EQU as synonym to [734]DEFC
           • finish the split between front-end and back-end;
           • implement an expression parser with a parser generator, to get
             rid of the need to write a '#' to tell the assembler something it
@@ -3034,7 +2980,7 @@
           • add an additional step to automatically change JR into JP if the
             distance is too far;
           • implement macros inside the assembler
-          • add high level constructs ( [742]IF flag / ELSE / ENDIF, DO WHILE
+          • add high level constructs ( [735]IF flag / ELSE / ENDIF, DO WHILE
             flag, ...)
           • add a rule based optimizer based on RAGEL as a state machine
             generator
@@ -3044,7 +2990,7 @@
           • Test: jr: jr jr
           • Need option to debug pre-processing and macro expansion - -E
           • Add one opcode
-          • Separate standard [743]Z80 assembly from extensions; add macro
+          • Separate standard [736]Z80 assembly from extensions; add macro
             files for extensions
           • Preprocess
           • Parsing
@@ -3053,18 +2999,18 @@
           • Assembling
           • Linking
           • List file
-          • allow EQU as synonym to [744]DEFC
+          • allow EQU as synonym to [737]DEFC
           • finish the split between front-end and back-end;
           • implement an expression parser with a parser generator, to get
             rid of the need to write a '#' to tell the assembler something it
             should know: a difference between two addresses is a constant;
           • add an additional step to automatically change JR into JP if the
             distance is too far;
-          • cleanup the symbol table to implement the [745]GLOBAL suggestion:
-            declare a symbol [746]GLOBAL and it is [747]PUBLIC if defined, or
-            [748]EXTERN otherwise
+          • cleanup the symbol table to implement the [738]GLOBAL suggestion:
+            declare a symbol [739]GLOBAL and it is [740]PUBLIC if defined, or
+            [741]EXTERN otherwise
           • implement macros inside the assembler
-          • add high level constructs ( [749]IF flag / ELSE / ENDIF, DO WHILE
+          • add high level constructs ( [742]IF flag / ELSE / ENDIF, DO WHILE
             flag, ...)
           • add a rule based optimizer based on RAGEL as a state machine
             generator
@@ -3081,14 +3027,14 @@
             name
           • org:
 
-         1. Any section with an [750]ORG address starts a new area of code
+         1. Any section with an [743]ORG address starts a new area of code
             and generates a new binary output file, named
             <first_module_name>_<section_name>.bin
-         2. Any section that has no [751]ORG address gets packed at the end
+         2. Any section that has no [744]ORG address gets packed at the end
             of the previous section.
 
           • The null section is only special in the sense that the code is
-            output to <first_module_name>.bin, and that it's [752]ORG address
+            output to <first_module_name>.bin, and that it's [745]ORG address
             can be defined in the command line via -rhhhh.
 
           • simplify expressions to tranform LABEL1-LABEL2 into a constant
@@ -3105,7 +3051,7 @@
 
           • Add one opcode
 
-          • Separate standard [753]Z80 assembly from extensions; add macro
+          • Separate standard [746]Z80 assembly from extensions; add macro
             files for extensions
 
           • Preprocess
@@ -3122,7 +3068,7 @@
 
           • List file
 
-          • allow EQU as synonym to [754]DEFC
+          • allow EQU as synonym to [747]DEFC
 
           • finish the split between front-end and back-end;
 
@@ -3133,13 +3079,13 @@
           • add an additional step to automatically change JR into JP if the
             distance is too far;
 
-          • cleanup the symbol table to implement the [755]GLOBAL suggestion:
-            declare a symbol [756]GLOBAL and it is [757]PUBLIC if defined, or
-            [758]EXTERN otherwise
+          • cleanup the symbol table to implement the [748]GLOBAL suggestion:
+            declare a symbol [749]GLOBAL and it is [750]PUBLIC if defined, or
+            [751]EXTERN otherwise
 
           • implement macros inside the assembler
 
-          • add high level constructs ( [759]IF flag / ELSE / ENDIF, DO WHILE
+          • add high level constructs ( [752]IF flag / ELSE / ENDIF, DO WHILE
             flag, ...)
 
           • add a rule based optimizer based on RAGEL as a state machine
@@ -3171,7 +3117,7 @@
 
           • Implement recursive includes in Coco/R parser/scanner
 
-          • Separate standard [760]Z80 assembly from extensions; add macro
+          • Separate standard [753]Z80 assembly from extensions; add macro
             files for extensions.
 
           • Port to C++
@@ -3196,7 +3142,7 @@
 
           • List file
 
-          • allow EQU as synonym to [761]DEFC
+          • allow EQU as synonym to [754]DEFC
 
           • finish the split between front-end and back-end;
 
@@ -3209,7 +3155,7 @@
 
           • implement macros inside the assembler
 
-          • add high level constructs ( [762]IF flag / ELSE / ENDIF, DO WHILE
+          • add high level constructs ( [755]IF flag / ELSE / ENDIF, DO WHILE
             flag, ...)
 
           • add a rule based optimizer based on RAGEL as a state machine
@@ -3234,15 +3180,15 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [763](top) [764](keywords) [765](index)
+   [756](top) [757](keywords) [758](index)
 
 13. References
 
-     • [766]The Telemark Assembler
+     • [759]The Telemark Assembler
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [767](top) [768](keywords) [769](index)
+   [760](top) [761](keywords) [762](index)
 
 14. Copyright
 
@@ -3257,253 +3203,253 @@
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [770](top) [771](keywords) [772](index)
+   [763](top) [764](keywords) [765](index)
 
 15. License
 
    Artistic License 2.0
-   ([773]http://www.perlfoundation.org/artisticlicense2_0)
+   ([766]http://www.perlfoundation.org/artisticlicense2_0)
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [774](top) [775](keywords) [776](index)
+   [767](top) [768](keywords) [769](index)
 
 16. Keywords
 
-   [777]-C [778]-DVARIABLE [779]-IDIR [780]-IXIY [781]-LDIR [782]-M [783]-R
-   [784]-RCMX000 [785]-a [786]-atoctal [787]-b [788]-d [789]-debug
-   [790]-dotdirective [791]-e [792]-g [793]-h [794]-hashhex [795]-i [796]-l
-   [797]-labelcol1 [798]-m [799]-mCPU [800]-noprec [801]-o [802]-opt
-   [803]-plus [804]-r [805]-s [806]-t [807]-ucase [808]-v [809]-x [810]BINARY
-   [811]CALL [812]DEFB [813]DEFC [814]DEFGROUP [815]DEFINE [816]DEFL
-   [817]DEFM [818]DEFS [819]DEFVARS [820]DEFW [821]EXTERN [822]FPP
-   [823]GLOBAL [824]IF [825]IFDEF [826]IFNDEF [827]INCLUDE [828]INVOKE
-   [829]LIB [830]LINE [831]LSTOFF [832]LSTON [833]MODULE [834]ORG [835]PUBLIC
-   [836]XDEF [837]XLIB [838]XREF [839]Z80 [840]Z88
+   [770]-C [771]-DVARIABLE [772]-IDIR [773]-IXIY [774]-LDIR [775]-M [776]-R
+   [777]-RCMX000 [778]-a [779]-atoctal [780]-b [781]-d [782]-debug
+   [783]-dotdirective [784]-e [785]-g [786]-h [787]-hashhex [788]-i [789]-l
+   [790]-labelcol1 [791]-m [792]-mCPU [793]-noprec [794]-o [795]-opt
+   [796]-plus [797]-r [798]-s [799]-t [800]-ucase [801]-v [802]-x [803]BINARY
+   [804]CALL [805]DEFB [806]DEFC [807]DEFGROUP [808]DEFINE [809]DEFL
+   [810]DEFM [811]DEFS [812]DEFVARS [813]DEFW [814]EXTERN [815]FPP
+   [816]GLOBAL [817]IF [818]IFDEF [819]IFNDEF [820]INCLUDE [821]INVOKE
+   [822]LIB [823]LINE [824]LSTOFF [825]LSTON [826]MODULE [827]ORG [828]PUBLIC
+   [829]XDEF [830]XLIB [831]XREF [832]Z80 [833]Z88
 
    ══════════════════════════════════════════════════════════════════════════
 
-   [841](top) [842](keywords) [843](index)
+   [834](top) [835](keywords) [836](index)
 
 17. Index
 
-     • [844]1. Usage ...
+     • [837]1. Usage ...
 
-          • [845]1.1. ... as preprocessor
-          • [846]1.2. ... as assembler
-          • [847]1.3. ... as linker
-          • [848]1.4. ... as librarian
+          • [838]1.1. ... as preprocessor
+          • [839]1.2. ... as assembler
+          • [840]1.3. ... as linker
+          • [841]1.4. ... as librarian
 
-     • [849]2. Environment Variables
-     • [850]3. Options
+     • [842]2. Environment Variables
+     • [843]3. Options
 
-          • [851]3.1. Help Options
+          • [844]3.1. Help Options
 
-               • [852]3.1.1. no arguments (show usage)
-               • [853]3.1.2. [854]-h , -? (show manual)
-               • [855]3.1.3. [856]-v (show progress)
+               • [845]3.1.1. no arguments (show usage)
+               • [846]3.1.2. [847]-h , -? (show manual)
+               • [848]3.1.3. [849]-v (show progress)
 
-          • [857]3.2. Preprocessor options
+          • [850]3.2. Preprocessor options
 
-               • [858]3.2.1. [859]-atoctal (at is octal prefix)
-               • [860]3.2.2. [861]-dotdirective (period is directive prefix)
-               • [862]3.2.3. [863]-hashhex (hash is hex prefix)
-               • [864]3.2.4. [865]-labelcol1 (labels at column 1)
-               • [866]3.2.5. [867]-ucase (upper case)
+               • [851]3.2.1. [852]-atoctal (at is octal prefix)
+               • [853]3.2.2. [854]-dotdirective (period is directive prefix)
+               • [855]3.2.3. [856]-hashhex (hash is hex prefix)
+               • [857]3.2.4. [858]-labelcol1 (labels at column 1)
+               • [859]3.2.5. [860]-ucase (upper case)
 
-          • [868]3.3. Assembly options
+          • [861]3.3. Assembly options
 
-               • [869]3.3.1. [870]-noprec (no precedence in expression
+               • [862]3.3.1. [863]-noprec (no precedence in expression
                  evaluation)
 
-          • [871]3.4. Environment Options
+          • [864]3.4. Environment Options
 
-               • [872]3.4.1. [873]-IDIR (directory for source files)
-               • [874]3.4.2. [875]-LDIR (directory for library)
+               • [865]3.4.1. [866]-IDIR (directory for source files)
+               • [867]3.4.2. [868]-LDIR (directory for library)
 
-          • [876]3.5. [877]-DVARIABLE [= value], --define=VARIABLE [= value]
+          • [869]3.5. [870]-DVARIABLE [= value], --define=VARIABLE [= value]
             (define a static symbol)
-          • [878]3.6. Code Generation Options
+          • [871]3.6. Code Generation Options
 
-               • [879]3.6.1. [880]-mCPU (select CPU)
-               • [881]3.6.2. [882]-IXIY (swap IX and IY)
-               • [883]3.6.3. [884]-opt -speed (optimise for speed)
-               • [885]3.6.4. [886]-debug (debug information)
+               • [872]3.6.1. [873]-mCPU (select CPU)
+               • [874]3.6.2. [875]-IXIY (swap IX and IY)
+               • [876]3.6.3. [877]-opt -speed (optimise for speed)
+               • [878]3.6.4. [879]-debug (debug information)
 
-          • [887]3.7. Output File Options
+          • [880]3.7. Output File Options
 
-               • [888]3.7.1. [889]-m (create map file)
+               • [881]3.7.1. [882]-s (create symbol table)
+               • [883]3.7.2. [884]-l (create list file)
+               • [885]3.7.3. [886]-m (create map file)
+               • [887]3.7.4. [888]-g (global definitions file)
 
-     • [890]4. Input Files
+     • [889]4. Input Files
 
-          • [891]4.1. Source File Format
-          • [892]4.2. Comments
-          • [893]4.3. Symbols
-          • [894]4.4. Labels
-          • [895]4.5. Numbers
+          • [890]4.1. Source File Format
+          • [891]4.2. Comments
+          • [892]4.3. Symbols
+          • [893]4.4. Labels
+          • [894]4.5. Numbers
 
-               • [896]4.5.1. Decimal
-               • [897]4.5.2. Hexadecimal
-               • [898]4.5.3. Octal
-               • [899]4.5.4. Binary
-               • [900]4.5.5. Bitmaps
+               • [895]4.5.1. Decimal
+               • [896]4.5.2. Hexadecimal
+               • [897]4.5.3. Octal
+               • [898]4.5.4. Binary
+               • [899]4.5.5. Bitmaps
 
-          • [901]4.6. Keywords
-          • [902]4.7. Directives and Opcodes
+          • [900]4.6. Keywords
+          • [901]4.7. Directives and Opcodes
 
-     • [903]5. Object File Format
+     • [902]5. Object File Format
 
-          • [904]5.1. Object Files
-          • [905]5.2. Library File Format
-          • [906]5.3. Format History
+          • [903]5.1. Object Files
+          • [904]5.2. Library File Format
+          • [905]5.3. Format History
 
-     • [907]6. z80asm Syntax
+     • [906]6. z80asm Syntax
 
-          • [908]6.1. Command line
-          • [909]6.2. Command line options
+          • [907]6.1. Command line
+          • [908]6.2. Command line options
 
-               • [910]6.2.1. [911]-e <ext> : Use alternative source file
+               • [909]6.2.1. [910]-e <ext> : Use alternative source file
                  extension
-               • [912]6.2.2. [913]-M <ext> : Use alternative object file
+               • [911]6.2.2. [912]-M <ext> : Use alternative object file
                  extension
-               • [914]6.2.3. [915]-l : Create listing file output
-               • [916]6.2.4. [917]-s : Create symbol table
-               • [918]6.2.5. [919]-d : Assemble only updated files
-               • [920]6.2.6. [921]-b : Link/relocate object files
-               • [922]6.2.7. [923]-a : Combine [924]-d and [925]-b
-               • [926]6.2.8. [927]-o <binary-filename> : Binary filename
-               • [928]6.2.9. [929]-r <hex-address> : Re-define the [930]ORG
+               • [913]6.2.3. [914]-d : Assemble only updated files
+               • [915]6.2.4. [916]-b : Link/relocate object files
+               • [917]6.2.5. [918]-a : Combine [919]-d and [920]-b
+               • [921]6.2.6. [922]-o <binary-filename> : Binary filename
+               • [923]6.2.7. [924]-r <hex-address> : Re-define the [925]ORG
                  relocation address
-               • [931]6.2.10. [932]-R : Generate address independent code
-               • [933]6.2.11. [934]-g : Create global address definition file
-               • [935]6.2.12. @<project-file> :1.3.16. Using a project file
-               • [936]6.2.13. [937]-i <library-file> : Include library
+               • [926]6.2.8. [927]-R : Generate address independent code
+               • [928]6.2.9. @<project-file> :1.3.16. Using a project file
+               • [929]6.2.10. [930]-i <library-file> : Include library
                  modules during linking/relocation
-               • [938]6.2.14. [939]-x : Create a library
-               • [940]6.2.15. [941]-t <number> : Define tabulator distance
+               • [931]6.2.11. [932]-x : Create a library
+               • [933]6.2.12. [934]-t <number> : Define tabulator distance
                  for text output files
-               • [942]6.2.16. [943]-RCMX000 : Support the RCM2000/RCM3000
-                 series of [944]Z80 -like CPU's
-               • [945]6.2.17. [946]-plus : Support for the Ti83Plus
-               • [947]6.2.18. [948]-C : Enable [949]LINE directive
+               • [935]6.2.13. [936]-RCMX000 : Support the RCM2000/RCM3000
+                 series of [937]Z80 -like CPU's
+               • [938]6.2.14. [939]-plus : Support for the Ti83Plus
+               • [940]6.2.15. [941]-C : Enable [942]LINE directive
 
-          • [950]6.3. The [951]Z88 operating system definition files
-          • [952]6.4. The supplied standard library [953]Z80 source files
-          • [954]6.5. [955]Z88 module assembler application source
-          • [956]6.6. File based compilation
-          • [957]6.7. Modular source file design
-          • [958]6.8. Scope of symbols in source modules
-          • [959]6.9. Using arithmetic and relational expressions
-          • [960]6.10. Free format of assembler source files
-          • [961]6.11. Specification of filenames
-          • [962]6.12. Including other source files into the current source
+          • [943]6.3. The [944]Z88 operating system definition files
+          • [945]6.4. The supplied standard library [946]Z80 source files
+          • [947]6.5. [948]Z88 module assembler application source
+          • [949]6.6. File based compilation
+          • [950]6.7. Modular source file design
+          • [951]6.8. Scope of symbols in source modules
+          • [952]6.9. Using arithmetic and relational expressions
+          • [953]6.10. Free format of assembler source files
+          • [954]6.11. Specification of filenames
+          • [955]6.12. Including other source files into the current source
             file
-          • [963]6.13. Conditional assembly in source file modules
-          • [964]6.14. Undocumented [965]Z80 instruction code generation
-          • [966]6.15. Object file generation
-          • [967]6.16. Transfer of object files across platforms
-          • [968]6.17. Date stamp controlled assembly
-          • [969]6.18. Listing files
-          • [970]6.19. Symbol information
-          • [971]6.20. Linking and relocation of object modules into
-            executable [972]Z80 machine code
-          • [973]6.21. Address map files
-          • [974]6.22. Symbol address definition files
-          • [975]6.23. Error files
-          • [976]6.24. Creating and using object file libraries for standard
+          • [956]6.13. Conditional assembly in source file modules
+          • [957]6.14. Undocumented [958]Z80 instruction code generation
+          • [959]6.15. Object file generation
+          • [960]6.16. Transfer of object files across platforms
+          • [961]6.17. Date stamp controlled assembly
+          • [962]6.18. Listing files
+          • [963]6.19. Symbol information
+          • [964]6.20. Linking and relocation of object modules into
+            executable [965]Z80 machine code
+          • [966]6.21. Address map files
+          • [967]6.22. Symbol address definition files
+          • [968]6.23. Error files
+          • [969]6.24. Creating and using object file libraries for standard
             routines
 
-     • [977]7. [978]Z80 module assembler file types
+     • [970]7. [971]Z80 module assembler file types
 
-          • [979]7.1. The assembler file types and their extension names
-          • [980]7.2. The file name extension identifier
-          • [981]7.3. File types
+          • [972]7.1. The assembler file types and their extension names
+          • [973]7.2. The file name extension identifier
+          • [974]7.3. File types
 
-               • [982]7.3.1. The source file extension, asm
-               • [983]7.3.2. The object file extension, obj
-               • [984]7.3.3. The error file extension, err
-               • [985]7.3.4. The listing file extension, lst
-               • [986]7.3.5. The symbol file extension, sym
-               • [987]7.3.6. The executable file extension, bin
-               • [988]7.3.7. The address map file extension, map
-               • [989]7.3.8. The definition file extension, def
-               • [990]7.3.9. The library file extension, lib
+               • [975]7.3.1. The source file extension, asm
+               • [976]7.3.2. The object file extension, obj
+               • [977]7.3.3. The error file extension, err
+               • [978]7.3.4. The listing file extension, lst
+               • [979]7.3.5. The symbol file extension, sym
+               • [980]7.3.6. The executable file extension, bin
+               • [981]7.3.7. The address map file extension, map
+               • [982]7.3.8. The definition file extension, def
+               • [983]7.3.9. The library file extension, lib
 
-     • [991]8. Compiling files
+     • [984]8. Compiling files
 
-          • [992]8.1. The assembler compiling process
+          • [985]8.1. The assembler compiling process
 
-               • [993]8.1.1. Stage 1, parsing and code generation of all
+               • [986]8.1.1. Stage 1, parsing and code generation of all
                  source files, object file generation
-               • [994]8.1.2. Stage 2, linking object files and library
+               • [987]8.1.2. Stage 2, linking object files and library
                  modules, producing executable code
 
-          • [995]8.2. File names
-          • [996]8.3. Portability of assembler file names
-          • [997]8.4. Source file structure
-          • [998]8.5. Using local, global and external symbols
-          • [999]8.6. Defining symbol names
-          • [1000]8.7. Comments in source files
-          • [1001]8.8. Defining symbolic address labels
-          • [1002]8.9. Writing [1003]Z80 mnemonic instructions
-          • [1004]8.10. Optional [1005]Z80 mnemonic instruction syntax
-          • [1006]8.11. The undocumented [1007]Z80 instructions
-          • [1008]8.12. Referencing library routines
-          • [1009]8.13. Creating/updating libraries
-          • [1010]8.14. Referencing routines in other compiled projects
+          • [988]8.2. File names
+          • [989]8.3. Portability of assembler file names
+          • [990]8.4. Source file structure
+          • [991]8.5. Using local, global and external symbols
+          • [992]8.6. Defining symbol names
+          • [993]8.7. Comments in source files
+          • [994]8.8. Defining symbolic address labels
+          • [995]8.9. Writing [996]Z80 mnemonic instructions
+          • [997]8.10. Optional [998]Z80 mnemonic instruction syntax
+          • [999]8.11. The undocumented [1000]Z80 instructions
+          • [1001]8.12. Referencing library routines
+          • [1002]8.13. Creating/updating libraries
+          • [1003]8.14. Referencing routines in other compiled projects
 
-     • [1011]9. Using expressions
+     • [1004]9. Using expressions
 
-          • [1012]9.1. Constant identifiers
-          • [1013]9.2. Arithmetic operators
-          • [1014]9.3. Relational operators
-          • [1015]9.4. The ASMPC standard function
-          • [1016]9.5. Symbol identifiers in expressions
+          • [1005]9.1. Constant identifiers
+          • [1006]9.2. Arithmetic operators
+          • [1007]9.3. Relational operators
+          • [1008]9.4. The ASMPC standard function
+          • [1009]9.5. Symbol identifiers in expressions
 
-     • [1017]10. Directive reference
+     • [1010]10. Directive reference
 
-          • [1018]10.1. [1019]BINARY "filename"
-          • [1020]10.2. [1021]CALL _OZ <expression>
-          • [1022]10.3. [1023]DEFB <8-bit expr>,{<8-bit expr>} (-128; 255)
-          • [1024]10.4. [1025]DEFW <16-bit expr>,{<16-bit expr>} (-32768;
+          • [1011]10.1. [1012]BINARY "filename"
+          • [1013]10.2. [1014]CALL _OZ <expression>
+          • [1015]10.3. [1016]DEFB <8-bit expr>,{<8-bit expr>} (-128; 255)
+          • [1017]10.4. [1018]DEFW <16-bit expr>,{<16-bit expr>} (-32768;
             65535)
-          • [1026]10.5. [1027]DEFL <32-bit expr>,{<32-bit expr>}
+          • [1019]10.5. [1020]DEFL <32-bit expr>,{<32-bit expr>}
             (-2147483647; 4294967295)
-          • [1028]10.6. [1029]DEFC name=<32-bit expression>{, name=<32-bit
+          • [1021]10.6. [1022]DEFC name=<32-bit expression>{, name=<32-bit
             expression>}
-          • [1030]10.7. [1031]DEFM <string expression>|<8-bit expr>,...
-          • [1032]10.8. [1033]DEFGROUP '{' name {',' name ['=' <8-bit
+          • [1023]10.7. [1024]DEFM <string expression>|<8-bit expr>,...
+          • [1025]10.8. [1026]DEFGROUP '{' name {',' name ['=' <8-bit
             expression>]} '}'
-          • [1034]10.9. [1035]DEFINE name,{name}
-          • [1036]10.10. [1037]DEFS <size>{, <fill-byte>}
-          • [1038]10.11. [1039]DEFVARS <16-bit expression> '{' [<name>]
+          • [1027]10.9. [1028]DEFINE name,{name}
+          • [1029]10.10. [1030]DEFS <size>{, <fill-byte>}
+          • [1031]10.11. [1032]DEFVARS <16-bit expression> '{' [<name>]
             [<storage_size> <size_multiplier>] '}'
-          • [1040]10.12. [1041]EXTERN name {, name}
-          • [1042]10.13. [1043]FPP <8-bit expression>
-          • [1044]10.14. [1045]GLOBAL name {, name}
-          • [1046]10.15. [1047]IF <logical expression> ... [ELSE] ... ENDIF
-          • [1048]10.16. [1049]IFDEF <name> ... [ELSE] ... ENDIF
-          • [1050]10.17. [1051]IFNDEF <name> ... [ELSE] ... ENDIF
-          • [1052]10.18. [1053]INCLUDE "filename"
-          • [1054]10.19. [1055]INVOKE <16-bit expression>
-          • [1056]10.20. [1057]LIB name {,name}
-          • [1058]10.21. [1059]LINE <32-bit expr> [ , "file-name" ]
-          • [1060]10.22. [1061]LSTOFF
-          • [1062]10.23. [1063]LSTON
-          • [1064]10.24. [1065]MODULE name
-          • [1066]10.25. [1067]ORG <16-bit expression>
-          • [1068]10.26. [1069]PUBLIC name {, name}
-          • [1070]10.27. [1071]XDEF name {, name}
-          • [1072]10.28. [1073]XLIB name
-          • [1074]10.29. [1075]XREF name {, name}
+          • [1033]10.12. [1034]EXTERN name {, name}
+          • [1035]10.13. [1036]FPP <8-bit expression>
+          • [1037]10.14. [1038]GLOBAL name {, name}
+          • [1039]10.15. [1040]IF <logical expression> ... [ELSE] ... ENDIF
+          • [1041]10.16. [1042]IFDEF <name> ... [ELSE] ... ENDIF
+          • [1043]10.17. [1044]IFNDEF <name> ... [ELSE] ... ENDIF
+          • [1045]10.18. [1046]INCLUDE "filename"
+          • [1047]10.19. [1048]INVOKE <16-bit expression>
+          • [1049]10.20. [1050]LIB name {,name}
+          • [1051]10.21. [1052]LINE <32-bit expr> [ , "file-name" ]
+          • [1053]10.22. [1054]LSTOFF
+          • [1055]10.23. [1056]LSTON
+          • [1057]10.24. [1058]MODULE name
+          • [1059]10.25. [1060]ORG <16-bit expression>
+          • [1061]10.26. [1062]PUBLIC name {, name}
+          • [1063]10.27. [1064]XDEF name {, name}
+          • [1065]10.28. [1066]XLIB name
+          • [1067]10.29. [1068]XREF name {, name}
 
-     • [1076]11. Run time error messages
-     • [1077]12. Backlog
-     • [1078]13. References
-     • [1079]14. Copyright
-     • [1080]15. License
-     • [1081]16. Keywords
-     • [1082]17. Index
+     • [1069]11. Run time error messages
+     • [1070]12. Backlog
+     • [1071]13. References
+     • [1072]14. Copyright
+     • [1073]15. License
+     • [1074]16. Keywords
+     • [1075]17. Index
 
     
 
@@ -3653,38 +3599,38 @@ References
  141. file://z80asm-future.html#top
  142. file://z80asm-future.html#keywords
  143. file://z80asm-future.html#index
- 144. file://z80asm-future.html#7
- 145. file://z80asm-future.html#7
- 146. file://z80asm-future.html#top
- 147. file://z80asm-future.html#keywords
- 148. file://z80asm-future.html#index
- 149. file://z80asm-future.html#10_25
- 150. file://z80asm-future.html#10_25
- 151. file://z80asm-future.html#10_25
- 152. file://z80asm-future.html#10_25
- 153. file://z80asm-future.html#top
- 154. file://z80asm-future.html#keywords
- 155. file://z80asm-future.html#index
- 156. file://z80asm-future.html#top
- 157. file://z80asm-future.html#keywords
- 158. file://z80asm-future.html#index
- 159. file://z80asm-future.html#10_6
+ 144. file://z80asm-future.html#top
+ 145. file://z80asm-future.html#keywords
+ 146. file://z80asm-future.html#index
+ 147. file://z80asm-future.html#top
+ 148. file://z80asm-future.html#keywords
+ 149. file://z80asm-future.html#index
+ 150. file://z80asm-future.html#top
+ 151. file://z80asm-future.html#keywords
+ 152. file://z80asm-future.html#index
+ 153. file://z80asm-future.html#7
+ 154. file://z80asm-future.html#7
+ 155. file://z80asm-future.html#top
+ 156. file://z80asm-future.html#keywords
+ 157. file://z80asm-future.html#index
+ 158. file://z80asm-future.html#10_25
+ 159. file://z80asm-future.html#10_25
  160. file://z80asm-future.html#10_25
- 161. file://z80asm-future.html#top
- 162. file://z80asm-future.html#keywords
- 163. file://z80asm-future.html#index
- 164. file://z80asm-future.html#7
- 165. file://z80asm-future.html#7
- 166. mailto:gbs@image.dk
- 167. file://z80asm-future.html#top
- 168. file://z80asm-future.html#keywords
- 169. file://z80asm-future.html#index
+ 161. file://z80asm-future.html#10_25
+ 162. file://z80asm-future.html#top
+ 163. file://z80asm-future.html#keywords
+ 164. file://z80asm-future.html#index
+ 165. file://z80asm-future.html#top
+ 166. file://z80asm-future.html#keywords
+ 167. file://z80asm-future.html#index
+ 168. file://z80asm-future.html#10_6
+ 169. file://z80asm-future.html#10_25
  170. file://z80asm-future.html#top
  171. file://z80asm-future.html#keywords
  172. file://z80asm-future.html#index
- 173. file://z80asm-future.html#top
- 174. file://z80asm-future.html#keywords
- 175. file://z80asm-future.html#index
+ 173. file://z80asm-future.html#7
+ 174. file://z80asm-future.html#7
+ 175. mailto:gbs@image.dk
  176. file://z80asm-future.html#top
  177. file://z80asm-future.html#keywords
  178. file://z80asm-future.html#index
@@ -3697,159 +3643,159 @@ References
  185. file://z80asm-future.html#top
  186. file://z80asm-future.html#keywords
  187. file://z80asm-future.html#index
- 188. file://z80asm-future.html#7
- 189. file://z80asm-future.html#7
- 190. file://z80asm-future.html#6_2_5
- 191. file://z80asm-future.html#6_2_5
- 192. file://z80asm-future.html#top
- 193. file://z80asm-future.html#keywords
- 194. file://z80asm-future.html#index
- 195. file://z80asm-future.html#6_2_6
- 196. file://z80asm-future.html#7
- 197. file://z80asm-future.html#6_2_7
- 198. file://z80asm-future.html#6_2_5
- 199. file://z80asm-future.html#10_25
- 200. file://z80asm-future.html#10_25
- 201. file://z80asm-future.html#10_25
+ 188. file://z80asm-future.html#top
+ 189. file://z80asm-future.html#keywords
+ 190. file://z80asm-future.html#index
+ 191. file://z80asm-future.html#7
+ 192. file://z80asm-future.html#7
+ 193. file://z80asm-future.html#6_2_3
+ 194. file://z80asm-future.html#6_2_3
+ 195. file://z80asm-future.html#top
+ 196. file://z80asm-future.html#keywords
+ 197. file://z80asm-future.html#index
+ 198. file://z80asm-future.html#6_2_4
+ 199. file://z80asm-future.html#7
+ 200. file://z80asm-future.html#6_2_5
+ 201. file://z80asm-future.html#6_2_3
  202. file://z80asm-future.html#10_25
- 203. file://z80asm-future.html#6_2_9
+ 203. file://z80asm-future.html#10_25
  204. file://z80asm-future.html#10_25
- 205. file://z80asm-future.html#top
- 206. file://z80asm-future.html#keywords
- 207. file://z80asm-future.html#index
- 208. file://z80asm-future.html#6_2_6
- 209. file://z80asm-future.html#6_2_5
- 210. file://z80asm-future.html#top
- 211. file://z80asm-future.html#keywords
- 212. file://z80asm-future.html#index
+ 205. file://z80asm-future.html#10_25
+ 206. file://z80asm-future.html#6_2_7
+ 207. file://z80asm-future.html#10_25
+ 208. file://z80asm-future.html#top
+ 209. file://z80asm-future.html#keywords
+ 210. file://z80asm-future.html#index
+ 211. file://z80asm-future.html#6_2_4
+ 212. file://z80asm-future.html#6_2_3
  213. file://z80asm-future.html#top
  214. file://z80asm-future.html#keywords
  215. file://z80asm-future.html#index
- 216. file://z80asm-future.html#10_25
- 217. file://z80asm-future.html#6_2_9
- 218. file://z80asm-future.html#6_2_9
+ 216. file://z80asm-future.html#top
+ 217. file://z80asm-future.html#keywords
+ 218. file://z80asm-future.html#index
  219. file://z80asm-future.html#10_25
- 220. file://z80asm-future.html#10_25
- 221. file://z80asm-future.html#6_5
+ 220. file://z80asm-future.html#6_2_7
+ 221. file://z80asm-future.html#6_2_7
  222. file://z80asm-future.html#10_25
- 223. file://z80asm-future.html#6_2_9
- 224. file://z80asm-future.html#top
- 225. file://z80asm-future.html#keywords
- 226. file://z80asm-future.html#index
- 227. file://z80asm-future.html#7
- 228. file://z80asm-future.html#7
- 229. file://z80asm-future.html#7
- 230. file://z80asm-future.html#10_25
- 231. file://z80asm-future.html#6_2_10
- 232. file://z80asm-future.html#6_2_7
- 233. file://z80asm-future.html#6_2_6
- 234. file://z80asm-future.html#6_5
- 235. file://z80asm-future.html#10_2
- 236. file://z80asm-future.html#6_2_10
- 237. file://z80asm-future.html#7
- 238. file://z80asm-future.html#10_25
- 239. file://z80asm-future.html#7
- 240. file://z80asm-future.html#top
- 241. file://z80asm-future.html#keywords
- 242. file://z80asm-future.html#index
- 243. file://z80asm-future.html#10_6
- 244. file://z80asm-future.html#10_27
- 245. file://z80asm-future.html#10_25
- 246. file://z80asm-future.html#6_2_9
- 247. file://z80asm-future.html#6_5
- 248. file://z80asm-future.html#10_6
- 249. file://z80asm-future.html#6_5
+ 223. file://z80asm-future.html#10_25
+ 224. file://z80asm-future.html#6_5
+ 225. file://z80asm-future.html#10_25
+ 226. file://z80asm-future.html#6_2_7
+ 227. file://z80asm-future.html#top
+ 228. file://z80asm-future.html#keywords
+ 229. file://z80asm-future.html#index
+ 230. file://z80asm-future.html#7
+ 231. file://z80asm-future.html#7
+ 232. file://z80asm-future.html#7
+ 233. file://z80asm-future.html#10_25
+ 234. file://z80asm-future.html#6_2_8
+ 235. file://z80asm-future.html#6_2_5
+ 236. file://z80asm-future.html#6_2_4
+ 237. file://z80asm-future.html#6_5
+ 238. file://z80asm-future.html#10_2
+ 239. file://z80asm-future.html#6_2_8
+ 240. file://z80asm-future.html#7
+ 241. file://z80asm-future.html#10_25
+ 242. file://z80asm-future.html#7
+ 243. file://z80asm-future.html#top
+ 244. file://z80asm-future.html#keywords
+ 245. file://z80asm-future.html#index
+ 246. file://z80asm-future.html#top
+ 247. file://z80asm-future.html#keywords
+ 248. file://z80asm-future.html#index
+ 249. file://z80asm-future.html#6_2_10
  250. file://z80asm-future.html#top
  251. file://z80asm-future.html#keywords
  252. file://z80asm-future.html#index
- 253. file://z80asm-future.html#top
- 254. file://z80asm-future.html#keywords
- 255. file://z80asm-future.html#index
- 256. file://z80asm-future.html#6_2_13
- 257. file://z80asm-future.html#top
- 258. file://z80asm-future.html#keywords
- 259. file://z80asm-future.html#index
- 260. file://z80asm-future.html#6_2_14
- 261. file://z80asm-future.html#10_28
- 262. file://z80asm-future.html#7
- 263. file://z80asm-future.html#top
- 264. file://z80asm-future.html#keywords
- 265. file://z80asm-future.html#index
- 266. file://z80asm-future.html#7
- 267. file://z80asm-future.html#10_27
- 268. file://z80asm-future.html#6_2_15
- 269. file://z80asm-future.html#top
- 270. file://z80asm-future.html#keywords
- 271. file://z80asm-future.html#index
- 272. file://z80asm-future.html#7
- 273. file://z80asm-future.html#top
- 274. file://z80asm-future.html#keywords
- 275. file://z80asm-future.html#index
- 276. file://z80asm-future.html#10_19
- 277. file://z80asm-future.html#10_2
- 278. file://z80asm-future.html#top
- 279. file://z80asm-future.html#keywords
- 280. file://z80asm-future.html#index
- 281. file://z80asm-future.html#10_21
- 282. file://z80asm-future.html#top
- 283. file://z80asm-future.html#keywords
- 284. file://z80asm-future.html#index
- 285. file://z80asm-future.html#6_5
- 286. file://z80asm-future.html#top
- 287. file://z80asm-future.html#keywords
- 288. file://z80asm-future.html#index
+ 253. file://z80asm-future.html#6_2_11
+ 254. file://z80asm-future.html#10_28
+ 255. file://z80asm-future.html#7
+ 256. file://z80asm-future.html#top
+ 257. file://z80asm-future.html#keywords
+ 258. file://z80asm-future.html#index
+ 259. file://z80asm-future.html#7
+ 260. file://z80asm-future.html#10_27
+ 261. file://z80asm-future.html#6_2_12
+ 262. file://z80asm-future.html#top
+ 263. file://z80asm-future.html#keywords
+ 264. file://z80asm-future.html#index
+ 265. file://z80asm-future.html#7
+ 266. file://z80asm-future.html#top
+ 267. file://z80asm-future.html#keywords
+ 268. file://z80asm-future.html#index
+ 269. file://z80asm-future.html#10_19
+ 270. file://z80asm-future.html#10_2
+ 271. file://z80asm-future.html#top
+ 272. file://z80asm-future.html#keywords
+ 273. file://z80asm-future.html#index
+ 274. file://z80asm-future.html#10_21
+ 275. file://z80asm-future.html#top
+ 276. file://z80asm-future.html#keywords
+ 277. file://z80asm-future.html#index
+ 278. file://z80asm-future.html#6_5
+ 279. file://z80asm-future.html#top
+ 280. file://z80asm-future.html#keywords
+ 281. file://z80asm-future.html#index
+ 282. file://z80asm-future.html#6_5
+ 283. file://z80asm-future.html#7
+ 284. file://z80asm-future.html#7
+ 285. file://z80asm-future.html#top
+ 286. file://z80asm-future.html#keywords
+ 287. file://z80asm-future.html#index
+ 288. file://z80asm-future.html#6_5
  289. file://z80asm-future.html#6_5
  290. file://z80asm-future.html#7
- 291. file://z80asm-future.html#7
- 292. file://z80asm-future.html#top
- 293. file://z80asm-future.html#keywords
- 294. file://z80asm-future.html#index
- 295. file://z80asm-future.html#6_5
- 296. file://z80asm-future.html#6_5
- 297. file://z80asm-future.html#7
- 298. file://z80asm-future.html#top
- 299. file://z80asm-future.html#keywords
- 300. file://z80asm-future.html#index
- 301. file://z80asm-future.html#top
- 302. file://z80asm-future.html#keywords
- 303. file://z80asm-future.html#index
- 304. file://z80asm-future.html#top
- 305. file://z80asm-future.html#keywords
- 306. file://z80asm-future.html#index
- 307. file://z80asm-future.html#10_12
- 308. file://z80asm-future.html#10_26
- 309. file://z80asm-future.html#10_12
- 310. file://z80asm-future.html#10_26
- 311. file://z80asm-future.html#10_14
- 312. file://z80asm-future.html#top
- 313. file://z80asm-future.html#keywords
- 314. file://z80asm-future.html#index
- 315. file://z80asm-future.html#7
+ 291. file://z80asm-future.html#top
+ 292. file://z80asm-future.html#keywords
+ 293. file://z80asm-future.html#index
+ 294. file://z80asm-future.html#top
+ 295. file://z80asm-future.html#keywords
+ 296. file://z80asm-future.html#index
+ 297. file://z80asm-future.html#top
+ 298. file://z80asm-future.html#keywords
+ 299. file://z80asm-future.html#index
+ 300. file://z80asm-future.html#10_12
+ 301. file://z80asm-future.html#10_26
+ 302. file://z80asm-future.html#10_12
+ 303. file://z80asm-future.html#10_26
+ 304. file://z80asm-future.html#10_14
+ 305. file://z80asm-future.html#top
+ 306. file://z80asm-future.html#keywords
+ 307. file://z80asm-future.html#index
+ 308. file://z80asm-future.html#7
+ 309. file://z80asm-future.html#top
+ 310. file://z80asm-future.html#keywords
+ 311. file://z80asm-future.html#index
+ 312. file://z80asm-future.html#7
+ 313. file://z80asm-future.html#top
+ 314. file://z80asm-future.html#keywords
+ 315. file://z80asm-future.html#index
  316. file://z80asm-future.html#top
  317. file://z80asm-future.html#keywords
  318. file://z80asm-future.html#index
- 319. file://z80asm-future.html#7
- 320. file://z80asm-future.html#top
- 321. file://z80asm-future.html#keywords
- 322. file://z80asm-future.html#index
- 323. file://z80asm-future.html#top
- 324. file://z80asm-future.html#keywords
- 325. file://z80asm-future.html#index
- 326. file://z80asm-future.html#top
- 327. file://z80asm-future.html#keywords
- 328. file://z80asm-future.html#index
- 329. file://z80asm-future.html#10_15
- 330. file://z80asm-future.html#10_16
- 331. file://z80asm-future.html#10_17
- 332. file://z80asm-future.html#top
- 333. file://z80asm-future.html#keywords
- 334. file://z80asm-future.html#index
- 335. file://z80asm-future.html#7
- 336. file://z80asm-future.html#6_5
- 337. file://z80asm-future.html#top
- 338. file://z80asm-future.html#keywords
- 339. file://z80asm-future.html#index
- 340. file://z80asm-future.html#7
+ 319. file://z80asm-future.html#top
+ 320. file://z80asm-future.html#keywords
+ 321. file://z80asm-future.html#index
+ 322. file://z80asm-future.html#10_15
+ 323. file://z80asm-future.html#10_16
+ 324. file://z80asm-future.html#10_17
+ 325. file://z80asm-future.html#top
+ 326. file://z80asm-future.html#keywords
+ 327. file://z80asm-future.html#index
+ 328. file://z80asm-future.html#7
+ 329. file://z80asm-future.html#6_5
+ 330. file://z80asm-future.html#top
+ 331. file://z80asm-future.html#keywords
+ 332. file://z80asm-future.html#index
+ 333. file://z80asm-future.html#7
+ 334. file://z80asm-future.html#top
+ 335. file://z80asm-future.html#keywords
+ 336. file://z80asm-future.html#index
+ 337. file://z80asm-future.html#7
+ 338. file://z80asm-future.html#top
+ 339. file://z80asm-future.html#keywords
+ 340. file://z80asm-future.html#index
  341. file://z80asm-future.html#top
  342. file://z80asm-future.html#keywords
  343. file://z80asm-future.html#index
@@ -3861,47 +3807,47 @@ References
  349. file://z80asm-future.html#keywords
  350. file://z80asm-future.html#index
  351. file://z80asm-future.html#7
- 352. file://z80asm-future.html#top
- 353. file://z80asm-future.html#keywords
- 354. file://z80asm-future.html#index
- 355. file://z80asm-future.html#top
- 356. file://z80asm-future.html#keywords
- 357. file://z80asm-future.html#index
- 358. file://z80asm-future.html#7
- 359. file://z80asm-future.html#10_25
- 360. file://z80asm-future.html#top
- 361. file://z80asm-future.html#keywords
- 362. file://z80asm-future.html#index
- 363. file://z80asm-future.html#top
- 364. file://z80asm-future.html#keywords
- 365. file://z80asm-future.html#index
- 366. file://z80asm-future.html#top
- 367. file://z80asm-future.html#keywords
- 368. file://z80asm-future.html#index
- 369. file://z80asm-future.html#top
- 370. file://z80asm-future.html#keywords
- 371. file://z80asm-future.html#index
+ 352. file://z80asm-future.html#10_25
+ 353. file://z80asm-future.html#top
+ 354. file://z80asm-future.html#keywords
+ 355. file://z80asm-future.html#index
+ 356. file://z80asm-future.html#top
+ 357. file://z80asm-future.html#keywords
+ 358. file://z80asm-future.html#index
+ 359. file://z80asm-future.html#top
+ 360. file://z80asm-future.html#keywords
+ 361. file://z80asm-future.html#index
+ 362. file://z80asm-future.html#top
+ 363. file://z80asm-future.html#keywords
+ 364. file://z80asm-future.html#index
+ 365. file://z80asm-future.html#top
+ 366. file://z80asm-future.html#keywords
+ 367. file://z80asm-future.html#index
+ 368. file://z80asm-future.html#top
+ 369. file://z80asm-future.html#keywords
+ 370. file://z80asm-future.html#index
+ 371. file://z80asm-future.html#7
  372. file://z80asm-future.html#top
  373. file://z80asm-future.html#keywords
  374. file://z80asm-future.html#index
  375. file://z80asm-future.html#top
  376. file://z80asm-future.html#keywords
  377. file://z80asm-future.html#index
- 378. file://z80asm-future.html#7
- 379. file://z80asm-future.html#top
- 380. file://z80asm-future.html#keywords
- 381. file://z80asm-future.html#index
+ 378. file://z80asm-future.html#top
+ 379. file://z80asm-future.html#keywords
+ 380. file://z80asm-future.html#index
+ 381. file://z80asm-future.html#6_2_1
  382. file://z80asm-future.html#top
  383. file://z80asm-future.html#keywords
  384. file://z80asm-future.html#index
- 385. file://z80asm-future.html#top
- 386. file://z80asm-future.html#keywords
- 387. file://z80asm-future.html#index
- 388. file://z80asm-future.html#6_2_1
+ 385. file://z80asm-future.html#6_2_2
+ 386. file://z80asm-future.html#top
+ 387. file://z80asm-future.html#keywords
+ 388. file://z80asm-future.html#index
  389. file://z80asm-future.html#top
  390. file://z80asm-future.html#keywords
  391. file://z80asm-future.html#index
- 392. file://z80asm-future.html#6_2_2
+ 392. file://z80asm-future.html#7
  393. file://z80asm-future.html#top
  394. file://z80asm-future.html#keywords
  395. file://z80asm-future.html#index
@@ -3909,686 +3855,679 @@ References
  397. file://z80asm-future.html#keywords
  398. file://z80asm-future.html#index
  399. file://z80asm-future.html#7
- 400. file://z80asm-future.html#top
- 401. file://z80asm-future.html#keywords
- 402. file://z80asm-future.html#index
+ 400. file://z80asm-future.html#7
+ 401. file://z80asm-future.html#6_2_6
+ 402. file://z80asm-future.html#6_2_6
  403. file://z80asm-future.html#top
  404. file://z80asm-future.html#keywords
  405. file://z80asm-future.html#index
- 406. file://z80asm-future.html#7
- 407. file://z80asm-future.html#7
- 408. file://z80asm-future.html#6_2_8
- 409. file://z80asm-future.html#6_2_8
- 410. file://z80asm-future.html#top
- 411. file://z80asm-future.html#keywords
- 412. file://z80asm-future.html#index
- 413. file://z80asm-future.html#top
- 414. file://z80asm-future.html#keywords
- 415. file://z80asm-future.html#index
- 416. file://z80asm-future.html#top
- 417. file://z80asm-future.html#keywords
- 418. file://z80asm-future.html#index
- 419. file://z80asm-future.html#6_2_14
- 420. file://z80asm-future.html#6_2_13
+ 406. file://z80asm-future.html#top
+ 407. file://z80asm-future.html#keywords
+ 408. file://z80asm-future.html#index
+ 409. file://z80asm-future.html#top
+ 410. file://z80asm-future.html#keywords
+ 411. file://z80asm-future.html#index
+ 412. file://z80asm-future.html#6_2_11
+ 413. file://z80asm-future.html#6_2_10
+ 414. file://z80asm-future.html#top
+ 415. file://z80asm-future.html#keywords
+ 416. file://z80asm-future.html#index
+ 417. file://z80asm-future.html#top
+ 418. file://z80asm-future.html#keywords
+ 419. file://z80asm-future.html#index
+ 420. file://z80asm-future.html#7
  421. file://z80asm-future.html#top
  422. file://z80asm-future.html#keywords
  423. file://z80asm-future.html#index
- 424. file://z80asm-future.html#top
- 425. file://z80asm-future.html#keywords
- 426. file://z80asm-future.html#index
- 427. file://z80asm-future.html#7
- 428. file://z80asm-future.html#top
- 429. file://z80asm-future.html#keywords
- 430. file://z80asm-future.html#index
- 431. file://z80asm-future.html#7
- 432. file://z80asm-future.html#7
+ 424. file://z80asm-future.html#7
+ 425. file://z80asm-future.html#7
+ 426. file://z80asm-future.html#top
+ 427. file://z80asm-future.html#keywords
+ 428. file://z80asm-future.html#index
+ 429. file://z80asm-future.html#10_25
+ 430. file://z80asm-future.html#top
+ 431. file://z80asm-future.html#keywords
+ 432. file://z80asm-future.html#index
  433. file://z80asm-future.html#top
  434. file://z80asm-future.html#keywords
  435. file://z80asm-future.html#index
- 436. file://z80asm-future.html#10_25
+ 436. file://z80asm-future.html#7
  437. file://z80asm-future.html#top
  438. file://z80asm-future.html#keywords
  439. file://z80asm-future.html#index
- 440. file://z80asm-future.html#top
- 441. file://z80asm-future.html#keywords
- 442. file://z80asm-future.html#index
- 443. file://z80asm-future.html#7
- 444. file://z80asm-future.html#top
- 445. file://z80asm-future.html#keywords
- 446. file://z80asm-future.html#index
- 447. file://z80asm-future.html#6_5
- 448. file://z80asm-future.html#top
- 449. file://z80asm-future.html#keywords
- 450. file://z80asm-future.html#index
- 451. file://z80asm-future.html#7
- 452. file://z80asm-future.html#10_29
- 453. file://z80asm-future.html#10_27
- 454. file://z80asm-future.html#10_29
- 455. file://z80asm-future.html#10_27
- 456. file://z80asm-future.html#10_20
- 457. file://z80asm-future.html#top
- 458. file://z80asm-future.html#keywords
- 459. file://z80asm-future.html#index
- 460. file://z80asm-future.html#7
+ 440. file://z80asm-future.html#6_5
+ 441. file://z80asm-future.html#top
+ 442. file://z80asm-future.html#keywords
+ 443. file://z80asm-future.html#index
+ 444. file://z80asm-future.html#7
+ 445. file://z80asm-future.html#10_29
+ 446. file://z80asm-future.html#10_27
+ 447. file://z80asm-future.html#10_29
+ 448. file://z80asm-future.html#10_27
+ 449. file://z80asm-future.html#10_20
+ 450. file://z80asm-future.html#top
+ 451. file://z80asm-future.html#keywords
+ 452. file://z80asm-future.html#index
+ 453. file://z80asm-future.html#7
+ 454. file://z80asm-future.html#10_6
+ 455. file://z80asm-future.html#6_5
+ 456. file://z80asm-future.html#10_6
+ 457. file://z80asm-future.html#10_6
+ 458. file://z80asm-future.html#10_18
+ 459. file://z80asm-future.html#10_6
+ 460. file://z80asm-future.html#10_11
  461. file://z80asm-future.html#10_6
- 462. file://z80asm-future.html#6_5
- 463. file://z80asm-future.html#10_6
- 464. file://z80asm-future.html#10_6
- 465. file://z80asm-future.html#10_18
- 466. file://z80asm-future.html#10_6
- 467. file://z80asm-future.html#10_11
- 468. file://z80asm-future.html#10_6
- 469. file://z80asm-future.html#10_11
+ 462. file://z80asm-future.html#10_11
+ 463. file://z80asm-future.html#7
+ 464. file://z80asm-future.html#10_11
+ 465. file://z80asm-future.html#10_11
+ 466. file://z80asm-future.html#10_8
+ 467. file://z80asm-future.html#top
+ 468. file://z80asm-future.html#keywords
+ 469. file://z80asm-future.html#index
  470. file://z80asm-future.html#7
- 471. file://z80asm-future.html#10_11
- 472. file://z80asm-future.html#10_11
- 473. file://z80asm-future.html#10_8
- 474. file://z80asm-future.html#top
- 475. file://z80asm-future.html#keywords
- 476. file://z80asm-future.html#index
- 477. file://z80asm-future.html#7
- 478. file://z80asm-future.html#7
- 479. file://z80asm-future.html#7
- 480. file://z80asm-future.html#top
- 481. file://z80asm-future.html#keywords
- 482. file://z80asm-future.html#index
- 483. file://z80asm-future.html#10_26
- 484. file://z80asm-future.html#10_26
- 485. file://z80asm-future.html#top
- 486. file://z80asm-future.html#keywords
- 487. file://z80asm-future.html#index
- 488. file://z80asm-future.html#7
- 489. file://z80asm-future.html#10_2
- 490. file://z80asm-future.html#top
- 491. file://z80asm-future.html#keywords
- 492. file://z80asm-future.html#index
- 493. file://z80asm-future.html#top
- 494. file://z80asm-future.html#keywords
- 495. file://z80asm-future.html#index
- 496. file://z80asm-future.html#7
- 497. file://z80asm-future.html#6_5
- 498. file://z80asm-future.html#6_5
- 499. file://z80asm-future.html#top
- 500. file://z80asm-future.html#keywords
- 501. file://z80asm-future.html#index
- 502. file://z80asm-future.html#6_2_13
- 503. file://z80asm-future.html#10_20
- 504. file://z80asm-future.html#10_20
+ 471. file://z80asm-future.html#7
+ 472. file://z80asm-future.html#7
+ 473. file://z80asm-future.html#top
+ 474. file://z80asm-future.html#keywords
+ 475. file://z80asm-future.html#index
+ 476. file://z80asm-future.html#10_26
+ 477. file://z80asm-future.html#10_26
+ 478. file://z80asm-future.html#top
+ 479. file://z80asm-future.html#keywords
+ 480. file://z80asm-future.html#index
+ 481. file://z80asm-future.html#7
+ 482. file://z80asm-future.html#10_2
+ 483. file://z80asm-future.html#top
+ 484. file://z80asm-future.html#keywords
+ 485. file://z80asm-future.html#index
+ 486. file://z80asm-future.html#top
+ 487. file://z80asm-future.html#keywords
+ 488. file://z80asm-future.html#index
+ 489. file://z80asm-future.html#7
+ 490. file://z80asm-future.html#6_5
+ 491. file://z80asm-future.html#6_5
+ 492. file://z80asm-future.html#top
+ 493. file://z80asm-future.html#keywords
+ 494. file://z80asm-future.html#index
+ 495. file://z80asm-future.html#6_2_10
+ 496. file://z80asm-future.html#10_20
+ 497. file://z80asm-future.html#10_20
+ 498. file://z80asm-future.html#top
+ 499. file://z80asm-future.html#keywords
+ 500. file://z80asm-future.html#index
+ 501. file://z80asm-future.html#10_28
+ 502. file://z80asm-future.html#10_20
+ 503. file://z80asm-future.html#10_28
+ 504. file://z80asm-future.html#6_2_11
  505. file://z80asm-future.html#top
  506. file://z80asm-future.html#keywords
  507. file://z80asm-future.html#index
- 508. file://z80asm-future.html#10_28
- 509. file://z80asm-future.html#10_20
- 510. file://z80asm-future.html#10_28
- 511. file://z80asm-future.html#6_2_14
- 512. file://z80asm-future.html#top
- 513. file://z80asm-future.html#keywords
- 514. file://z80asm-future.html#index
- 515. file://z80asm-future.html#6_2_11
- 516. file://z80asm-future.html#10_6
- 517. file://z80asm-future.html#10_27
- 518. file://z80asm-future.html#6_2_7
- 519. file://z80asm-future.html#6_2_11
- 520. file://z80asm-future.html#6_2_6
+ 508. file://z80asm-future.html#3_7_4
+ 509. file://z80asm-future.html#10_6
+ 510. file://z80asm-future.html#10_27
+ 511. file://z80asm-future.html#6_2_5
+ 512. file://z80asm-future.html#3_7_4
+ 513. file://z80asm-future.html#6_2_4
+ 514. file://z80asm-future.html#10_18
+ 515. file://z80asm-future.html#10_27
+ 516. file://z80asm-future.html#10_18
+ 517. file://z80asm-future.html#10_6
+ 518. file://z80asm-future.html#10_29
+ 519. file://z80asm-future.html#3_7_4
+ 520. file://z80asm-future.html#10_29
  521. file://z80asm-future.html#10_18
- 522. file://z80asm-future.html#10_27
- 523. file://z80asm-future.html#10_18
- 524. file://z80asm-future.html#10_6
- 525. file://z80asm-future.html#10_29
- 526. file://z80asm-future.html#6_2_11
- 527. file://z80asm-future.html#10_29
- 528. file://z80asm-future.html#10_18
- 529. file://z80asm-future.html#10_6
- 530. file://z80asm-future.html#6_2_11
- 531. file://z80asm-future.html#10_29
- 532. file://z80asm-future.html#10_27
- 533. file://z80asm-future.html#6_2_11
+ 522. file://z80asm-future.html#10_6
+ 523. file://z80asm-future.html#3_7_4
+ 524. file://z80asm-future.html#10_29
+ 525. file://z80asm-future.html#10_27
+ 526. file://z80asm-future.html#3_7_4
+ 527. file://z80asm-future.html#top
+ 528. file://z80asm-future.html#keywords
+ 529. file://z80asm-future.html#index
+ 530. file://z80asm-future.html#7
+ 531. file://z80asm-future.html#7
+ 532. file://z80asm-future.html#7
+ 533. file://z80asm-future.html#7
  534. file://z80asm-future.html#top
  535. file://z80asm-future.html#keywords
  536. file://z80asm-future.html#index
- 537. file://z80asm-future.html#7
- 538. file://z80asm-future.html#7
- 539. file://z80asm-future.html#7
- 540. file://z80asm-future.html#7
- 541. file://z80asm-future.html#top
- 542. file://z80asm-future.html#keywords
- 543. file://z80asm-future.html#index
+ 537. file://z80asm-future.html#top
+ 538. file://z80asm-future.html#keywords
+ 539. file://z80asm-future.html#index
+ 540. file://z80asm-future.html#top
+ 541. file://z80asm-future.html#keywords
+ 542. file://z80asm-future.html#index
+ 543. file://z80asm-future.html#10_15
  544. file://z80asm-future.html#top
  545. file://z80asm-future.html#keywords
  546. file://z80asm-future.html#index
  547. file://z80asm-future.html#top
  548. file://z80asm-future.html#keywords
  549. file://z80asm-future.html#index
- 550. file://z80asm-future.html#10_15
- 551. file://z80asm-future.html#top
- 552. file://z80asm-future.html#keywords
- 553. file://z80asm-future.html#index
- 554. file://z80asm-future.html#top
- 555. file://z80asm-future.html#keywords
- 556. file://z80asm-future.html#index
- 557. file://z80asm-future.html#10_29
- 558. file://z80asm-future.html#10_20
- 559. file://z80asm-future.html#top
- 560. file://z80asm-future.html#keywords
- 561. file://z80asm-future.html#index
- 562. file://z80asm-future.html#7
- 563. file://z80asm-future.html#7
- 564. file://z80asm-future.html#7
- 565. file://z80asm-future.html#top
- 566. file://z80asm-future.html#keywords
- 567. file://z80asm-future.html#index
- 568. file://z80asm-future.html#10_1
+ 550. file://z80asm-future.html#10_29
+ 551. file://z80asm-future.html#10_20
+ 552. file://z80asm-future.html#top
+ 553. file://z80asm-future.html#keywords
+ 554. file://z80asm-future.html#index
+ 555. file://z80asm-future.html#7
+ 556. file://z80asm-future.html#7
+ 557. file://z80asm-future.html#7
+ 558. file://z80asm-future.html#top
+ 559. file://z80asm-future.html#keywords
+ 560. file://z80asm-future.html#index
+ 561. file://z80asm-future.html#10_1
+ 562. file://z80asm-future.html#top
+ 563. file://z80asm-future.html#keywords
+ 564. file://z80asm-future.html#index
+ 565. file://z80asm-future.html#6_5
+ 566. file://z80asm-future.html#top
+ 567. file://z80asm-future.html#keywords
+ 568. file://z80asm-future.html#index
  569. file://z80asm-future.html#top
  570. file://z80asm-future.html#keywords
  571. file://z80asm-future.html#index
- 572. file://z80asm-future.html#6_5
- 573. file://z80asm-future.html#top
- 574. file://z80asm-future.html#keywords
- 575. file://z80asm-future.html#index
- 576. file://z80asm-future.html#top
- 577. file://z80asm-future.html#keywords
- 578. file://z80asm-future.html#index
- 579. file://z80asm-future.html#top
- 580. file://z80asm-future.html#keywords
- 581. file://z80asm-future.html#index
- 582. file://z80asm-future.html#top
- 583. file://z80asm-future.html#keywords
- 584. file://z80asm-future.html#index
- 585. file://z80asm-future.html#6_5
- 586. file://z80asm-future.html#10_6
- 587. file://z80asm-future.html#top
- 588. file://z80asm-future.html#keywords
- 589. file://z80asm-future.html#index
- 590. file://z80asm-future.html#10_7
+ 572. file://z80asm-future.html#top
+ 573. file://z80asm-future.html#keywords
+ 574. file://z80asm-future.html#index
+ 575. file://z80asm-future.html#top
+ 576. file://z80asm-future.html#keywords
+ 577. file://z80asm-future.html#index
+ 578. file://z80asm-future.html#6_5
+ 579. file://z80asm-future.html#10_6
+ 580. file://z80asm-future.html#top
+ 581. file://z80asm-future.html#keywords
+ 582. file://z80asm-future.html#index
+ 583. file://z80asm-future.html#10_7
+ 584. file://z80asm-future.html#top
+ 585. file://z80asm-future.html#keywords
+ 586. file://z80asm-future.html#index
+ 587. file://z80asm-future.html#10_8
+ 588. file://z80asm-future.html#10_8
+ 589. file://z80asm-future.html#10_8
+ 590. file://z80asm-future.html#10_6
  591. file://z80asm-future.html#top
  592. file://z80asm-future.html#keywords
  593. file://z80asm-future.html#index
- 594. file://z80asm-future.html#10_8
- 595. file://z80asm-future.html#10_8
- 596. file://z80asm-future.html#10_8
- 597. file://z80asm-future.html#10_6
+ 594. file://z80asm-future.html#top
+ 595. file://z80asm-future.html#keywords
+ 596. file://z80asm-future.html#index
+ 597. file://z80asm-future.html#10_10
  598. file://z80asm-future.html#top
  599. file://z80asm-future.html#keywords
  600. file://z80asm-future.html#index
- 601. file://z80asm-future.html#top
- 602. file://z80asm-future.html#keywords
- 603. file://z80asm-future.html#index
- 604. file://z80asm-future.html#10_10
- 605. file://z80asm-future.html#top
- 606. file://z80asm-future.html#keywords
- 607. file://z80asm-future.html#index
- 608. file://z80asm-future.html#10_11
- 609. file://z80asm-future.html#10_11
- 610. file://z80asm-future.html#10_11
- 611. file://z80asm-future.html#top
- 612. file://z80asm-future.html#keywords
- 613. file://z80asm-future.html#index
- 614. file://z80asm-future.html#10_26
- 615. file://z80asm-future.html#top
- 616. file://z80asm-future.html#keywords
- 617. file://z80asm-future.html#index
- 618. file://z80asm-future.html#6_5
- 619. file://z80asm-future.html#6_5
- 620. file://z80asm-future.html#top
- 621. file://z80asm-future.html#keywords
- 622. file://z80asm-future.html#index
- 623. file://z80asm-future.html#10_14
- 624. file://z80asm-future.html#10_26
- 625. file://z80asm-future.html#10_12
- 626. file://z80asm-future.html#top
- 627. file://z80asm-future.html#keywords
- 628. file://z80asm-future.html#index
- 629. file://z80asm-future.html#top
- 630. file://z80asm-future.html#keywords
- 631. file://z80asm-future.html#index
- 632. file://z80asm-future.html#top
- 633. file://z80asm-future.html#keywords
- 634. file://z80asm-future.html#index
- 635. file://z80asm-future.html#top
- 636. file://z80asm-future.html#keywords
- 637. file://z80asm-future.html#index
- 638. file://z80asm-future.html#6_5
- 639. file://z80asm-future.html#10_18
- 640. file://z80asm-future.html#10_18
- 641. file://z80asm-future.html#10_18
- 642. file://z80asm-future.html#10_18
- 643. file://z80asm-future.html#top
- 644. file://z80asm-future.html#keywords
- 645. file://z80asm-future.html#index
- 646. file://z80asm-future.html#10_2
- 647. file://z80asm-future.html#6_2_17
- 648. file://z80asm-future.html#10_2
+ 601. file://z80asm-future.html#10_11
+ 602. file://z80asm-future.html#10_11
+ 603. file://z80asm-future.html#10_11
+ 604. file://z80asm-future.html#top
+ 605. file://z80asm-future.html#keywords
+ 606. file://z80asm-future.html#index
+ 607. file://z80asm-future.html#10_26
+ 608. file://z80asm-future.html#top
+ 609. file://z80asm-future.html#keywords
+ 610. file://z80asm-future.html#index
+ 611. file://z80asm-future.html#6_5
+ 612. file://z80asm-future.html#6_5
+ 613. file://z80asm-future.html#top
+ 614. file://z80asm-future.html#keywords
+ 615. file://z80asm-future.html#index
+ 616. file://z80asm-future.html#10_14
+ 617. file://z80asm-future.html#10_26
+ 618. file://z80asm-future.html#10_12
+ 619. file://z80asm-future.html#top
+ 620. file://z80asm-future.html#keywords
+ 621. file://z80asm-future.html#index
+ 622. file://z80asm-future.html#top
+ 623. file://z80asm-future.html#keywords
+ 624. file://z80asm-future.html#index
+ 625. file://z80asm-future.html#top
+ 626. file://z80asm-future.html#keywords
+ 627. file://z80asm-future.html#index
+ 628. file://z80asm-future.html#top
+ 629. file://z80asm-future.html#keywords
+ 630. file://z80asm-future.html#index
+ 631. file://z80asm-future.html#6_5
+ 632. file://z80asm-future.html#10_18
+ 633. file://z80asm-future.html#10_18
+ 634. file://z80asm-future.html#10_18
+ 635. file://z80asm-future.html#10_18
+ 636. file://z80asm-future.html#top
+ 637. file://z80asm-future.html#keywords
+ 638. file://z80asm-future.html#index
+ 639. file://z80asm-future.html#10_2
+ 640. file://z80asm-future.html#6_2_14
+ 641. file://z80asm-future.html#10_2
+ 642. file://z80asm-future.html#top
+ 643. file://z80asm-future.html#keywords
+ 644. file://z80asm-future.html#index
+ 645. file://z80asm-future.html#10_12
+ 646. file://z80asm-future.html#top
+ 647. file://z80asm-future.html#keywords
+ 648. file://z80asm-future.html#index
  649. file://z80asm-future.html#top
  650. file://z80asm-future.html#keywords
  651. file://z80asm-future.html#index
- 652. file://z80asm-future.html#10_12
- 653. file://z80asm-future.html#top
- 654. file://z80asm-future.html#keywords
- 655. file://z80asm-future.html#index
- 656. file://z80asm-future.html#top
- 657. file://z80asm-future.html#keywords
- 658. file://z80asm-future.html#index
- 659. file://z80asm-future.html#top
- 660. file://z80asm-future.html#keywords
- 661. file://z80asm-future.html#index
- 662. file://z80asm-future.html#10_22
- 663. file://z80asm-future.html#10_18
- 664. file://z80asm-future.html#top
- 665. file://z80asm-future.html#keywords
- 666. file://z80asm-future.html#index
- 667. file://z80asm-future.html#10_24
- 668. file://z80asm-future.html#10_24
- 669. file://z80asm-future.html#top
- 670. file://z80asm-future.html#keywords
- 671. file://z80asm-future.html#index
+ 652. file://z80asm-future.html#top
+ 653. file://z80asm-future.html#keywords
+ 654. file://z80asm-future.html#index
+ 655. file://z80asm-future.html#10_22
+ 656. file://z80asm-future.html#10_18
+ 657. file://z80asm-future.html#top
+ 658. file://z80asm-future.html#keywords
+ 659. file://z80asm-future.html#index
+ 660. file://z80asm-future.html#10_24
+ 661. file://z80asm-future.html#10_24
+ 662. file://z80asm-future.html#top
+ 663. file://z80asm-future.html#keywords
+ 664. file://z80asm-future.html#index
+ 665. file://z80asm-future.html#10_25
+ 666. file://z80asm-future.html#10_25
+ 667. file://z80asm-future.html#10_25
+ 668. file://z80asm-future.html#10_25
+ 669. file://z80asm-future.html#6_2_7
+ 670. file://z80asm-future.html#10_25
+ 671. file://z80asm-future.html#10_25
  672. file://z80asm-future.html#10_25
- 673. file://z80asm-future.html#10_25
- 674. file://z80asm-future.html#10_25
- 675. file://z80asm-future.html#10_25
- 676. file://z80asm-future.html#6_2_9
- 677. file://z80asm-future.html#10_25
- 678. file://z80asm-future.html#10_25
- 679. file://z80asm-future.html#10_25
+ 673. file://z80asm-future.html#top
+ 674. file://z80asm-future.html#keywords
+ 675. file://z80asm-future.html#index
+ 676. file://z80asm-future.html#top
+ 677. file://z80asm-future.html#keywords
+ 678. file://z80asm-future.html#index
+ 679. file://z80asm-future.html#10_26
  680. file://z80asm-future.html#top
  681. file://z80asm-future.html#keywords
  682. file://z80asm-future.html#index
- 683. file://z80asm-future.html#top
- 684. file://z80asm-future.html#keywords
- 685. file://z80asm-future.html#index
- 686. file://z80asm-future.html#10_26
- 687. file://z80asm-future.html#top
- 688. file://z80asm-future.html#keywords
- 689. file://z80asm-future.html#index
- 690. file://z80asm-future.html#10_26
- 691. file://z80asm-future.html#top
- 692. file://z80asm-future.html#keywords
- 693. file://z80asm-future.html#index
- 694. file://z80asm-future.html#10_12
- 695. file://z80asm-future.html#top
- 696. file://z80asm-future.html#keywords
- 697. file://z80asm-future.html#index
- 698. file://z80asm-future.html#7
- 699. file://z80asm-future.html#10_3
- 700. file://z80asm-future.html#10_29
- 701. file://z80asm-future.html#6_5
- 702. file://z80asm-future.html#6_5
- 703. file://z80asm-future.html#7
- 704. file://z80asm-future.html#7
- 705. file://z80asm-future.html#6_5
- 706. file://z80asm-future.html#7
- 707. file://z80asm-future.html#10_6
- 708. file://z80asm-future.html#10_11
- 709. file://z80asm-future.html#10_8
- 710. file://z80asm-future.html#10_24
- 711. file://z80asm-future.html#10_24
- 712. file://z80asm-future.html#10_28
- 713. file://z80asm-future.html#10_28
+ 683. file://z80asm-future.html#10_26
+ 684. file://z80asm-future.html#top
+ 685. file://z80asm-future.html#keywords
+ 686. file://z80asm-future.html#index
+ 687. file://z80asm-future.html#10_12
+ 688. file://z80asm-future.html#top
+ 689. file://z80asm-future.html#keywords
+ 690. file://z80asm-future.html#index
+ 691. file://z80asm-future.html#7
+ 692. file://z80asm-future.html#10_3
+ 693. file://z80asm-future.html#10_29
+ 694. file://z80asm-future.html#6_5
+ 695. file://z80asm-future.html#6_5
+ 696. file://z80asm-future.html#7
+ 697. file://z80asm-future.html#7
+ 698. file://z80asm-future.html#6_5
+ 699. file://z80asm-future.html#7
+ 700. file://z80asm-future.html#10_6
+ 701. file://z80asm-future.html#10_11
+ 702. file://z80asm-future.html#10_8
+ 703. file://z80asm-future.html#10_24
+ 704. file://z80asm-future.html#10_24
+ 705. file://z80asm-future.html#10_28
+ 706. file://z80asm-future.html#10_28
+ 707. file://z80asm-future.html#10_29
+ 708. file://z80asm-future.html#10_27
+ 709. file://z80asm-future.html#10_29
+ 710. file://z80asm-future.html#10_27
+ 711. file://z80asm-future.html#10_29
+ 712. file://z80asm-future.html#10_25
+ 713. file://z80asm-future.html#10_25
  714. file://z80asm-future.html#10_29
- 715. file://z80asm-future.html#10_27
- 716. file://z80asm-future.html#10_29
- 717. file://z80asm-future.html#10_27
- 718. file://z80asm-future.html#10_29
- 719. file://z80asm-future.html#10_25
- 720. file://z80asm-future.html#10_25
- 721. file://z80asm-future.html#10_29
- 722. file://z80asm-future.html#10_20
- 723. file://z80asm-future.html#7
- 724. file://z80asm-future.html#7
- 725. file://z80asm-future.html#10_18
+ 715. file://z80asm-future.html#10_20
+ 716. file://z80asm-future.html#7
+ 717. file://z80asm-future.html#7
+ 718. file://z80asm-future.html#10_18
+ 719. file://z80asm-future.html#10_18
+ 720. file://z80asm-future.html#top
+ 721. file://z80asm-future.html#keywords
+ 722. file://z80asm-future.html#index
+ 723. file://z80asm-future.html#6_2_3
+ 724. file://z80asm-future.html#10_15
+ 725. file://z80asm-future.html#10_15
  726. file://z80asm-future.html#10_18
- 727. file://z80asm-future.html#top
- 728. file://z80asm-future.html#keywords
- 729. file://z80asm-future.html#index
- 730. file://z80asm-future.html#6_2_5
- 731. file://z80asm-future.html#10_15
- 732. file://z80asm-future.html#10_15
- 733. file://z80asm-future.html#10_18
- 734. file://z80asm-future.html#10_15
- 735. file://z80asm-future.html#3_7_1
- 736. file://z80asm-future.html#10_18
- 737. file://z80asm-future.html#10_1
- 738. file://z80asm-future.html#10_18
- 739. file://z80asm-future.html#10_1
- 740. file://z80asm-future.html#7
- 741. file://z80asm-future.html#10_6
+ 727. file://z80asm-future.html#10_15
+ 728. file://z80asm-future.html#3_7_3
+ 729. file://z80asm-future.html#10_18
+ 730. file://z80asm-future.html#10_1
+ 731. file://z80asm-future.html#10_18
+ 732. file://z80asm-future.html#10_1
+ 733. file://z80asm-future.html#7
+ 734. file://z80asm-future.html#10_6
+ 735. file://z80asm-future.html#10_15
+ 736. file://z80asm-future.html#7
+ 737. file://z80asm-future.html#10_6
+ 738. file://z80asm-future.html#10_14
+ 739. file://z80asm-future.html#10_14
+ 740. file://z80asm-future.html#10_26
+ 741. file://z80asm-future.html#10_12
  742. file://z80asm-future.html#10_15
- 743. file://z80asm-future.html#7
- 744. file://z80asm-future.html#10_6
- 745. file://z80asm-future.html#10_14
- 746. file://z80asm-future.html#10_14
- 747. file://z80asm-future.html#10_26
- 748. file://z80asm-future.html#10_12
- 749. file://z80asm-future.html#10_15
- 750. file://z80asm-future.html#10_25
- 751. file://z80asm-future.html#10_25
- 752. file://z80asm-future.html#10_25
+ 743. file://z80asm-future.html#10_25
+ 744. file://z80asm-future.html#10_25
+ 745. file://z80asm-future.html#10_25
+ 746. file://z80asm-future.html#7
+ 747. file://z80asm-future.html#10_6
+ 748. file://z80asm-future.html#10_14
+ 749. file://z80asm-future.html#10_14
+ 750. file://z80asm-future.html#10_26
+ 751. file://z80asm-future.html#10_12
+ 752. file://z80asm-future.html#10_15
  753. file://z80asm-future.html#7
  754. file://z80asm-future.html#10_6
- 755. file://z80asm-future.html#10_14
- 756. file://z80asm-future.html#10_14
- 757. file://z80asm-future.html#10_26
- 758. file://z80asm-future.html#10_12
- 759. file://z80asm-future.html#10_15
- 760. file://z80asm-future.html#7
- 761. file://z80asm-future.html#10_6
- 762. file://z80asm-future.html#10_15
+ 755. file://z80asm-future.html#10_15
+ 756. file://z80asm-future.html#top
+ 757. file://z80asm-future.html#keywords
+ 758. file://z80asm-future.html#index
+ 759. http://www.cpcalive.com/docs/TASMMAN.HTM
+ 760. file://z80asm-future.html#top
+ 761. file://z80asm-future.html#keywords
+ 762. file://z80asm-future.html#index
  763. file://z80asm-future.html#top
  764. file://z80asm-future.html#keywords
  765. file://z80asm-future.html#index
- 766. http://www.cpcalive.com/docs/TASMMAN.HTM
+ 766. http://www.perlfoundation.org/artisticlicense2_0
  767. file://z80asm-future.html#top
  768. file://z80asm-future.html#keywords
  769. file://z80asm-future.html#index
- 770. file://z80asm-future.html#top
- 771. file://z80asm-future.html#keywords
- 772. file://z80asm-future.html#index
- 773. http://www.perlfoundation.org/artisticlicense2_0
- 774. file://z80asm-future.html#top
- 775. file://z80asm-future.html#keywords
- 776. file://z80asm-future.html#index
- 777. file://z80asm-future.html#6_2_18
- 778. file://z80asm-future.html#3_5
- 779. file://z80asm-future.html#3_4_1
- 780. file://z80asm-future.html#3_6_2
- 781. file://z80asm-future.html#3_4_2
- 782. file://z80asm-future.html#6_2_2
- 783. file://z80asm-future.html#6_2_10
- 784. file://z80asm-future.html#6_2_16
- 785. file://z80asm-future.html#6_2_7
- 786. file://z80asm-future.html#3_2_1
- 787. file://z80asm-future.html#6_2_6
- 788. file://z80asm-future.html#6_2_5
- 789. file://z80asm-future.html#3_6_4
- 790. file://z80asm-future.html#3_2_2
- 791. file://z80asm-future.html#6_2_1
- 792. file://z80asm-future.html#6_2_11
- 793. file://z80asm-future.html#3_1_2
- 794. file://z80asm-future.html#3_2_3
- 795. file://z80asm-future.html#6_2_13
- 796. file://z80asm-future.html#6_2_3
- 797. file://z80asm-future.html#3_2_4
+ 770. file://z80asm-future.html#6_2_15
+ 771. file://z80asm-future.html#3_5
+ 772. file://z80asm-future.html#3_4_1
+ 773. file://z80asm-future.html#3_6_2
+ 774. file://z80asm-future.html#3_4_2
+ 775. file://z80asm-future.html#6_2_2
+ 776. file://z80asm-future.html#6_2_8
+ 777. file://z80asm-future.html#6_2_13
+ 778. file://z80asm-future.html#6_2_5
+ 779. file://z80asm-future.html#3_2_1
+ 780. file://z80asm-future.html#6_2_4
+ 781. file://z80asm-future.html#6_2_3
+ 782. file://z80asm-future.html#3_6_4
+ 783. file://z80asm-future.html#3_2_2
+ 784. file://z80asm-future.html#6_2_1
+ 785. file://z80asm-future.html#3_7_4
+ 786. file://z80asm-future.html#3_1_2
+ 787. file://z80asm-future.html#3_2_3
+ 788. file://z80asm-future.html#6_2_10
+ 789. file://z80asm-future.html#3_7_2
+ 790. file://z80asm-future.html#3_2_4
+ 791. file://z80asm-future.html#3_7_3
+ 792. file://z80asm-future.html#3_6_1
+ 793. file://z80asm-future.html#3_3_1
+ 794. file://z80asm-future.html#6_2_6
+ 795. file://z80asm-future.html#3_6_3
+ 796. file://z80asm-future.html#6_2_14
+ 797. file://z80asm-future.html#6_2_7
  798. file://z80asm-future.html#3_7_1
- 799. file://z80asm-future.html#3_6_1
- 800. file://z80asm-future.html#3_3_1
- 801. file://z80asm-future.html#6_2_8
- 802. file://z80asm-future.html#3_6_3
- 803. file://z80asm-future.html#6_2_17
- 804. file://z80asm-future.html#6_2_9
- 805. file://z80asm-future.html#6_2_4
- 806. file://z80asm-future.html#6_2_15
- 807. file://z80asm-future.html#3_2_5
- 808. file://z80asm-future.html#3_1_3
- 809. file://z80asm-future.html#6_2_14
- 810. file://z80asm-future.html#10_1
- 811. file://z80asm-future.html#10_2
- 812. file://z80asm-future.html#10_3
- 813. file://z80asm-future.html#10_6
- 814. file://z80asm-future.html#10_8
- 815. file://z80asm-future.html#10_9
- 816. file://z80asm-future.html#10_5
- 817. file://z80asm-future.html#10_7
- 818. file://z80asm-future.html#10_10
- 819. file://z80asm-future.html#10_11
- 820. file://z80asm-future.html#10_4
- 821. file://z80asm-future.html#10_12
- 822. file://z80asm-future.html#10_13
- 823. file://z80asm-future.html#10_14
- 824. file://z80asm-future.html#10_15
- 825. file://z80asm-future.html#10_16
- 826. file://z80asm-future.html#10_17
- 827. file://z80asm-future.html#10_18
- 828. file://z80asm-future.html#10_19
- 829. file://z80asm-future.html#10_20
- 830. file://z80asm-future.html#10_21
- 831. file://z80asm-future.html#10_22
- 832. file://z80asm-future.html#10_23
- 833. file://z80asm-future.html#10_24
- 834. file://z80asm-future.html#10_25
- 835. file://z80asm-future.html#10_26
- 836. file://z80asm-future.html#10_27
- 837. file://z80asm-future.html#10_28
- 838. file://z80asm-future.html#10_29
- 839. file://z80asm-future.html#7
- 840. file://z80asm-future.html#6_5
- 841. file://z80asm-future.html#top
- 842. file://z80asm-future.html#keywords
- 843. file://z80asm-future.html#index
- 844. file://z80asm-future.html#1
- 845. file://z80asm-future.html#1_1
- 846. file://z80asm-future.html#1_2
- 847. file://z80asm-future.html#1_3
- 848. file://z80asm-future.html#1_4
- 849. file://z80asm-future.html#2
- 850. file://z80asm-future.html#3
- 851. file://z80asm-future.html#3_1
- 852. file://z80asm-future.html#3_1_1
- 853. file://z80asm-future.html#3_1_2
- 854. file://z80asm-future.html#3_1_2
- 855. file://z80asm-future.html#3_1_3
- 856. file://z80asm-future.html#3_1_3
- 857. file://z80asm-future.html#3_2
- 858. file://z80asm-future.html#3_2_1
- 859. file://z80asm-future.html#3_2_1
- 860. file://z80asm-future.html#3_2_2
- 861. file://z80asm-future.html#3_2_2
- 862. file://z80asm-future.html#3_2_3
- 863. file://z80asm-future.html#3_2_3
- 864. file://z80asm-future.html#3_2_4
- 865. file://z80asm-future.html#3_2_4
- 866. file://z80asm-future.html#3_2_5
- 867. file://z80asm-future.html#3_2_5
- 868. file://z80asm-future.html#3_3
- 869. file://z80asm-future.html#3_3_1
- 870. file://z80asm-future.html#3_3_1
- 871. file://z80asm-future.html#3_4
- 872. file://z80asm-future.html#3_4_1
- 873. file://z80asm-future.html#3_4_1
- 874. file://z80asm-future.html#3_4_2
- 875. file://z80asm-future.html#3_4_2
- 876. file://z80asm-future.html#3_5
- 877. file://z80asm-future.html#3_5
- 878. file://z80asm-future.html#3_6
- 879. file://z80asm-future.html#3_6_1
- 880. file://z80asm-future.html#3_6_1
- 881. file://z80asm-future.html#3_6_2
- 882. file://z80asm-future.html#3_6_2
- 883. file://z80asm-future.html#3_6_3
- 884. file://z80asm-future.html#3_6_3
- 885. file://z80asm-future.html#3_6_4
- 886. file://z80asm-future.html#3_6_4
- 887. file://z80asm-future.html#3_7
- 888. file://z80asm-future.html#3_7_1
- 889. file://z80asm-future.html#3_7_1
- 890. file://z80asm-future.html#4
- 891. file://z80asm-future.html#4_1
- 892. file://z80asm-future.html#4_2
- 893. file://z80asm-future.html#4_3
- 894. file://z80asm-future.html#4_4
- 895. file://z80asm-future.html#4_5
- 896. file://z80asm-future.html#4_5_1
- 897. file://z80asm-future.html#4_5_2
- 898. file://z80asm-future.html#4_5_3
- 899. file://z80asm-future.html#4_5_4
- 900. file://z80asm-future.html#4_5_5
- 901. file://z80asm-future.html#4_6
- 902. file://z80asm-future.html#4_7
- 903. file://z80asm-future.html#5
- 904. file://z80asm-future.html#5_1
- 905. file://z80asm-future.html#5_2
- 906. file://z80asm-future.html#5_3
- 907. file://z80asm-future.html#6
- 908. file://z80asm-future.html#6_1
- 909. file://z80asm-future.html#6_2
+ 799. file://z80asm-future.html#6_2_12
+ 800. file://z80asm-future.html#3_2_5
+ 801. file://z80asm-future.html#3_1_3
+ 802. file://z80asm-future.html#6_2_11
+ 803. file://z80asm-future.html#10_1
+ 804. file://z80asm-future.html#10_2
+ 805. file://z80asm-future.html#10_3
+ 806. file://z80asm-future.html#10_6
+ 807. file://z80asm-future.html#10_8
+ 808. file://z80asm-future.html#10_9
+ 809. file://z80asm-future.html#10_5
+ 810. file://z80asm-future.html#10_7
+ 811. file://z80asm-future.html#10_10
+ 812. file://z80asm-future.html#10_11
+ 813. file://z80asm-future.html#10_4
+ 814. file://z80asm-future.html#10_12
+ 815. file://z80asm-future.html#10_13
+ 816. file://z80asm-future.html#10_14
+ 817. file://z80asm-future.html#10_15
+ 818. file://z80asm-future.html#10_16
+ 819. file://z80asm-future.html#10_17
+ 820. file://z80asm-future.html#10_18
+ 821. file://z80asm-future.html#10_19
+ 822. file://z80asm-future.html#10_20
+ 823. file://z80asm-future.html#10_21
+ 824. file://z80asm-future.html#10_22
+ 825. file://z80asm-future.html#10_23
+ 826. file://z80asm-future.html#10_24
+ 827. file://z80asm-future.html#10_25
+ 828. file://z80asm-future.html#10_26
+ 829. file://z80asm-future.html#10_27
+ 830. file://z80asm-future.html#10_28
+ 831. file://z80asm-future.html#10_29
+ 832. file://z80asm-future.html#7
+ 833. file://z80asm-future.html#6_5
+ 834. file://z80asm-future.html#top
+ 835. file://z80asm-future.html#keywords
+ 836. file://z80asm-future.html#index
+ 837. file://z80asm-future.html#1
+ 838. file://z80asm-future.html#1_1
+ 839. file://z80asm-future.html#1_2
+ 840. file://z80asm-future.html#1_3
+ 841. file://z80asm-future.html#1_4
+ 842. file://z80asm-future.html#2
+ 843. file://z80asm-future.html#3
+ 844. file://z80asm-future.html#3_1
+ 845. file://z80asm-future.html#3_1_1
+ 846. file://z80asm-future.html#3_1_2
+ 847. file://z80asm-future.html#3_1_2
+ 848. file://z80asm-future.html#3_1_3
+ 849. file://z80asm-future.html#3_1_3
+ 850. file://z80asm-future.html#3_2
+ 851. file://z80asm-future.html#3_2_1
+ 852. file://z80asm-future.html#3_2_1
+ 853. file://z80asm-future.html#3_2_2
+ 854. file://z80asm-future.html#3_2_2
+ 855. file://z80asm-future.html#3_2_3
+ 856. file://z80asm-future.html#3_2_3
+ 857. file://z80asm-future.html#3_2_4
+ 858. file://z80asm-future.html#3_2_4
+ 859. file://z80asm-future.html#3_2_5
+ 860. file://z80asm-future.html#3_2_5
+ 861. file://z80asm-future.html#3_3
+ 862. file://z80asm-future.html#3_3_1
+ 863. file://z80asm-future.html#3_3_1
+ 864. file://z80asm-future.html#3_4
+ 865. file://z80asm-future.html#3_4_1
+ 866. file://z80asm-future.html#3_4_1
+ 867. file://z80asm-future.html#3_4_2
+ 868. file://z80asm-future.html#3_4_2
+ 869. file://z80asm-future.html#3_5
+ 870. file://z80asm-future.html#3_5
+ 871. file://z80asm-future.html#3_6
+ 872. file://z80asm-future.html#3_6_1
+ 873. file://z80asm-future.html#3_6_1
+ 874. file://z80asm-future.html#3_6_2
+ 875. file://z80asm-future.html#3_6_2
+ 876. file://z80asm-future.html#3_6_3
+ 877. file://z80asm-future.html#3_6_3
+ 878. file://z80asm-future.html#3_6_4
+ 879. file://z80asm-future.html#3_6_4
+ 880. file://z80asm-future.html#3_7
+ 881. file://z80asm-future.html#3_7_1
+ 882. file://z80asm-future.html#3_7_1
+ 883. file://z80asm-future.html#3_7_2
+ 884. file://z80asm-future.html#3_7_2
+ 885. file://z80asm-future.html#3_7_3
+ 886. file://z80asm-future.html#3_7_3
+ 887. file://z80asm-future.html#3_7_4
+ 888. file://z80asm-future.html#3_7_4
+ 889. file://z80asm-future.html#4
+ 890. file://z80asm-future.html#4_1
+ 891. file://z80asm-future.html#4_2
+ 892. file://z80asm-future.html#4_3
+ 893. file://z80asm-future.html#4_4
+ 894. file://z80asm-future.html#4_5
+ 895. file://z80asm-future.html#4_5_1
+ 896. file://z80asm-future.html#4_5_2
+ 897. file://z80asm-future.html#4_5_3
+ 898. file://z80asm-future.html#4_5_4
+ 899. file://z80asm-future.html#4_5_5
+ 900. file://z80asm-future.html#4_6
+ 901. file://z80asm-future.html#4_7
+ 902. file://z80asm-future.html#5
+ 903. file://z80asm-future.html#5_1
+ 904. file://z80asm-future.html#5_2
+ 905. file://z80asm-future.html#5_3
+ 906. file://z80asm-future.html#6
+ 907. file://z80asm-future.html#6_1
+ 908. file://z80asm-future.html#6_2
+ 909. file://z80asm-future.html#6_2_1
  910. file://z80asm-future.html#6_2_1
- 911. file://z80asm-future.html#6_2_1
+ 911. file://z80asm-future.html#6_2_2
  912. file://z80asm-future.html#6_2_2
- 913. file://z80asm-future.html#6_2_2
+ 913. file://z80asm-future.html#6_2_3
  914. file://z80asm-future.html#6_2_3
- 915. file://z80asm-future.html#6_2_3
+ 915. file://z80asm-future.html#6_2_4
  916. file://z80asm-future.html#6_2_4
- 917. file://z80asm-future.html#6_2_4
+ 917. file://z80asm-future.html#6_2_5
  918. file://z80asm-future.html#6_2_5
- 919. file://z80asm-future.html#6_2_5
- 920. file://z80asm-future.html#6_2_6
+ 919. file://z80asm-future.html#6_2_3
+ 920. file://z80asm-future.html#6_2_4
  921. file://z80asm-future.html#6_2_6
- 922. file://z80asm-future.html#6_2_7
+ 922. file://z80asm-future.html#6_2_6
  923. file://z80asm-future.html#6_2_7
- 924. file://z80asm-future.html#6_2_5
- 925. file://z80asm-future.html#6_2_6
+ 924. file://z80asm-future.html#6_2_7
+ 925. file://z80asm-future.html#10_25
  926. file://z80asm-future.html#6_2_8
  927. file://z80asm-future.html#6_2_8
  928. file://z80asm-future.html#6_2_9
- 929. file://z80asm-future.html#6_2_9
- 930. file://z80asm-future.html#10_25
- 931. file://z80asm-future.html#6_2_10
- 932. file://z80asm-future.html#6_2_10
- 933. file://z80asm-future.html#6_2_11
- 934. file://z80asm-future.html#6_2_11
- 935. file://z80asm-future.html#6_2_12
+ 929. file://z80asm-future.html#6_2_10
+ 930. file://z80asm-future.html#6_2_10
+ 931. file://z80asm-future.html#6_2_11
+ 932. file://z80asm-future.html#6_2_11
+ 933. file://z80asm-future.html#6_2_12
+ 934. file://z80asm-future.html#6_2_12
+ 935. file://z80asm-future.html#6_2_13
  936. file://z80asm-future.html#6_2_13
- 937. file://z80asm-future.html#6_2_13
+ 937. file://z80asm-future.html#7
  938. file://z80asm-future.html#6_2_14
  939. file://z80asm-future.html#6_2_14
  940. file://z80asm-future.html#6_2_15
  941. file://z80asm-future.html#6_2_15
- 942. file://z80asm-future.html#6_2_16
- 943. file://z80asm-future.html#6_2_16
- 944. file://z80asm-future.html#7
- 945. file://z80asm-future.html#6_2_17
- 946. file://z80asm-future.html#6_2_17
- 947. file://z80asm-future.html#6_2_18
- 948. file://z80asm-future.html#6_2_18
- 949. file://z80asm-future.html#10_21
- 950. file://z80asm-future.html#6_3
- 951. file://z80asm-future.html#6_5
- 952. file://z80asm-future.html#6_4
- 953. file://z80asm-future.html#7
- 954. file://z80asm-future.html#6_5
- 955. file://z80asm-future.html#6_5
- 956. file://z80asm-future.html#6_6
- 957. file://z80asm-future.html#6_7
- 958. file://z80asm-future.html#6_8
- 959. file://z80asm-future.html#6_9
- 960. file://z80asm-future.html#6_10
- 961. file://z80asm-future.html#6_11
- 962. file://z80asm-future.html#6_12
- 963. file://z80asm-future.html#6_13
- 964. file://z80asm-future.html#6_14
+ 942. file://z80asm-future.html#10_21
+ 943. file://z80asm-future.html#6_3
+ 944. file://z80asm-future.html#6_5
+ 945. file://z80asm-future.html#6_4
+ 946. file://z80asm-future.html#7
+ 947. file://z80asm-future.html#6_5
+ 948. file://z80asm-future.html#6_5
+ 949. file://z80asm-future.html#6_6
+ 950. file://z80asm-future.html#6_7
+ 951. file://z80asm-future.html#6_8
+ 952. file://z80asm-future.html#6_9
+ 953. file://z80asm-future.html#6_10
+ 954. file://z80asm-future.html#6_11
+ 955. file://z80asm-future.html#6_12
+ 956. file://z80asm-future.html#6_13
+ 957. file://z80asm-future.html#6_14
+ 958. file://z80asm-future.html#7
+ 959. file://z80asm-future.html#6_15
+ 960. file://z80asm-future.html#6_16
+ 961. file://z80asm-future.html#6_17
+ 962. file://z80asm-future.html#6_18
+ 963. file://z80asm-future.html#6_19
+ 964. file://z80asm-future.html#6_20
  965. file://z80asm-future.html#7
- 966. file://z80asm-future.html#6_15
- 967. file://z80asm-future.html#6_16
- 968. file://z80asm-future.html#6_17
- 969. file://z80asm-future.html#6_18
- 970. file://z80asm-future.html#6_19
- 971. file://z80asm-future.html#6_20
- 972. file://z80asm-future.html#7
- 973. file://z80asm-future.html#6_21
- 974. file://z80asm-future.html#6_22
- 975. file://z80asm-future.html#6_23
- 976. file://z80asm-future.html#6_24
- 977. file://z80asm-future.html#7
- 978. file://z80asm-future.html#7
- 979. file://z80asm-future.html#7_1
- 980. file://z80asm-future.html#7_2
- 981. file://z80asm-future.html#7_3
- 982. file://z80asm-future.html#7_3_1
- 983. file://z80asm-future.html#7_3_2
- 984. file://z80asm-future.html#7_3_3
- 985. file://z80asm-future.html#7_3_4
- 986. file://z80asm-future.html#7_3_5
- 987. file://z80asm-future.html#7_3_6
- 988. file://z80asm-future.html#7_3_7
- 989. file://z80asm-future.html#7_3_8
- 990. file://z80asm-future.html#7_3_9
- 991. file://z80asm-future.html#8
- 992. file://z80asm-future.html#8_1
- 993. file://z80asm-future.html#8_1_1
- 994. file://z80asm-future.html#8_1_2
- 995. file://z80asm-future.html#8_2
- 996. file://z80asm-future.html#8_3
- 997. file://z80asm-future.html#8_4
- 998. file://z80asm-future.html#8_5
- 999. file://z80asm-future.html#8_6
-1000. file://z80asm-future.html#8_7
-1001. file://z80asm-future.html#8_8
-1002. file://z80asm-future.html#8_9
-1003. file://z80asm-future.html#7
-1004. file://z80asm-future.html#8_10
-1005. file://z80asm-future.html#7
-1006. file://z80asm-future.html#8_11
-1007. file://z80asm-future.html#7
-1008. file://z80asm-future.html#8_12
-1009. file://z80asm-future.html#8_13
-1010. file://z80asm-future.html#8_14
-1011. file://z80asm-future.html#9
-1012. file://z80asm-future.html#9_1
-1013. file://z80asm-future.html#9_2
-1014. file://z80asm-future.html#9_3
-1015. file://z80asm-future.html#9_4
-1016. file://z80asm-future.html#9_5
-1017. file://z80asm-future.html#10
-1018. file://z80asm-future.html#10_1
-1019. file://z80asm-future.html#10_1
-1020. file://z80asm-future.html#10_2
-1021. file://z80asm-future.html#10_2
-1022. file://z80asm-future.html#10_3
-1023. file://z80asm-future.html#10_3
-1024. file://z80asm-future.html#10_4
-1025. file://z80asm-future.html#10_4
-1026. file://z80asm-future.html#10_5
-1027. file://z80asm-future.html#10_5
-1028. file://z80asm-future.html#10_6
-1029. file://z80asm-future.html#10_6
-1030. file://z80asm-future.html#10_7
-1031. file://z80asm-future.html#10_7
-1032. file://z80asm-future.html#10_8
-1033. file://z80asm-future.html#10_8
-1034. file://z80asm-future.html#10_9
-1035. file://z80asm-future.html#10_9
-1036. file://z80asm-future.html#10_10
-1037. file://z80asm-future.html#10_10
-1038. file://z80asm-future.html#10_11
-1039. file://z80asm-future.html#10_11
-1040. file://z80asm-future.html#10_12
-1041. file://z80asm-future.html#10_12
-1042. file://z80asm-future.html#10_13
-1043. file://z80asm-future.html#10_13
-1044. file://z80asm-future.html#10_14
-1045. file://z80asm-future.html#10_14
-1046. file://z80asm-future.html#10_15
-1047. file://z80asm-future.html#10_15
-1048. file://z80asm-future.html#10_16
-1049. file://z80asm-future.html#10_16
-1050. file://z80asm-future.html#10_17
-1051. file://z80asm-future.html#10_17
-1052. file://z80asm-future.html#10_18
-1053. file://z80asm-future.html#10_18
-1054. file://z80asm-future.html#10_19
-1055. file://z80asm-future.html#10_19
-1056. file://z80asm-future.html#10_20
-1057. file://z80asm-future.html#10_20
-1058. file://z80asm-future.html#10_21
-1059. file://z80asm-future.html#10_21
-1060. file://z80asm-future.html#10_22
-1061. file://z80asm-future.html#10_22
-1062. file://z80asm-future.html#10_23
-1063. file://z80asm-future.html#10_23
-1064. file://z80asm-future.html#10_24
-1065. file://z80asm-future.html#10_24
-1066. file://z80asm-future.html#10_25
-1067. file://z80asm-future.html#10_25
-1068. file://z80asm-future.html#10_26
-1069. file://z80asm-future.html#10_26
-1070. file://z80asm-future.html#10_27
-1071. file://z80asm-future.html#10_27
-1072. file://z80asm-future.html#10_28
-1073. file://z80asm-future.html#10_28
-1074. file://z80asm-future.html#10_29
-1075. file://z80asm-future.html#10_29
-1076. file://z80asm-future.html#11
-1077. file://z80asm-future.html#12
-1078. file://z80asm-future.html#13
-1079. file://z80asm-future.html#14
-1080. file://z80asm-future.html#15
-1081. file://z80asm-future.html#16
-1082. file://z80asm-future.html#17
+ 966. file://z80asm-future.html#6_21
+ 967. file://z80asm-future.html#6_22
+ 968. file://z80asm-future.html#6_23
+ 969. file://z80asm-future.html#6_24
+ 970. file://z80asm-future.html#7
+ 971. file://z80asm-future.html#7
+ 972. file://z80asm-future.html#7_1
+ 973. file://z80asm-future.html#7_2
+ 974. file://z80asm-future.html#7_3
+ 975. file://z80asm-future.html#7_3_1
+ 976. file://z80asm-future.html#7_3_2
+ 977. file://z80asm-future.html#7_3_3
+ 978. file://z80asm-future.html#7_3_4
+ 979. file://z80asm-future.html#7_3_5
+ 980. file://z80asm-future.html#7_3_6
+ 981. file://z80asm-future.html#7_3_7
+ 982. file://z80asm-future.html#7_3_8
+ 983. file://z80asm-future.html#7_3_9
+ 984. file://z80asm-future.html#8
+ 985. file://z80asm-future.html#8_1
+ 986. file://z80asm-future.html#8_1_1
+ 987. file://z80asm-future.html#8_1_2
+ 988. file://z80asm-future.html#8_2
+ 989. file://z80asm-future.html#8_3
+ 990. file://z80asm-future.html#8_4
+ 991. file://z80asm-future.html#8_5
+ 992. file://z80asm-future.html#8_6
+ 993. file://z80asm-future.html#8_7
+ 994. file://z80asm-future.html#8_8
+ 995. file://z80asm-future.html#8_9
+ 996. file://z80asm-future.html#7
+ 997. file://z80asm-future.html#8_10
+ 998. file://z80asm-future.html#7
+ 999. file://z80asm-future.html#8_11
+1000. file://z80asm-future.html#7
+1001. file://z80asm-future.html#8_12
+1002. file://z80asm-future.html#8_13
+1003. file://z80asm-future.html#8_14
+1004. file://z80asm-future.html#9
+1005. file://z80asm-future.html#9_1
+1006. file://z80asm-future.html#9_2
+1007. file://z80asm-future.html#9_3
+1008. file://z80asm-future.html#9_4
+1009. file://z80asm-future.html#9_5
+1010. file://z80asm-future.html#10
+1011. file://z80asm-future.html#10_1
+1012. file://z80asm-future.html#10_1
+1013. file://z80asm-future.html#10_2
+1014. file://z80asm-future.html#10_2
+1015. file://z80asm-future.html#10_3
+1016. file://z80asm-future.html#10_3
+1017. file://z80asm-future.html#10_4
+1018. file://z80asm-future.html#10_4
+1019. file://z80asm-future.html#10_5
+1020. file://z80asm-future.html#10_5
+1021. file://z80asm-future.html#10_6
+1022. file://z80asm-future.html#10_6
+1023. file://z80asm-future.html#10_7
+1024. file://z80asm-future.html#10_7
+1025. file://z80asm-future.html#10_8
+1026. file://z80asm-future.html#10_8
+1027. file://z80asm-future.html#10_9
+1028. file://z80asm-future.html#10_9
+1029. file://z80asm-future.html#10_10
+1030. file://z80asm-future.html#10_10
+1031. file://z80asm-future.html#10_11
+1032. file://z80asm-future.html#10_11
+1033. file://z80asm-future.html#10_12
+1034. file://z80asm-future.html#10_12
+1035. file://z80asm-future.html#10_13
+1036. file://z80asm-future.html#10_13
+1037. file://z80asm-future.html#10_14
+1038. file://z80asm-future.html#10_14
+1039. file://z80asm-future.html#10_15
+1040. file://z80asm-future.html#10_15
+1041. file://z80asm-future.html#10_16
+1042. file://z80asm-future.html#10_16
+1043. file://z80asm-future.html#10_17
+1044. file://z80asm-future.html#10_17
+1045. file://z80asm-future.html#10_18
+1046. file://z80asm-future.html#10_18
+1047. file://z80asm-future.html#10_19
+1048. file://z80asm-future.html#10_19
+1049. file://z80asm-future.html#10_20
+1050. file://z80asm-future.html#10_20
+1051. file://z80asm-future.html#10_21
+1052. file://z80asm-future.html#10_21
+1053. file://z80asm-future.html#10_22
+1054. file://z80asm-future.html#10_22
+1055. file://z80asm-future.html#10_23
+1056. file://z80asm-future.html#10_23
+1057. file://z80asm-future.html#10_24
+1058. file://z80asm-future.html#10_24
+1059. file://z80asm-future.html#10_25
+1060. file://z80asm-future.html#10_25
+1061. file://z80asm-future.html#10_26
+1062. file://z80asm-future.html#10_26
+1063. file://z80asm-future.html#10_27
+1064. file://z80asm-future.html#10_27
+1065. file://z80asm-future.html#10_28
+1066. file://z80asm-future.html#10_28
+1067. file://z80asm-future.html#10_29
+1068. file://z80asm-future.html#10_29
+1069. file://z80asm-future.html#11
+1070. file://z80asm-future.html#12
+1071. file://z80asm-future.html#13
+1072. file://z80asm-future.html#14
+1073. file://z80asm-future.html#15
+1074. file://z80asm-future.html#16
+1075. file://z80asm-future.html#17

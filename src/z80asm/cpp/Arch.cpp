@@ -1,14 +1,11 @@
 //-----------------------------------------------------------------------------
-// z80asm restart
+// z80asm restart - implement each of the supported computer architectures
 // Copyright (C) Paulo Custodio, 2011-2020
 // License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 //-----------------------------------------------------------------------------
 
 #include "Arch.h"
-
-#include "Cpu.h"
-
-Arch theArch;
+#include "App.h"
 
 struct ArchDefine {
 	const char* name;
@@ -54,9 +51,9 @@ void Arch::Init(Type type_)
 int Arch::INVOKE() const
 {
 	switch (type) {
-	case TI83PLUS: return theCpu.RST(0x28);		// Ti83Plus: RST 28H instruction
+	case TI83PLUS: return app.options.cpu.RST(0x28);		// Ti83Plus: RST 28H instruction
 	default: break;
 	}
 
-	return theCpu.CALL();						// all others: CALL
+	return app.options.cpu.CALL();						// all others: CALL
 }

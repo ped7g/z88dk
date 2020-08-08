@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// z80asm restart
+// z80asm restart - implement each of the supported CPUs
 // Copyright (C) Paulo Custodio, 2011-2020
 // License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 //-----------------------------------------------------------------------------
@@ -7,8 +7,6 @@
 #include "Cpu.h"
 
 #include <cassert>
-
-Cpu theCpu;
 
 struct CpuLookup {
 	Cpu::Type type;

@@ -119,7 +119,7 @@ DEFINE_dtor_module()
 *----------------------------------------------------------------------------*/
 static void process_env_options()
 {
-	const char *opts = GetEnvPendingOpts();
+	const char *opts = GetEnvPendingOptions();
 	if (!opts || *opts == '\0')
 		return;
 

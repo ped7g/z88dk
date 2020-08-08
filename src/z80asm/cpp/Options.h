@@ -6,26 +6,29 @@
 
 #pragma once
 
+#include "Cpu.h"
+#include "Arch.h"
+
 #include <string>
 #include <utility>
 #include <vector>
 
 struct Options {
-	bool	verbose;		// true to be verbose
-	bool	swapIxIy;		// swap IX and IY
-	bool	optimizeSpeed;	// true to optimize for speed
-	bool	debugInfo;		// add debug info to map file 
-	bool	doMapFile;		// generate map file
+	bool	verbose{ false };		// true to be verbose
+	bool	mapfile{ false };		// generate map file
+	bool	symtable{ false };		// generate symbol table file
+	bool	listfile{ false };		// generate list file
+	bool	globaldef{ false };		// generate table with global defintions
+
+	bool	swapIxIy{ false };		// swap IX and IY
+	bool	optimizeSpeed{ false };	// true to optimize for speed
+	bool	debugInfo{ false };		// add debug info to map file 
+
+	Cpu		cpu;
+	Arch	arch;
 
 	std::vector<std::pair<std::string, int>>
 								defines;		// list of -D defines
 	std::vector<std::string>	includePath;	// where to search for source files
 	std::vector<std::string>	libraryPath;	// where to search for library files
 };
-
-// singleton
-extern Options theOptions;
-
-void ExitUsage();
-void ExitManual();
-std::string ExpandEnvironmentVars(std::string str);

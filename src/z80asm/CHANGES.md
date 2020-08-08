@@ -229,7 +229,7 @@ Z88DK Z80 Module Assembler Change Log
 
 - 2016-06-28
 
-  Only generate .sym file if -s or --symtable option is given.
+  Only generate .sym file if -s option is given.
   Sym file contains only one list of symbols, ordered by value, and in
   '$'-hex notation, e.g. $1234.
 

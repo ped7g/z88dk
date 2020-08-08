@@ -9,6 +9,7 @@ use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
 
 my $test = test_name();
+my $bin;
 
 path("$test.asm")->spew(<<END);
 	nop
@@ -16,7 +17,7 @@ END
 
 unlink "$test.bin";
 run_ok("z80asm -b $test.asm", '', '');
-my $bin = path("$test.bin")->slurp_raw();
+$bin = path("$test.bin")->slurp_raw();
 ok $bin eq  "\x00", "bin ok";
 
 unlink "$test.bin";
@@ -32,7 +33,7 @@ Module '$test' size: 1 bytes
 Code size: 1 bytes (\$0000 to \$0000)
 Creating binary '$test.bin'
 OUT
-my $bin = path("$test.bin")->slurp_raw();
+$bin = path("$test.bin")->slurp_raw();
 ok $bin eq  "\x00", "bin ok";
 
 for my $illegal (qw( -vx --vx -v=1 )) {

@@ -1013,10 +1013,10 @@ void link_modules(void)
 	close_error_file();
 
 	if (!get_num_errors()) {
-		if (OptionMapFile())
+		if (OptionMapfile())
 			write_map_file();
 
-		if (opts.globaldef)
+		if (OptionGlobaldef())
 			write_def_file();
 	}
 

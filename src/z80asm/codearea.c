@@ -459,7 +459,7 @@ void append_value( int value, int num_bytes )
     init_module();
 	patch_value(get_cur_module_size(), value, num_bytes);
 
-	if ( opts.list )
+	if ( OptionListfile() )
 		list_append( value, num_bytes );
 }
 

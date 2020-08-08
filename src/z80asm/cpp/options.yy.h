@@ -40,19 +40,6 @@
 	#endif
 	#endif
 
-	#include "Arch.h"
-	#include "Cpu.h"
-	#include "Options.h"
-
-	#include <string>
-	#include <utility>
-	#include <vector>
-
-	#include <cassert>
-	#include <climits>
-	#include <cstring>
-	#include <cstdlib>
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //

@@ -102,7 +102,7 @@ void assemble_file( const char *filename )
 	PushSourceDirname(src_filename);
 
     /* normal case - assemble a asm source file */
-    opts.cur_list = opts.list;		/* initial LSTON status */
+    opts.cur_list = OptionListfile();		/* initial LSTON status */
 
 	/* when building libraries need to reset codearea to allow total library size > 64K
 	   when building binary cannot reset codearea so that each module is linked
@@ -174,7 +174,7 @@ static void do_assemble(const char *src_filename )
 	clear_macros();
 
 	/* create list file */
-	if (opts.list)
+	if (OptionListfile())
 		list_open(get_list_filename(src_filename));
 
 	/* initialize local symtab with copy of static one (-D defines) */
@@ -268,7 +268,7 @@ int z80asm_main( int argc, char *argv[] )
 			if (!get_num_errors())
 				write_obj_file(opts.consol_obj_file);
 
-			if (!get_num_errors() && opts.symtable)
+			if (!get_num_errors() && OptionSymtable())
 				write_sym_file(CURRENTMODULE);
 		}
 	}
@@ -295,4 +295,3 @@ int z80asm_main( int argc, char *argv[] )
         return 0;    /* assembler successfully ended */
     }
 }
-

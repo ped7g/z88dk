@@ -58,16 +58,25 @@ extern "C" {
 	int z80asm_main(int argc, char* argv[]);
 
 	// called by legacy
+	void ClearEnvPendingOptions();
+	void SetEnvPendingOptions(const char* str);
+	void AppendEnvPendingOptions(const char* str);
+	const char* GetEnvPendingOptions();
+
+	bool OptionVerbose();
+	bool OptionMapfile();
+	bool OptionSymtable();
+	bool OptionListfile();
+	bool OptionGlobaldef();
+
+
 	int GetCpu();
 	const char* GetCpuName();
 	int GetInvokeOpcode();
 	bool SwapIxIy();
 	void TraverseDefines(void(*func)(const char* name, int value));
-	bool OptionVerbose();
 	bool OptionOptimizeSpeed();
 	bool OptionDebugInfo();
-	bool OptionMapFile();
-	const char* GetEnvPendingOpts();
 
 	const char* AddStringPool(const char* str);
 	const char* ExpandEnvironmentVarsC(const char* str);

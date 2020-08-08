@@ -146,7 +146,7 @@ Z80pass2(void)
 			}
 		}
 
-		if (opts.list) {
+		if (OptionListfile()) {
 			if (expr->range == RANGE_WORD_BE) {
 				int swapped = ((value & 0xFF00) >> 8) | ((value & 0x00FF) << 8);
 				list_patch_data(expr->listpos, swapped, range_size(expr->range));
@@ -185,7 +185,7 @@ Z80pass2(void)
 	if (!get_num_errors())
 		object_file_append(get_obj_filename(CURRENTMODULE->filename), CURRENTMODULE, false, false);
 
-	if (!get_num_errors() && opts.symtable)
+	if (!get_num_errors() && OptionSymtable())
 		write_sym_file(CURRENTMODULE);
 }
 

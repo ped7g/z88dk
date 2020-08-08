@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// z80asm restart
+// z80asm restart - implement each of the supported computer architectures
 // Copyright (C) Paulo Custodio, 2011-2020
 // License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 //-----------------------------------------------------------------------------
@@ -32,6 +32,3 @@ private:
 	std::vector<std::pair<std::string, int>> 
 					defines;
 };
-
-// singleton
-extern Arch theArch;

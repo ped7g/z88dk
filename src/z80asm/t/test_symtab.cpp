@@ -21,6 +21,8 @@ extern Symbol *_define_sym(const char *name, long value, sym_type_t type, sym_sc
 					 SymbolHash **psymtab );
 };
 
+#include "App.h" 
+
 #include <assert.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -98,8 +100,8 @@ static void test_symtab( void )
 	SymbolHash *symtab, *symtab2;
 	
 	list_open("test.lis");
-	opts.symtable = true;
-	opts.list     = true;
+	app.options.symtable = true;
+	app.options.listfile = true;
 	
 	warn("Create current module\n");	
 	set_cur_module( new_module() );

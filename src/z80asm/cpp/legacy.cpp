@@ -6,14 +6,13 @@
 
 #include "legacy.h"
 
-#include "Arch.h"
-#include "CmdArgs.h"
-#include "Cpu.h"
-#include "Options.h"
+#include "App.h"
 
 #include "filesystem/path.h"
 
 #include <unordered_set>
+
+static std::string envPendingOptions;
 
 const char* CPU_Z80_NAME = "z80";
 const char* CPU_Z80N_NAME = "z80n";
@@ -39,56 +38,83 @@ const char* CPU_INTEL_DEFINE = "__CPU_INTEL__";
 
 const char* SWAP_IXIY_DEFINE = "__SWAP_IX_IY__";
 
+void ClearEnvPendingOptions() {
+	envPendingOptions.clear();
+}
+
+void SetEnvPendingOptions(const char * str) {
+	envPendingOptions = str;
+}
+
+void AppendEnvPendingOptions(const char * str) {
+	using namespace std;
+
+	envPendingOptions += string(" ") + str;
+}
+
+const char* GetEnvPendingOptions() {
+	return envPendingOptions.c_str();
+}
+
+bool OptionVerbose() {
+	return app.options.verbose;
+}
+
+bool OptionMapfile() {
+	return app.options.mapfile;
+}
+
+bool OptionSymtable() {
+	return app.options.symtable;
+}
+
+bool OptionListfile() {
+	return app.options.listfile;
+}
+
+bool OptionGlobaldef() {
+	return app.options.globaldef;
+}
+
+
+
+
+
 int GetCpu() 
 {
-	return static_cast<int>(theCpu.GetType());
+	return static_cast<int>(app.options.cpu.GetType());
 }
 
 const char* GetCpuName()
 {
-	return theCpu.GetName().c_str();
+	return app.options.cpu.GetName().c_str();
 }
 
 int GetInvokeOpcode()
 {
-	return theArch.INVOKE();
+	return app.options.arch.INVOKE();
 }
 
 bool SwapIxIy()
 {
-	return theOptions.swapIxIy;
+	return app.options.swapIxIy;
 }
 
 void TraverseDefines(void(*func)(const char *name, int value))
 {
-	for (auto it = theOptions.defines.cbegin();
-		it != theOptions.defines.cend(); ++it)
+	for (auto it = app.options.defines.cbegin();
+		it != app.options.defines.cend(); ++it)
 		func((*it).first.c_str(), (*it).second);
-}
-
-bool OptionVerbose()
-{
-	return theOptions.verbose;
 }
 
 bool OptionOptimizeSpeed()
 {
-	return theOptions.optimizeSpeed;
+	return app.options.optimizeSpeed;
 }
 
 bool OptionDebugInfo()
 {
-	return theOptions.debugInfo;
-}
-
-bool OptionMapFile()
-{
-	return theOptions.doMapFile;
-}
-
-const char* GetEnvPendingOpts()
-{
-	return theCmdArgs.GetEnvPendingOpts();
+	return app.options.debugInfo;
 }
 
 const char * AddStringPool(const char * str)
@@ -108,7 +134,7 @@ const char * ExpandEnvironmentVarsC(const char * str_)
 	using namespace std;
 
 	string str{ str_ };
-	str = ExpandEnvironmentVars(str);
+	str = App::ExpandEnvironmentVars(str);
 	return AddStringPool(str.c_str());
 }
 
@@ -117,13 +143,13 @@ void PushSourceDirname(const char * filename)
 	using namespace filesystem;
 
 	auto dirname = path(filename).parent_path();
-	theOptions.includePath.push_back(dirname.str(path::posix_path));
+	app.options.includePath.push_back(dirname.str(path::posix_path));
 }
 
 void PopSourceDirname()
 {
-	if (!theOptions.includePath.empty())
-		theOptions.includePath.pop_back();
+	if (!app.options.includePath.empty())
+		app.options.includePath.pop_back();
 }
 
 static filesystem::path SearchFile(const filesystem::path& file,
@@ -150,7 +176,7 @@ const char * SearchIncludeFile(const char * filename)
 {
 	using namespace filesystem;
 
-	path file = SearchFile(path(filename), theOptions.includePath);
+	path file = SearchFile(path(filename), app.options.includePath);
 	return AddStringPool(file.str(path::posix_path).c_str());
 }
 
@@ -158,7 +184,7 @@ const char * SearchLibraryFile(const char * filename)
 {
 	using namespace filesystem;
 
-	path file = SearchFile(path(filename), theOptions.libraryPath);
+	path file = SearchFile(path(filename), app.options.libraryPath);
 	return AddStringPool(file.str(path::posix_path).c_str());
 }
 

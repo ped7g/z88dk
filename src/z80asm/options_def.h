@@ -15,10 +15,7 @@ Define command line options
 #define OPT_VAR(type, name, default)
 #endif
 
-OPT_VAR( bool,		symtable,	false	)
-OPT_VAR( bool,		list,		false	)	/* -l flag */
 OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
-OPT_VAR( bool,		globaldef,	false	)
 OPT_VAR( bool,		make_bin,	false	)
 OPT_VAR( bool,		split_bin,	false   )	/* true to split binary file per section */
 OPT_VAR( bool,		date_stamp,	false	)
@@ -65,11 +62,6 @@ OPT(OptCallArg, option_origin, "-r", "", "Relocate binary file to given address 
 OPT(OptSet, &opts.relocatable, "-R", "", "Create relocatable code", "")
 OPT(OptSet, &opts.reloc_info, "-reloc-info", "", "Geneate binary file relocation information", "")
 OPT(OptCallArg, option_filler, "-f", "", "Default value to fill in DEFS (decimal or hex)", "BYTE")
-
-OPT_TITLE("Output File Options:")
-OPT(OptSet, &opts.symtable, "-s", "", "Create symbol table file" FILEEXT_SYM, "")
-OPT(OptSet, &opts.list, "-l", "", "Create listing file" FILEEXT_LIST, "")
-OPT(OptSet, &opts.globaldef, "-g", "", "Create global definition file" FILEEXT_DEF, "")
 
 OPT_TITLE("Appmake Options:")
 OPT(OptCall, option_appmake_zx81, "", "+zx81", "Generate ZX81 .P file, origin at " ZX81_ORIGIN_S, "")

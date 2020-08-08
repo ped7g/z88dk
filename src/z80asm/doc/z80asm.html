@@ -305,8 +305,20 @@
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-3_5_1"></a></p>
 <h4>
-<a id="user-content-351--m-create-map-file" class="anchor" href="#351--m-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. -m (create map file)</h4>
-<p>Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
+<a id="user-content-351--s-create-symbol-table" class="anchor" href="#351--s-create-symbol-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.1. -s (create symbol table)</h4>
+<p>Creates a symbol table <code>file.sym</code> at the end of the assembly phase, containing all the symbols from the assembled file. The format of the file is the same as the map file (see <code>[-m](#3_5_3)</code>).</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_5_2"></a></p>
+<h4>
+<a id="user-content-352--l-create-list-file" class="anchor" href="#352--l-create-list-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.2. -l (create list file)</h4>
+<p>Creates a symbol table <code>file.lis</code> containing the source code parsed and the corresponding generated object code. The list file is created during assembly, i.e. before linking, and therefore all addresses that will be resolved by the linker are shown as zero in the list file.</p>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_5_3"></a></p>
+<h4>
+<a id="user-content-353--m-create-map-file" class="anchor" href="#353--m-create-map-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.3. -m (create map file)</h4>
+<p>Creates a map file <code>file.map</code> at the end of the link phase. The map file contains one line per defined symbol, with the following information:</p>
 <ul>
 <li>symbol name</li>
 <li>'='</li>
@@ -326,6 +338,12 @@
 <li>':'</li>
 <li>source line number where symbol was defined</li>
 </ul>
+<hr>
+<p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
+<a id="user-content-3_5_4"></a></p>
+<h4>
+<a id="user-content-354--g-global-definitions-file" class="anchor" href="#354--g-global-definitions-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5.4. -g (global definitions file)</h4>
+<p>Creates an assembly include file <code>file.def</code> containing the values of all the global symbols after linking in the form of <code>DEFC</code> statements. This file can be included in another assembly source file to uses these symbols.</p>
 <hr>
 <p><a href="#top">(top)</a> <a href="#keywords">(keywords)</a> <a href="#index">(index)</a>
 <a id="user-content-4"></a></p>
@@ -354,10 +372,13 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a href="#3_4_2">-IXIY</a>
 <a href="#3_2_2">-LDIR</a>
 <a href="#3_4_4">-debug</a>
+<a href="#3_5_4">-g</a>
 <a href="#3_1_2">-h</a>
-<a href="#3_5_1">-m</a>
+<a href="#3_5_2">-l</a>
+<a href="#3_5_3">-m</a>
 <a href="#3_4_1">-mCPU</a>
 <a href="#3_4_3">-opt</a>
+<a href="#3_5_1">-s</a>
 <a href="#3_1_3">-v</a>
 <a id="user-content-index"></a></p>
 <hr>
@@ -421,7 +442,13 @@ Copyright (C) Paulo Custodio, 2011-2020</p>
 <a href="#3_5">3.5.</a> Output File Options
 <ul>
 <li>
-<a href="#3_5_1">3.5.1.</a>  <a href="#3_5_1">-m</a>  (create map file)</li>
+<a href="#3_5_1">3.5.1.</a>  <a href="#3_5_1">-s</a>  (create symbol table)</li>
+<li>
+<a href="#3_5_2">3.5.2.</a>  <a href="#3_5_2">-l</a>  (create list file)</li>
+<li>
+<a href="#3_5_3">3.5.3.</a>  <a href="#3_5_3">-m</a>  (create map file)</li>
+<li>
+<a href="#3_5_4">3.5.4.</a>  <a href="#3_5_4">-g</a>  (global definitions file)</li>
 </ul>
 </li>
 </ul>

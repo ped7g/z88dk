@@ -247,9 +247,29 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 [(top)](#top) [(keywords)](#keywords) [(index)](#index)
 <a id=3_5_1></a>
 
-#### 3.5.1. -m (create map file)
+#### 3.5.1. -s (create symbol table)
 
-Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+Creates a symbol table `file.sym` at the end of the assembly phase, containing all the symbols from the assembled file. The format of the file is the same as the map file (see ` [-m](#3_5_3) `).
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_5_2></a>
+
+#### 3.5.2. -l (create list file)
+
+Creates a symbol table `file.lis` containing the source code parsed and the corresponding generated object code. The list file is created during assembly, i.e. before linking, and therefore all addresses that will be resolved by the linker are shown as zero in the list file.
+
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_5_3></a>
+
+#### 3.5.3. -m (create map file)
+
+Creates a map file `file.map` at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
   - symbol name
   - '='
@@ -269,6 +289,16 @@ Creates a map file at the end of the link phase. The map file contains one line 
   - ':'
   - source line number where symbol was defined
   
+
+----
+
+[(top)](#top) [(keywords)](#keywords) [(index)](#index)
+<a id=3_5_4></a>
+
+#### 3.5.4. -g (global definitions file)
+
+Creates an assembly include file `file.def` containing the values of all the global symbols after linking in the form of `DEFC` statements. This file can be included in another assembly source file to uses these symbols.
+
 
 
 
@@ -315,10 +345,13 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
  [-IXIY](#3_4_2) 
  [-LDIR](#3_2_2) 
  [-debug](#3_4_4) 
+ [-g](#3_5_4) 
  [-h](#3_1_2) 
- [-m](#3_5_1) 
+ [-l](#3_5_2) 
+ [-m](#3_5_3) 
  [-mCPU](#3_4_1) 
  [-opt](#3_4_3) 
+ [-s](#3_5_1) 
  [-v](#3_1_3) 
 <a id=index></a>
 
@@ -349,7 +382,10 @@ Artistic License 2.0 (http://www.perlfoundation.org/artisticlicense2_0)
     - [3.4.3.](#3_4_3)  [-opt](#3_4_3) -speed (optimise for speed)
     - [3.4.4.](#3_4_4)  [-debug](#3_4_4)  (debug information)
   - [3.5.](#3_5) Output File Options
-    - [3.5.1.](#3_5_1)  [-m](#3_5_1)  (create map file)
+    - [3.5.1.](#3_5_1)  [-s](#3_5_1)  (create symbol table)
+    - [3.5.2.](#3_5_2)  [-l](#3_5_2)  (create list file)
+    - [3.5.3.](#3_5_3)  [-m](#3_5_3)  (create map file)
+    - [3.5.4.](#3_5_4)  [-g](#3_5_4)  (global definitions file)
 - [4.](#4) Copyright
 - [5.](#5) License
 - [6.](#6) Keywords

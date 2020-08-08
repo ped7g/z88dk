@@ -119,9 +119,17 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 
 ### Output File Options
 
+#### -s (create symbol table)
+
+Creates a symbol table `file.sym` at the end of the assembly phase, containing all the symbols from the assembled file. The format of the file is the same as the map file (see `-m`).
+
+#### -l (create list file)
+
+Creates a symbol table `file.lis` containing the source code parsed and the corresponding generated object code. The list file is created during assembly, i.e. before linking, and therefore all addresses that will be resolved by the linker are shown as zero in the list file.
+
 #### -m (create map file)
 
-Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+Creates a map file `file.map` at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
   - symbol name
   - '='
@@ -141,6 +149,10 @@ Creates a map file at the end of the link phase. The map file contains one line 
   - ':'
   - source line number where symbol was defined
   
+#### -g (global definitions file)
+
+Creates an assembly include file `file.def` containing the values of all the global symbols after linking in the form of `DEFC` statements. This file can be included in another assembly source file to uses these symbols.
+
 
 
 

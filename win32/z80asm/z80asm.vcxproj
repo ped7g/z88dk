@@ -188,8 +188,8 @@
     <ClCompile Include="..\..\src\common\zutils.c" />
     <ClCompile Include="..\..\src\z80asm\codearea.c" />
     <ClCompile Include="..\..\src\z80asm\common.c" />
+    <ClCompile Include="..\..\src\z80asm\cpp\App.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\Arch.cpp" />
-    <ClCompile Include="..\..\src\z80asm\cpp\CmdArgs.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\Cpu.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\legacy.cpp" />
     <ClCompile Include="..\..\src\z80asm\cpp\main.cpp" />
@@ -236,7 +236,7 @@
     <ClInclude Include="..\..\src\z80asm\codearea.h" />
     <ClInclude Include="..\..\src\z80asm\common.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\Arch.h" />
-    <ClInclude Include="..\..\src\z80asm\cpp\CmdArgs.h" />
+    <ClInclude Include="..\..\src\z80asm\cpp\App.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\Cpu.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\legacy.h" />
     <ClInclude Include="..\..\src\z80asm\cpp\Options.h" />

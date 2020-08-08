@@ -183,9 +183,17 @@ Add debug information to the map file: new symbols `__C_LINE_nn` and `__ASM_LINE
 
 ### Output File Options
 
+#### -s (create symbol table)
+
+Creates a symbol table `file.sym` at the end of the assembly phase, containing all the symbols from the assembled file. The format of the file is the same as the map file (see `-m`).
+
+#### -l (create list file)
+
+Creates a symbol table `file.lis` containing the source code parsed and the corresponding generated object code. The list file is created during assembly, i.e. before linking, and therefore all addresses that will be resolved by the linker are shown as zero in the list file.
+
 #### -m (create map file)
 
-Creates a map file at the end of the link phase. The map file contains one line per defined symbol, with the following information:
+Creates a map file `file.map` at the end of the link phase. The map file contains one line per defined symbol, with the following information:
 
   - symbol name
   - '='
@@ -205,6 +213,10 @@ Creates a map file at the end of the link phase. The map file contains one line 
   - ':'
   - source line number where symbol was defined
   
+#### -g (global definitions file)
+
+Creates an assembly include file `file.def` containing the values of all the global symbols after linking in the form of `DEFC` statements. This file can be included in another assembly source file to uses these symbols.
+
 ## Input Files
 
 **z80asm** reads text files in the syntax supported by the specific processor being assembled for (see `-mCPU` option) and produces the corresponding object files.
@@ -490,33 +502,6 @@ The default assembler object file extension is ".obj". Using this option, you fo
 
 The extension is specified without the ".". Only three letters are accepted - the rest is discarded.
 
-#### -l : Create listing file output
-
-The information in listing files is a combination of the original source file and additional information of the generated machine code. Further, the listing file is page formatted with a header specifying the date and time of the compilation, the filename of the listing and a page number.
-
-For each line of the source file the following information is written:
-
-    <source file line number> <assembler address>  
-    <machine code hex dump> <source line>
-
-The machine code and assembler address output are written in hexadecimal notation. If the machine code uses more the 4 bytes, the source file line is written on the following line. This usually happens when you have defined a string constant or a relatively large amount of constant definitions.
-
-The assembler address is always beginning at zero, i.e. the beginning of the current modules' machine code. In a relocated context of the machine code, where all code is positioned at fixed addresses, you will have the opportunity to view the addresses of your code relative to the start of individual modules using the assembler output addresses. Further, the last assembler address can be interpreted as the size of the modules' generated machine code.
-
-Listing files also serves the purpose of a hard copy on paper of your programs, and are useful in a debugging phase (identifying opcodes versus the mnemonic representation of instructions).
-
-The creation of listing files imposes much more processing work of the assembler. If you want to compile your code as quickly as possible then don't create listing files. Listing files obtain their file name from the base of the source filename, and is added with the 'lst' extension.
-
-#### -s : Create symbol table
-
-Symbol tables contains the integer form of symbolical names and constants that has been parsed and generated during a compilation of a source file. The structure of the symbol table is divided into two columns. The first contains the parsed symbol names, converted to uppercase. The second column contains the generated value of the symbol name.
-
-All symbol values are displayed in signed 32-bit hexadecimal notation.
-
-The two columns are separated by tabulators which represents a default value of 8 spaces per tabulator. The width of the symbol name column is defined as the tabulator distance multiplied by 4. The default width of the name column is 4 \* 8 = 32 spaces.
-
-The symbol table will be written to the end of the appropriate listing file, if listing file and symbol table output is enabled. If no listing file output is enabled, the symbol table will be written to a separate file, identified with the base name of the source file module and given the 'sym' extension.
-
 #### -d : Assemble only updated files
 
 Assemblers usually force compiles all specified files. This is also possible (as default) for the Z80 Module Assembler. In large application project with 15 modules or more it can be quite frustrating to compile all every time. The solution is to only assemble updated files and leave the rest (since they have been compiled to the programmers knowledge).
@@ -583,10 +568,6 @@ Two rules must be obeyed when using relocatable programs:
 You still have all the main registers for parameter passing which is more than sufficient for average programming.
 
 When your address-independent code is stored to the file, a message is displayed which informs the user of how many bytes the relocation header consists of. This constant is useful since it informs you of the distance between the relocation header and the start of your code. The map file automatically reflects the relocation header. All addresses of your code has been modified to include the relocation header. Please note that all addresses in the map file are defined from address 0. When your code is placed in an absolute memory address, and you need to perform a debugging session, you can find your specific label address by adding the constant from the map file to the memory origin of your code. The inbuilt relocator routine may be examined by extracting the "relocate.asm" file from the "Z80src.zip" compressed file resource.
-
-#### -g : Create global address definition file
-
-With this option it is possible to generate a DEFC directive definition file of all globally declared identifiers in a file project (declared with the XDEF directive). These global definitions are calculated from the specified ORG address (from first module or the -r option). This feature is very useful, if you want to get access to routines from a separate compilation. If the two code compilation were placed in different banks of the Z88, it would be possible to know the correct address of a routine just by using the DEFC address definition previously compiled. We used this facility to access routines in the two 8K halves of the segment 0 debugged version. This debugger actually swaps one of the two 8K blocks in and out of segment 0 when needed to call an 'external' routine. Applications on the Z88 may only access the upper 8K of segment 0. A 16K application therefore needs to be split in 8K halves and paged in when needed to be run in this area. Tuff!
 
 #### @\<project-file\> :1.3.16. Using a project file
 

@@ -24,7 +24,7 @@ __endasm;
 END
 
 for my $clib ('sdcc_iy',		# zsdcc compile
-	      'new',			# sccz80 compile
+			  'new',			# sccz80 compile
 ) {
     ok 1, "-clib=$clib";
 

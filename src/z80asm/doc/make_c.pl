@@ -38,6 +38,7 @@ sub convert_file {
 	
 	# in text mode, convert CR-LF to LF and remove unsigned
 	if (!$opt_u) {
+		$c =~ s/(0x[0-9a-f]{2})\s+(\};)/$1,\n   \'\\0\'\n$2/;	# add null terminator
 		$c =~ s/unsigned char /char /g;
 		$c =~ s/(0x0d,[\s\n]+)?0x0a,/'\\n',\n /g;	# intermeditate lines
 		$c =~ s/(0x0d,[\s\n]+)?0x0a/'\\n'/g;		# last line

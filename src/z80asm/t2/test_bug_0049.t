@@ -57,7 +57,7 @@ path("${test}0001.asm")->spew(<<'END');
  extern lbl4096;
  defw lbl4096;
 END
-system_ok("z80asm -b -i${test} ${test}0001.asm");
+system_ok("z80asm -b -l${test} ${test}0001.asm");
 ok path("${test}0001.bin")->slurp_raw eq pack("vv", 4096, 4096);
 
 # delete test files

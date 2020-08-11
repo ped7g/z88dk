@@ -39,7 +39,7 @@ Environment:
 
 Libraries:
   -x, --make-lib=FILE   Create a library file.lib
-  -i, --use-lib=FILE    Use library file.lib
+  -l, --use-lib=FILE    Use library file.lib
 
 Binary Output:
   -O, --out-dir=DIR     Output directory

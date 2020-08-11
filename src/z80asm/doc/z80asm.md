@@ -36,7 +36,7 @@ By default, i.e. without any options, assemble each of the listed files into rel
 
 ### 1.2. ... as linker
 
-    z80asm -b [options] [-ilibrary.lib...] file...
+    z80asm -b [options] [-llibrary.lib...] file...
 
 Link the object files together and with any requested libraries into a set of binary files.
 
@@ -50,7 +50,7 @@ Link the object files together and with any requested libraries into a set of bi
 
     z80asm -xlibrary.lib [options] file...
 
-Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the `-i` option.
+Build a library containing all the object files passed as argument. That library can then be used during linking by specifying it with the `-l` option.
 
 
 ----

@@ -25,31 +25,31 @@ my $asm = "EXTERN main \n call main \n ret";
 my @bin = (0xCD, 0x04, 0x00, 0xC9, 0x00, 0xC9);
 
 # no -L, full path : OK
-asm_ok($asm, "-i${test}_dir/${test}.lib", @bin);
-asm_ok($asm, "-i${test}_dir/${test}    ", @bin);
+asm_ok($asm, "-l${test}_dir/${test}.lib", @bin);
+asm_ok($asm, "-l${test}_dir/${test}    ", @bin);
 
 # no -L, only file name : error
 path("${test}.asm")->spew($asm);
-run_nok("z80asm -i${test}.lib ${test}.asm", "", <<END);
+run_nok("z80asm -l${test}.lib ${test}.asm", "", <<END);
 Error: cannot read file '${test}.lib'
 END
 
-run_nok("z80asm -i${test}     ${test}.asm", "", <<END);
+run_nok("z80asm -l${test}     ${test}.asm", "", <<END);
 Error: cannot read file '${test}.lib'
 END
 
 # -L : OK
-asm_ok($asm, "-L${test}_dir -i${test}.lib", @bin);
-asm_ok($asm, "-L${test}_dir -i${test}    ", @bin);
+asm_ok($asm, "-L${test}_dir -l${test}.lib", @bin);
+asm_ok($asm, "-L${test}_dir -l${test}    ", @bin);
 
 # use environment variable in -L
 $ENV{TEST_ENV} = 'dir';
-asm_ok($asm, "-L${test}_\${TEST_ENV} -i${test}.lib", @bin);
-asm_ok($asm, "-L${test}_\${TEST_ENV} -i${test}    ", @bin);
+asm_ok($asm, "-L${test}_\${TEST_ENV} -l${test}.lib", @bin);
+asm_ok($asm, "-L${test}_\${TEST_ENV} -l${test}    ", @bin);
 
 delete $ENV{TEST_ENV};
-asm_ok($asm, "-L${test}_\${TEST_ENV}dir -i${test}.lib", @bin);
-asm_ok($asm, "-L${test}_\${TEST_ENV}dir -i${test}    ", @bin);
+asm_ok($asm, "-L${test}_\${TEST_ENV}dir -l${test}.lib", @bin);
+asm_ok($asm, "-L${test}_\${TEST_ENV}dir -l${test}    ", @bin);
 
 path("${test}_dir")->remove_tree;
 end_test();

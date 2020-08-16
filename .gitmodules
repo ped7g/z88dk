@@ -22,3 +22,6 @@
 [submodule "ext/filesystem"]
 	path = ext/filesystem
 	url = https://github.com/gulrak/filesystem.git
+[submodule "ext/cppglob"]
+	path = ext/cppglob
+	url = https://github.com/Kogia-sima/cppglob.git

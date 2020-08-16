@@ -42,29 +42,6 @@ ASM1
 );
 
 #------------------------------------------------------------------------------
-# BUG_0002 : CreateLibFile and GetLibFile: buffer overrun
-note "BUG_0002";
-z80asm(
-	asm => <<'ASM',
-				PUBLIC one
-			one: 
-				ld a,1
-				ret
-ASM
-	options => "-xtest.lib",
-	ok		=> 1,
-);
-
-z80asm(
-	asm =>	<<'ASM',
-				EXTERN one
-				jp one			;; C3 03 00 3E 01 C9
-ASM
-	options => "-ltest.lib -b",
-);
-unlink_temp("test.lib");
-
-#------------------------------------------------------------------------------
 # BUG_0003 : Illegal options are ignored, although ReportError 9 (Illegal Option) exists
 note "BUG_0003";
 z80asm(
@@ -173,82 +150,6 @@ note "BUG_0013";
 z80asm(
 	asm		=> "defs 65535, 'a' \n defm \"a\"",
 	bin		=> "a" x 65536,
-);
-
-#------------------------------------------------------------------------------
-# BUG_0014: -x./zx_clib should create ./zx_clib.lib but actually creates .lib
-note "BUG_0014";
-for my $lib (      'test',    'test.lib',
-				 './test',  './test.lib',
-				'.\\test', '.\\test.lib' ) {
-	next if ($lib =~ /\\/ && $^O !~ /MSWin32/);
-    unlink('test.lib');
-    ok ! -f 'test.lib', "test.lib deleted, building $lib";
-	z80asm(
-		asm		=> "PUBLIC main \n main: ret",
-		options	=> "-x".$lib,
-		ok		=> 1,
-	);
-    ok -f 'test.lib', "test.lib exists, built $lib";
-	z80asm(
-		asm		=> "EXTERN main \n jp main ;; C3 03 00 C9",
-		options	=> "-b -l".$lib,
-	);
-}
-
-#------------------------------------------------------------------------------
-# BUG_0015: Relocation issue - dubious addresses come out of linking
-note "BUG_0015";
-z80asm(
-	asm		=> <<'ASM',
-				PUBLIC L1
-
-	    L1:		ld l,1		; 802C  2E 01
-				jp L2		; 802E  C3 31 80
-
-	    L2:		ld l,2		; 8031  2E 02
-				jp L1		; 8033  C3 2C 80
-							; 8036
-ASM
-	options	=> "-xtest.lib",
-	ok		=> 1,
-);
-z80asm(
-	asm1	=> <<'ASM1',
-				PUBLIC A1, A2
-				EXTERN B1, B2, L1
-
-	    A1:		ld a,1		; 8000 ;; 3E 01
-				call B1		; 8002 ;; CD 16 80
-				call L1		; 8005 ;; CD 2C 80
-				jp A2		; 8008 ;; C3 0B 80
-
-	    A2:		ld a,2		; 800B ;; 3E 02
-				call B2		; 800D ;; CD 21 80
-				call L1		; 8010 ;; CD 2C 80
-				jp A1		; 8013 ;; C3 00 80
-							; 8016
-ASM1
-	asm2	=> <<'ASM2',
-				PUBLIC B1, B2
-				EXTERN A1, A2, L1
-
-	    B1:		ld b,1		; 8016 ;; 06 01
-				call A1		; 8018 ;; CD 00 80
-				call L1		; 801B ;; CD 2C 80
-				jp B2		; 801E ;; C3 21 80
-
-	    B2:		ld b,2		; 8021 ;; 06 02
-				call A2		; 8023 ;; CD 0B 80
-				call L1		; 8026 ;; CD 2C 80
-				jp B1		; 8029 ;; C3 16 80
-							; 802C ;; 2E 01
-							; 802E ;; C3 31 80
-							; 8031 ;; 2E 02
-							; 8033 ;; C3 2C 80
-							; 8036
-ASM2
-	options	=> "-ltest.lib -b -r0x8000",
 );
 
 #------------------------------------------------------------------------------

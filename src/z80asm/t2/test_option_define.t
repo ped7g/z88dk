@@ -15,7 +15,7 @@ my $test = test_name();
 my $asm = "ld a,_value23";
 my @bin = (0x3E, 1);
 
-path("${test}.asm")->spew($asm);
+write_file("${test}.asm", $asm);
 
 # no -D
 run_nok("z80asm ${test}.asm", "", <<END);

@@ -13,7 +13,7 @@ BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
 # only ASM code
-path("${test}1.asm")->spew(<<END);
+write_file("${test}1.asm", <<END);
 		public func
 
 		c_line 1, "${test}1.c"
@@ -26,7 +26,7 @@ path("${test}1.asm")->spew(<<END);
 		ret
 END
 
-path("${test}.asm")->spew(<<END);
+write_file("${test}.asm", <<END);
 		extern func
 
 	main:
@@ -34,21 +34,17 @@ path("${test}.asm")->spew(<<END);
 		ret
 END
 
-system_ok("z80asm -b -m ${test}.asm ${test}1.asm");
-
-path("${test}.exp")->spew(<<END);
+run_ok("z80asm -b -m ${test}.asm ${test}1.asm");
+check_text_file("${test}.map", <<END);
 main                            = \$0000 ; addr, local, , ${test}, , ${test}.asm:3
 func                            = \$0004 ; addr, public, , ${test}1, , ${test}1.c:1
 __head                          = \$0000 ; const, public, def, , ,
 __tail                          = \$000A ; const, public, def, , ,
 __size                          = \$000A ; const, public, def, , ,
 END
-system_ok("diff -w ${test}.exp ${test}.map");
 
-
-system_ok("z80asm -b -debug ${test}.asm ${test}1.asm");
-
-path("${test}.exp")->spew(<<END);
+run_ok("z80asm -b -debug ${test}.asm ${test}1.asm");
+check_text_file("${test}.map", <<END);
 main                            = \$0000 ; addr, local, , ${test}, , ${test}.asm:3
 __ASM_LINE_3                    = \$0000 ; addr, local, , ${test}, , ${test}.asm:3
 __ASM_LINE_4                    = \$0000 ; addr, local, , ${test}, , ${test}.asm:4
@@ -60,18 +56,17 @@ __head                          = \$0000 ; const, public, def, , ,
 __tail                          = \$000A ; const, public, def, , ,
 __size                          = \$000A ; const, public, def, , ,
 END
-system_ok("diff -w ${test}.exp ${test}.map");
 
 
 # ASM and C code
-path("${test}1.asm")->spew(<<END);
+write_file("${test}1.asm", <<END);
 		public _one
 	_one:
 		ld hl, 1
 		ret
 END
 
-path("${test}.c")->spew(<<END);
+write_file("${test}.c", <<END);
 	extern int one();
 
 	int main() {
@@ -79,9 +74,9 @@ path("${test}.c")->spew(<<END);
 	}
 END
 
-system_ok("zcc +z80 -m -clib=new -Cc-gcline -Ca-debug ${test}.c ${test}1.asm -o${test}.bin");
+run_ok("zcc +z80 -m -clib=new -Cc-gcline -Ca-debug ${test}.c ${test}1.asm -o${test}.bin");
 system_ok("grep ${test} ${test}.map | grep -v '\\.i:[0-9]' > ${test}.map1");
-path("${test}.exp")->spew(<<END);
+check_text_file("${test}.map1", <<END);
 __C_LINE_0                      = \$0000 ; addr, local, , ${test}_c, , ${test}.c:0
 __C_LINE_3                      = \$0000 ; addr, local, , ${test}_c, , ${test}.c:3
 __C_LINE_4                      = \$016C ; addr, local, , ${test}_c, code_compiler, ${test}.c::main:4
@@ -92,6 +87,5 @@ __ASM_LINE_4                    = \$0003 ; addr, local, , ${test}1_asm, , ${test
 _main                           = \$016C ; addr, public, , ${test}_c, code_compiler, ${test}.c::main:3
 _one                            = \$0000 ; addr, public, , ${test}1_asm, , ${test}1.asm:2
 END
-system_ok("diff -w ${test}.exp ${test}.map1");
 
 end_test();

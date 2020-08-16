@@ -15,5 +15,9 @@ int main(int argc, char* argv[])
 		return EXIT_FAILURE;
 	if (!app.ParseArgs(argc, argv))
 		return EXIT_FAILURE;
-    return z80asm_main(argc, argv);
+	if (!app.AddDefines())
+		return EXIT_FAILURE;
+	if (!app.AddLibraries())
+		return EXIT_FAILURE;
+	return z80asm_main(argc, argv);
 }

@@ -51,38 +51,36 @@ my $bin = pack("C*", 0x06, 0x0A, 0x10, 0xFE, 0x00, 0x00, 0x06, 0x0A, 0x10, 0xFE,
 
 
 # no -m
-unlink "${test}.map";
-path("${test}.asm")->spew($asm_s);
-path("${test}1.asm")->spew($asm1_s);
-system_ok("z80asm -b ${test}.asm ${test}1.asm");
+unlink_testfiles();
+write_file("${test}.asm", $asm_s);
+write_file("${test}1.asm", $asm1_s);
+run_ok("z80asm -b ${test}.asm ${test}1.asm");
 ok ! -f "${test}.map", "no ${test}.map";
 ok path("${test}.bin")->slurp_raw eq $bin, "${test}.bin ok";
 
 # -m, no symbols
-unlink "${test}.map";
-path("${test}.asm")->spew($asm_s);
-path("${test}1.asm")->spew($asm1_s);
-system_ok("z80asm -b -m ${test}.asm ${test}1.asm");
+unlink_testfiles();
+write_file("${test}.asm", $asm_s);
+write_file("${test}1.asm", $asm1_s);
+run_ok("z80asm -b -m ${test}.asm ${test}1.asm");
 ok -f "${test}.map", "got ${test}.map";
 ok path("${test}.bin")->slurp_raw eq $bin, "${test}.bin ok";
 
-path("${test}.exp")->spew(<<END);
+check_text_file("${test}.map", <<END);
 __head                          = \$0000 ; const, public, def, , ,
 __tail                          = \$000B ; const, public, def, , ,
 __size                          = \$000B ; const, public, def, , ,
 END
 
-system_ok("diff -w ${test}.exp ${test}.map");
-
 # -m, symbols
-unlink "${test}.map";
-path("${test}.asm")->spew($asm);
-path("${test}1.asm")->spew($asm1);
-system_ok("z80asm -b -m ${test}.asm ${test}1.asm");
+unlink_testfiles();
+write_file("${test}.asm", $asm);
+write_file("${test}1.asm", $asm1);
+run_ok("z80asm -b -m ${test}.asm ${test}1.asm");
 ok -f "${test}.map", "got ${test}.map";
 ok path("${test}.bin")->slurp_raw eq $bin, "${test}.bin ok";
 
-path("${test}.exp")->spew(<<END);
+check_text_file("${test}.map", <<END);
 zero                            = \$0000 ; const, local, , ${test}, , ${test}.asm:3
 loop                            = \$0002 ; addr, local, , ${test}, , ${test}.asm:6
 x31_x31_x31_x31_x31_x31_x31_x31 = \$0004 ; addr, local, , ${test}, , ${test}.asm:9
@@ -97,7 +95,5 @@ __head                          = \$0000 ; const, public, def, , ,
 __tail                          = \$000B ; const, public, def, , ,
 __size                          = \$000B ; const, public, def, , ,
 END
-
-system_ok("diff -w ${test}.exp ${test}.map");
 
 end_test();

@@ -76,6 +76,17 @@ bool OptionGlobaldef() {
 	return app.options.globaldef;
 }
 
+void SetOutputLibrary(const char * library) {
+	app.options.outputLibrary = library;
+}
+
+const char * GetOutputLibrary() {
+	if (app.options.outputLibrary.empty())
+		return NULL;
+	else
+		return app.options.outputLibrary.c_str();
+}
+
 
 
 
@@ -83,11 +94,6 @@ bool OptionGlobaldef() {
 int GetCpu() 
 {
 	return static_cast<int>(app.options.cpu.GetType());
-}
-
-const char* GetCpuName()
-{
-	return app.options.cpu.GetName().c_str();
 }
 
 int GetInvokeOpcode()
@@ -152,31 +158,11 @@ void PopSourceDirname()
 		app.options.includePath.pop_back();
 }
 
-static filesystem::path SearchFile(const filesystem::path& file,
-	const std::vector<std::string>& dirs)
-{
-	using namespace filesystem;
-
-	// if no directory list or file exists, return filename
-	if (dirs.empty() || file.is_file())
-		return file;
-
-	// search in dir list
-	for (const auto& dir : dirs) {
-		path testFile = path(dir) / file;
-		if (testFile.is_file())
-			return testFile;
-	}
-
-	// not found, return original file name
-	return file;
-}
-
 const char * SearchIncludeFile(const char * filename)
 {
 	using namespace filesystem;
 
-	path file = SearchFile(path(filename), app.options.includePath);
+	path file = App::SearchFile(filename, app.options.includePath);
 	return AddStringPool(file.str(path::posix_path).c_str());
 }
 
@@ -184,7 +170,7 @@ const char * SearchLibraryFile(const char * filename)
 {
 	using namespace filesystem;
 
-	path file = SearchFile(path(filename), app.options.libraryPath);
+	path file = App::SearchFile(filename, app.options.libraryPath);
 	return AddStringPool(file.str(path::posix_path).c_str());
 }
 

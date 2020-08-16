@@ -30,10 +30,6 @@
 #include <limits.h>
 #include <string.h>
 
-#ifndef PREFIX
-#define PREFIX "/usr/local/share/z88dk"
-#endif
-
 /* default file name extensions */
 #define FILEEXT_ASM     ".asm"    
 #define FILEEXT_LIST    ".lis"    
@@ -56,14 +52,10 @@ enum OptType
 
 /* declare functions */
 static void option_origin(const char *origin );
-static void option_make_lib(const char *library );
-static void option_use_lib(const char *library );
 static void option_appmake_zx(void);
 static void option_appmake_zx81(void);
 static void option_filler(const char *filler_arg );
 static void define_assembly_defines();
-static void include_z80asm_lib();
-static const char *search_z80asm_lib();
 static void make_output_dir();
 
 static void process_options( int *parg, int argc, char *argv[] );
@@ -162,7 +154,6 @@ void parse_argv( int argc, char *argv[] )
 		process_files( arg, argc, argv );	/* process each source file */
 
 	make_output_dir();						/* create output directory if needed */
-	include_z80asm_lib();					/* search for z80asm-*.lib, append to library path */
 	define_assembly_defines();				/* defined options-dependent constants */
 }
 
@@ -194,11 +185,7 @@ static void process_opt(int *parg, int argc, char *argv[])
 	const char *opt_arg_ptr;
 
 	/* search options that are exceptions to the look-up table */
-	if (strncmp(argv[II], "-l", 2) == 0 && argv[II][2] != '\0') {
-		library_file_append(&argv[II][2]);
-		return;
-	}
-	else if (strcmp(argv[II], "-reloc-info") == 0) {
+	if (strcmp(argv[II], "-reloc-info") == 0) {
 		opts.reloc_info = true;
 		return;
 	}
@@ -494,15 +481,6 @@ static void option_filler(const char *filler_arg )
 		opts.filler = value;
 }
 
-static void option_make_lib(const char *library )
-{
-    opts.lib_file = library;		/* may be empty string */
-}
-
-static void option_use_lib(const char *library) {
-	library_file_append(library);
-}
-
 static void def_sym(const char* name, int value) {
 	define_static_def_sym(name, value);
 }
@@ -649,68 +627,6 @@ void checkrun_appmake(void)
 				error_cmd_failed(Str_data(cmd));
 		}
 	}
-}
-
-/*-----------------------------------------------------------------------------
-*   z80asm standard library
-*	search in current die, then in exe path, then in exe path/../lib, then in ZCCCFG/..
-*	Ignore if not found, probably benign - user will see undefined symbols
-*	__z80asm__xxx if the library routines are called
-*----------------------------------------------------------------------------*/
-static void include_z80asm_lib()
-{
-	const char *library = search_z80asm_lib();
-
-	if (library != NULL)
-		option_use_lib(library);
-}
-
-static const char *check_library(const char *lib_name)
-{
-	if (file_exists(lib_name))
-		return lib_name;
-	
-	if (OptionVerbose())
-		printf("Library '%s' not found\n", path_canon(lib_name));
-
-	return NULL;
-}
-
-static const char *search_z80asm_lib()
-{
-	STR_DEFINE(lib_name_str, STR_SIZE);
-	const char *lib_name;
-	STR_DEFINE(f, STR_SIZE);
-	const char *ret;
-
-	/* Build libary file name */
-	Str_sprintf(lib_name_str, Z80ASM_LIB, GetCpuName(), SWAP_IX_IY_NAME);
-	lib_name = spool_add(Str_data(lib_name_str));
-
-	/* try to read from current directory */
-	if (check_library(lib_name))
-		return lib_name;
-
-	/* try to read from PREFIX/lib */
-	Str_sprintf(f, "%s/lib/%s", PREFIX, lib_name);
-	ret = spool_add(Str_data(f));
-	if (check_library(ret))
-		return ret;
-
-	/* try to read form -L path */
-	ret = SearchLibraryFile(get_lib_filename(lib_name));
-	if (strcmp(ret, lib_name) != 0) {		// found one in path
-		if (check_library(ret))
-			return ret;
-	}
-
-	/* try to read from ZCCCFG/.. */
-	Str_sprintf(f, "${ZCCCFG}/../%s", lib_name);
-	ret = ExpandEnvironmentVarsC(Str_data(f));
-	if (check_library(ret))
-		return ret;
-
-	return NULL;		/* not found */
 }
 
 /*-----------------------------------------------------------------------------

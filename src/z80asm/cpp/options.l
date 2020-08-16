@@ -74,7 +74,11 @@ num			{num16} | {num10}
 				  app.options.mapfile = true;
 				  return true; }
 -I .+ \z		{ app.options.includePath.push_back(text() + 2);  return true; }
+
 -L .+ \z		{ app.options.libraryPath.push_back(text() + 2);  return true; }
+-x .+ \z		{ app.options.outputLibrary = text() + 2; return true; }
+-l .+ \z		{ app.options.libraries.push_back(text() + 2); return true; }
+
 -D {ident} ( = {num} )? \z	{ 
 				  optionDefine(text() + 2); return true; }
 

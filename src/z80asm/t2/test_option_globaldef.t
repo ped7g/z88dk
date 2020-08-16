@@ -12,7 +12,7 @@ use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-path("${test}.asm")->spew(<<END);
+write_file("${test}.asm", <<END);
 	PUBLIC main, x31_x31_x31_x31_x31_x31_x31_x31, x_32_x32_x32_x32_x32_x32_x32_x32
 main: ld b,10
 loop: djnz loop
@@ -22,7 +22,7 @@ x31_x31_x31_x31_x31_x31_x31_x31: defb 0
 x_32_x32_x32_x32_x32_x32_x32_x32: defb 0
 END
 
-path("${test}2.asm")->spew(<<END);
+write_file("${test}2.asm", <<END);
 	; show DEFC alias in map file
 	PUBLIC alias_main
 	EXTERN main
@@ -38,20 +38,18 @@ END
 
 my @bin = (0x06, 0x0A, 0x10, 0xFE, 0x00, 0x00, 0xC9);
 
-
 # no -g
 unlink "${test}.bin", "${test}.def";
-system_ok("z80asm -b ${test}.asm ${test}2.asm", "", "");
-ok path("${test}.bin")->slurp_raw eq pack("C*", @bin), "${test}.bin ok";
+run_ok("z80asm -b ${test}.asm ${test}2.asm", "", "");
+check_bin_file("${test}.bin", @bin);
 ok ! -f "${test}.def", "no ${test}.def file";
-
 
 # -g
 unlink "${test}.bin", "${test}.def";
-system_ok("z80asm -b -g ${test}.asm ${test}2.asm", "", "");
-ok path("${test}.bin")->slurp_raw eq pack("C*", @bin), "${test}.bin ok";
+run_ok("z80asm -b -g ${test}.asm ${test}2.asm", "", "");
+check_bin_file("${test}.bin", @bin);
 
-path("${test}.expected.def")->spew(<<END);
+check_text_file("${test}.def", <<END);
 DEFC main                            = \$0000
 DEFC x31_x31_x31_x31_x31_x31_x31_x31 = \$0004
 DEFC x_32_x32_x32_x32_x32_x32_x32_x32 = \$0005

@@ -240,8 +240,8 @@ int z80asm_main( int argc, char *argv[] )
 
 	/* Create output file */
 	if (!get_num_errors()) {
-		if (opts.lib_file) {
-			make_library(opts.lib_file, opts.files);
+		if (GetOutputLibrary()) {
+			make_library(GetOutputLibrary(), opts.files);
 		}
 		else if (opts.make_bin) {
 			xassert(opts.consol_obj_file == NULL);

@@ -13,7 +13,7 @@ use Config;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-path("$test.asm")->spew(<<END);
+write_file("$test.asm", <<END);
 	extern __z80asm__cpir
 	call   __z80asm__cpir
 END
@@ -28,11 +28,14 @@ my $bin_r2k = path("$test.bin")->slurp_raw();
 
 ok $bin_z80 ne $bin_r2k, "binary different";	# ex (sp),hl is E9 in z80, ED54 in r2k
 
-path("$test.c")->spew(<<END);
+write_file("$test.c", <<END);
 #include <string.h>
 int main () { return strncmp("hello world", "hello", 5); }
 END
-system_ok("zcc +test -mr2k -clib=rabbit $test.c -o $test.bin");
-system_ok("z88dk-ticks -mr2k $test.bin");
+run_ok("zcc +test -mr2k -clib=rabbit $test.c -o $test.bin");
+run_ok("z88dk-ticks -mr2k $test.bin", <<END, "");
+
+Ticks: 2550
+END
 
 end_test();

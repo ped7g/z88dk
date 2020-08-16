@@ -25,14 +25,11 @@ my $asm = <<END;
 	defc X = 42
 	defb X
 END
-
 my @bin = (42);
-
-path("${test}.expected.sym")->spew(<<END);
+my $expected_sym = <<END;
 	X							= \$002A ; const, local, , , , ${test}.asm:1
 END
-
-path("${test}.expected.lis")->spew(<<END);
+my $expected_lis = <<END;
 	1     0000              	defc X = 42
 	2     0000  2A          	defb X
 	3     0001              
@@ -40,39 +37,39 @@ END
 
 
 # no -s, no -l
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "", @bin);
 ok ! -f "${test}.sym", "no ${test}.sym";
 ok ! -f "${test}.lis", "no ${test}.lis";
 
 
 # -s, no -l
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "-s", @bin);
 ok   -f "${test}.sym", "${test}.sym";
 ok ! -f "${test}.lis", "no ${test}.lis";
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
+check_text_file("${test}.sym", $expected_sym);
 
 
 # no -s, -l
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "-l", @bin);
 ok ! -f "${test}.sym", "${test}.sym";
 ok   -f "${test}.lis", "no ${test}.lis";
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
+check_text_file("${test}.lis", $expected_lis);
 
 
 # -s, -l
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "-s -l", @bin);
 ok   -f "${test}.sym", "${test}.sym";
 ok   -f "${test}.lis", "no ${test}.lis";
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
+check_text_file("${test}.sym", $expected_sym);
+check_text_file("${test}.lis", $expected_lis);
 
 
 # public and local symbols
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 0, 1, 0, 1);
 	public global0
 	public global1
@@ -82,15 +79,14 @@ asm_ok(<<END, "-s -l", 0, 1, 0, 1);
 	local1: defb 1
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	local0                          = \$0002 ; addr, local, , , , ${test}.asm:5
 	local1                          = \$0003 ; addr, local, , , , ${test}.asm:6
 	global0                         = \$0000 ; addr, public, , , , ${test}.asm:3
 	global1                         = \$0001 ; addr, public, , , , ${test}.asm:4
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	public global0
 	2     0000              	public global1
 	3     0000  00          	global0: defb 0
@@ -99,25 +95,22 @@ path("${test}.expected.lis")->spew(<<END);
 	6     0003  01          	local1: defb 1
 	7     0004              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # very long symbol
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<'END', "-s -l", 255);
 	X_255_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X: defb 255
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	X_255_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X = \$0000 ; addr, local, , , , ${test}.asm:1
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  FF          	X_255_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X_X: defb 255
 	2     0001              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # different sizes of byte string
@@ -128,12 +121,12 @@ for (1..6, 64, 65) {
 	push @bin, 1..$_;
 }
 
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "-s -l", @bin);
 
 ok -s "${test}.sym" == 0, "empty ${test}.sym file";
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  01          defb 1
 	2     0001  01 02       defb 1,2
 	3     0003  01 02 03    defb 1,2,3
@@ -151,7 +144,6 @@ path("${test}.expected.lis")->spew(<<END);
 							defb 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65
 	9     0096              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # very long patch string
@@ -159,15 +151,14 @@ $asm = "defb ".join(",", ('X') x 256)."\n".
 	   "defc X = 42\n";
 @bin = ((42) x 256);
 
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok($asm, "-s -l", @bin);
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	X                               = \$002A ; const, local, , , , ${test}.asm:2
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 
 		  0020  2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 
 		  0040  2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 
@@ -180,11 +171,10 @@ path("${test}.expected.lis")->spew(<<END);
 	2     0100              defc X = 42
 	3     0100              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # use after defined, local
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defc A1 = 1
 	defb A1
@@ -192,23 +182,21 @@ asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defq A1
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	A1                              = \$0001 ; const, local, , , , ${test}.asm:1
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	defc A1 = 1
 	2     0000  01          	defb A1
 	3     0001  01 00       	defw A1
 	4     0003  01 00 00 00 	defq A1
 	5     0007              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # use after defined, global
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defc A1 = 1
 	defb A1
@@ -217,12 +205,11 @@ asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	public A1
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	A1                              = \$0001 ; const, public, , , , ${test}.asm:1
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	defc A1 = 1
 	2     0000  01          	defb A1
 	3     0001  01 00       	defw A1
@@ -230,11 +217,10 @@ path("${test}.expected.lis")->spew(<<END);
 	5     0007              	public A1
 	6     0007              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # use before defined, local
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defb A1
 	defw A1
@@ -242,23 +228,21 @@ asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defc A1 = 1
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	A1                              = \$0001 ; const, local, , , , ${test}.asm:4
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  01          	defb A1
 	2     0001  01 00       	defw A1
 	3     0003  01 00 00 00 	defq A1
 	4     0007              	defc A1 = 1
 	5     0007              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # use after defined, global
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	defb A1
 	defw A1
@@ -267,12 +251,11 @@ asm_ok(<<END, "-s -l", 1, 1,0, 1,0,0,0);
 	public A1
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	A1                              = \$0001 ; const, public, , , , ${test}.asm:4
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  01          	defb A1
 	2     0001  01 00       	defw A1
 	3     0003  01 00 00 00 	defq A1
@@ -280,11 +263,10 @@ path("${test}.expected.lis")->spew(<<END);
 	5     0007              	public A1
 	6     0007              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # include file
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 
 @bin = (
 	1, 2,
@@ -292,7 +274,7 @@ unlink "${test}.bin", "${test}.lis", "${test}.sym";
 	0x3E, 1, 0x06, 2, 0x80
 );
 
-path("${test}.inc")->spew(<<END);
+write_file("${test}.inc", <<END);
 	ld a, A1
 	ld b, B1
 	add a, b
@@ -307,13 +289,12 @@ asm_ok(<<END, "-s -l", @bin);
 	include "${test}.inc"
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	A1                              = \$0001 ; const, local, , , , ${test}.asm:2
 	B1                              = \$0002 ; const, public, , , , ${test}.asm:3
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  01 02       	defb A1, B1
 	2     0002              	defc A1 = 1
 	3     0002              	defc B1 = 2
@@ -330,11 +311,10 @@ path("${test}.expected.lis")->spew(<<END);
 	4     000C              
 	7     000C              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # defvars
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", unpack("C*", pack("v*", 0x4000, 0x4001)));
 	defvars 0x4000
 	{
@@ -344,13 +324,12 @@ asm_ok(<<END, "-s -l", unpack("C*", pack("v*", 0x4000, 0x4001)));
 	defw RUNTIMEFLAGS1, RUNTIMEFLAGS2
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	RUNTIMEFLAGS1                   = \$4000 ; const, local, , , , ${test}.asm:3
 	RUNTIMEFLAGS2                   = \$4001 ; const, local, , , , ${test}.asm:4
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	defvars 0x4000
 	2     0000              	{
 	3     0000              		RUNTIMEFLAGS1 ds.b 1
@@ -359,11 +338,10 @@ path("${test}.expected.lis")->spew(<<END);
 	6     0000  00 40 01 40 	defw RUNTIMEFLAGS1, RUNTIMEFLAGS2
 	7     0004              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # defgroup
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 0..8);
 	defgroup
 	{
@@ -376,7 +354,7 @@ asm_ok(<<END, "-s -l", 0..8);
 	defb SYM_LCURLY, SYM_RCURLY
 END
 
-path("${test}.expected.sym")->spew(<<END);
+check_text_file("${test}.sym", <<END);
 	SYM_NULL                        = \$0000 ; const, local, , , , ${test}.asm:3
 	SYM_DQUOTE                      = \$0001 ; const, local, , , , ${test}.asm:3
 	SYM_SQUOTE                      = \$0002 ; const, local, , , , ${test}.asm:3
@@ -387,9 +365,8 @@ path("${test}.expected.sym")->spew(<<END);
 	SYM_LCURLY                      = \$0007 ; const, local, , , , ${test}.asm:5
 	SYM_RCURLY                      = \$0008 ; const, local, , , , ${test}.asm:5
 END
-system_ok("diff -w ${test}.expected.sym ${test}.sym");
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	defgroup
 	2     0000              	{
 	3     0000              		SYM_NULL, SYM_DQUOTE, SYM_SQUOTE, SYM_SEMICOLON,
@@ -401,11 +378,10 @@ path("${test}.expected.lis")->spew(<<END);
 	9     0007  07 08       	defb SYM_LCURLY, SYM_RCURLY
 	10    0009              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # lston lstoff
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 0,0, 1, 255,255, 3);
 	ld bc, 0
 	lstoff
@@ -416,17 +392,16 @@ END
 
 ok -s "${test}.sym" == 0, "empty ${test}.sym file";
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000  01 00 00    	ld bc, 0
 	2     0003              	lstoff
 	5     0006  03          	inc bc
 	6     0007              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # if else endif
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(<<END, "-s -l", 1, 1,0, 0x21, 1,0);
 	if 0
 		ld bc, 0
@@ -443,7 +418,7 @@ END
 
 ok -s "${test}.sym" == 0, "empty ${test}.sym file";
 
-path("${test}.expected.lis")->spew(<<END);
+check_text_file("${test}.lis", <<END);
 	1     0000              	if 0
 	2     0000              		ld bc, 0
 	3     0000              	else
@@ -457,12 +432,11 @@ path("${test}.expected.lis")->spew(<<END);
 	11    0006              	endif
 	12    0006              
 END
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 
 # list with more than 10000 lines
 my $num_lines = 10001;
-unlink "${test}.bin", "${test}.lis", "${test}.sym";
+unlink_testfiles();
 asm_ok(
 	join("", ("nop\n") x $num_lines), 
 	"-s -l",
@@ -470,9 +444,8 @@ asm_ok(
 	
 ok -s "${test}.sym" == 0, "empty ${test}.sym file";
 
-path("${test}.expected.lis")->spew(
+check_text_file("${test}.lis", 
 	join("", map {sprintf("%d %04X %02X nop\n", $_+1, $_, 0)} 0..$num_lines-1).
 		sprintf("%d %04X\n", $num_lines+1, $num_lines));
-system_ok("diff -w ${test}.expected.lis ${test}.lis");
 
 end_test();

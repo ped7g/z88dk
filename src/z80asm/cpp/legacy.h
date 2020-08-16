@@ -12,7 +12,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 	// common constants
 	enum {	// TODO: use a class enum when no longer needed by C
 		CPU_NOT_DEFINED = 0,
@@ -56,6 +55,7 @@ extern "C" {
 
 	// call legacy
 	int z80asm_main(int argc, char* argv[]);
+	bool library_file_append(const char* filename);
 
 	// called by legacy
 	void ClearEnvPendingOptions();
@@ -69,9 +69,10 @@ extern "C" {
 	bool OptionListfile();
 	bool OptionGlobaldef();
 
+	void SetOutputLibrary(const char* library);
+	const char* GetOutputLibrary();
 
 	int GetCpu();
-	const char* GetCpuName();
 	int GetInvokeOpcode();
 	bool SwapIxIy();
 	void TraverseDefines(void(*func)(const char* name, int value));

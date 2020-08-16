@@ -43,28 +43,28 @@ for my $n (-129, -128, 0, 255, 256) {
 
 	ok 1, "n=$n";
 
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld de, hl$offset
 END
 	unlink "$test.bin";
 	run_ok("z80asm -b -m8085 $test.asm", '', $warning);
 	ok path("$test.bin")->slurp_raw() eq pack("C*", 0x28, $n & 0xFF), "bin ok";
 	
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld de, sp$offset
 END
 	unlink "$test.bin";
 	run_ok("z80asm -b -m8085 $test.asm", '', $warning);
 	ok path("$test.bin")->slurp_raw() eq pack("C*", 0x38, $n & 0xFF), "bin ok";
 
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld hl, (sp$offset)
 END
 	unlink "$test.bin";
 	run_ok("z80asm -b -mr2k $test.asm", '', $warning);
 	ok path("$test.bin")->slurp_raw() eq pack("C*", 0xC4, $n & 0xFF), "bin ok";
 	
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld (sp$offset), hl
 END
 	unlink "$test.bin";
@@ -80,14 +80,14 @@ for my $n (-129, -128, 0, 127, 128) {
 
 	ok 1, "n=$n";
 
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld hl, (ix$offset)
 END
 	unlink "$test.bin";
 	run_ok("z80asm -b -mr2k $test.asm", '', $warning);
 	ok path("$test.bin")->slurp_raw() eq pack("C*", 0xE4, $n & 0xFF), "bin ok";
 	
-	path("$test.asm")->spew(<<END);
+	write_file("$test.asm", <<END);
 		ld (ix$offset), hl
 END
 	unlink "$test.bin";

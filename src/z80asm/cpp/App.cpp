@@ -5,14 +5,20 @@
 //-----------------------------------------------------------------------------
 
 #include "App.h"
+#include "config.h"
 #include "legacy.h"
 #include "z80asm_manual.h"
 #include "z80asm_usage.h"
 #include "options.yy.h"
+#include "filesystem/path.h"
 
 #include <cstring>
 #include <iostream>
 #include <sstream>
+
+#ifndef PREFIX
+#define PREFIX "/usr/local/share/z88dk"
+#endif
 
 #ifndef Z88DK_VERSION
 #define Z88DK_VERSION "build " __DATE__
@@ -84,19 +90,38 @@ bool App::ParseArgs(int argc, char * argv[]) {
 		}
 	}
 
+	return true;
+}
+
+bool App::AddDefines() {
 	// add CPU defines
-	for (auto define = app.options.cpu.GetDefinesBegin();
-		define != app.options.cpu.GetDefinesEnd();
+	for (auto define = options.cpu.GetDefinesBegin();
+		define != options.cpu.GetDefinesEnd();
 		++define) {
 		options.defines.push_back({ *define, 1 });
 	}
 
 	// add ARCH defines
-	for (auto define = app.options.arch.GetDefinesBegin();
-		define != app.options.arch.GetDefinesEnd();
+	for (auto define = options.arch.GetDefinesBegin();
+		define != options.arch.GetDefinesEnd();
 		++define) {
 		options.defines.push_back({ define->first, define->second });
 	}
+
+	return true;
+}
+
+bool App::AddLibraries() {
+	// add -lxxx libraries
+	for (auto& library : options.libraries)
+		if (!library_file_append(library.c_str()))
+			return false;
+
+	// add z80asm-CPU-IXIY.lib
+	auto z80asmLibrary = SearchZ80asmLibrary();
+	if (!z80asmLibrary.empty())
+		if (!library_file_append(z80asmLibrary.c_str()))
+			return false;
 
 	return true;
 }
@@ -139,4 +164,78 @@ std::string App::ExpandEnvironmentVars(std::string str)
 	}
 
 	return str;
+}
+
+std::string App::SearchFile(const std::string& file, 
+	const std::vector<std::string>& dirs) {
+	using namespace std;
+	using namespace filesystem;
+
+	// if no directory list or file exists, return filename
+	if (dirs.empty() || path(file).is_file())
+		return file;
+
+	// search in dir list
+	for (const auto& dir : dirs) {
+		string testFile = dir + "/" + file;
+		if (path(testFile).is_file())
+			return testFile;
+	}
+
+	// not found, return original file name
+	return file;
+}
+
+/*	z80asm standard library
+	search in current die, then in exe path, then in exe path/../lib, then in ZCCCFG/..
+	Ignore if not found, probably benign - user will see undefined symbols
+	__z80asm__xxx if the library routines are called
+*/
+std::string App::SearchZ80asmLibrary() {
+	using namespace filesystem;
+	using namespace std;
+
+	// build library name: z80asm-CPU-[ixiy].lib
+	string libName = "z80asm-" + options.cpu.GetName() + "-";
+	if (options.swapIxIy)
+		libName += "ixiy";
+	libName += ".lib";
+
+	// check current directory
+	if (CheckLibraryExists(libName))
+		return libName;
+
+	// check PREFIX/lib
+	string libPath = string(PREFIX) + "/lib/" + libName;
+	if (CheckLibraryExists(libPath))
+		return path(libPath).str(path::posix_path);
+
+	// check -L path
+	libPath = SearchFile(libName, options.libraryPath);
+	if (libPath != libName) {				// found one in path
+		if (CheckLibraryExists(libPath))
+			return path(libPath).str(path::posix_path);
+	}
+
+	// check environment ${ZCCCFG}
+	string libPathZcc = "${ZCCCFG}/../" + libName;
+	libPathZcc = ExpandEnvironmentVars(libPathZcc);
+	if (CheckLibraryExists(libPathZcc))
+		return libPathZcc;
+
+	return string();		// empty string if not found
+}
+
+bool App::CheckLibraryExists(const std::string& filename) {
+	using namespace filesystem;
+	using namespace std;
+
+	// TODO: https://github.com/wjakob/filesystem filesystem::path interprets /home/.. in Windows as a relative path "home/..." - fix
+	if (path(filename).is_file())
+		return true;
+	else {
+		if (options.verbose)
+			cout << "Library '" << path(filename).str(path::posix_path) << "' not found" << endl;
+		return false;
+	}
 }

@@ -29,7 +29,6 @@ OPT_VAR(int, appmake_origin_min, -1)
 OPT_VAR(int, appmake_origin_max, -1)
 
 OPT_VAR(const char *,	bin_file,	NULL	)	/* set by -o */
-OPT_VAR(const char *,	lib_file,	NULL	)	/* set by -x */
 OPT_VAR(const char *,    consol_obj_file, NULL)	/* set by -o and no -b */
 OPT_VAR(const char *,    output_directory, NULL)	/* set by -O */
 
@@ -47,10 +46,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 #ifndef OPT
 #define OPT(type, arg, short_opt, long_opt, help_text, help_arg)
 #endif
-
-OPT_TITLE("Libraries:")
-OPT(OptCallArg, option_make_lib, "-x", "", "Create a library file" FILEEXT_LIB, "FILE")
-OPT(OptCallArg, option_use_lib, "-l", "", "Use library file" FILEEXT_LIB, "FILE")
 
 OPT_TITLE("Binary Output:")
 OPT(OptString, (void*)&opts.output_directory, "-O", "", "Output directory", "DIR")

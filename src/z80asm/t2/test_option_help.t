@@ -10,7 +10,7 @@ use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-path("$test.asm")->spew(<<END);
+write_file("$test.asm", <<END);
 	nop
 END
 

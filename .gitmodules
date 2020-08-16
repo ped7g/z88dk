@@ -19,6 +19,3 @@
 [submodule "ext/RE-flex"]
 	path = ext/RE-flex
 	url = https://github.com/Genivia/RE-flex.git
-[submodule "ext/filesystem"]
-	path = ext/filesystem
-	url = https://github.com/wjakob/filesystem.git

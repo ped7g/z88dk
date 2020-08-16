@@ -43,6 +43,12 @@ App::App(const App& rhs) {
     files = rhs.files;
 }
 
+App::App(App&& rhs) {
+    optionsLexer = rhs.optionsLexer;
+    rhs.optionsLexer = nullptr;
+    files = std::move(rhs.files);
+}
+
 App::~App() {
     delete optionsLexer;
 }
@@ -50,6 +56,13 @@ App::~App() {
 App& App::operator=(const App& rhs) {
     optionsLexer = new OptionsLexer;
     files = rhs.files;
+    return *this;
+}
+
+App& App::operator=(App&& rhs) {
+    optionsLexer = rhs.optionsLexer;
+    rhs.optionsLexer = nullptr;
+    files = std::move(rhs.files);
     return *this;
 }
 

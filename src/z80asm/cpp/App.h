@@ -16,9 +16,11 @@ class OptionsLexer;		// cannot include generated options.yy.h
 class App {
 public:
     App();
-    App(const App& rhs);		// rule of 3
+    App(const App& rhs);		// rule of 5
+    App(App&& rhs);
     virtual ~App();
     App& operator=(const App& rhs);
+    App& operator=(App&& rhs);
 
     bool ParseEnv(const std::string& envVariable = "Z80ASM");
     bool ParseArgs(int argc, char* argv[]);

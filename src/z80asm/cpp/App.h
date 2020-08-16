@@ -15,31 +15,31 @@ class OptionsLexer;		// cannot include generated options.yy.h
 
 class App {
 public:
-	App();
-	App(const App& rhs);		// rule of 3
-	virtual ~App();
-	App& operator=(const App& rhs);
+    App();
+    App(const App& rhs);		// rule of 3
+    virtual ~App();
+    App& operator=(const App& rhs);
 
-	bool ParseEnv(const std::string & envVariable = "Z80ASM");
-	bool ParseArgs(int argc, char* argv[]);
-	bool AddDefines();
-	bool AddLibraries();
+    bool ParseEnv(const std::string& envVariable = "Z80ASM");
+    bool ParseArgs(int argc, char* argv[]);
+    bool AddDefines();
+    bool AddLibraries();
 
-	static void ExitUsage();
-	static void ExitManual();
-	static std::string ExpandEnvironmentVars(std::string str);
-	static std::string SearchFile(const std::string& file,
-		const std::vector<std::string>& dirs);
+    static void ExitUsage();
+    static void ExitManual();
+    static std::string ExpandEnvironmentVars(std::string str);
+    static std::string SearchFile(const std::string& file,
+                                  const std::vector<std::string>& dirs);
 
-	// public access to options
-	Options options;
+    // public access to options
+    Options options;
 
 private:
-	OptionsLexer*	optionsLexer{ nullptr };
-	std::vector<std::string> files;
+    OptionsLexer*	optionsLexer{ nullptr };
+    std::vector<std::string> files;
 
-	std::string SearchZ80asmLibrary();
-	bool CheckLibraryExists(const std::string& filename);
+    std::string SearchZ80asmLibrary();
+    bool CheckLibraryExists(const std::string& filename);
 };
 
 // sigleton

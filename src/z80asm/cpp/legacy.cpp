@@ -8,7 +8,8 @@
 
 #include "App.h"
 
-#include "filesystem/path.h"
+#include "ghc/filesystem.hpp"
+namespace fs = ghc::filesystem;		// util we have std::filesystem
 
 #include <unordered_set>
 
@@ -39,138 +40,124 @@ const char* CPU_INTEL_DEFINE = "__CPU_INTEL__";
 const char* SWAP_IXIY_DEFINE = "__SWAP_IX_IY__";
 
 void ClearEnvPendingOptions() {
-	envPendingOptions.clear();
+    envPendingOptions.clear();
 }
 
-void SetEnvPendingOptions(const char * str) {
-	envPendingOptions = str;
+void SetEnvPendingOptions(const char* str) {
+    envPendingOptions = str;
 }
 
-void AppendEnvPendingOptions(const char * str) {
-	using namespace std;
+void AppendEnvPendingOptions(const char* str) {
+    using namespace std;
 
-	envPendingOptions += string(" ") + str;
+    envPendingOptions += string(" ") + str;
 }
 
 const char* GetEnvPendingOptions() {
-	return envPendingOptions.c_str();
+    return envPendingOptions.c_str();
 }
 
 bool OptionVerbose() {
-	return app.options.verbose;
+    return app.options.verbose;
 }
 
 bool OptionMapfile() {
-	return app.options.mapfile;
+    return app.options.mapfile;
 }
 
 bool OptionSymtable() {
-	return app.options.symtable;
+    return app.options.symtable;
 }
 
 bool OptionListfile() {
-	return app.options.listfile;
+    return app.options.listfile;
 }
 
 bool OptionGlobaldef() {
-	return app.options.globaldef;
+    return app.options.globaldef;
 }
 
-void SetOutputLibrary(const char * library) {
-	app.options.outputLibrary = library;
+void SetOutputLibrary(const char* library) {
+    app.options.outputLibrary = library;
 }
 
-const char * GetOutputLibrary() {
-	if (app.options.outputLibrary.empty())
-		return NULL;
-	else
-		return app.options.outputLibrary.c_str();
+const char* GetOutputLibrary() {
+    if (app.options.outputLibrary.empty())
+        return NULL;
+    else
+        return app.options.outputLibrary.c_str();
 }
 
 
 
 
 
-int GetCpu() 
-{
-	return static_cast<int>(app.options.cpu.GetType());
+int GetCpu() {
+    return static_cast<int>(app.options.cpu.GetType());
 }
 
-int GetInvokeOpcode()
-{
-	return app.options.arch.INVOKE();
+int GetInvokeOpcode() {
+    return app.options.arch.INVOKE();
 }
 
-bool SwapIxIy()
-{
-	return app.options.swapIxIy;
+bool SwapIxIy() {
+    return app.options.swapIxIy;
 }
 
-void TraverseDefines(void(*func)(const char *name, int value))
-{
-	for (auto it = app.options.defines.cbegin();
-		it != app.options.defines.cend(); ++it)
-		func((*it).first.c_str(), (*it).second);
+void TraverseDefines(void(*func)(const char* name, int value)) {
+    for (auto it = app.options.defines.cbegin();
+            it != app.options.defines.cend(); ++it)
+        func((*it).first.c_str(), (*it).second);
 }
 
-bool OptionOptimizeSpeed()
-{
-	return app.options.optimizeSpeed;
+bool OptionOptimizeSpeed() {
+    return app.options.optimizeSpeed;
 }
 
-bool OptionDebugInfo()
-{
-	return app.options.debugInfo;
+bool OptionDebugInfo() {
+    return app.options.debugInfo;
 }
 
-const char * AddStringPool(const char * str)
-{
-	using namespace std;
+const char* AddStringPool(const char* str) {
+    using namespace std;
 
-	if (!str)
-		return nullptr;
+    if (!str)
+        return nullptr;
 
-	static unordered_set<string> pool;
-	const char* pooledString = pool.insert(str).first->c_str();
-	return pooledString;
+    static unordered_set<string> pool;
+    const char* pooledString = pool.insert(str).first->c_str();
+    return pooledString;
 }
 
-const char * ExpandEnvironmentVarsC(const char * str_)
-{
-	using namespace std;
+const char* ExpandEnvironmentVarsC(const char* str_) {
+    using namespace std;
 
-	string str{ str_ };
-	str = App::ExpandEnvironmentVars(str);
-	return AddStringPool(str.c_str());
+    string str{ str_ };
+    str = App::ExpandEnvironmentVars(str);
+    return AddStringPool(str.c_str());
 }
 
-void PushSourceDirname(const char * filename)
-{
-	using namespace filesystem;
-
-	auto dirname = path(filename).parent_path();
-	app.options.includePath.push_back(dirname.str(path::posix_path));
+void PushSourceDirname(const char* filename) {
+    auto dirname = fs::path(filename).parent_path();
+    app.options.includePath.push_back(dirname.string());
 }
 
-void PopSourceDirname()
-{
-	if (!app.options.includePath.empty())
-		app.options.includePath.pop_back();
+void PopSourceDirname() {
+    if (!app.options.includePath.empty())
+        app.options.includePath.pop_back();
 }
 
-const char * SearchIncludeFile(const char * filename)
-{
-	using namespace filesystem;
+const char* SearchIncludeFile(const char* filename) {
+    using namespace std;
 
-	path file = App::SearchFile(filename, app.options.includePath);
-	return AddStringPool(file.str(path::posix_path).c_str());
+    string file = App::SearchFile(filename, app.options.includePath);
+    return AddStringPool(file.c_str());
 }
 
-const char * SearchLibraryFile(const char * filename)
-{
-	using namespace filesystem;
+const char* SearchLibraryFile(const char* filename) {
+    using namespace std;
 
-	path file = App::SearchFile(filename, app.options.libraryPath);
-	return AddStringPool(file.str(path::posix_path).c_str());
+    string file = App::SearchFile(filename, app.options.libraryPath);
+    return AddStringPool(file.c_str());
 }
 

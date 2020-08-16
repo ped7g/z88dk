@@ -15,7 +15,7 @@ write_file("$test.asm", <<END);
 END
 
 $ENV{Z80ASM} = "-v -m";
-unlink "$test.bin";
+unlink "$test.bin". "$test.map";
 run_ok("z80asm -b $test.asm", <<"OUT", '');
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = \$0001

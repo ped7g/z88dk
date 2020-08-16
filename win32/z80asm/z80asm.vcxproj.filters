@@ -305,17 +305,11 @@
     <ClInclude Include="..\..\src\z80asm\cpp\Arch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ext\filesystem\filesystem\path.h">
-      <Filter>Header Files\ext\filesystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\filesystem\filesystem\fwd.h">
-      <Filter>Header Files\ext\filesystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ext\filesystem\filesystem\resolver.h">
-      <Filter>Header Files\ext\filesystem</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\z80asm\cpp\App.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\filesystem\include\ghc\filesystem.hpp">
+      <Filter>Header Files\ext\filesystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

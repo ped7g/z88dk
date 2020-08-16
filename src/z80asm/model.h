@@ -27,14 +27,14 @@ extern void model_init(void);
 *----------------------------------------------------------------------------*/
 
 /* interface to SrcFile singleton */
-extern bool  src_open(const char *filename, bool search_include_path);
-extern char *src_getline( void );
-extern void  src_ungetline(const char *lines );
-extern const char *src_filename( void );
-extern int   src_line_nr( void );	
+extern bool  src_open(const char* filename, bool search_include_path);
+extern char* src_getline( void );
+extern void  src_ungetline(const char* lines );
+extern const char* src_filename( void );
+extern int   src_line_nr( void );
 extern bool  scr_is_c_source(void);
 
-extern void src_set_filename(const char *filename);
+extern void src_set_filename(const char* filename);
 extern void src_set_line_nr(int line_nr, int line_inc);
 extern void src_set_c_source(void);
 

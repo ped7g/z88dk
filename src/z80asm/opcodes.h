@@ -18,16 +18,16 @@ Define CPU opcodes
 /* forward declaration without include cycle */
 struct Expr;
 
-/* add 1 to 4 bytes opcode opcode to object code 
+/* add 1 to 4 bytes opcode opcode to object code
 *  bytes in big-endian format, e.g. 0xED46 */
 void add_opcode(int opcode);
 
 /* add opcode followed by jump relative offset expression */
-void add_opcode_jr(int opcode, struct Expr *expr);
+void add_opcode_jr(int opcode, struct Expr* expr);
 void add_opcode_jr_n(int opcode, struct Expr* expr, int asmpc_offset);
 
 /* add opcode followed by 8-bit unsigned expression */
-void add_opcode_n(int opcode, struct Expr *expr);
+void add_opcode_n(int opcode, struct Expr* expr);
 
 /* add opcode followed by 8-bit unsigned expression and a zero byte */
 void add_opcode_n_0(int opcode, struct Expr* expr);
@@ -36,27 +36,27 @@ void add_opcode_n_0(int opcode, struct Expr* expr);
 void add_opcode_s_0(int opcode, struct Expr* expr);
 
 /* add opcode followed by 8-bit signed expression */
-void add_opcode_d(int opcode, struct Expr *expr);
+void add_opcode_d(int opcode, struct Expr* expr);
 
 /* add opcode followed by 16-bit expression */
-void add_opcode_nn(int opcode, struct Expr *expr);
+void add_opcode_nn(int opcode, struct Expr* expr);
 
 /* add opcode followed by big-endian 16-bit expression */
-void add_opcode_NN(int opcode, struct Expr *expr);
+void add_opcode_NN(int opcode, struct Expr* expr);
 
 /* add opcode followed by IX/IY offset expression */
-void add_opcode_idx(int opcode, struct Expr *expr);
+void add_opcode_idx(int opcode, struct Expr* expr);
 
 /* add opcode followed by IX/IY offset expression and 8 bit expression */
-void add_opcode_idx_n(int opcode, struct Expr *idx_expr,
-										 struct Expr *n_expr );
+void add_opcode_idx_n(int opcode, struct Expr* idx_expr,
+                      struct Expr* n_expr );
 
 /* add opcode followed by two 8-bit expressions */
-void add_opcode_n_n(int opcode, struct Expr *n1_expr,
-									   struct Expr *n2_expr );
+void add_opcode_n_n(int opcode, struct Expr* n1_expr,
+                    struct Expr* n2_expr );
 
 /* call emulation function by name */
-void add_call_emul_func(char *emul_func);
+void add_call_emul_func(char* emul_func);
 
 /* add Z88's opcodes */
 void add_Z88_CALL_OZ(int argument);
@@ -65,8 +65,8 @@ void add_Z88_FPP(int argument);
 void add_Z88_INVOKE(int argument);
 
 /* add COPPER UNIT opcodes (ZX Next) */
-void add_copper_unit_wait(struct Expr *ver, struct Expr *hor);
-void add_copper_unit_move(struct Expr *reg, struct Expr *val);
+void add_copper_unit_wait(struct Expr* ver, struct Expr* hor);
+void add_copper_unit_move(struct Expr* reg, struct Expr* val);
 void add_copper_unit_stop();
 void add_copper_unit_nop();
 
@@ -115,17 +115,18 @@ enum { FLAG_NZ, FLAG_Z, FLAG_NC, FLAG_C, FLAG_PO_LZ, FLAG_PE_LO, FLAG_P, FLAG_M 
 #define NOT_FLAG(flag)	((flag) ^ 1)
 
 /* 8-bit registers */
-enum { REG_B, REG_C, REG_D, REG_E, REG_H, REG_L, REG_idx, REG_A, REG_F=6 };
+enum { REG_B, REG_C, REG_D, REG_E, REG_H, REG_L, REG_idx, REG_A, REG_F = 6 };
 #define REG_IXH _Z80_ONLY(REG_H)
 #define REG_IYH _Z80_ONLY(REG_H)
 #define REG_IXL _Z80_ONLY(REG_L)
 #define REG_IYL _Z80_ONLY(REG_L)
 
 /* 16-bit registers */
-enum { REG_BC, REG_DE, REG_HL, REG_SP, 
-	   REG_AF = REG_SP,
-	   REG_IX = REG_HL, REG_IY = REG_HL,
-	   REG_IND_BC = 0, REG_IND_DE };
+enum { REG_BC, REG_DE, REG_HL, REG_SP,
+       REG_AF = REG_SP,
+       REG_IX = REG_HL, REG_IY = REG_HL,
+       REG_IND_BC = 0, REG_IND_DE
+     };
 
 /* ALU operations */
 enum { ALU_ADD, ALU_ADC, ALU_SUB, ALU_SBC, ALU_AND, ALU_XOR, ALU_OR, ALU_CP };
@@ -164,9 +165,9 @@ enum { BRS_BIT = 0x40, BRS_RES = 0x80, BRS_SET = 0xC0 };
 										(error_illegal_ident(),0) : \
 										0xC7 + (n)))
 
-/* Z80 opcodes 
+/* Z80 opcodes
 *  n is a constant
-*  flag is FLAG_NZ, FLAG_... 
+*  flag is FLAG_NZ, FLAG_...
 *  reg is REG_BC, ... */
 #define Z80_ADC(reg)		_Z80_ALU(ALU_ADC, (reg))
 #define Z80_ADC16(reg)		(0xED4A + ((reg) << 4))

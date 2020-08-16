@@ -12,23 +12,23 @@
 
 class Arch {
 public:
-	enum Type {					// NOTE: keep archTable[] in sync
-		GENERAL, TI83, TI83PLUS,
-	};
-	Arch(Type type = GENERAL) { Init(type); }
-	void Init(Type type = GENERAL);
+    enum Type {					// NOTE: keep archTable[] in sync
+        GENERAL, TI83, TI83PLUS,
+    };
+    Arch(Type type = GENERAL) { Init(type); }
+    void Init(Type type = GENERAL);
 
-	Type GetType() const { return type; }
-	const std::string& GetName() const { return name; }
-	auto GetDefinesBegin() const { return defines.cbegin(); }
-	auto GetDefinesEnd() const { return defines.cend(); }
+    Type GetType() const { return type; }
+    const std::string& GetName() const { return name; }
+    auto GetDefinesBegin() const { return defines.cbegin(); }
+    auto GetDefinesEnd() const { return defines.cend(); }
 
-	// get opcode values, -1 if invalid
-	int INVOKE() const;
+    // get opcode values, -1 if invalid
+    int INVOKE() const;
 
 private:
-	Type			type;
-	std::string		name;
-	std::vector<std::pair<std::string, int>> 
-					defines;
+    Type			type;
+    std::string		name;
+    std::vector<std::pair<std::string, int>>
+                                          defines;
 };

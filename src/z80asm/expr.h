@@ -29,10 +29,9 @@ extern UT_icd ut_exprs_icd;
 /*-----------------------------------------------------------------------------
 *	Types of operations and associativity
 *----------------------------------------------------------------------------*/
-typedef enum
-{
-	ASMPC_OP, NUMBER_OP, SYMBOL_OP, CONST_EXPR_OP,
-	UNARY_OP, BINARY_OP, TERNARY_OP,
+typedef enum {
+    ASMPC_OP, NUMBER_OP, SYMBOL_OP, CONST_EXPR_OP,
+    UNARY_OP, BINARY_OP, TERNARY_OP,
 } op_type_t;
 
 typedef enum { ASSOC_NONE, ASSOC_LEFT, ASSOC_RIGHT } assoc_t;
@@ -40,18 +39,16 @@ typedef enum { ASSOC_NONE, ASSOC_LEFT, ASSOC_RIGHT } assoc_t;
 /*-----------------------------------------------------------------------------
 *	Operator descriptors
 *----------------------------------------------------------------------------*/
-typedef struct Operator
-{
-	tokid_t		tok;				/* symbol */
-	op_type_t	op_type;			/* UNARY_OP, BINARY_OP, TERNARY_OP */
-	int			prec;				/* precedence lowest (1) to highest (N) */
-	assoc_t		assoc;				/* left or rigth association */
-	union
-	{
-		long (*unary)(long a);						/* compute unary operator */
-		long (*binary)(long a, long b);				/* compute binary operator */
-		long (*ternary)(long a, long b, long c);	/* compute ternary operator */
-	} calc;
+typedef struct Operator {
+    tokid_t		tok;				/* symbol */
+    op_type_t	op_type;			/* UNARY_OP, BINARY_OP, TERNARY_OP */
+    int			prec;				/* precedence lowest (1) to highest (N) */
+    assoc_t		assoc;				/* left or rigth association */
+    union {
+        long (*unary)(long a);						/* compute unary operator */
+        long (*binary)(long a, long b);				/* compute binary operator */
+        long (*ternary)(long a, long b, long c);	/* compute ternary operator */
+    } calc;
 } Operator;
 
 /* get the operator descriptor for the given (sym, op_type) */
@@ -60,24 +57,22 @@ extern Operator* Operator_get(tokid_t tok, op_type_t op_type);
 /*-----------------------------------------------------------------------------
 *	Expression operations
 *----------------------------------------------------------------------------*/
-typedef struct ExprOp				/* hold one operation or operand */
-{
-	op_type_t	op_type;			/* select type of operator / operand */
-	union
-	{
-		/* ASMPC_OP - no data */
+typedef struct ExprOp {			/* hold one operation or operand */
+    op_type_t	op_type;			/* select type of operator / operand */
+    union {
+        /* ASMPC_OP - no data */
 
-		/* NUMBER_OP */
-		long	value;				/* operand value */
+        /* NUMBER_OP */
+        long	value;				/* operand value */
 
-		/* SYMBOL_OP */
-		Symbol* symbol;				/* symbol in symbol table */
+        /* SYMBOL_OP */
+        Symbol* symbol;				/* symbol in symbol table */
 
-		/* CONST_EXPR_OP - no data */
+        /* CONST_EXPR_OP - no data */
 
-		/* UNARY_OP, BINARY_OP, TERNARY_OP */
-		Operator* op;				/* static struct, retrieved by Operator_get() */
-	} d;
+        /* UNARY_OP, BINARY_OP, TERNARY_OP */
+        Operator* op;				/* static struct, retrieved by Operator_get() */
+    } d;
 } ExprOp;
 
 ARRAY(ExprOp);					/* hold list of Expr operations/operands */
@@ -86,15 +81,15 @@ ARRAY(ExprOp);					/* hold list of Expr operations/operands */
 *	Expression range
 *----------------------------------------------------------------------------*/
 typedef enum {
-	RANGE_JR_OFFSET = 1,
-	RANGE_BYTE_UNSIGNED,
-	RANGE_BYTE_SIGNED,
-	RANGE_WORD,						// 16-bit value little-endian
-	RANGE_WORD_BE,					// 16-bit value big-endian
-	RANGE_DWORD,
-	RANGE_BYTE_TO_WORD_UNSIGNED,    // unsigned byte extended to 16 bits
-	RANGE_BYTE_TO_WORD_SIGNED,      // signed byte sign-extended to 16 bits
-	RANGE_PTR24,					// 24-bit pointer
+    RANGE_JR_OFFSET = 1,
+    RANGE_BYTE_UNSIGNED,
+    RANGE_BYTE_SIGNED,
+    RANGE_WORD,						// 16-bit value little-endian
+    RANGE_WORD_BE,					// 16-bit value big-endian
+    RANGE_DWORD,
+    RANGE_BYTE_TO_WORD_UNSIGNED,    // unsigned byte extended to 16 bits
+    RANGE_BYTE_TO_WORD_SIGNED,      // signed byte sign-extended to 16 bits
+    RANGE_PTR24,					// 24-bit pointer
 } range_t;
 
 /* return size in bytes of value of given range */
@@ -109,10 +104,10 @@ Str* text;				/* expression in infix text */
 
 /* flags set during eval */
 struct {
-	bool not_evaluable : 1;		/* true if expression did not retunr a value */
-	bool undefined_symbol : 1;	/* true if expression contains one undefined symbol */
-	bool extern_symbol : 1;		/* true if expression contains one EXTERN symbol */
-	bool cross_section_addr : 1;	/* true if expression referred to symbol on another section */
+    bool not_evaluable : 1;		/* true if expression did not retunr a value */
+    bool undefined_symbol : 1;	/* true if expression contains one undefined symbol */
+    bool extern_symbol : 1;		/* true if expression contains one EXTERN symbol */
+    bool cross_section_addr : 1;	/* true if expression referred to symbol on another section */
 } result;
 
 range_t		 range;			/* range of expression result */

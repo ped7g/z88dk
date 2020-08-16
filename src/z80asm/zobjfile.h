@@ -87,6 +87,6 @@ extern bool check_object_file_no_errors(const char* obj_filename);
 
 // worker
 extern bool check_obj_lib_file(const char* filename,
-	char* signature,
-	void(*error_file)(const char*),
-	void(*error_version)(const char*, int, int));
+                               char* signature,
+                               void(*error_file)(const char*),
+                               void(*error_version)(const char*, int, int));

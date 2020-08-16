@@ -20,4 +20,4 @@ bool library_file_append(const char* filename);
 bool object_file_append(const char* filename, Module* module, bool reserve_space, bool no_errors);
 
 void link_modules(void);
-void compute_equ_exprs(ExprList *exprs, bool show_error, bool module_relative_addr);
+void compute_equ_exprs(ExprList* exprs, bool show_error, bool module_relative_addr);

@@ -17,21 +17,20 @@ Scanner. Scanning engine is built by ragel from scan_rules.rl.
 /*-----------------------------------------------------------------------------
 * 	Keep last symbol retrieved
 *----------------------------------------------------------------------------*/
-typedef struct sym_t 
-{
-	tokid_t  tok;			/* token */
-	tokid_t	 tok_opcode;	/* e.g. TK_IX, when tok = TK_NAME and token is "ix" */
-	char	*tstart;		/* start of recognized token with input buffer */
-	int 	 tlen;			/* length of recognized token with input buffer */
+typedef struct sym_t {
+    tokid_t  tok;			/* token */
+    tokid_t	 tok_opcode;	/* e.g. TK_IX, when tok = TK_NAME and token is "ix" */
+    char*	tstart;		/* start of recognized token with input buffer */
+    int 	 tlen;			/* length of recognized token with input buffer */
 #if 0
-	char	*text;			/* characters of the retrieved token for lexemes
+    char*	text;			/* characters of the retrieved token for lexemes
 							*  used in the expression parser */
-	char	*string;		/* identifier to return with TK_NAME and TK_LABEL, or
+    char*	string;		/* identifier to return with TK_NAME and TK_LABEL, or
 							*  double-quoted string without quotes to return with a TK_STRING */
-	char	*filename;		/* filename where token found, in strpool */
-	int 	 line_nr;		/* line number where token found */
+    char*	filename;		/* filename where token found, in strpool */
+    int 	 line_nr;		/* line number where token found */
 #endif
-	int		 number;		/* number to return with TK_NUMBER */
+    int		 number;		/* number to return with TK_NUMBER */
 } Sym;
 
 /*-----------------------------------------------------------------------------
@@ -59,7 +58,7 @@ extern void CurSymExpect(tokid_t expected_tok);
 extern void GetSymExpect(tokid_t expected_tok);
 
 /* insert the given text at the current scan position */
-extern void SetTemporaryLine(const char *line );
+extern void SetTemporaryLine(const char* line );
 
 /* skip line past the newline, set EOL */
 extern void  Skipline( void );
@@ -67,4 +66,4 @@ extern bool EOL;
 
 /* return static string with current token text
 *  non-reentrant, string needs to be saved by caller */
-extern char *sym_text(Sym *sym);
+extern char* sym_text(Sym* sym);

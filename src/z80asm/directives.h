@@ -16,10 +16,10 @@ Assembly directives.
 struct Expr;
 
 enum {
-	DEFVARS_SIZE_B = 1,
-	DEFVARS_SIZE_W = 2,
-	DEFVARS_SIZE_P = 3,
-	DEFVARS_SIZE_Q = 4,
+    DEFVARS_SIZE_B = 1,
+    DEFVARS_SIZE_W = 2,
+    DEFVARS_SIZE_P = 3,
+    DEFVARS_SIZE_Q = 4,
 };
 
 /* define a label at the current location, or current location + offset */

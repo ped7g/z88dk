@@ -144,50 +144,6 @@ t_binary(read_file($bin, binmode => ':raw'), "\0");
 unlink_testfiles($bin);
 
 #------------------------------------------------------------------------------
-# -d
-#------------------------------------------------------------------------------
-
-# first compiles; second skips
-unlink_testfiles();
-write_file(asm_file(), "nop");
-
-t_z80asm_capture("-d ".asm_file(), "", "", 0);
-is substr(read_file(o_file(), binmode => ':raw'), -5, 5), "\0\xFF\xFF\xFF\xFF";
-
-my $date_obj = -M o_file();
-
-# now skips compile
-sleep 0.500;		# make sure our obj is older
-t_z80asm_capture("-d ".asm_file(), "", "", 0);
-is substr(read_file(o_file(), binmode => ':raw'), -5, 5), "\0\xFF\xFF\xFF\xFF";
-
-ok(abs((-M o_file()) - $date_obj) < 0.001);	# same object
-
-# touch source
-sleep 0.500;		# make sure our obj is older
-write_file(asm_file(), "nop");
-t_z80asm_capture("-d ".asm_file(), "", "", 0);
-is substr(read_file(o_file(), binmode => ':raw'), -5, 5), "\0\xFF\xFF\xFF\xFF";
-
-ok(abs((-M o_file()) - $date_obj) > 0);	# new object
-
-# remove source, give -d -> uses existing object - with extensiom
-unlink asm_file();
-$date_obj = -M o_file();
-t_z80asm_capture("-d ".asm_file(), "", "", 0);
-is substr(read_file(o_file(), binmode => ':raw'), -5, 5), "\0\xFF\xFF\xFF\xFF";
-is -M o_file(), $date_obj;	# new object
-
-# remove source, give -d -> uses existing object - without extensiom
-unlink asm_file();
-$date_obj = -M o_file();
-my $base = asm_file(); $base =~ s/\.\w+$//;
-t_z80asm_capture("-d $base", "", "", 0);
-is substr(read_file(o_file(), binmode => ':raw'), -5, 5), "\0\xFF\xFF\xFF\xFF";
-is -M o_file(), $date_obj;	# new object
-
-
-#------------------------------------------------------------------------------
 # -r
 #------------------------------------------------------------------------------
 

@@ -15,7 +15,7 @@ use Config;
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw( 
-			ok nok diag note 
+			ok nok is diag note 
 			test_name 
 			run_ok run_nok 
 			asm_ok 

@@ -11,12 +11,15 @@
 #include <vector>
 #include <string>
 
-class OptionsLexer;		// cannot include generated options.yy.h
+#include "ghc/filesystem.hpp"
+namespace fs = ghc::filesystem;		// until we have std::filesystem
+
+class OptionsLexer;					// cannot include generated options.yy.h
 
 class App {
 public:
     App();
-    App(const App& rhs);		// rule of 5
+    App(const App& rhs);			// rule of 5
     App(App&& rhs);
     virtual ~App();
     App& operator=(const App& rhs);
@@ -30,8 +33,8 @@ public:
     static void ExitUsage();
     static void ExitManual();
     static std::string ExpandEnvironmentVars(std::string str);
-    static std::string SearchFile(const std::string& file,
-                                  const std::vector<std::string>& dirs);
+    static fs::path SearchFile(const fs::path& file,
+                               const std::vector<fs::path>& dirs);
 
     // public access to options
     Options options;
@@ -40,8 +43,8 @@ private:
     OptionsLexer*	optionsLexer{ nullptr };
     std::vector<std::string> files;
 
-    std::string SearchZ80asmLibrary();
-    bool CheckLibraryExists(const std::string& filename);
+    fs::path SearchZ80asmLibrary();
+    bool CheckLibraryExists(const fs::path& filename);
 };
 
 // sigleton

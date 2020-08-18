@@ -282,7 +282,7 @@ static const char* search_source(const char* filename) {
         return filename;
 
     f = SearchIncludeFile(filename);
-    if (file_exists(f))
+    if (*f != '\0' && file_exists(f))
         return f;
 
     f = get_asm_filename(filename);
@@ -290,7 +290,7 @@ static const char* search_source(const char* filename) {
         return f;
 
     f = SearchIncludeFile(f);
-    if (file_exists(f))
+    if (*f != '\0' && file_exists(f))
         return f;
 
     f = get_obj_filename(filename);
@@ -298,7 +298,7 @@ static const char* search_source(const char* filename) {
         return f;
 
     f = SearchIncludeFile(f);
-    if (file_exists(f))
+    if (*f != '\0' && file_exists(f))
         return f;
 
     error_read_file(filename);

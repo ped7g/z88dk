@@ -54,14 +54,14 @@ $date_obj = -M "${test}_dir/obj/$test.o";
 # now skips compile
 sleep 1;            # make sure our obj is older
 test_compile("-O${test}_dir/obj", "$test", "${test}_dir/obj/$test.o");
-ok abs((-M "$test.o") - $date_obj) < 0.001, "$test.o is the same";
+ok abs((-M "${test}_dir/obj/$test.o") - $date_obj) < 0.001, "$test.o is the same";
 
 # touch source
 sleep 1;		    # make sure our obj is older
 write_file("$test.asm", "nop");
 test_compile("-O${test}_dir/obj", "$test", "${test}_dir/obj/$test.o");
 
-ok abs((-M "$test.o") - $date_obj) > 0, "$test.o is newer";
+ok abs((-M "${test}_dir/obj/$test.o") - $date_obj) > 0, "$test.o is newer";
 
 path("${test}_dir")->remove_tree;
 end_test();

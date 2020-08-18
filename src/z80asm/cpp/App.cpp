@@ -10,8 +10,6 @@
 #include "z80asm_manual.h"
 #include "z80asm_usage.h"
 #include "options.yy.h"
-#include "ghc/filesystem.hpp"
-namespace fs = ghc::filesystem;		// until we have std::filesystem
 
 #include <cstring>
 #include <iostream>
@@ -131,9 +129,9 @@ bool App::AddLibraries() {
             return false;
 
     // add z80asm-CPU-IXIY.lib
-    auto z80asmLibrary = SearchZ80asmLibrary();
+    fs::path z80asmLibrary = SearchZ80asmLibrary();
     if (!z80asmLibrary.empty())
-        if (!library_file_append(z80asmLibrary.c_str()))
+        if (!library_file_append(z80asmLibrary.generic_string().c_str()))
             return false;
 
     return true;
@@ -178,23 +176,23 @@ std::string App::ExpandEnvironmentVars(std::string str) {
     return str;
 }
 
-std::string App::SearchFile(const std::string& file,
-                            const std::vector<std::string>& dirs) {
+fs::path App::SearchFile(const fs::path& file,
+                         const std::vector<fs::path>& dirs) {
     using namespace std;
 
     // if no directory list or file exists, return filename
-    if (dirs.empty() || fs::is_regular_file(fs::path(file)))
+    if (fs::is_regular_file(file))
         return file;
 
     // search in dir list
     for (const auto& dir : dirs) {
-        string testFile = dir + "/" + file;
-        if (fs::is_regular_file(fs::path(testFile)))
+        fs::path testFile = dir / file;
+        if (fs::is_regular_file(testFile))
             return testFile;
     }
 
-    // not found, return original file name
-    return file;
+    // not found, return empty path
+    return fs::path();
 }
 
 /*	z80asm standard library
@@ -202,7 +200,7 @@ std::string App::SearchFile(const std::string& file,
 	Ignore if not found, probably benign - user will see undefined symbols
 	__z80asm__xxx if the library routines are called
 */
-std::string App::SearchZ80asmLibrary() {
+fs::path App::SearchZ80asmLibrary() {
     using namespace std;
 
     // build library name: z80asm-CPU-[ixiy].lib
@@ -212,17 +210,18 @@ std::string App::SearchZ80asmLibrary() {
     libName += ".lib";
 
     // check current directory
-    if (CheckLibraryExists(libName))
-        return libName;
+    fs::path libPath = libName;
+    if (CheckLibraryExists(libPath))
+        return libPath;
 
     // check PREFIX/lib
-    string libPath = string(PREFIX) + "/lib/" + libName;
+    libPath = fs::path(PREFIX) / "lib" / libName;
     if (CheckLibraryExists(libPath))
         return libPath;
 
     // check -L path
     libPath = SearchFile(libName, options.libraryPath);
-    if (libPath != libName && CheckLibraryExists(libPath))
+    if (!libPath.empty() && CheckLibraryExists(libPath))
         return libPath;
 
     // check environment ${ZCCCFG}
@@ -231,17 +230,18 @@ std::string App::SearchZ80asmLibrary() {
     if (CheckLibraryExists(libPath))
         return libPath;
 
-    return string();		// empty string if not found
+    // not found, return empty path
+    return fs::path();
 }
 
-bool App::CheckLibraryExists(const std::string& filename) {
+bool App::CheckLibraryExists(const fs::path& filename) {
     using namespace std;
 
-    if (fs::is_regular_file(fs::path(filename)))
+    if (fs::is_regular_file(filename))
         return true;
     else {
         if (options.verbose)
-            cout << "Library '" << filename << "' not found" << endl;
+            cout << "Library '" << filename.generic_string() << "' not found" << endl;
         return false;
     }
 }

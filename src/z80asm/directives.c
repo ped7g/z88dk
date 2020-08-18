@@ -191,13 +191,17 @@ void asm_INCLUDE(const char* filename) {
 }
 
 void asm_BINARY(const char* filename) {
-    filename = SearchIncludeFile(filename);
-    FILE* binfile = fopen(filename, "rb");
-    if (!binfile)
+    const char* found_filename = SearchIncludeFile(filename);
+    if (*found_filename == '\0')					/* not found */
         error_read_file(filename);
     else {
-        append_file_contents(binfile, -1);		/* read binary code */
-        xfclose(binfile);
+        FILE* binfile = fopen(found_filename, "rb");
+        if (!binfile)
+            error_read_file(filename);
+        else {
+            append_file_contents(binfile, -1);		/* read binary code */
+            xfclose(binfile);
+        }
     }
 }
 

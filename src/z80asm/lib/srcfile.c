@@ -154,8 +154,13 @@ bool SrcFile_open( SrcFile *self, const char *filename, bool search_include_path
 
 	/* search path, add to strpool */
 	const char *filename_path;
-	if (search_include_path)
-		filename_path = SearchIncludeFile(filename);
+	if (search_include_path) {
+		const char* found_filename = SearchIncludeFile(filename);
+		if (*found_filename == '\0')
+			filename_path = filename;
+		else
+			filename_path = found_filename;
+	}
 	else
 		filename_path = filename;
 

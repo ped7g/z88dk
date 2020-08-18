@@ -13,6 +13,9 @@
 #include <utility>
 #include <vector>
 
+#include "ghc/filesystem.hpp"
+namespace fs = ghc::filesystem;		// until we have std::filesystem
+
 struct Options {
     bool	verbose{ false };			// true to be verbose
     bool	mapfile{ false };			// generate map file
@@ -24,14 +27,13 @@ struct Options {
     bool	optimizeSpeed{ false };		// true to optimize for speed
     bool	debugInfo{ false };			// add debug info to map file
 
-    std::string	outputLibrary{ "" };	// name of output library if -x is given
+    fs::path outputLibrary;				// name of output library if -x is given
 
     Cpu		cpu;
     Arch	arch;
 
-    std::vector<std::pair<std::string, int>>
-                                          defines;		// list of -D defines
-    std::vector<std::string>	includePath;	// where to search for source files
-    std::vector<std::string>	libraryPath;	// where to search for library files
-    std::vector<std::string>	libraries;		// list of libraries to link
+    std::vector<std::pair<std::string, int>> defines;		// list of -D defines
+    std::vector<fs::path>	includePath;	// where to search for source files
+    std::vector<fs::path>	libraryPath;	// where to search for library files
+    std::vector<fs::path>	libraries;		// list of libraries to link
 };

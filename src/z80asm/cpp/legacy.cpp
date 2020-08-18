@@ -85,7 +85,7 @@ const char* GetOutputLibrary() {
     if (app.options.outputLibrary.empty())
         return NULL;
     else
-        return app.options.outputLibrary.c_str();
+        return app.options.outputLibrary.generic_string().c_str();
 }
 
 
@@ -138,8 +138,11 @@ const char* ExpandEnvironmentVarsC(const char* str_) {
 }
 
 void PushSourceDirname(const char* filename) {
-    auto dirname = fs::path(filename).parent_path();
-    app.options.includePath.push_back(dirname.string());
+    fs::path dirname = fs::path(filename).parent_path();
+    if (dirname.empty())
+        app.options.includePath.push_back(fs::path("."));
+    else
+        app.options.includePath.push_back(dirname);
 }
 
 void PopSourceDirname() {
@@ -150,14 +153,20 @@ void PopSourceDirname() {
 const char* SearchIncludeFile(const char* filename) {
     using namespace std;
 
-    string file = App::SearchFile(filename, app.options.includePath);
-    return AddStringPool(file.c_str());
+    fs::path file = App::SearchFile(filename, app.options.includePath);
+    if (file.empty())
+        return AddStringPool(filename);
+    else
+        return AddStringPool(file.generic_string().c_str());
 }
 
 const char* SearchLibraryFile(const char* filename) {
     using namespace std;
 
-    string file = App::SearchFile(filename, app.options.libraryPath);
-    return AddStringPool(file.c_str());
+    fs::path file = App::SearchFile(filename, app.options.libraryPath);
+    if (file.empty())
+        return AddStringPool(filename);
+    else
+        return AddStringPool(file.generic_string().c_str());
 }
 

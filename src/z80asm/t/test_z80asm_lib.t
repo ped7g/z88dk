@@ -71,6 +71,7 @@ END
 t_binary(path("test.bin")->slurp_raw, pack("C*", 0xCD, 0x04, 0x00, 0xC9, @RLD_AT_0004));
 delete $ENV{ZCCCFG};
 
+
 # point library with -L
 run("./z80asm -b -v -Ltestdir/root/lib test.asm", 0, <<'END', "");
 Library 'z80asm-z80-.lib' not found

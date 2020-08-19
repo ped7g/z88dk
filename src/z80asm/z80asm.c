@@ -100,12 +100,16 @@ void assemble_file( const char* filename ) {
     PushSourceDirname(src_filename);
 
     /* normal case - assemble a asm source file */
-    opts.cur_list = OptionListfile();		/* initial LSTON status */
+    current_list_status = OptionListfile();		/* initial LSTON status */
 
-    /* when building libraries need to reset codearea to allow total library size > 64K
-       when building binary cannot reset codearea so that each module is linked
-       after the previous one, allocating addresses */
-    if (!(opts.make_bin || opts.bin_file))
+    /* when building libraries or assembling individual object files,
+       need to reset codearea to allow total library size > 64K;
+       when building binary or consolidated object file cannot reset codearea
+       so that each module is linked after the previous one,
+       allocating addresses appropriately */
+    if (OptionMakeBinary() || GetOutputObject())
+        ; // no reset
+    else
         reset_codearea();
 
     /* Create module data structures for new file */
@@ -122,7 +126,7 @@ void assemble_file( const char* filename ) {
         query_assemble(src_filename);			/* try to assemble, check -d */
 
     set_error_null();							/* no more module in error messages */
-    opts.cur_list = false;
+    current_list_status = false;
 
     /* finished assembly, remove dirname from include path */
     PopSourceDirname();
@@ -235,8 +239,8 @@ int z80asm_main( int argc, char* argv[] ) {
     if (!get_num_errors()) {
         if (GetOutputLibrary())
             make_library(GetOutputLibrary(), opts.files);
-        else if (opts.make_bin) {
-            xassert(opts.consol_obj_file == NULL);
+        else if (OptionMakeBinary()) {
+            xassert(GetOutputObject() == NULL);
             link_modules();
 
             if (!get_num_errors())
@@ -245,20 +249,17 @@ int z80asm_main( int argc, char* argv[] ) {
             if (!get_num_errors())
                 checkrun_appmake();		/* call appmake if requested in the options */
         }
-        else if (opts.bin_file) {	// -o consolidated obj
-            opts.consol_obj_file = get_obj_filename(opts.bin_file);
-            opts.bin_file = NULL;
-
-            xassert(opts.consol_obj_file != NULL);
+        else if (GetOutputObject()) {	// -o consolidated obj
+            xassert(GetOutputObject() != NULL);
             link_modules();
 
             set_cur_module(get_first_module(NULL));
 
-            CURRENTMODULE->filename = get_asm_filename(opts.consol_obj_file);
+            CURRENTMODULE->filename = get_asm_filename(GetOutputObject());
             CURRENTMODULE->modname = path_remove_ext(path_file(CURRENTMODULE->filename));
 
             if (!get_num_errors())
-                write_obj_file(opts.consol_obj_file);
+                write_obj_file(GetOutputObject());
 
             if (!get_num_errors() && OptionSymtable())
                 write_sym_file(CURRENTMODULE);

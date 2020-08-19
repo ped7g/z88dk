@@ -184,7 +184,7 @@ bool Pass2infoExpr(range_t range, Expr* expr) {
         expr->code_pos = get_cur_module_size();			/* update expression location */
         list_offset = expr->code_pos - get_PC();
 
-        if (opts.cur_list)
+        if (current_list_status)
             expr->listpos = list_patch_pos(list_offset);	/* now calculated as absolute file pointer */
         else
             expr->listpos = -1;

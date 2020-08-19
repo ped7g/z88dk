@@ -129,12 +129,12 @@ void asm_DEFVARS_define_const(const char* name, int elem_size, int count) {
 *----------------------------------------------------------------------------*/
 void asm_LSTON(void) {
     if (OptionListfile())
-        opts.cur_list = true;
+        current_list_status = true;
 }
 
 void asm_LSTOFF(void) {
     if (OptionListfile())
-        opts.cur_list = false;
+        current_list_status = false;
 }
 
 /*-----------------------------------------------------------------------------

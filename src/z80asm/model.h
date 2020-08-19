@@ -15,7 +15,7 @@ Global data model.
 #include "types.h"
 #include "utarray.h"
 
-
+extern bool current_list_status;
 
 /*-----------------------------------------------------------------------------
 *   Initialize data structures

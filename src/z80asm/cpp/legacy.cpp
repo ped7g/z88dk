@@ -77,17 +77,40 @@ bool OptionGlobaldef() {
     return app.options.globaldef;
 }
 
-void SetOutputLibrary(const char* library) {
-    app.options.outputLibrary = library;
+bool OptionMakeBinary() {
+    return app.options.makeBinary;
+}
+
+void SetOptionBinary(bool f) {
+    app.options.makeBinary = f;
+}
+
+bool OptionSplitBinary() {
+    return app.options.splitBinary;
+}
+
+static const char* GetOptionPath(fs::path path) {
+    if (path.empty())
+        return NULL;
+    else
+        return AddStringPool(path.generic_string().c_str());
 }
 
 const char* GetOutputLibrary() {
-    if (app.options.outputLibrary.empty())
-        return NULL;
-    else
-        return app.options.outputLibrary.generic_string().c_str();
+    return GetOptionPath(app.options.outputLibrary);
 }
 
+const char* GetOutputDirectory() {
+    return GetOptionPath(app.options.outputDirectory);
+}
+
+const char* GetOutputBinary() {
+    return GetOptionPath(app.options.GetOutputBinary());
+}
+
+const char* GetOutputObject() {
+    return GetOptionPath(app.options.GetOutputObject());
+}
 
 
 

@@ -22,12 +22,18 @@ struct Options {
     bool	symtable{ false };			// generate symbol table file
     bool	listfile{ false };			// generate list file
     bool	globaldef{ false };			// generate table with global defintions
+    bool	makeBinary{ false };		// generate binary file
+    bool	splitBinary{ false };		// true to split binary file per section
 
     bool	swapIxIy{ false };			// swap IX and IY
     bool	optimizeSpeed{ false };		// true to optimize for speed
     bool	debugInfo{ false };			// add debug info to map file
 
     fs::path outputLibrary;				// name of output library if -x is given
+    fs::path outputDirectory;			// path to store output files
+    fs::path outputFile;				// name of output binary or object file
+    fs::path GetOutputBinary() const;	// -o argument if -b
+    fs::path GetOutputObject() const;	// -o argument if !-b
 
     Cpu		cpu;
     Arch	arch;

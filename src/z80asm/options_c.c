@@ -55,7 +55,6 @@ static void option_appmake_zx(void);
 static void option_appmake_zx81(void);
 static void option_filler(const char* filler_arg );
 static void define_assembly_defines();
-static void make_output_dir();
 
 static void process_options( int* parg, int argc, char* argv[] );
 static void process_files( int arg, int argc, char* argv[] );
@@ -145,7 +144,6 @@ void parse_argv( int argc, char* argv[] ) {
     if ( ! get_num_errors() )
         process_files( arg, argc, argv );	/* process each source file */
 
-    make_output_dir();						/* create output directory if needed */
     define_assembly_defines();				/* defined options-dependent constants */
 }
 
@@ -468,13 +466,13 @@ static void define_assembly_defines() {
 *----------------------------------------------------------------------------*/
 static const char* path_prepend_output_dir(const char* filename) {
     char path[FILENAME_MAX];
-    if (opts.output_directory) {
+    if (GetOutputDirectory()) {
         if (isalpha(filename[0]) && filename[1] == ':')	// it's a win32 absolute path
             snprintf(path, sizeof(path), "%s/%c/%s",
-                     opts.output_directory, filename[0], filename + 2);
+                     GetOutputDirectory(), filename[0], filename + 2);
         else
             snprintf(path, sizeof(path), "%s/%s",
-                     opts.output_directory, filename);
+                     GetOutputDirectory(), filename);
         return spool_add(path);
     }
     else
@@ -541,7 +539,7 @@ static void option_appmake_zx(void) {
     opts.appmake_origin_min = ZX_ORIGIN_MIN;
     opts.appmake_origin_max = ZX_ORIGIN_MAX;
     set_origin_option(ZX_ORIGIN);
-    opts.make_bin = true;
+    SetOptionBinary(true);
 }
 
 static void option_appmake_zx81(void) {
@@ -551,7 +549,7 @@ static void option_appmake_zx81(void) {
     opts.appmake_origin_min = ZX81_ORIGIN_MIN;
     opts.appmake_origin_max = ZX81_ORIGIN_MAX;
     set_origin_option(ZX81_ORIGIN);
-    opts.make_bin = true;
+    SetOptionBinary(true);
 }
 
 void checkrun_appmake(void) {
@@ -579,15 +577,5 @@ void checkrun_appmake(void) {
             if (rv != 0)
                 error_cmd_failed(Str_data(cmd));
         }
-    }
-}
-
-/*-----------------------------------------------------------------------------
-*   output directory
-*----------------------------------------------------------------------------*/
-static void make_output_dir() {
-    if (opts.output_directory) {
-        opts.output_directory = path_canon(opts.output_directory);
-        path_mkdir(opts.output_directory);
     }
 }

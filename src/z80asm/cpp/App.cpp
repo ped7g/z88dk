@@ -137,6 +137,16 @@ bool App::AddLibraries() {
     return true;
 }
 
+bool App::MakeOutputDirectory() {
+    auto dir = options.outputDirectory;
+    if (dir.empty())
+        return true;
+    else if (fs::is_directory(dir))
+        return true;
+    else
+        return fs::create_directories(dir);
+}
+
 void App::ExitUsage() {
     using namespace std;
 

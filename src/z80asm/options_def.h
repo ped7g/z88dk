@@ -15,8 +15,6 @@ Define command line options
 #define OPT_VAR(type, name, default)
 #endif
 
-OPT_VAR( bool,		cur_list,	false	)	/* current LSTON/LSTOFF status */
-OPT_VAR( bool,		make_bin,	false	)
 OPT_VAR( bool,		split_bin,	false   )	/* true to split binary file per section */
 OPT_VAR( bool,		date_stamp,	false	)
 OPT_VAR( bool,		relocatable, false	)
@@ -28,9 +26,6 @@ OPT_VAR(const char*, appmake_ext, "")
 OPT_VAR(int, appmake_origin_min, -1)
 OPT_VAR(int, appmake_origin_max, -1)
 
-OPT_VAR(const char*,	bin_file,	NULL	)	/* set by -o */
-OPT_VAR(const char*,    consol_obj_file, NULL)	/* set by -o and no -b */
-OPT_VAR(const char*,    output_directory, NULL)	/* set by -O */
 
 OPT_VAR(argv_t*,	files,	  NULL)			/* list of input files */
 
@@ -48,9 +43,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 #endif
 
 OPT_TITLE("Binary Output:")
-OPT(OptString, (void*)&opts.output_directory, "-O", "", "Output directory", "DIR")
-OPT(OptString, (void*)&opts.bin_file, "-o", "", "Output binary file", "FILE")
-OPT(OptSet, &opts.make_bin, "-b", "", "Assemble and link/relocate to file" FILEEXT_BIN, "")
 OPT(OptSet, &opts.split_bin, "-split-bin", "", "Create one binary file per section", "")
 OPT(OptSet, &opts.date_stamp, "-d", "", "Assemble only updated files", "")
 OPT(OptCallArg, option_origin, "-r", "", "Relocate binary file to given address (decimal or hex)",

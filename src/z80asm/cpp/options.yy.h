@@ -26,19 +26,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-	// silence warnings from RE-flex
-	#ifdef _MSC_VER
-	#pragma warning(disable:4102)
-	#pragma warning(disable:4800)
-	#else
-	#ifdef __GNUC__
-	//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
-	#else
-	#ifdef __clang__
-	//#pragma clang diagnostic ignored "-Wignored-qualifiers"
-	#endif
-	#endif
-	#endif
+// silence warnings from RE-flex
+#ifdef _MSC_VER
+#pragma warning(disable:4102)
+#pragma warning(disable:4800)
+#else
+#ifdef __GNUC__
+//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
+#else
+#ifdef __clang__
+//#pragma clang diagnostic ignored "-Wignored-qualifiers"
+#endif
+#endif
+#endif
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -64,26 +64,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
- public:
-  typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
-  OptionsLexer(
-      const reflex::Input& input = reflex::Input(),
-      std::ostream&        os    = std::cout)
-    :
-      AbstractBaseLexer(input, os)
-  {
-  }
-  static const int INITIAL = 0;
-  virtual int lex();
-  int lex(
-      const reflex::Input& input,
-      std::ostream        *os = NULL)
-  {
-    in(input);
-    if (os)
-      out(*os);
-    return lex();
-  }
+public:
+    typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
+    OptionsLexer(
+        const reflex::Input& input = reflex::Input(),
+        std::ostream&        os    = std::cout)
+        :
+        AbstractBaseLexer(input, os) {
+    }
+    static const int INITIAL = 0;
+    virtual int lex();
+    int lex(
+        const reflex::Input& input,
+        std::ostream*        os = NULL) {
+        in(input);
+        if (os)
+            out(*os);
+        return lex();
+    }
 };
 
 #endif

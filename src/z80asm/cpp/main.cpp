@@ -14,6 +14,8 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     if (!app.ParseArgs(argc, argv))
         return EXIT_FAILURE;
+    if (!app.MakeOutputDirectory())
+        return EXIT_FAILURE;
     if (!app.AddDefines())
         return EXIT_FAILURE;
     if (!app.AddLibraries())

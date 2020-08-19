@@ -894,7 +894,7 @@ void link_modules(void) {
     if (!obj_files_read_data(&g_objects) || !obj_files_read_data(&g_libraries))
         return;
 
-    opts.cur_list = false;
+    current_list_status = false;
 
     if (opts.relocatable) {
         reloctable = m_new_n(char, 32768U);
@@ -936,14 +936,14 @@ void link_modules(void) {
     }
 
     // link libraries, unless building a consol_obj_file
-    if (!get_num_errors() && !opts.consol_obj_file && g_libraries != NULL)
+    if (!get_num_errors() && !GetOutputObject() && g_libraries != NULL)
         link_libraries(extern_syms);
 
     set_error_null();
 
     /* allocate segment addresses and compute absolute addresses of symbols */
     /* in consol_obj_file sections are zero-based */
-    if (!get_num_errors() && !opts.consol_obj_file)
+    if (!get_num_errors() && !GetOutputObject())
         sections_alloc_addr();
 
     /* relocate address symbols */
@@ -951,10 +951,10 @@ void link_modules(void) {
         relocate_symbols();
 
     /* define assembly size */
-    if (!get_num_errors() && !opts.consol_obj_file)
+    if (!get_num_errors() && !GetOutputObject())
         define_location_symbols();
 
-    if (opts.consol_obj_file) {
+    if (GetOutputObject()) {
         if (!get_num_errors())
             merge_modules(extern_syms);
     }
@@ -996,8 +996,8 @@ void CreateBinFile(void) {
     const char* filename;
     bool is_relocatable = (opts.relocatable && totaladdr != 0);
 
-    if (opts.bin_file)        /* use predined output filename from command line */
-        filename = opts.bin_file;
+    if (GetOutputBinary())		/* use prefined output filename from command line */
+        filename = GetOutputBinary();
     else						/* create output filename, based on project filename */
         filename = get_bin_filename(get_first_module(NULL)->filename);		/* add '.bin' extension */
 

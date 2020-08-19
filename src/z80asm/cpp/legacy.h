@@ -68,9 +68,14 @@ bool OptionMapfile();
 bool OptionSymtable();
 bool OptionListfile();
 bool OptionGlobaldef();
+bool OptionMakeBinary();
+void SetOptionBinary(bool f);
+bool OptionSplitBinary();
 
-void SetOutputLibrary(const char* library);
 const char* GetOutputLibrary();
+const char* GetOutputDirectory();
+const char* GetOutputBinary();
+const char* GetOutputObject();
 
 int GetCpu();
 int GetInvokeOpcode();

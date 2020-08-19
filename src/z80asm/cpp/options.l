@@ -5,36 +5,36 @@
 //-----------------------------------------------------------------------------
 
 %top{
-	// silence warnings from RE-flex
-	#ifdef _MSC_VER
-	#pragma warning(disable:4102)
-	#pragma warning(disable:4800)
-	#else
-	#ifdef __GNUC__
-	//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
-	#else
-	#ifdef __clang__
-	//#pragma clang diagnostic ignored "-Wignored-qualifiers"
-	#endif
-	#endif
-	#endif
+// silence warnings from RE-flex
+#ifdef _MSC_VER
+#pragma warning(disable:4102)
+#pragma warning(disable:4800)
+#else
+#ifdef __GNUC__
+//#pragma GCC   diagnostic ignored "-Wignored-qualifiers"
+#else
+#ifdef __clang__
+//#pragma clang diagnostic ignored "-Wignored-qualifiers"
+#endif
+#endif
+#endif
 }
 
 
 %{
-	#include "App.h"
+#include "App.h"
 
-	#include <string>
-	#include <utility>
-	#include <vector>
+#include <string>
+#include <utility>
+#include <vector>
 
-	#include <cassert>
-	#include <climits>
-	#include <cstring>
-	#include <cstdlib>
+#include <cassert>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
 
-	static int parseNum(const std::string& text);
-	static void optionDefine(const std::string& text);
+static int parseNum(const std::string& text);
+static void optionDefine(const std::string& text);
 %}
 
 %option freespace dotall
@@ -53,6 +53,7 @@ num			{num16} | {num10}
 -s \z			{ app.options.symtable = true; return true; }
 -l \z			{ app.options.listfile = true; return true; }
 -g \z			{ app.options.globaldef = true; return true; }
+-b \z			{ app.options.makeBinary = true; return true; }
 
 -mz80   \z		{ app.options.cpu.Init(Cpu::Type::Z80); return true; }
 -mz80n  \z		{ app.options.cpu.Init(Cpu::Type::Z80N); return true; }
@@ -78,6 +79,9 @@ num			{num16} | {num10}
 -L .+ \z		{ app.options.libraryPath.push_back(text() + 2);  return true; }
 -x .+ \z		{ app.options.outputLibrary = text() + 2; return true; }
 -l .+ \z		{ app.options.libraries.push_back(text() + 2); return true; }
+
+-O .+ \z		{ app.options.outputDirectory = text() + 2; return true; }
+-o .+ \z		{ app.options.outputFile = text() + 2; return true; }
 
 -D {ident} ( = {num} )? \z	{ 
 				  optionDefine(text() + 2); return true; }

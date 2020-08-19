@@ -5,3 +5,24 @@
 //-----------------------------------------------------------------------------
 
 #include "Options.h"
+
+fs::path Options::GetOutputBinary() const {
+    if (outputFile.empty())
+        return fs::path();
+    else if (makeBinary)
+        return outputFile;
+    else
+        return fs::path();
+}
+
+fs::path Options::GetOutputObject() const {
+    if (outputFile.empty())
+        return fs::path();
+    else if (!makeBinary) {
+        fs::path obj = outputFile;
+        obj.replace_extension(".o");		// TODO: make constant
+        return obj;
+    }
+    else
+        return fs::path();
+}

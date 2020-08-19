@@ -29,6 +29,7 @@ public:
     bool ParseArgs(int argc, char* argv[]);
     bool AddDefines();
     bool AddLibraries();
+    bool MakeOutputDirectory();
 
     static void ExitUsage();
     static void ExitManual();

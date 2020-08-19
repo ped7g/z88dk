@@ -20,6 +20,8 @@ Global data model.
 /*-----------------------------------------------------------------------------
 *   Global data
 *----------------------------------------------------------------------------*/
+bool current_list_status = false;
+
 static SrcFile*			g_src_input;			/* input handle for reading source lines */
 
 /*-----------------------------------------------------------------------------
@@ -33,7 +35,7 @@ static void new_line_cb(const char* filename, int line_nr, const char* text ) {
         set_error_line(line_nr);
 
         /* interface with list */
-        if (opts.cur_list)
+        if (current_list_status)
             list_start_line(get_phased_PC() >= 0 ? get_phased_PC() : get_PC(), filename, line_nr, text);
     }
 }

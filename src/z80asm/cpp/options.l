@@ -85,6 +85,7 @@ num			{num16} | {num10}
 
 -D {ident} ( = {num} )? \z	{ 
 				  optionDefine(text() + 2); return true; }
+-split-bin \z	{ app.options.splitBinary = true; return true; }
 
 .				{ return false; }
 

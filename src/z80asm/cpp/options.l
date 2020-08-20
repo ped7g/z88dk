@@ -54,6 +54,7 @@ num			{num16} | {num10}
 -l \z			{ app.options.listfile = true; return true; }
 -g \z			{ app.options.globaldef = true; return true; }
 -b \z			{ app.options.makeBinary = true; return true; }
+-d \z			{ app.options.update = true; return true; }
 
 -mz80   \z		{ app.options.cpu.Init(Cpu::Type::Z80); return true; }
 -mz80n  \z		{ app.options.cpu.Init(Cpu::Type::Z80N); return true; }

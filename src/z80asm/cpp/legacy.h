@@ -71,6 +71,7 @@ bool OptionGlobaldef();
 bool OptionMakeBinary();
 void SetOptionBinary(bool f);
 bool OptionSplitBinary();
+bool OptionUpdate();
 
 const char* GetOutputLibrary();
 const char* GetOutputDirectory();

@@ -89,6 +89,10 @@ bool OptionSplitBinary() {
     return app.options.splitBinary;
 }
 
+bool OptionUpdate() {
+    return app.options.update;
+}
+
 static const char* GetOptionPath(fs::path path) {
     if (path.empty())
         return NULL;

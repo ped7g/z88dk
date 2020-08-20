@@ -64,26 +64,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 class OptionsLexer : public reflex::AbstractLexer<reflex::Matcher> {
- public:
-  typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
-  OptionsLexer(
-      const reflex::Input& input = reflex::Input(),
-      std::ostream&        os    = std::cout)
-    :
-      AbstractBaseLexer(input, os)
-  {
-  }
-  static const int INITIAL = 0;
-  virtual int lex();
-  int lex(
-      const reflex::Input& input,
-      std::ostream        *os = NULL)
-  {
-    in(input);
-    if (os)
-      out(*os);
-    return lex();
-  }
+public:
+    typedef reflex::AbstractLexer<reflex::Matcher> AbstractBaseLexer;
+    OptionsLexer(
+        const reflex::Input& input = reflex::Input(),
+        std::ostream&        os    = std::cout)
+        :
+        AbstractBaseLexer(input, os) {
+    }
+    static const int INITIAL = 0;
+    virtual int lex();
+    int lex(
+        const reflex::Input& input,
+        std::ostream*        os = NULL) {
+        in(input);
+        if (os)
+            out(*os);
+        return lex();
+    }
 };
 
 #endif

@@ -24,6 +24,7 @@ struct Options {
     bool	globaldef{ false };			// generate table with global defintions
     bool	makeBinary{ false };		// generate binary file
     bool	splitBinary{ false };		// true to split binary file per section
+    bool	update{ false };			// true to build only changed files
 
     bool	swapIxIy{ false };			// swap IX and IY
     bool	optimizeSpeed{ false };		// true to optimize for speed

@@ -145,7 +145,7 @@ static void query_assemble(const char* src_filename ) {
     src_stat_result = stat( src_filename, &src_stat );		/* BUG_0033 */
     obj_stat_result = stat( obj_filename, &obj_stat );
 
-    if ( opts.date_stamp &&									/* -d option */
+    if ( OptionUpdate() &&									/* -d option */
             obj_stat_result >= 0 &&							/* object file exists */
             ( src_stat_result >= 0 ?						/* if source file exists, ... */
               src_stat.st_mtime <= obj_stat.st_mtime		/* ... source older than object */

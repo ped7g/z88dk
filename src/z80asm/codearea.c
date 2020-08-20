@@ -557,7 +557,7 @@ void fwrite_codearea(const char* filename, FILE** pbinfile, FILE** prelocfile) {
         if (section_size > 0 || section->origin >= 0 || section->section_split) {
             if (section->name && *section->name) {				/* only if section name not empty */
                 /* change current file if address changed, or option -split-bin, or section_split */
-                if ((!opts.relocatable && OptionSplitBinary()) ||
+                if ((!OptionRelocatable() && OptionSplitBinary()) ||
                         section->section_split ||
                         cur_addr != section->addr ||
                         (section != get_first_section(NULL) && section->origin >= 0)) {

@@ -171,71 +171,64 @@ static void process_opt(int* parg, int argc, char* argv[]) {
     int		 j;
     const char* opt_arg_ptr;
 
-    /* search options that are exceptions to the look-up table */
-    if (strcmp(argv[II], "-reloc-info") == 0) {
-        opts.reloc_info = true;
-        return;
-    }
-    else {
-        /* search opts_lu[] */
-        for (j = 0; j < NUM_ELEMS(opts_lu); j++) {
-            if ((opt_arg_ptr = check_option(argv[II], opts_lu[j].long_opt)) != NULL ||
-                    (opt_arg_ptr = check_option(argv[II], opts_lu[j].short_opt)) != NULL) {
-                /* found option, opt_arg_ptr points to after option */
-                switch (opts_lu[j].type) {
-                case OptSet:
-                    if (*opt_arg_ptr)
-                        error_illegal_option(argv[II]);
-                    else
-                        *((bool*)(opts_lu[j].arg)) = true;
+    /* search opts_lu[] */
+    for (j = 0; j < NUM_ELEMS(opts_lu); j++) {
+        if ((opt_arg_ptr = check_option(argv[II], opts_lu[j].long_opt)) != NULL ||
+                (opt_arg_ptr = check_option(argv[II], opts_lu[j].short_opt)) != NULL) {
+            /* found option, opt_arg_ptr points to after option */
+            switch (opts_lu[j].type) {
+            case OptSet:
+                if (*opt_arg_ptr)
+                    error_illegal_option(argv[II]);
+                else
+                    *((bool*)(opts_lu[j].arg)) = true;
 
-                    break;
+                break;
 
-                case OptCall:
-                    if (*opt_arg_ptr)
-                        error_illegal_option(argv[II]);
-                    else
-                        ((void(*)(void))(opts_lu[j].arg))();
+            case OptCall:
+                if (*opt_arg_ptr)
+                    error_illegal_option(argv[II]);
+                else
+                    ((void(*)(void))(opts_lu[j].arg))();
 
-                    break;
+                break;
 
-                case OptCallArg:
-                    if (*opt_arg_ptr) {
-                        opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                        ((void(*)(const char*))(opts_lu[j].arg))(opt_arg_ptr);
-                    }
-                    else
-                        error_illegal_option(argv[II]);
-
-                    break;
-
-                case OptString:
-                    if (*opt_arg_ptr) {
-                        opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                        *((const char**)(opts_lu[j].arg)) = opt_arg_ptr;
-                    }
-                    else
-                        error_illegal_option(argv[II]);
-
-                    break;
-
-                case OptStringList:
-                    if (*opt_arg_ptr) {
-                        UT_array** p_path = (UT_array**)opts_lu[j].arg;
-                        opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                        argv_push(*p_path, opt_arg_ptr);
-                    }
-                    else
-                        error_illegal_option(argv[II]);
-
-                    break;
-
-                default:
-                    xassert(0);
+            case OptCallArg:
+                if (*opt_arg_ptr) {
+                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
+                    ((void(*)(const char*))(opts_lu[j].arg))(opt_arg_ptr);
                 }
+                else
+                    error_illegal_option(argv[II]);
 
-                return;
+                break;
+
+            case OptString:
+                if (*opt_arg_ptr) {
+                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
+                    *((const char**)(opts_lu[j].arg)) = opt_arg_ptr;
+                }
+                else
+                    error_illegal_option(argv[II]);
+
+                break;
+
+            case OptStringList:
+                if (*opt_arg_ptr) {
+                    UT_array** p_path = (UT_array**)opts_lu[j].arg;
+                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
+                    argv_push(*p_path, opt_arg_ptr);
+                }
+                else
+                    error_illegal_option(argv[II]);
+
+                break;
+
+            default:
+                xassert(0);
             }
+
+            return;
         }
     }
 

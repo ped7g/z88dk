@@ -93,6 +93,14 @@ bool OptionUpdate() {
     return app.options.update;
 }
 
+bool OptionRelocatable() {
+    return app.options.relocatable;
+}
+
+bool OptionRelocInfo() {
+    return app.options.relocInfo;
+}
+
 static const char* GetOptionPath(fs::path path) {
     if (path.empty())
         return NULL;

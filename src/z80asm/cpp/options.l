@@ -55,6 +55,9 @@ num			{num16} | {num10}
 -g \z			{ app.options.globaldef = true; return true; }
 -b \z			{ app.options.makeBinary = true; return true; }
 -d \z			{ app.options.update = true; return true; }
+-R \z			{ app.options.relocatable = true; return true; }
+-reloc-info \z	{ app.options.relocInfo = true; return true; }
+-split-bin \z	{ app.options.splitBinary = true; return true; }
 
 -mz80   \z		{ app.options.cpu.Init(Cpu::Type::Z80); return true; }
 -mz80n  \z		{ app.options.cpu.Init(Cpu::Type::Z80N); return true; }
@@ -86,7 +89,6 @@ num			{num16} | {num10}
 
 -D {ident} ( = {num} )? \z	{ 
 				  optionDefine(text() + 2); return true; }
--split-bin \z	{ app.options.splitBinary = true; return true; }
 
 .				{ return false; }
 

@@ -48,8 +48,8 @@ Binary Output:
   -split-bin            Create one binary file per section
   -d                    Assemble only updated files
   -r, --origin=ADDR     Relocate binary file to given address (decimal or hex)
-  -R, --relocatable     Create relocatable code
-  --reloc-info          Geneate binary file relocation information
+  -R                    Create relocatable code
+  -reloc-info           Geneate binary file relocation information
   --filler=BYTE         Default value to fill in DEFS (decimal or hex)
 
 Output File Options:

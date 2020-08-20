@@ -15,9 +15,6 @@ Define command line options
 #define OPT_VAR(type, name, default)
 #endif
 
-OPT_VAR( bool,		relocatable, false	)
-OPT_VAR( bool,      reloc_info, false   )	/* generate .reloc file */
-
 OPT_VAR(appmake_t, appmake, APPMAKE_NONE)
 OPT_VAR(const char*, appmake_opts, "")
 OPT_VAR(const char*, appmake_ext, "")
@@ -43,8 +40,6 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 OPT_TITLE("Binary Output:")
 OPT(OptCallArg, option_origin, "-r", "", "Relocate binary file to given address (decimal or hex)",
     "ADDR")
-OPT(OptSet, &opts.relocatable, "-R", "", "Create relocatable code", "")
-OPT(OptSet, &opts.reloc_info, "-reloc-info", "", "Geneate binary file relocation information", "")
 OPT(OptCallArg, option_filler, "-f", "", "Default value to fill in DEFS (decimal or hex)", "BYTE")
 
 OPT_TITLE("Appmake Options:")

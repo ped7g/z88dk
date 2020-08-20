@@ -504,7 +504,7 @@ static void _write_symbol_file(const char* filename, Module* module, bool(*cond)
     long			reloc_offset;
     STR_DEFINE(line, STR_SIZE);
 
-    if (opts.relocatable && module == NULL)		// module is NULL in link phase
+    if (OptionRelocatable() && module == NULL)		// module is NULL in link phase
         reloc_offset = sizeof_relocroutine + sizeof_reloctable + 4;
     else
         reloc_offset = 0;

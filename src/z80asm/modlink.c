@@ -550,7 +550,7 @@ static void patch_exprs(ExprList* exprs) {
                     *(intArray_push(expr->section->reloc)) = expr->code_pos + get_cur_module_start();
 
                     /* relocate code */
-                    if (opts.relocatable) {
+                    if (OptionRelocatable()) {
                         int offset = get_cur_module_start() + expr->section->addr;
                         int distance = expr->code_pos + offset - curroffset;
 
@@ -805,7 +805,7 @@ static void link_module(obj_file_t* obj, StrHash* extern_syms) {
             section->align = parse_int(obj);
 
             // if creating relocatable code, ignore origin
-            if (opts.relocatable && section->origin >= 0) {
+            if (OptionRelocatable() && section->origin >= 0) {
                 warn_org_ignored(obj->filename, section_name);
                 section->origin = -1;
                 section->section_split = false;
@@ -896,7 +896,7 @@ void link_modules(void) {
 
     current_list_status = false;
 
-    if (opts.relocatable) {
+    if (OptionRelocatable()) {
         reloctable = m_new_n(char, 32768U);
         relocptr = reloctable;
         relocptr += 4;  /* point at first offset to store */
@@ -994,7 +994,7 @@ void CreateBinFile(void) {
     FILE* binaryfile, * inital_binaryfile;
     FILE* relocfile, * initial_relocfile;
     const char* filename;
-    bool is_relocatable = (opts.relocatable && totaladdr != 0);
+    bool is_relocatable = (OptionRelocatable() && totaladdr != 0);
 
     if (GetOutputBinary())		/* use prefined output filename from command line */
         filename = GetOutputBinary();
@@ -1008,7 +1008,7 @@ void CreateBinFile(void) {
     binaryfile = xfopen(filename, "wb");
     inital_binaryfile = binaryfile;
 
-    relocfile = opts.relocatable ? NULL : opts.reloc_info ? xfopen(get_reloc_filename(filename),
+    relocfile = OptionRelocatable() ? NULL : OptionRelocInfo() ? xfopen(get_reloc_filename(filename),
                 "wb") : NULL;
     initial_relocfile = relocfile;
 

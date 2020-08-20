@@ -271,7 +271,7 @@ int z80asm_main( int argc, char* argv[] ) {
 
     delete_modules();		/* Release module information (symbols, etc.) */
 
-    if (opts.relocatable) {
+    if (OptionRelocatable()) {
         if (reloctable != NULL)
             m_free(reloctable);
     }

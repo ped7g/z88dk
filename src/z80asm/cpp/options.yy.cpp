@@ -151,86 +151,92 @@ int OptionsLexer::lex() {
         break;
         case 8: // rule at line 57: -d\z :
         { app.options.update = true; return true; }
+        break;
+        case 9: // rule at line 58: -R\z :
+        { app.options.relocatable = true; return true; }
+        break;
+        case 10: // rule at line 59: -reloc-info\z :
+        { app.options.relocInfo = true; return true; }
+        break;
+        case 11: // rule at line 60: -split-bin\z :
+        { app.options.splitBinary = true; return true; }
 
         break;
-        case 9: // rule at line 59: -mz80\z :
+        case 12: // rule at line 62: -mz80\z :
         { app.options.cpu.Init(Cpu::Type::Z80); return true; }
         break;
-        case 10: // rule at line 60: -mz80n\z :
+        case 13: // rule at line 63: -mz80n\z :
         { app.options.cpu.Init(Cpu::Type::Z80N); return true; }
         break;
-        case 11: // rule at line 61: -mz180\z :
+        case 14: // rule at line 64: -mz180\z :
         { app.options.cpu.Init(Cpu::Type::Z180); return true; }
         break;
-        case 12: // rule at line 62: -mr2k\z :
+        case 15: // rule at line 65: -mr2k\z :
         { app.options.cpu.Init(Cpu::Type::R2K); return true; }
         break;
-        case 13: // rule at line 63: -mr3k\z :
+        case 16: // rule at line 66: -mr3k\z :
         { app.options.cpu.Init(Cpu::Type::R3K); return true; }
         break;
-        case 14: // rule at line 64: -m8080\z :
+        case 17: // rule at line 67: -m8080\z :
         { app.options.cpu.Init(Cpu::Type::I8080); return true; }
         break;
-        case 15: // rule at line 65: -m8085\z :
+        case 18: // rule at line 68: -m8085\z :
         { app.options.cpu.Init(Cpu::Type::I8085); return true; }
         break;
-        case 16: // rule at line 66: -mgbz80\z :
+        case 19: // rule at line 69: -mgbz80\z :
         { app.options.cpu.Init(Cpu::Type::GBZ80); return true; }
         break;
-        case 17: { // rule at line 67: -mti83\z :
+        case 20: { // rule at line 70: -mti83\z :
             app.options.cpu.Init(Cpu::Type::Z80);
             app.options.arch.Init(Arch::Type::TI83);
             return true;
         }
         break;
-        case 18: { // rule at line 70: -mti83plus\z :
+        case 21: { // rule at line 73: -mti83plus\z :
             app.options.cpu.Init(Cpu::Type::Z80);
             app.options.arch.Init(Arch::Type::TI83PLUS);
             return true;
         }
         break;
-        case 19: // rule at line 73: -IXIY\z :
+        case 22: // rule at line 76: -IXIY\z :
         { app.options.swapIxIy = true; return true; }
         break;
-        case 20: // rule at line 74: -opt-speed\z :
+        case 23: // rule at line 77: -opt-speed\z :
         { app.options.optimizeSpeed = true; return true; }
         break;
-        case 21: { // rule at line 75: -debug\z :
+        case 24: { // rule at line 78: -debug\z :
             app.options.debugInfo = true;
             app.options.mapfile = true;
             return true;
         }
         break;
-        case 22: // rule at line 78: -I[\x00-\xff]+\z :
+        case 25: // rule at line 81: -I[\x00-\xff]+\z :
         { app.options.includePath.push_back(text() + 2);  return true; }
 
         break;
-        case 23: // rule at line 80: -L[\x00-\xff]+\z :
+        case 26: // rule at line 83: -L[\x00-\xff]+\z :
         { app.options.libraryPath.push_back(text() + 2);  return true; }
         break;
-        case 24: // rule at line 81: -x[\x00-\xff]+\z :
+        case 27: // rule at line 84: -x[\x00-\xff]+\z :
         { app.options.outputLibrary = text() + 2; return true; }
         break;
-        case 25: // rule at line 82: -l[\x00-\xff]+\z :
+        case 28: // rule at line 85: -l[\x00-\xff]+\z :
         { app.options.libraries.push_back(text() + 2); return true; }
 
         break;
-        case 26: // rule at line 84: -O[\x00-\xff]+\z :
+        case 29: // rule at line 87: -O[\x00-\xff]+\z :
         { app.options.outputDirectory = text() + 2; return true; }
         break;
-        case 27: // rule at line 85: -o[\x00-\xff]+\z :
+        case 30: // rule at line 88: -o[\x00-\xff]+\z :
         { app.options.outputFile = text() + 2; return true; }
 
         break;
-        case 28: { // rule at line 87: -D(?:[A-Z_a-z][0-9A-Z_a-z]*)(?:=(?:(?:0[Xx][0-9A-Fa-f]+|\$[0-9A-Fa-f]+|[0-9][0-9A-Fa-f]*[Hh])|(?:[0-9]+)))?\z :
+        case 31: { // rule at line 90: -D(?:[A-Z_a-z][0-9A-Z_a-z]*)(?:=(?:(?:0[Xx][0-9A-Fa-f]+|\$[0-9A-Fa-f]+|[0-9][0-9A-Fa-f]*[Hh])|(?:[0-9]+)))?\z :
             optionDefine(text() + 2); return true;
         }
-        break;
-        case 29: // rule at line 89: -split-bin\z :
-        { app.options.splitBinary = true; return true; }
 
         break;
-        case 30: // rule at line 91: [\x00-\xff] :
+        case 32: // rule at line 93: [\x00-\xff] :
         { return false; }
 
         break;
@@ -319,38 +325,34 @@ S0:
     m.FSM_FIND();
     c1 = m.FSM_CHAR();
     if (c1 == '-') goto S2;
-    if (0 <= c1) goto S19;
+    if (0 <= c1) goto S21;
     return m.FSM_HALT(c1);
 
 S2:
-    m.FSM_TAKE(30);
+    m.FSM_TAKE(32);
     c1 = m.FSM_CHAR();
-    if (c1 == 'x') goto S51;
-    if (c1 == 'v') goto S25;
-    if (c1 == 's') goto S34;
-    if (c1 == 'o') goto S48;
-    if (c1 == 'm') goto S27;
-    if (c1 == 'l') goto S37;
-    if (c1 == 'h') goto S23;
-    if (c1 == 'g') goto S39;
-    if (c1 == 'd') goto S43;
-    if (c1 == 'b') goto S41;
-    if (c1 == 'O') goto S52;
-    if (c1 == 'L') goto S50;
-    if (c1 == 'I') goto S46;
-    if (c1 == 'D') goto S53;
-    if (c1 == '?') goto S21;
+    if (c1 == 'x') goto S57;
+    if (c1 == 'v') goto S27;
+    if (c1 == 's') goto S36;
+    if (c1 == 'r') goto S50;
+    if (c1 == 'o') goto S54;
+    if (c1 == 'm') goto S29;
+    if (c1 == 'l') goto S39;
+    if (c1 == 'h') goto S25;
+    if (c1 == 'g') goto S41;
+    if (c1 == 'd') goto S45;
+    if (c1 == 'b') goto S43;
+    if (c1 == 'R') goto S48;
+    if (c1 == 'O') goto S58;
+    if (c1 == 'L') goto S56;
+    if (c1 == 'I') goto S52;
+    if (c1 == 'D') goto S59;
+    if (c1 == '?') goto S23;
     return m.FSM_HALT(c1);
-
-S19:
-    m.FSM_TAKE(30);
-    return m.FSM_HALT();
 
 S21:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(1, c1);
-    return m.FSM_HALT(c1);
+    m.FSM_TAKE(32);
+    return m.FSM_HALT();
 
 S23:
     c1 = m.FSM_CHAR();
@@ -361,652 +363,723 @@ S23:
 S25:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(2, c1);
+        m.FSM_TAKE(1, c1);
     return m.FSM_HALT(c1);
 
 S27:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(3, c1);
-    if (c1 == 'z') goto S63;
-    if (c1 == 't') goto S73;
-    if (c1 == 'r') goto S66;
-    if (c1 == 'g') goto S71;
-    if (c1 == '8') goto S69;
+        m.FSM_TAKE(2, c1);
     return m.FSM_HALT(c1);
 
-S34:
+S29:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(3, c1);
+    if (c1 == 'z') goto S69;
+    if (c1 == 't') goto S79;
+    if (c1 == 'r') goto S72;
+    if (c1 == 'g') goto S77;
+    if (c1 == '8') goto S75;
+    return m.FSM_HALT(c1);
+
+S36:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(4, c1);
-    if (c1 == 'p') goto S77;
-    return m.FSM_HALT(c1);
-
-S37:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(5, c1);
-    if (0 <= c1) goto S81;
+    if (c1 == 'p') goto S83;
     return m.FSM_HALT(c1);
 
 S39:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(6, c1);
+        m.FSM_TAKE(5, c1);
+    if (0 <= c1) goto S87;
     return m.FSM_HALT(c1);
 
 S41:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(7, c1);
+        m.FSM_TAKE(6, c1);
     return m.FSM_HALT(c1);
 
 S43:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(8, c1);
-    if (c1 == 'e') goto S89;
+        m.FSM_TAKE(7, c1);
     return m.FSM_HALT(c1);
 
-S46:
+S45:
     c1 = m.FSM_CHAR();
-    if (c1 == 'X') goto S91;
-    if (0 <= c1) goto S94;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(8, c1);
+    if (c1 == 'e') goto S95;
     return m.FSM_HALT(c1);
 
 S48:
     c1 = m.FSM_CHAR();
-    if (c1 == 'p') goto S96;
-    if (0 <= c1) goto S99;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(9, c1);
     return m.FSM_HALT(c1);
 
 S50:
     c1 = m.FSM_CHAR();
-    if (0 <= c1) goto S101;
-    return m.FSM_HALT(c1);
-
-S51:
-    c1 = m.FSM_CHAR();
-    if (0 <= c1) goto S103;
+    if (c1 == 'e') goto S99;
     return m.FSM_HALT(c1);
 
 S52:
     c1 = m.FSM_CHAR();
-    if (0 <= c1) goto S105;
+    if (c1 == 'X') goto S101;
+    if (0 <= c1) goto S104;
     return m.FSM_HALT(c1);
 
-S53:
+S54:
     c1 = m.FSM_CHAR();
-    if ('a' <= c1 && c1 <= 'z') goto S107;
-    if (c1 == '_') goto S107;
-    if ('A' <= c1 && c1 <= 'Z') goto S107;
+    if (c1 == 'p') goto S106;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S56:
+    c1 = m.FSM_CHAR();
+    if (0 <= c1) goto S111;
     return m.FSM_HALT(c1);
 
 S57:
+    c1 = m.FSM_CHAR();
+    if (0 <= c1) goto S113;
+    return m.FSM_HALT(c1);
+
+S58:
+    c1 = m.FSM_CHAR();
+    if (0 <= c1) goto S115;
+    return m.FSM_HALT(c1);
+
+S59:
+    c1 = m.FSM_CHAR();
+    if ('a' <= c1 && c1 <= 'z') goto S117;
+    if (c1 == '_') goto S117;
+    if ('A' <= c1 && c1 <= 'Z') goto S117;
+    return m.FSM_HALT(c1);
+
+S63:
     m.FSM_TAKE(1);
     return m.FSM_HALT();
 
-S59:
+S65:
     m.FSM_TAKE(2);
     return m.FSM_HALT();
 
-S61:
+S67:
     m.FSM_TAKE(3);
     return m.FSM_HALT();
 
-S63:
-    c1 = m.FSM_CHAR();
-    if (c1 == '8') goto S114;
-    if (c1 == '1') goto S116;
-    return m.FSM_HALT(c1);
-
-S66:
-    c1 = m.FSM_CHAR();
-    if (c1 == '3') goto S120;
-    if (c1 == '2') goto S118;
-    return m.FSM_HALT(c1);
-
 S69:
     c1 = m.FSM_CHAR();
-    if (c1 == '0') goto S122;
+    if (c1 == '8') goto S124;
+    if (c1 == '1') goto S126;
     return m.FSM_HALT(c1);
 
-S71:
+S72:
     c1 = m.FSM_CHAR();
-    if (c1 == 'b') goto S124;
-    return m.FSM_HALT(c1);
-
-S73:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'i') goto S126;
+    if (c1 == '3') goto S130;
+    if (c1 == '2') goto S128;
     return m.FSM_HALT(c1);
 
 S75:
-    m.FSM_TAKE(4);
-    return m.FSM_HALT();
+    c1 = m.FSM_CHAR();
+    if (c1 == '0') goto S132;
+    return m.FSM_HALT(c1);
 
 S77:
     c1 = m.FSM_CHAR();
-    if (c1 == 'l') goto S128;
+    if (c1 == 'b') goto S134;
     return m.FSM_HALT(c1);
 
 S79:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'i') goto S136;
+    return m.FSM_HALT(c1);
+
+S81:
+    m.FSM_TAKE(4);
+    return m.FSM_HALT();
+
+S83:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'l') goto S138;
+    return m.FSM_HALT(c1);
+
+S85:
     m.FSM_TAKE(5);
     return m.FSM_HALT();
 
-S81:
+S87:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(25, c1);
-    if (0 <= c1) goto S81;
+        m.FSM_TAKE(28, c1);
+    if (0 <= c1) goto S87;
     return m.FSM_HALT(c1);
 
-S83:
+S89:
     m.FSM_TAKE(6);
     return m.FSM_HALT();
 
-S85:
+S91:
     m.FSM_TAKE(7);
     return m.FSM_HALT();
 
-S87:
+S93:
     m.FSM_TAKE(8);
     return m.FSM_HALT();
 
-S89:
+S95:
     c1 = m.FSM_CHAR();
-    if (c1 == 'b') goto S132;
+    if (c1 == 'b') goto S142;
     return m.FSM_HALT(c1);
 
-S91:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(22, c1);
-    if (c1 == 'I') goto S134;
-    if (0 <= c1) goto S94;
-    return m.FSM_HALT(c1);
-
-S94:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(22, c1);
-    if (0 <= c1) goto S94;
-    return m.FSM_HALT(c1);
-
-S96:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 't') goto S139;
-    if (0 <= c1) goto S99;
-    return m.FSM_HALT(c1);
+S97:
+    m.FSM_TAKE(9);
+    return m.FSM_HALT();
 
 S99:
     c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (0 <= c1) goto S99;
+    if (c1 == 'l') goto S144;
     return m.FSM_HALT(c1);
 
 S101:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(23, c1);
-    if (0 <= c1) goto S101;
+        m.FSM_TAKE(25, c1);
+    if (c1 == 'I') goto S146;
+    if (0 <= c1) goto S104;
     return m.FSM_HALT(c1);
 
-S103:
+S104:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(24, c1);
-    if (0 <= c1) goto S103;
+        m.FSM_TAKE(25, c1);
+    if (0 <= c1) goto S104;
     return m.FSM_HALT(c1);
 
-S105:
+S106:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 't') goto S151;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S109:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S111:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(26, c1);
-    if (0 <= c1) goto S105;
+    if (0 <= c1) goto S111;
     return m.FSM_HALT(c1);
 
-S107:
+S113:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if ('a' <= c1 && c1 <= 'z') goto S107;
-    if (c1 == '_') goto S107;
-    if ('A' <= c1 && c1 <= 'Z') goto S107;
-    if (c1 == '=') goto S152;
-    if ('0' <= c1 && c1 <= '9') goto S107;
+        m.FSM_TAKE(27, c1);
+    if (0 <= c1) goto S113;
     return m.FSM_HALT(c1);
 
-S114:
+S115:
     c1 = m.FSM_CHAR();
-    if (c1 == '0') goto S156;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(29, c1);
+    if (0 <= c1) goto S115;
     return m.FSM_HALT(c1);
 
-S116:
+S117:
     c1 = m.FSM_CHAR();
-    if (c1 == '8') goto S159;
-    return m.FSM_HALT(c1);
-
-S118:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'k') goto S161;
-    return m.FSM_HALT(c1);
-
-S120:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'k') goto S163;
-    return m.FSM_HALT(c1);
-
-S122:
-    c1 = m.FSM_CHAR();
-    if (c1 == '8') goto S165;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if ('a' <= c1 && c1 <= 'z') goto S117;
+    if (c1 == '_') goto S117;
+    if ('A' <= c1 && c1 <= 'Z') goto S117;
+    if (c1 == '=') goto S164;
+    if ('0' <= c1 && c1 <= '9') goto S117;
     return m.FSM_HALT(c1);
 
 S124:
     c1 = m.FSM_CHAR();
-    if (c1 == 'z') goto S168;
+    if (c1 == '0') goto S168;
     return m.FSM_HALT(c1);
 
 S126:
     c1 = m.FSM_CHAR();
-    if (c1 == '8') goto S170;
+    if (c1 == '8') goto S171;
     return m.FSM_HALT(c1);
 
 S128:
     c1 = m.FSM_CHAR();
-    if (c1 == 'i') goto S172;
+    if (c1 == 'k') goto S173;
     return m.FSM_HALT(c1);
 
 S130:
-    m.FSM_TAKE(25);
-    return m.FSM_HALT();
+    c1 = m.FSM_CHAR();
+    if (c1 == 'k') goto S175;
+    return m.FSM_HALT(c1);
 
 S132:
     c1 = m.FSM_CHAR();
-    if (c1 == 'u') goto S174;
+    if (c1 == '8') goto S177;
     return m.FSM_HALT(c1);
 
 S134:
     c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(22, c1);
-    if (c1 == 'Y') goto S176;
-    if (0 <= c1) goto S94;
+    if (c1 == 'z') goto S180;
     return m.FSM_HALT(c1);
 
-S137:
-    m.FSM_TAKE(22);
-    return m.FSM_HALT();
-
-S139:
+S136:
     c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == '-') goto S178;
-    if (0 <= c1) goto S99;
+    if (c1 == '8') goto S182;
     return m.FSM_HALT(c1);
 
-S142:
-    m.FSM_TAKE(27);
-    return m.FSM_HALT();
+S138:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'i') goto S184;
+    return m.FSM_HALT(c1);
 
-S144:
-    m.FSM_TAKE(23);
-    return m.FSM_HALT();
-
-S146:
-    m.FSM_TAKE(24);
-    return m.FSM_HALT();
-
-S148:
-    m.FSM_TAKE(26);
-    return m.FSM_HALT();
-
-S150:
+S140:
     m.FSM_TAKE(28);
     return m.FSM_HALT();
 
-S152:
+S142:
     c1 = m.FSM_CHAR();
-    if ('1' <= c1 && c1 <= '9') goto S194;
-    if (c1 == '0') goto S181;
-    if (c1 == '$') goto S190;
+    if (c1 == 'u') goto S186;
     return m.FSM_HALT(c1);
+
+S144:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'o') goto S188;
+    return m.FSM_HALT(c1);
+
+S146:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(25, c1);
+    if (c1 == 'Y') goto S190;
+    if (0 <= c1) goto S104;
+    return m.FSM_HALT(c1);
+
+S149:
+    m.FSM_TAKE(25);
+    return m.FSM_HALT();
+
+S151:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == '-') goto S192;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S154:
+    m.FSM_TAKE(30);
+    return m.FSM_HALT();
 
 S156:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(9, c1);
-    if (c1 == 'n') goto S203;
-    return m.FSM_HALT(c1);
+    m.FSM_TAKE(26);
+    return m.FSM_HALT();
 
-S159:
-    c1 = m.FSM_CHAR();
-    if (c1 == '0') goto S205;
-    return m.FSM_HALT(c1);
+S158:
+    m.FSM_TAKE(27);
+    return m.FSM_HALT();
 
-S161:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(12, c1);
-    return m.FSM_HALT(c1);
+S160:
+    m.FSM_TAKE(29);
+    return m.FSM_HALT();
 
-S163:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(13, c1);
-    return m.FSM_HALT(c1);
+S162:
+    m.FSM_TAKE(31);
+    return m.FSM_HALT();
 
-S165:
+S164:
     c1 = m.FSM_CHAR();
-    if (c1 == '5') goto S213;
-    if (c1 == '0') goto S211;
+    if ('1' <= c1 && c1 <= '9') goto S208;
+    if (c1 == '0') goto S195;
+    if (c1 == '$') goto S204;
     return m.FSM_HALT(c1);
 
 S168:
     c1 = m.FSM_CHAR();
-    if (c1 == '8') goto S215;
-    return m.FSM_HALT(c1);
-
-S170:
-    c1 = m.FSM_CHAR();
-    if (c1 == '3') goto S217;
-    return m.FSM_HALT(c1);
-
-S172:
-    c1 = m.FSM_CHAR();
-    if (c1 == 't') goto S220;
-    return m.FSM_HALT(c1);
-
-S174:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'g') goto S222;
-    return m.FSM_HALT(c1);
-
-S176:
-    c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(19, c1);
-    if (0 <= c1) goto S94;
+        m.FSM_TAKE(12, c1);
+    if (c1 == 'n') goto S217;
     return m.FSM_HALT(c1);
 
-S178:
+S171:
     c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 's') goto S226;
-    if (0 <= c1) goto S99;
+    if (c1 == '0') goto S219;
     return m.FSM_HALT(c1);
 
-S181:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if (c1 == 'x') goto S229;
-    if (c1 == 'h') goto S239;
-    if ('a' <= c1 && c1 <= 'f') goto S233;
-    if (c1 == 'X') goto S229;
-    if (c1 == 'H') goto S239;
-    if ('A' <= c1 && c1 <= 'F') goto S233;
-    if ('0' <= c1 && c1 <= '9') goto S194;
-    return m.FSM_HALT(c1);
-
-S190:
-    c1 = m.FSM_CHAR();
-    if ('a' <= c1 && c1 <= 'f') goto S242;
-    if ('A' <= c1 && c1 <= 'F') goto S242;
-    if ('0' <= c1 && c1 <= '9') goto S242;
-    return m.FSM_HALT(c1);
-
-S194:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if (c1 == 'h') goto S239;
-    if ('a' <= c1 && c1 <= 'f') goto S233;
-    if (c1 == 'H') goto S239;
-    if ('A' <= c1 && c1 <= 'F') goto S233;
-    if ('0' <= c1 && c1 <= '9') goto S194;
-    return m.FSM_HALT(c1);
-
-S201:
-    m.FSM_TAKE(9);
-    return m.FSM_HALT();
-
-S203:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(10, c1);
-    return m.FSM_HALT(c1);
-
-S205:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(11, c1);
-    return m.FSM_HALT(c1);
-
-S207:
-    m.FSM_TAKE(12);
-    return m.FSM_HALT();
-
-S209:
-    m.FSM_TAKE(13);
-    return m.FSM_HALT();
-
-S211:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(14, c1);
-    return m.FSM_HALT(c1);
-
-S213:
+S173:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(15, c1);
     return m.FSM_HALT(c1);
 
-S215:
-    c1 = m.FSM_CHAR();
-    if (c1 == '0') goto S255;
-    return m.FSM_HALT(c1);
-
-S217:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(17, c1);
-    if (c1 == 'p') goto S259;
-    return m.FSM_HALT(c1);
-
-S220:
-    c1 = m.FSM_CHAR();
-    if (c1 == '-') goto S261;
-    return m.FSM_HALT(c1);
-
-S222:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(21, c1);
-    return m.FSM_HALT(c1);
-
-S224:
-    m.FSM_TAKE(19);
-    return m.FSM_HALT();
-
-S226:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 'p') goto S265;
-    if (0 <= c1) goto S99;
-    return m.FSM_HALT(c1);
-
-S229:
-    c1 = m.FSM_CHAR();
-    if ('a' <= c1 && c1 <= 'f') goto S268;
-    if ('A' <= c1 && c1 <= 'F') goto S268;
-    if ('0' <= c1 && c1 <= '9') goto S268;
-    return m.FSM_HALT(c1);
-
-S233:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'h') goto S273;
-    if ('a' <= c1 && c1 <= 'f') goto S233;
-    if (c1 == 'H') goto S273;
-    if ('A' <= c1 && c1 <= 'F') goto S233;
-    if ('0' <= c1 && c1 <= '9') goto S233;
-    return m.FSM_HALT(c1);
-
-S239:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if ('0' <= c1 && c1 <= '9') goto S239;
-    return m.FSM_HALT(c1);
-
-S242:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if ('a' <= c1 && c1 <= 'f') goto S242;
-    if ('A' <= c1 && c1 <= 'F') goto S242;
-    if ('0' <= c1 && c1 <= '9') goto S242;
-    return m.FSM_HALT(c1);
-
-S247:
-    m.FSM_TAKE(10);
-    return m.FSM_HALT();
-
-S249:
-    m.FSM_TAKE(11);
-    return m.FSM_HALT();
-
-S251:
-    m.FSM_TAKE(14);
-    return m.FSM_HALT();
-
-S253:
-    m.FSM_TAKE(15);
-    return m.FSM_HALT();
-
-S255:
+S175:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(16, c1);
     return m.FSM_HALT(c1);
 
-S257:
-    m.FSM_TAKE(17);
+S177:
+    c1 = m.FSM_CHAR();
+    if (c1 == '5') goto S227;
+    if (c1 == '0') goto S225;
+    return m.FSM_HALT(c1);
+
+S180:
+    c1 = m.FSM_CHAR();
+    if (c1 == '8') goto S229;
+    return m.FSM_HALT(c1);
+
+S182:
+    c1 = m.FSM_CHAR();
+    if (c1 == '3') goto S231;
+    return m.FSM_HALT(c1);
+
+S184:
+    c1 = m.FSM_CHAR();
+    if (c1 == 't') goto S234;
+    return m.FSM_HALT(c1);
+
+S186:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'g') goto S236;
+    return m.FSM_HALT(c1);
+
+S188:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'c') goto S238;
+    return m.FSM_HALT(c1);
+
+S190:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(22, c1);
+    if (0 <= c1) goto S104;
+    return m.FSM_HALT(c1);
+
+S192:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 's') goto S242;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S195:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if (c1 == 'x') goto S245;
+    if (c1 == 'h') goto S255;
+    if ('a' <= c1 && c1 <= 'f') goto S249;
+    if (c1 == 'X') goto S245;
+    if (c1 == 'H') goto S255;
+    if ('A' <= c1 && c1 <= 'F') goto S249;
+    if ('0' <= c1 && c1 <= '9') goto S208;
+    return m.FSM_HALT(c1);
+
+S204:
+    c1 = m.FSM_CHAR();
+    if ('a' <= c1 && c1 <= 'f') goto S258;
+    if ('A' <= c1 && c1 <= 'F') goto S258;
+    if ('0' <= c1 && c1 <= '9') goto S258;
+    return m.FSM_HALT(c1);
+
+S208:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if (c1 == 'h') goto S255;
+    if ('a' <= c1 && c1 <= 'f') goto S249;
+    if (c1 == 'H') goto S255;
+    if ('A' <= c1 && c1 <= 'F') goto S249;
+    if ('0' <= c1 && c1 <= '9') goto S208;
+    return m.FSM_HALT(c1);
+
+S215:
+    m.FSM_TAKE(12);
     return m.FSM_HALT();
 
-S259:
+S217:
     c1 = m.FSM_CHAR();
-    if (c1 == 'l') goto S277;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(13, c1);
     return m.FSM_HALT(c1);
 
-S261:
+S219:
     c1 = m.FSM_CHAR();
-    if (c1 == 'b') goto S279;
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(14, c1);
     return m.FSM_HALT(c1);
 
-S263:
-    m.FSM_TAKE(21);
+S221:
+    m.FSM_TAKE(15);
     return m.FSM_HALT();
 
-S265:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 'e') goto S281;
-    if (0 <= c1) goto S99;
-    return m.FSM_HALT(c1);
-
-S268:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    if ('a' <= c1 && c1 <= 'f') goto S268;
-    if ('A' <= c1 && c1 <= 'F') goto S268;
-    if ('0' <= c1 && c1 <= '9') goto S268;
-    return m.FSM_HALT(c1);
-
-S273:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(28, c1);
-    return m.FSM_HALT(c1);
-
-S275:
+S223:
     m.FSM_TAKE(16);
     return m.FSM_HALT();
 
-S277:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'u') goto S284;
-    return m.FSM_HALT(c1);
-
-S279:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'i') goto S286;
-    return m.FSM_HALT(c1);
-
-S281:
+S225:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 'e') goto S288;
-    if (0 <= c1) goto S99;
+        m.FSM_TAKE(17, c1);
     return m.FSM_HALT(c1);
 
-S284:
-    c1 = m.FSM_CHAR();
-    if (c1 == 's') goto S291;
-    return m.FSM_HALT(c1);
-
-S286:
-    c1 = m.FSM_CHAR();
-    if (c1 == 'n') goto S293;
-    return m.FSM_HALT(c1);
-
-S288:
-    c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(27, c1);
-    if (c1 == 'd') goto S295;
-    if (0 <= c1) goto S99;
-    return m.FSM_HALT(c1);
-
-S291:
+S227:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(18, c1);
     return m.FSM_HALT(c1);
 
-S293:
+S229:
     c1 = m.FSM_CHAR();
-    if (m.FSM_META_EOB(c1))
-        m.FSM_TAKE(29, c1);
+    if (c1 == '0') goto S271;
     return m.FSM_HALT(c1);
 
-S295:
+S231:
     c1 = m.FSM_CHAR();
     if (m.FSM_META_EOB(c1))
         m.FSM_TAKE(20, c1);
-    if (0 <= c1) goto S99;
+    if (c1 == 'p') goto S275;
     return m.FSM_HALT(c1);
 
-S297:
+S234:
+    c1 = m.FSM_CHAR();
+    if (c1 == '-') goto S277;
+    return m.FSM_HALT(c1);
+
+S236:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(24, c1);
+    return m.FSM_HALT(c1);
+
+S238:
+    c1 = m.FSM_CHAR();
+    if (c1 == '-') goto S281;
+    return m.FSM_HALT(c1);
+
+S240:
+    m.FSM_TAKE(22);
+    return m.FSM_HALT();
+
+S242:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 'p') goto S283;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S245:
+    c1 = m.FSM_CHAR();
+    if ('a' <= c1 && c1 <= 'f') goto S286;
+    if ('A' <= c1 && c1 <= 'F') goto S286;
+    if ('0' <= c1 && c1 <= '9') goto S286;
+    return m.FSM_HALT(c1);
+
+S249:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'h') goto S291;
+    if ('a' <= c1 && c1 <= 'f') goto S249;
+    if (c1 == 'H') goto S291;
+    if ('A' <= c1 && c1 <= 'F') goto S249;
+    if ('0' <= c1 && c1 <= '9') goto S249;
+    return m.FSM_HALT(c1);
+
+S255:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if ('0' <= c1 && c1 <= '9') goto S255;
+    return m.FSM_HALT(c1);
+
+S258:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if ('a' <= c1 && c1 <= 'f') goto S258;
+    if ('A' <= c1 && c1 <= 'F') goto S258;
+    if ('0' <= c1 && c1 <= '9') goto S258;
+    return m.FSM_HALT(c1);
+
+S263:
+    m.FSM_TAKE(13);
+    return m.FSM_HALT();
+
+S265:
+    m.FSM_TAKE(14);
+    return m.FSM_HALT();
+
+S267:
+    m.FSM_TAKE(17);
+    return m.FSM_HALT();
+
+S269:
     m.FSM_TAKE(18);
     return m.FSM_HALT();
 
-S299:
-    m.FSM_TAKE(29);
+S271:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(19, c1);
+    return m.FSM_HALT(c1);
+
+S273:
+    m.FSM_TAKE(20);
     return m.FSM_HALT();
 
+S275:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'l') goto S295;
+    return m.FSM_HALT(c1);
+
+S277:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'b') goto S297;
+    return m.FSM_HALT(c1);
+
+S279:
+    m.FSM_TAKE(24);
+    return m.FSM_HALT();
+
+S281:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'i') goto S299;
+    return m.FSM_HALT(c1);
+
+S283:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 'e') goto S301;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S286:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    if ('a' <= c1 && c1 <= 'f') goto S286;
+    if ('A' <= c1 && c1 <= 'F') goto S286;
+    if ('0' <= c1 && c1 <= '9') goto S286;
+    return m.FSM_HALT(c1);
+
+S291:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(31, c1);
+    return m.FSM_HALT(c1);
+
+S293:
+    m.FSM_TAKE(19);
+    return m.FSM_HALT();
+
+S295:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'u') goto S304;
+    return m.FSM_HALT(c1);
+
+S297:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'i') goto S306;
+    return m.FSM_HALT(c1);
+
+S299:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'n') goto S308;
+    return m.FSM_HALT(c1);
+
 S301:
-    m.FSM_TAKE(20);
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 'e') goto S310;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S304:
+    c1 = m.FSM_CHAR();
+    if (c1 == 's') goto S313;
+    return m.FSM_HALT(c1);
+
+S306:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'n') goto S315;
+    return m.FSM_HALT(c1);
+
+S308:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'f') goto S317;
+    return m.FSM_HALT(c1);
+
+S310:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(30, c1);
+    if (c1 == 'd') goto S319;
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S313:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(21, c1);
+    return m.FSM_HALT(c1);
+
+S315:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(11, c1);
+    return m.FSM_HALT(c1);
+
+S317:
+    c1 = m.FSM_CHAR();
+    if (c1 == 'o') goto S325;
+    return m.FSM_HALT(c1);
+
+S319:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(23, c1);
+    if (0 <= c1) goto S109;
+    return m.FSM_HALT(c1);
+
+S321:
+    m.FSM_TAKE(21);
+    return m.FSM_HALT();
+
+S323:
+    m.FSM_TAKE(11);
+    return m.FSM_HALT();
+
+S325:
+    c1 = m.FSM_CHAR();
+    if (m.FSM_META_EOB(c1))
+        m.FSM_TAKE(10, c1);
+    return m.FSM_HALT(c1);
+
+S327:
+    m.FSM_TAKE(23);
+    return m.FSM_HALT();
+
+S329:
+    m.FSM_TAKE(10);
     return m.FSM_HALT();
 }
 

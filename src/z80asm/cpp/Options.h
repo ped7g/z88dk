@@ -25,6 +25,8 @@ struct Options {
     bool	makeBinary{ false };		// generate binary file
     bool	splitBinary{ false };		// true to split binary file per section
     bool	update{ false };			// true to build only changed files
+    bool	relocatable{ false };		// true to produce relocatable code
+    bool	relocInfo{ false };			// true to generate a relocation info file
 
     bool	swapIxIy{ false };			// swap IX and IY
     bool	optimizeSpeed{ false };		// true to optimize for speed

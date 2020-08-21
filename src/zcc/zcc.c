@@ -743,7 +743,7 @@ int linkthem(char *linker)
             globaldefon ? "-g " : "",
             (createapp || mapon) ? "-m " : "",
             (createapp || symbolson) ? "-s " : "",
-            relocinfo ? "--reloc-info " : "",
+            relocinfo ? "-reloc-info " : "",
             linkargs,
             (c_nostdlib == 0) ? c_linkopts : "",
             linklibs);

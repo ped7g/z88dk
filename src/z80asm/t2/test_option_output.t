@@ -20,9 +20,11 @@ run_ok("z80asm -b $test.asm");
 check_bin_file("$test.bin", 0xC9);
 
 # -o
-unlink "$test.2.bin";
-run_ok("z80asm -b -o$test.2.bin $test.asm");
-check_bin_file("$test.2.bin", 0xC9);
+for my $equal ("", "=") {
+    unlink "$test.2.bin";
+    run_ok("z80asm -b -o$equal$test.2.bin $test.asm");
+    check_bin_file("$test.2.bin", 0xC9);
+}
 
 # test -o with environment variables
 $ENV{TEST_ENV} = "2.bin";

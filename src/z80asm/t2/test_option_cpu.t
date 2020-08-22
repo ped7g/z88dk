@@ -10,7 +10,7 @@ use Modern::Perl;
 BEGIN { use lib 't2'; use testlib; }
 my $test = test_name();
 
-for my $cpu ("", "-mz80") {
+for my $cpu ("", "-mz80", "-m=z80") {
 	asm_ok(<<END, $cpu, 0x76);
 		if __CPU_Z80__
 		halt
@@ -61,17 +61,19 @@ my $asm = <<END;
 		endif
 END
 
-for my $spurious ("", "-mr2k -m8080") {	# check that only last -m has effect
-	asm_ok($asm, "$spurious -mz80     ", 1, 9);
-	asm_ok($asm, "$spurious -mti83    ", 1, 9, 12);
-	asm_ok($asm, "$spurious -mti83plus", 1, 9, 13);
-	asm_ok($asm, "$spurious -mz80n    ", 2, 9);
-	asm_ok($asm, "$spurious -mz180    ", 3, 9);
-	asm_ok($asm, "$spurious -mr2k     ", 4, 10);
-	asm_ok($asm, "$spurious -mr3k     ", 5, 10);
-	asm_ok($asm, "$spurious -m8080    ", 6, 11);
-	asm_ok($asm, "$spurious -m8085    ", 7, 11);
-	asm_ok($asm, "$spurious -mgbz80   ", 8);
+for my $equal ("", "=") {
+	for my $spurious ("", "-m${equal}r2k -m${equal}8080") {	# check that only last -m has effect
+		asm_ok($asm, "$spurious -m${equal}z80     ", 1, 9);
+		asm_ok($asm, "$spurious -m${equal}ti83    ", 1, 9, 12);
+		asm_ok($asm, "$spurious -m${equal}ti83plus", 1, 9, 13);
+		asm_ok($asm, "$spurious -m${equal}z80n    ", 2, 9);
+		asm_ok($asm, "$spurious -m${equal}z180    ", 3, 9);
+		asm_ok($asm, "$spurious -m${equal}r2k     ", 4, 10);
+		asm_ok($asm, "$spurious -m${equal}r3k     ", 5, 10);
+		asm_ok($asm, "$spurious -m${equal}8080    ", 6, 11);
+		asm_ok($asm, "$spurious -m${equal}8085    ", 7, 11);
+		asm_ok($asm, "$spurious -m${equal}gbz80   ", 8);
+	}
 }
 
 asm_ok("swapnib", "-mz80n", 0xED, 0x23);

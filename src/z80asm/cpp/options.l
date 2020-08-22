@@ -35,6 +35,7 @@
 
 static int parseNum(const std::string& text);
 static void optionDefine(const std::string& text);
+static const char* skip_equal(const char* text);
 %}
 
 %option freespace dotall
@@ -59,18 +60,19 @@ num			{num16} | {num10}
 -reloc-info \z	{ app.options.relocInfo = true; return true; }
 -split-bin \z	{ app.options.splitBinary = true; return true; }
 
--mz80   \z		{ app.options.cpu.Init(Cpu::Type::Z80); return true; }
--mz80n  \z		{ app.options.cpu.Init(Cpu::Type::Z80N); return true; }
--mz180  \z 	 	{ app.options.cpu.Init(Cpu::Type::Z180); return true; }
--mr2k   \z 		{ app.options.cpu.Init(Cpu::Type::R2K); return true; }
--mr3k   \z		{ app.options.cpu.Init(Cpu::Type::R3K); return true; }
--m8080  \z		{ app.options.cpu.Init(Cpu::Type::I8080); return true; }
--m8085  \z 		{ app.options.cpu.Init(Cpu::Type::I8085); return true; }
--mgbz80 \z 		{ app.options.cpu.Init(Cpu::Type::GBZ80); return true; }
--mti83  \z 		{ app.options.cpu.Init(Cpu::Type::Z80); 
+-m =? z80   \z	{ app.options.cpu.Init(Cpu::Type::Z80); return true; }
+-m =? z80n  \z	{ app.options.cpu.Init(Cpu::Type::Z80N); return true; }
+-m =? z180  \z	{ app.options.cpu.Init(Cpu::Type::Z180); return true; }
+-m =? r2k   \z	{ app.options.cpu.Init(Cpu::Type::R2K); return true; }
+-m =? r3k   \z	{ app.options.cpu.Init(Cpu::Type::R3K); return true; }
+-m =? 8080  \z	{ app.options.cpu.Init(Cpu::Type::I8080); return true; }
+-m =? 8085  \z	{ app.options.cpu.Init(Cpu::Type::I8085); return true; }
+-m =? gbz80 \z	{ app.options.cpu.Init(Cpu::Type::GBZ80); return true; }
+-m =? ti83  \z	{ app.options.cpu.Init(Cpu::Type::Z80); 
 				  app.options.arch.Init(Arch::Type::TI83); 
 				  return true; }
--mti83plus \z 	{ app.options.cpu.Init(Cpu::Type::Z80);
+-m =? ti83plus \z { 
+				  app.options.cpu.Init(Cpu::Type::Z80);
 				  app.options.arch.Init(Arch::Type::TI83PLUS);
 				  return true; }
 -IXIY \z		{ app.options.swapIxIy = true; return true; }
@@ -78,17 +80,17 @@ num			{num16} | {num10}
 -debug \z		{ app.options.debugInfo = true; 
 				  app.options.mapfile = true;
 				  return true; }
--I .+ \z		{ app.options.includePath.push_back(text() + 2);  return true; }
+-I =? .+ \z		{ app.options.includePath.push_back(skip_equal(text() + 2));  return true; }
 
--L .+ \z		{ app.options.libraryPath.push_back(text() + 2);  return true; }
--x .+ \z		{ app.options.outputLibrary = text() + 2; return true; }
--l .+ \z		{ app.options.libraries.push_back(text() + 2); return true; }
+-L =? .+ \z		{ app.options.libraryPath.push_back(skip_equal(text() + 2));  return true; }
+-x =? .+ \z		{ app.options.outputLibrary = skip_equal(text() + 2); return true; }
+-l =? .+ \z		{ app.options.libraries.push_back(skip_equal(text() + 2)); return true; }
 
--O .+ \z		{ app.options.outputDirectory = text() + 2; return true; }
--o .+ \z		{ app.options.outputFile = text() + 2; return true; }
+-O =? .+ \z		{ app.options.outputDirectory = skip_equal(text() + 2); return true; }
+-o =? .+ \z		{ app.options.outputFile = skip_equal(text() + 2); return true; }
 
--D {ident} ( = {num} )? \z	{ 
-				  optionDefine(text() + 2); return true; }
+-D =? {ident} ( = {num} )? \z	{ 
+				  optionDefine(skip_equal(text() + 2)); return true; }
 
 .				{ return false; }
 
@@ -142,4 +144,10 @@ static void optionDefine(const std::string& text) {
 
 		app.options.defines.push_back({ name, num});
 	}
+}
+
+static const char* skip_equal(const char* text) {
+	if (*text == '=')
+		text++;
+	return text;
 }

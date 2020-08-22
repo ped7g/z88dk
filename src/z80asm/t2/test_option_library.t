@@ -16,10 +16,12 @@ path("${test}_dir")->remove_tree;
 mkdir("${test}_dir");
 
 # create library
-ok ! -f "${test}_dir/${test}.lib", "no library";
-write_file("${test}.asm", "PUBLIC main \n main: \n nop \n ret ");
-run_ok("z80asm -x${test}_dir/${test}.lib ${test}.asm");
-ok -f "${test}_dir/${test}.lib", "library created";
+for my $equal ("", "=") {
+    unlink "${test}_dir/${test}.lib";
+    write_file("${test}.asm", "PUBLIC main \n main: \n nop \n ret ");
+    run_ok("z80asm -x${equal}${test}_dir/${test}.lib ${test}.asm");
+    ok -f "${test}_dir/${test}.lib", "library created";
+}
 
 my $asm = "EXTERN main \n call main \n ret";
 my @bin = (0xCD, 0x04, 0x00, 0xC9, 0x00, 0xC9);
@@ -39,8 +41,11 @@ Error: cannot read file '${test}.lib'
 END
 
 # -L : OK
-asm_ok($asm, "-L${test}_dir -l${test}.lib", @bin);
-asm_ok($asm, "-L${test}_dir -l${test}    ", @bin);
+for my $equal ("", "=") {
+    for my $ext ("", ".lib") {
+        asm_ok($asm, "-L${equal}${test}_dir -l${equal}${test}${ext}", @bin);
+    }
+}
 
 # use environment variable in -L
 $ENV{TEST_ENV} = 'dir';

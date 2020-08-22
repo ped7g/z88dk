@@ -44,7 +44,9 @@ Error at file '${test}.asm' line 1: cannot read file '${test}.inc'
 END
 
 # -I : OK
-asm_ok("include \"${test}.inc\"", "-I${test}_dir", 11);
+for my $equal ("", "=") {
+	asm_ok("include \"${test}.inc\"", "-I${equal}${test}_dir", 11);
+}
 
 # test -I using environment variables
 $ENV{TEST_ENV} = $test;

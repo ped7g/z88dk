@@ -30,11 +30,15 @@ END
 }
 
 # -D
-asm_ok($asm, "-D_value23", @bin);
+for my $equal ("", "=") {
+	asm_ok($asm, "-D${equal}_value23", @bin);
+}
 
 # -Dvar=value
-for my $value (255, "0xff", "0XFF", "0ffh", "0FFH", "\$FF") {
-	asm_ok($asm, quote_os("-D_value23=${value}"), $bin[0], 255);
+for my $equal ("", "=") {
+	for my $value (255, "0xff", "0XFF", "0ffh", "0FFH", "\$FF") {
+		asm_ok($asm, quote_os("-D${equal}_value23=${value}"), $bin[0], 255);
+	}
 }
 
 # -D with environment variables

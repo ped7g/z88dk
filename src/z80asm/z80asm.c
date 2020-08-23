@@ -222,9 +222,12 @@ static void do_assemble(const char* src_filename ) {
 /***************************************************************************************************
  * Main entry of Z80asm
  ***************************************************************************************************/
-int z80asm_main( int argc, char* argv[] ) {
+void z80asm_init() {
     model_init();						/* init global data */
     init_macros();
+}
+
+int z80asm_main( int argc, char* argv[] ) {
 
     /* parse command line and call-back via assemble_file() */
     /* If filename starts with '@', reads the file as a list of filenames
@@ -245,9 +248,6 @@ int z80asm_main( int argc, char* argv[] ) {
 
             if (!get_num_errors())
                 CreateBinFile();
-
-            if (!get_num_errors())
-                checkrun_appmake();		/* call appmake if requested in the options */
         }
         else if (GetOutputObject()) {	// -o consolidated obj
             xassert(GetOutputObject() != NULL);
@@ -266,6 +266,15 @@ int z80asm_main( int argc, char* argv[] ) {
         }
     }
 
+    if ( get_num_errors() ) {
+        return 1;	/* signal error */
+    }
+    else {
+        return 0;    /* assembler successfully ended */
+    }
+}
+
+void z80asm_fini() {
     set_error_null();
     close_error_file();
 
@@ -277,11 +286,4 @@ int z80asm_main( int argc, char* argv[] ) {
     }
 
     free_macros();
-
-    if ( get_num_errors() ) {
-        return 1;	/* signal error */
-    }
-    else {
-        return 0;    /* assembler successfully ended */
-    }
 }

@@ -5,6 +5,8 @@
 //-----------------------------------------------------------------------------
 
 #include "Options.h"
+#include "legacy.h"
+#include <cassert>
 
 fs::path Options::GetOutputBinary() const {
     if (outputFile.empty())
@@ -25,4 +27,33 @@ fs::path Options::GetOutputObject() const {
     }
     else
         return fs::path();
+}
+
+void Options::SetDebug() {
+    debugInfo = true;
+    mapfile = true;
+}
+
+void Options::SetAppmake(Appmake appmake) {
+    switch (appmake) {
+    case Appmake::ZX:
+        appmakeOptions = "+zx";
+        appmakeExtension = ".tap";
+        appmakeOriginMin = 23760;
+        appmakeOriginMax = 0xFFFF;
+        break;
+
+    case Appmake::ZX81:
+        appmakeOptions = "+zx81";
+        appmakeExtension = ".P";
+        appmakeOriginMin = 16514;
+        appmakeOriginMax = 16514;
+        break;
+
+    default: assert(0);
+    }
+
+    this->appmake = appmake;
+    set_origin_option(appmakeOriginMin);
+    makeBinary = true;
 }

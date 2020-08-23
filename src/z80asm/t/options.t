@@ -144,36 +144,6 @@ t_binary(read_file($bin, binmode => ':raw'), "\0");
 unlink_testfiles($bin);
 
 #------------------------------------------------------------------------------
-# -r
-#------------------------------------------------------------------------------
-
-# -r
-for my $origin (0, 0x1234) {
-	my $origin_hex = sprintf("%x", $origin);
-	for my $origin_text ($origin, "0x${origin_hex}", "0X${origin_hex}", "0${origin_hex}h", "0${origin_hex}H", "\$${origin_hex}") {
-		z80asm(
-			options	=> "-b -r".$origin_text,
-			asm		=> "start: jp start",
-			bin		=> "\xC3" . pack("v", $origin),
-		);
-	}
-}
-
-# option out of range
-for my $origin (-1, 0x10000) {
-	z80asm(
-		options	=> "-b -r$origin",
-		asm		=> "start: jp start",
-		error	=> "Error: integer '$origin' out of range",
-	);
-}
-z80asm(
-	options	=> "-b -r123Z",
-	asm		=> "start: jp start",
-	error	=> "Error: invalid origin (-r) option '123Z'",
-);
-
-#------------------------------------------------------------------------------
 # -mz180
 t_z80asm_ok(0, "
 	slp

@@ -54,8 +54,15 @@ extern const char* CPU_INTEL_DEFINE;
 extern const char* SWAP_IXIY_DEFINE;
 
 // call legacy
+void z80asm_init();
+void z80asm_fini();
 int z80asm_main(int argc, char* argv[]);
 bool library_file_append(const char* filename);
+void set_origin_option(int origin);
+int get_first_section_origin();
+void error_invalid_org(int origin);
+void error_cmd_failed(const char* cmd);
+const char* get_first_module_filename();
 
 // called by legacy
 void ClearEnvPendingOptions();
@@ -74,6 +81,7 @@ bool OptionSplitBinary();
 bool OptionUpdate();
 bool OptionRelocatable();
 bool OptionRelocInfo();
+bool OptionAppmake();
 
 const char* GetOutputLibrary();
 const char* GetOutputDirectory();

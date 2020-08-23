@@ -22,6 +22,7 @@
 
 
 %{
+#include "legacy.h"
 #include "App.h"
 
 #include <string>
@@ -33,9 +34,9 @@
 #include <cstring>
 #include <cstdlib>
 
-static int parseNum(const std::string& text);
-static void optionDefine(const std::string& text);
-static const char* skip_equal(const char* text);
+static int ParseNum(const std::string& text);
+static void OptionDefine(const std::string& text);
+static const char* SkipEqual(const char* text);
 %}
 
 %option freespace dotall
@@ -77,27 +78,30 @@ num			{num16} | {num10}
 				  return true; }
 -IXIY \z		{ app.options.swapIxIy = true; return true; }
 -opt-speed	\z	{ app.options.optimizeSpeed = true; return true; }
--debug \z		{ app.options.debugInfo = true; 
-				  app.options.mapfile = true;
-				  return true; }
--I =? .+ \z		{ app.options.includePath.push_back(skip_equal(text() + 2));  return true; }
+-debug \z		{ app.options.SetDebug(); return true; }
+-I =? .+ \z		{ app.options.includePath.push_back(SkipEqual(text() + 2));  return true; }
 
--L =? .+ \z		{ app.options.libraryPath.push_back(skip_equal(text() + 2));  return true; }
--x =? .+ \z		{ app.options.outputLibrary = skip_equal(text() + 2); return true; }
--l =? .+ \z		{ app.options.libraries.push_back(skip_equal(text() + 2)); return true; }
+-L =? .+ \z		{ app.options.libraryPath.push_back(SkipEqual(text() + 2));  return true; }
+-x =? .+ \z		{ app.options.outputLibrary = SkipEqual(text() + 2); return true; }
+-l =? .+ \z		{ app.options.libraries.push_back(SkipEqual(text() + 2)); return true; }
 
--O =? .+ \z		{ app.options.outputDirectory = skip_equal(text() + 2); return true; }
--o =? .+ \z		{ app.options.outputFile = skip_equal(text() + 2); return true; }
+-O =? .+ \z		{ app.options.outputDirectory = SkipEqual(text() + 2); return true; }
+-o =? .+ \z		{ app.options.outputFile = SkipEqual(text() + 2); return true; }
 
 -D =? {ident} ( = {num} )? \z	{ 
-				  optionDefine(skip_equal(text() + 2)); return true; }
+				  OptionDefine(SkipEqual(text() + 2)); return true; }
+
+-r =? {num} \z	{ set_origin_option(ParseNum(SkipEqual(text() + 2))); return true; }
+
+\+ zx   \z		{ app.options.SetAppmake(Appmake::ZX); return true; }
+\+ zx81 \z		{ app.options.SetAppmake(Appmake::ZX81); return true; }
 
 .				{ return false; }
 
 %%
 
 // parse NUM
-static int parseNum(const std::string& text) {
+static int ParseNum(const std::string& text) {
 	char *end = nullptr;
 	const char *p = text.c_str();
 	long lval;
@@ -130,7 +134,7 @@ static int parseNum(const std::string& text) {
 		return static_cast<int>(lval);
 }
 
-static void optionDefine(const std::string& text) {
+static void OptionDefine(const std::string& text) {
 	using namespace std;
 
 	auto p = text.find('=');
@@ -139,14 +143,14 @@ static void optionDefine(const std::string& text) {
 	}
 	else {							// -Dvar=value
 		string name = text.substr(0, p);
-		int num = parseNum(text.c_str() + p + 1);
+		int num = ParseNum(text.c_str() + p + 1);
 		assert(num >= 0);
 
 		app.options.defines.push_back({ name, num});
 	}
 }
 
-static const char* skip_equal(const char* text) {
+static const char* SkipEqual(const char* text) {
 	if (*text == '=')
 		text++;
 	return text;

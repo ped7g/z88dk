@@ -10,6 +10,7 @@
 #include <iostream>
 
 int main(int argc, char* argv[]) {
+
     if (!app.ParseEnv())
         return EXIT_FAILURE;
     if (!app.ParseArgs(argc, argv))
@@ -20,5 +21,19 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     if (!app.AddLibraries())
         return EXIT_FAILURE;
-    return z80asm_main(argc, argv);
+
+    // init and fini must run even if there were errors
+    bool ok = true;
+    z80asm_init();
+    if (z80asm_main(argc, argv) != 0) // --> failed
+        ok = false;
+    if (ok)
+        if (!app.RunAppmake())
+            ok = false;
+    z80asm_fini();
+
+    if (ok)
+        return EXIT_SUCCESS;
+    else
+        return EXIT_FAILURE;
 }

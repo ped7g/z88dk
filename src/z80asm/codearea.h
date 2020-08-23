@@ -176,6 +176,8 @@ extern void set_origin_directive(int origin);
 /* define a new origin, called by the --orgin command line option */
 extern void set_origin_option(int origin);
 
+extern int get_first_section_origin(void);
+
 /* read/write origin to/from input file, for these cases:
    origin = 0..0xFFFF - origin defined;
    origin = -1 - origin not defined

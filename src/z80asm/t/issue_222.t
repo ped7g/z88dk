@@ -111,7 +111,7 @@ z80asm($asm, "+zx -m -v", 0, <<'END');
 
 	Code size: 4 bytes ($5CD0 to $5CD3)
 	Creating binary 'test.bin'
-	appmake +zx -b "test.bin" -o "test.tap" --org 23760
+	Running: appmake +zx -b "test.bin" -o "test.tap" --org 23760
 END
 check_bin_file("test.bin", $bin);
 check_bin_file("test.tap", $rem_tap);
@@ -126,8 +126,13 @@ check_bin_file("test.tap", $rem_tap);
 
 # error for -r below 23760
 unlink_testfiles();
+z80asm($asm, "-m -r23759 +zx", 0, "", "");
+check_bin_file("test.bin", $bin);
+check_bin_file("test.tap", $rem_tap);
+
+unlink_testfiles();
 z80asm($asm, "+zx -m -r23759", 1, "", <<'END');
-	Error: invalid origin: 23759
+Error: invalid origin: 23759
 END
 check_bin_file("test.bin", $bin);
 ok ! -f "test.tap", "no test.tap";
@@ -250,7 +255,7 @@ z80asm($asm, "+zx81 -v", 0, <<'END', "");
 
 	Code size: 4 bytes ($4082 to $4085)
 	Creating binary 'test.bin'
-	appmake +zx81 -b "test.bin" -o "test.P" --org 16514
+	Running: appmake +zx81 -b "test.bin" -o "test.P" --org 16514
 END
 check_bin_file("test.bin", $bin);
 check_bin_file("test.P", $rem_P);

@@ -50,9 +50,6 @@ enum OptType {
 };
 
 /* declare functions */
-static void option_origin(const char* origin );
-static void option_appmake_zx(void);
-static void option_appmake_zx81(void);
 static void option_filler(const char* filler_arg );
 static void define_assembly_defines();
 
@@ -426,14 +423,6 @@ int number_arg(const char* arg) {
         return (int)lval;
 }
 
-static void option_origin(const char* origin ) {
-    int value = number_arg(origin);
-    if (value < 0 || value > 0xFFFF)
-        error_invalid_org_option(origin);
-    else
-        set_origin_option(value);
-}
-
 static void option_filler(const char* filler_arg ) {
     int value = number_arg(filler_arg);
     if (value < 0 || value > 0xFF)
@@ -518,57 +507,4 @@ const char* get_asm_filename(const char* filename) {
 
 const char* get_obj_filename(const char* filename ) {
     return path_prepend_output_dir(path_replace_ext(filename, FILEEXT_OBJ));
-}
-
-/*-----------------------------------------------------------------------------
-*   Appmake options
-*	+zx without ORG - sets org at 25760, in a REM statement
-*	+zx with ORG - uses that org
-*----------------------------------------------------------------------------*/
-static void option_appmake_zx(void) {
-    opts.appmake = APPMAKE_ZX;
-    opts.appmake_opts = "+zx";
-    opts.appmake_ext = ZX_APP_EXT;
-    opts.appmake_origin_min = ZX_ORIGIN_MIN;
-    opts.appmake_origin_max = ZX_ORIGIN_MAX;
-    set_origin_option(ZX_ORIGIN);
-    SetOptionBinary(true);
-}
-
-static void option_appmake_zx81(void) {
-    opts.appmake = APPMAKE_ZX81;
-    opts.appmake_opts = "+zx81";
-    opts.appmake_ext = ZX81_APP_EXT;
-    opts.appmake_origin_min = ZX81_ORIGIN_MIN;
-    opts.appmake_origin_max = ZX81_ORIGIN_MAX;
-    set_origin_option(ZX81_ORIGIN);
-    SetOptionBinary(true);
-}
-
-void checkrun_appmake(void) {
-    STR_DEFINE(cmd, STR_SIZE);
-
-    if (opts.appmake) {
-        Section* first_section = get_first_section(NULL);
-        int origin = first_section->origin;
-        if (origin < opts.appmake_origin_min || origin > opts.appmake_origin_max)
-            error_invalid_org(origin);
-        else {
-            const char* bin_filename = get_bin_filename(get_first_module(NULL)->filename);
-            const char* out_filename = path_replace_ext(bin_filename, opts.appmake_ext);
-
-            Str_sprintf(cmd, "appmake %s -b \"%s\" -o \"%s\" --org %d",
-                        opts.appmake_opts,
-                        bin_filename,
-                        out_filename,
-                        origin);
-
-            if (OptionVerbose())
-                puts(Str_data(cmd));
-
-            int rv = system(Str_data(cmd));
-            if (rv != 0)
-                error_cmd_failed(Str_data(cmd));
-        }
-    }
 }

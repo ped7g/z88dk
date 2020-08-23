@@ -561,7 +561,7 @@ void fwrite_codearea(const char* filename, FILE** pbinfile, FILE** prelocfile) {
                         section->section_split ||
                         cur_addr != section->addr ||
                         (section != get_first_section(NULL) && section->origin >= 0)) {
-                    if (opts.appmake)
+                    if (OptionAppmake())
                         warn_org_ignored(get_obj_filename(filename), section->name);
                     else {
                         Str_set(new_name, path_remove_ext(filename));	/* "test" */
@@ -640,6 +640,11 @@ void set_origin_option(int origin) {
     }
 }
 
+int get_first_section_origin(void) {
+    Section* first_section = get_first_section(NULL);
+    int origin = first_section->origin;
+    return origin;
+}
 
 void read_origin(FILE* file, Section* section) {
     int origin = xfread_dword(file);

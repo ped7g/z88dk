@@ -30,6 +30,7 @@ public:
     bool AddDefines();
     bool AddLibraries();
     bool MakeOutputDirectory();
+    bool RunAppmake();
 
     static void ExitUsage();
     static void ExitManual();

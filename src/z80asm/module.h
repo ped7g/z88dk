@@ -51,3 +51,5 @@ extern Module* get_cur_module( void );
 extern Module* get_first_module( ModuleListElem** piter );
 extern Module* get_last_module(  ModuleListElem** piter );
 extern Module* get_next_module(  ModuleListElem** piter );
+
+extern const char* get_first_module_filename(void);

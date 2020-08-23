@@ -16,7 +16,10 @@
 #include "ghc/filesystem.hpp"
 namespace fs = ghc::filesystem;		// until we have std::filesystem
 
+enum class Appmake { NONE, ZX81, ZX };
+
 struct Options {
+    // attributes
     bool	verbose{ false };			// true to be verbose
     bool	mapfile{ false };			// generate map file
     bool	symtable{ false };			// generate symbol table file
@@ -35,14 +38,24 @@ struct Options {
     fs::path outputLibrary;				// name of output library if -x is given
     fs::path outputDirectory;			// path to store output files
     fs::path outputFile;				// name of output binary or object file
-    fs::path GetOutputBinary() const;	// -o argument if -b
-    fs::path GetOutputObject() const;	// -o argument if !-b
 
     Cpu		cpu;
     Arch	arch;
+    Appmake	appmake{ Appmake::NONE };	// which appmake to run after build
+    std::string appmakeOptions;			// options to pass to appmake
+    std::string appmakeExtension;		// appmake output file extension
+    int		appmakeOriginMin{ -1 };		// minimum and ...
+    int		appmakeOriginMax{ -1 };		// ... maximum vakues for origin
 
     std::vector<std::pair<std::string, int>> defines;		// list of -D defines
     std::vector<fs::path>	includePath;	// where to search for source files
     std::vector<fs::path>	libraryPath;	// where to search for library files
     std::vector<fs::path>	libraries;		// list of libraries to link
+
+    // methods
+    fs::path GetOutputBinary() const;	// -o argument if -b
+    fs::path GetOutputObject() const;	// -o argument if !-b
+
+    void SetDebug();
+    void SetAppmake(Appmake appmake);
 };

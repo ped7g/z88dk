@@ -38,16 +38,16 @@ Environment:
   -DVAR[=num]           Define a static symbol, number like 127|0x7f|07fh|$7f
 
 Libraries:
-  -x                    Create a library file.lib
-  -l                    Use library file.lib
+  -xLIB                 Create a library file.lib
+  -lLIB                 Use library file.lib
 
 Binary Output:
-  -O                    Output directory
-  -o                    Output binary file
+  -ODIR                 Output directory
+  -oFILE                Output binary file
   -b                    Assemble and link/relocate to file.bin
   -split-bin            Create one binary file per section
   -d                    Assemble only updated files
-  -r, --origin=ADDR     Relocate binary file to given address (decimal or hex)
+  -rADDR                Relocate binary file to given address (decimal or hex)
   -R                    Create relocatable code
   -reloc-info           Geneate binary file relocation information
   --filler=BYTE         Default value to fill in DEFS (decimal or hex)

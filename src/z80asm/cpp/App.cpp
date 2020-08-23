@@ -147,6 +147,43 @@ bool App::MakeOutputDirectory() {
         return fs::create_directories(dir);
 }
 
+bool App::RunAppmake() {
+    using namespace std;
+
+    if (options.appmake == Appmake::NONE)
+        return true;
+
+    int origin = get_first_section_origin();
+    if (origin < options.appmakeOriginMin ||
+            origin > options.appmakeOriginMax) {
+        error_invalid_org(origin);
+        return false;
+    }
+
+    fs::path binFilename = get_first_module_filename();
+    binFilename.replace_extension(".bin");		// TODO: make constant
+
+    fs::path outFilename = get_first_module_filename();
+    outFilename.replace_extension(options.appmakeExtension);
+
+    stringstream cmd;
+    cmd << "appmake " << options.appmakeOptions
+        << " -b \"" << binFilename.generic_string() << "\""
+        << " -o \"" << outFilename.generic_string() << "\""
+        << " --org " << origin;
+
+    if (OptionVerbose())
+        cout << "Running: " << cmd.str() << endl;
+
+    int rv = system(cmd.str().c_str());
+    if (rv != 0) {
+        error_cmd_failed(cmd.str().c_str());
+        return false;
+    }
+
+    return true;
+}
+
 void App::ExitUsage() {
     using namespace std;
 

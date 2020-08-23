@@ -23,6 +23,7 @@ our @EXPORT = qw(
 			path 
 			write_file check_text_file check_bin_file
 			unlink_testfiles end_test 
+			quote_os
 );
 
 my $exe = $Config{osname} eq 'MSWin32' ? '.exe' : '';
@@ -90,6 +91,16 @@ sub check_text_file {
 sub check_bin_file {
 	my($file, @data) = @_;
 	ok path($file)->slurp_raw eq pack("C*", @data), "$file ok";
+}
+
+sub quote_os {
+	my($txt) = @_;
+	if ($^O eq 'MSWin32') {
+		return '"'.$txt.'"';
+	}
+	else {
+		return "'".$txt."'";
+	}
 }
 
 1;

@@ -101,6 +101,13 @@ bool OptionRelocInfo() {
     return app.options.relocInfo;
 }
 
+bool OptionAppmake() {
+    if (app.options.appmake == Appmake::NONE)
+        return false;
+    else
+        return true;
+}
+
 static const char* GetOptionPath(fs::path path) {
     if (path.empty())
         return NULL;
@@ -204,4 +211,3 @@ const char* SearchLibraryFile(const char* filename) {
     else
         return AddStringPool(file.generic_string().c_str());
 }
-

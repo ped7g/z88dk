@@ -125,3 +125,10 @@ Module* get_next_module( ModuleListElem** piter ) {
     *piter = ModuleList_next( *piter );
     return *piter == NULL ? NULL : (Module*) (*piter)->obj;
 }
+
+
+const char* get_first_module_filename(void) {
+    return get_first_module(NULL)->filename;
+}
+
+

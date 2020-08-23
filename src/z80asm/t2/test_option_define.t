@@ -52,14 +52,3 @@ delete $ENV{TEST_ENV};
 asm_ok($asm, "-D_value\${TEST_ENV}23", @bin);
 
 end_test();
-
-
-sub quote_os {
-	my($txt) = @_;
-	if ($^O eq 'MSWin32') {
-		return '"'.$txt.'"';
-	}
-	else {
-		return "'".$txt."'";
-	}
-}

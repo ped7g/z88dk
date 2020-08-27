@@ -108,6 +108,10 @@ bool OptionAppmake() {
         return true;
 }
 
+int OptionFiller() {
+    return app.options.filler;
+}
+
 static const char* GetOptionPath(fs::path path) {
     if (path.empty())
         return NULL;

@@ -283,7 +283,7 @@ Define rules for a ragel-based parser.
 		     if (expr_error)
 				error_expected_const_expr();
 			 else
-				asm_DEFS(expr_value, opts.filler); }
+				asm_DEFS(expr_value, OptionFiller()); }
 		| label? (_TK_DEFS | _TK_DS)
 				const_expr _TK_COMMA
 				@{ if (expr_error)
@@ -466,7 +466,7 @@ Define rules for a ragel-based parser.
 			if (expr_error)
 				error_expected_const_expr();
 			else
-				asm_ALIGN(expr_value, opts.filler);
+				asm_ALIGN(expr_value, OptionFiller());
 		}
 		| label? _TK_ALIGN const_expr _TK_COMMA
 				@{ if (expr_error)

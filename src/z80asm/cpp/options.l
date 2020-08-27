@@ -34,9 +34,10 @@
 #include <cstring>
 #include <cstdlib>
 
+static const char* SkipEqual(const char* text);
 static int ParseNum(const std::string& text);
 static void OptionDefine(const std::string& text);
-static const char* SkipEqual(const char* text);
+static void OptionFiller(const std::string& text);
 %}
 
 %option freespace dotall
@@ -91,14 +92,21 @@ num			{num16} | {num10}
 -D =? {ident} ( = {num} )? \z	{ 
 				  OptionDefine(SkipEqual(text() + 2)); return true; }
 
--r =? {num} \z	{ set_origin_option(ParseNum(SkipEqual(text() + 2))); return true; }
-
 \+ zx   \z		{ app.options.SetAppmake(Appmake::ZX); return true; }
 \+ zx81 \z		{ app.options.SetAppmake(Appmake::ZX81); return true; }
+
+-r =? {num} \z	{ set_origin_option(ParseNum(SkipEqual(text() + 2))); return true; }
+-f =? {num} \z	{ OptionFiller(SkipEqual(text() + 2)); return true; }
 
 .				{ return false; }
 
 %%
+
+static const char* SkipEqual(const char* text) {
+	if (*text == '=')
+		text++;
+	return text;
+}
 
 // parse NUM
 static int ParseNum(const std::string& text) {
@@ -150,8 +158,10 @@ static void OptionDefine(const std::string& text) {
 	}
 }
 
-static const char* SkipEqual(const char* text) {
-	if (*text == '=')
-		text++;
-	return text;
+static void OptionFiller(const std::string& text) {
+	int value = ParseNum(text);
+	if (value < 0 || value > 0xFF)
+		error_invalid_filler_option(text.c_str());
+	else
+		app.options.filler = value;
 }

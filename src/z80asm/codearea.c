@@ -283,7 +283,7 @@ void sections_alloc_addr(void) {
             int above = addr % next_section->align;
             if (above > 0) {
                 for (int i = next_section->align - above; i > 0; i--) {
-                    *(ByteArray_push(section->bytes)) = opts.filler;
+                    *(ByteArray_push(section->bytes)) = OptionFiller();
                     addr++;
                 }
             }

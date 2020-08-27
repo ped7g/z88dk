@@ -62,6 +62,7 @@ void set_origin_option(int origin);
 int get_first_section_origin();
 void error_invalid_org(int origin);
 void error_cmd_failed(const char* cmd);
+void error_invalid_filler_option(const char* filler_hex);
 const char* get_first_module_filename();
 
 // called by legacy
@@ -82,6 +83,7 @@ bool OptionUpdate();
 bool OptionRelocatable();
 bool OptionRelocInfo();
 bool OptionAppmake();
+int OptionFiller();
 
 const char* GetOutputLibrary();
 const char* GetOutputDirectory();

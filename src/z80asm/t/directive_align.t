@@ -114,16 +114,20 @@ Object  file test.o at $0000: Z80RMF14
     C $0000: 01 02 03 04
 END
 
-unlink_testfiles();
-z80asm(<<'END', "-l -s -b -m -f0xFF", 0, "", "");
-	section code
-	nop
+for my $equal ("", "=") {
+	for my $num ("255", "0xff", "0XFF", "0ffh", "0FFH", "\$ff", "\$FF") {
+		unlink_testfiles();
+		z80asm(<<'END', "-l -s -b -m ".quote_os("-f${equal}$num"), 0, "", "");
+				section code
+				nop
 
-	section data
-	align 	16
-	defb	1, 2, 3, 4
+				section data
+				align 	16
+				defb	1, 2, 3, 4
 END
-check_bin_file("test.bin", pack("C*", 0, (0xFF) x 15, 1,2,3,4));
+		check_bin_file("test.bin", pack("C*", 0, (0xFF) x 15, 1,2,3,4));
+	}
+}
 
 # check section align in another group
 unlink_testfiles();
@@ -142,3 +146,14 @@ check_bin_file("test_data.bin", pack("C*", 1,2,3,4));
 
 unlink_testfiles();
 done_testing();
+
+
+sub quote_os {
+	my($txt) = @_;
+	if ($^O eq 'MSWin32') {
+		return '"'.$txt.'"';
+	}
+	else {
+		return "'".$txt."'";
+	}
+}

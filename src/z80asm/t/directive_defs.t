@@ -41,6 +41,28 @@ check_bin_file("test.bin", pack("C*",
 								0xFF,0xFF, 
 								2,2));
 
+# test -f=filler
+unlink_testfiles();
+z80asm(<<'END', "-b", 0, "", "");
+				defb 1
+				defs 15
+				defb 2
+END
+check_bin_file("test.bin", pack("C*", 1, (0) x 15, 2));
+
+for my $equal ("", "=") {
+	for my $num ("255", "0xff", "0XFF", "0ffh", "0FFH", "\$ff", "\$FF") {
+		unlink_testfiles();
+		z80asm(<<'END', "-b ".quote_os("-f${equal}$num"), 0, "", "");
+				defb 1
+				defs 15
+				defb 2
+END
+		check_bin_file("test.bin", pack("C*", 1, (0xFF) x 15, 2));
+	}
+}
+
+
 unlink_testfiles();
 z80asm(<<'END', "", 1, "", <<'ERR');
 	extern ZERO
@@ -67,3 +89,14 @@ ERR
 
 unlink_testfiles();
 done_testing();
+
+
+sub quote_os {
+	my($txt) = @_;
+	if ($^O eq 'MSWin32') {
+		return '"'.$txt.'"';
+	}
+	else {
+		return "'".$txt."'";
+	}
+}

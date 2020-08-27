@@ -34,6 +34,7 @@ struct Options {
     bool	swapIxIy{ false };			// swap IX and IY
     bool	optimizeSpeed{ false };		// true to optimize for speed
     bool	debugInfo{ false };			// add debug info to map file
+    int		filler{ 0 };				// filler value for DEFS
 
     fs::path outputLibrary;				// name of output library if -x is given
     fs::path outputDirectory;			// path to store output files

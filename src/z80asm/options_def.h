@@ -17,7 +17,6 @@ Define command line options
 
 OPT_VAR(argv_t*,	files,	  NULL)			/* list of input files */
 
-OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 
 /*-----------------------------------------------------------------------------
 *   define options
@@ -31,7 +30,8 @@ OPT_VAR(int,		filler,		0)			/* filler byte for defs */
 #endif
 
 OPT_TITLE("Binary Output:")
-OPT(OptCallArg, option_filler, "-f", "", "Default value to fill in DEFS (decimal or hex)", "BYTE")
+OPT(OptCallArg, option_filler, "-xxxxxxx", "", "Default value to fill in DEFS (decimal or hex)",
+    "BYTE")
 
 
 /*-----------------------------------------------------------------------------

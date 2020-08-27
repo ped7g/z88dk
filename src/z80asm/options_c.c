@@ -50,8 +50,8 @@ enum OptType {
 };
 
 /* declare functions */
-static void option_filler(const char* filler_arg );
 static void define_assembly_defines();
+static void option_filler() {}
 
 static void process_options( int* parg, int argc, char* argv[] );
 static void process_files( int arg, int argc, char* argv[] );
@@ -125,7 +125,7 @@ static void process_env_options() {
 }
 
 void parse_argv( int argc, char* argv[] ) {
-    int arg;
+    int arg = 0;
 
     init_module();
 
@@ -421,14 +421,6 @@ int number_arg(const char* arg) {
         return -1;
     else
         return (int)lval;
-}
-
-static void option_filler(const char* filler_arg ) {
-    int value = number_arg(filler_arg);
-    if (value < 0 || value > 0xFF)
-        error_invalid_filler_option(filler_arg);
-    else
-        opts.filler = value;
 }
 
 static void def_sym(const char* name, int value) {

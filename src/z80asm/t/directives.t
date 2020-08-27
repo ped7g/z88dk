@@ -110,11 +110,6 @@ z80asm(
 
 z80asm(
 	asm		=> " defb 1 ",
-	options	=> "-b -f-1",
-	error	=> "Error: invalid filler value: -1",
-);
-z80asm(
-	asm		=> " defb 1 ",
 	options	=> "-b -f256",
 	error	=> "Error: invalid filler value: 256",
 );

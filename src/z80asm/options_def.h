@@ -8,35 +8,10 @@ License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_licens
 Define command line options
 */
 
-/*-----------------------------------------------------------------------------
-*   define option variables
-*----------------------------------------------------------------------------*/
 #ifndef OPT_VAR
 #define OPT_VAR(type, name, default)
 #endif
 
 OPT_VAR(argv_t*,	files,	  NULL)			/* list of input files */
 
-
-/*-----------------------------------------------------------------------------
-*   define options
-*----------------------------------------------------------------------------*/
-#ifndef OPT_TITLE
-#define OPT_TITLE(text)
-#endif
-
-#ifndef OPT
-#define OPT(type, arg, short_opt, long_opt, help_text, help_arg)
-#endif
-
-OPT_TITLE("Binary Output:")
-OPT(OptCallArg, option_filler, "-xxxxxxx", "", "Default value to fill in DEFS (decimal or hex)",
-    "BYTE")
-
-
-/*-----------------------------------------------------------------------------
-*   clear macros
-*----------------------------------------------------------------------------*/
 #undef OPT_VAR
-#undef OPT_TITLE
-#undef OPT

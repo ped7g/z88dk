@@ -53,6 +53,8 @@ struct Options {
     std::vector<fs::path>	libraryPath;	// where to search for library files
     std::vector<fs::path>	libraries;		// list of libraries to link
 
+    std::vector<fs::path>	files;			// list argument files
+
     // methods
     fs::path GetOutputBinary() const;	// -o argument if -b
     fs::path GetOutputObject() const;	// -o argument if !-b

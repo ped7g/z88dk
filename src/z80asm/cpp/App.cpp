@@ -67,7 +67,6 @@ App& App::operator=(App&& rhs) {
 bool App::ParseEnv(const std::string& envVariable) {
     using namespace std;
 
-    ClearEnvPendingOptions();
     const char* env = getenv(envVariable.c_str());
     if (env) {
         stringstream iss{ string(env) };
@@ -76,8 +75,9 @@ bool App::ParseEnv(const std::string& envVariable) {
         while (iss >> arg) {
             arg = App::ExpandEnvironmentVars(arg);
             optionsLexer->in(arg);
-            if (!optionsLexer->lex()) {					// TODO: error handling
-                AppendEnvPendingOptions(arg.c_str());	// pass options not parsed to the C code
+            if (!optionsLexer->lex()) {
+                error_illegal_option(arg.c_str());
+                return false;
             }
         }
     }
@@ -95,10 +95,16 @@ bool App::ParseArgs(int argc, char* argv[]) {
     for (int i = 1; i < argc; ++i) {
         string arg = App::ExpandEnvironmentVars(argv[i]);
         optionsLexer->in(arg);
-        if (optionsLexer->lex())
-            argv[i][0] = '\0';		// cancel this argument for next pass
-        else {						// TODO: error handling
+        if (!optionsLexer->lex()) {
+            error_illegal_option(arg.c_str());
+            return false;
         }
+    }
+
+    // error if options but no source file
+    if (get_num_errors() == 0 && files_empty()) {
+        error_no_src_file();
+        return false;
     }
 
     return true;

@@ -271,14 +271,6 @@ void error_org_not_aligned(int org, int align) {
 
     STR_DELETE(msg);
 }
-void error_invalid_org_option(const char* org_hex) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "invalid origin (-r) option '%s'", org_hex );
-    do_error( ErrError, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
 void error_invalid_define_option(const char* define) {
     STR_DEFINE(msg, STR_SIZE);
 

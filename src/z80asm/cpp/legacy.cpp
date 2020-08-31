@@ -13,8 +13,6 @@ namespace fs = ghc::filesystem;		// util we have std::filesystem
 
 #include <unordered_set>
 
-static std::string envPendingOptions;
-
 const char* CPU_Z80_NAME = "z80";
 const char* CPU_Z80N_NAME = "z80n";
 const char* CPU_Z180_NAME = "z180";
@@ -38,24 +36,6 @@ const char* CPU_RABBIT_DEFINE = "__CPU_RABBIT__";
 const char* CPU_INTEL_DEFINE = "__CPU_INTEL__";
 
 const char* SWAP_IXIY_DEFINE = "__SWAP_IX_IY__";
-
-void ClearEnvPendingOptions() {
-    envPendingOptions.clear();
-}
-
-void SetEnvPendingOptions(const char* str) {
-    envPendingOptions = str;
-}
-
-void AppendEnvPendingOptions(const char* str) {
-    using namespace std;
-
-    envPendingOptions += string(" ") + str;
-}
-
-const char* GetEnvPendingOptions() {
-    return envPendingOptions.c_str();
-}
 
 bool OptionVerbose() {
     return app.options.verbose;

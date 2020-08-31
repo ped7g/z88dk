@@ -9,7 +9,10 @@
 
 #include <iostream>
 
+void define_assembly_defines();
+
 int main(int argc, char* argv[]) {
+    z80asm_init();
 
     if (!app.ParseEnv())
         return EXIT_FAILURE;
@@ -22,16 +25,15 @@ int main(int argc, char* argv[]) {
     if (!app.AddLibraries())
         return EXIT_FAILURE;
 
-    // init and fini must run even if there were errors
+    // fini must run even if there were errors
     bool ok = true;
-    z80asm_init();
-    if (z80asm_main(argc, argv) != 0) // --> failed
+    if (z80asm_main() != 0) // --> failed
         ok = false;
     if (ok)
         if (!app.RunAppmake())
             ok = false;
-    z80asm_fini();
 
+    z80asm_fini();
     if (ok)
         return EXIT_SUCCESS;
     else

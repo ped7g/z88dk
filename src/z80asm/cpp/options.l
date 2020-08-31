@@ -98,6 +98,11 @@ num			{num16} | {num10}
 -r =? {num} \z	{ set_origin_option(ParseNum(SkipEqual(text() + 2))); return true; }
 -f =? {num} \z	{ OptionFiller(SkipEqual(text() + 2)); return true; }
 
+-- \z			{ return true; }
+\z				{ return true; }
+
+[^-+] .* \z		{ process_file(text()); return true; }
+
 .				{ return false; }
 
 %%

@@ -35,7 +35,6 @@ extern void error_max_codesize(long size);
 extern void error_org_redefined(void);
 extern void error_align_redefined(void);
 extern void error_org_not_aligned(int org, int align);
-extern void error_invalid_org_option(const char* org_hex);
 extern void error_invalid_define_option(const char* define);
 extern void error_invalid_org(int origin);
 extern void error_invalid_filler_option(const char* filler_hex);

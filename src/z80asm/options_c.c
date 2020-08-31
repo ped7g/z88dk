@@ -50,11 +50,6 @@ enum OptType {
 };
 
 /* declare functions */
-static void define_assembly_defines();
-static void option_filler() {}
-
-static void process_options( int* parg, int argc, char* argv[] );
-static void process_files( int arg, int argc, char* argv[] );
 static void expand_source_glob(const char* pattern);
 static void expand_list_glob(const char* filename);
 
@@ -67,24 +62,6 @@ Opts opts = {
 };
 
 /*-----------------------------------------------------------------------------
-*   lookup-table for all options
-*----------------------------------------------------------------------------*/
-typedef struct OptsLU {
-    enum OptType	 type;		/* type of option */
-    void*			arg;		/* option argument */
-    char*			short_opt;	/* option text, including starting "-" */
-    char*			long_opt;	/* option text, including starting "--" */
-}
-OptsLU;
-
-#define OPT(type, arg, short_opt, long_opt, help_text, help_arg) \
-		  { type, arg, short_opt, long_opt },
-
-static OptsLU opts_lu[] = {
-#include "options_def.h"
-};
-
-/*-----------------------------------------------------------------------------
 *   Initialize module
 *----------------------------------------------------------------------------*/
 DEFINE_init_module() {
@@ -93,167 +70,6 @@ DEFINE_init_module() {
 
 DEFINE_dtor_module() {
     argv_free(opts.files);
-}
-
-/*-----------------------------------------------------------------------------
-*   Parse command line, set options, including opts.files with list of
-*	input files, including parsing of '@' lists
-*----------------------------------------------------------------------------*/
-static void process_env_options() {
-    const char* opts = GetEnvPendingOptions();
-    if (!opts || *opts == '\0')
-        return;
-
-    // add dummy program name option
-    argv_t* args = argv_new();
-    argv_push(args, "z80asm");
-
-    char* opts_copy = xstrdup(opts);		// strtok needs writeable string
-    char* tok = strtok(opts_copy, " ");
-    while (tok) {
-        argv_push(args, tok);
-        tok = strtok(NULL, " ");
-    }
-
-    // parse args
-    int argc = argv_len(args);
-    int arg;
-    process_options(&arg, argc, argv_front(args));
-
-    xfree(opts_copy);
-    argv_free(args);
-}
-
-void parse_argv( int argc, char* argv[] ) {
-    int arg = 0;
-
-    init_module();
-
-    if (!get_num_errors())
-        process_env_options();				/* process options from Z80ASM environment variable */
-
-    if (!get_num_errors())
-        process_options( &arg, argc, argv );/* process all options, set arg to next */
-
-    if (!get_num_errors() && arg >= argc)
-        error_no_src_file();				/* no source file */
-
-    if ( ! get_num_errors() )
-        process_files( arg, argc, argv );	/* process each source file */
-
-    define_assembly_defines();				/* defined options-dependent constants */
-}
-
-/*-----------------------------------------------------------------------------
-*   process all options
-*----------------------------------------------------------------------------*/
-/* check if this option is matched, return char pointer after option, ready
-   to retrieve an argument, if any */
-static char* check_option( char* arg, char* opt ) {
-    size_t len = strlen( opt );
-
-    if ( *opt &&				/* ignore empty option strings */
-            strncmp( arg, opt, len ) == 0 ) {
-        if ( arg[len] == '=' )
-            len++;				/* skip '=' after option, to point at argument */
-
-        return arg + len;		/* point to after argument */
-    }
-    else
-        return NULL;			/* not found */
-}
-
-static void process_opt(int* parg, int argc, char* argv[]) {
-#define II (*parg)
-    int		 j;
-    const char* opt_arg_ptr;
-
-    /* search opts_lu[] */
-    for (j = 0; j < NUM_ELEMS(opts_lu); j++) {
-        if ((opt_arg_ptr = check_option(argv[II], opts_lu[j].long_opt)) != NULL ||
-                (opt_arg_ptr = check_option(argv[II], opts_lu[j].short_opt)) != NULL) {
-            /* found option, opt_arg_ptr points to after option */
-            switch (opts_lu[j].type) {
-            case OptSet:
-                if (*opt_arg_ptr)
-                    error_illegal_option(argv[II]);
-                else
-                    *((bool*)(opts_lu[j].arg)) = true;
-
-                break;
-
-            case OptCall:
-                if (*opt_arg_ptr)
-                    error_illegal_option(argv[II]);
-                else
-                    ((void(*)(void))(opts_lu[j].arg))();
-
-                break;
-
-            case OptCallArg:
-                if (*opt_arg_ptr) {
-                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                    ((void(*)(const char*))(opts_lu[j].arg))(opt_arg_ptr);
-                }
-                else
-                    error_illegal_option(argv[II]);
-
-                break;
-
-            case OptString:
-                if (*opt_arg_ptr) {
-                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                    *((const char**)(opts_lu[j].arg)) = opt_arg_ptr;
-                }
-                else
-                    error_illegal_option(argv[II]);
-
-                break;
-
-            case OptStringList:
-                if (*opt_arg_ptr) {
-                    UT_array** p_path = (UT_array**)opts_lu[j].arg;
-                    opt_arg_ptr = ExpandEnvironmentVarsC(opt_arg_ptr);
-                    argv_push(*p_path, opt_arg_ptr);
-                }
-                else
-                    error_illegal_option(argv[II]);
-
-                break;
-
-            default:
-                xassert(0);
-            }
-
-            return;
-        }
-    }
-
-    /* not found */
-    error_illegal_option(argv[II]);
-
-#undef II
-}
-
-static void process_options( int* parg, int argc, char* argv[] ) {
-#define II (*parg)
-    for (II = 1; II < argc; II++) {
-        if (argv[II][0] == '\0') {
-            // ignore empty args
-        }
-        else if (strcmp(argv[II], "--") == 0) {
-            // end of options
-            II++;
-            break;
-        }
-        else if (argv[II][0] != '-' && argv[II][0] != '+') {
-            // end of options
-            break;
-        }
-        else
-            process_opt(&II, argc, argv);
-    }
-#undef II
 }
 
 /*-----------------------------------------------------------------------------
@@ -293,7 +109,7 @@ static const char* search_source(const char* filename) {
     return filename;
 }
 
-static void process_file(char* filename ) {
+static void process_file_1(char* filename) {
     strstrip(filename);
     switch (filename[0]) {
     case '\0':		/* no file */
@@ -302,19 +118,24 @@ static void process_file(char* filename ) {
     case '@':		/* file list */
         filename++;						/* point to after '@' */
         strstrip(filename);
-        filename = (char*)ExpandEnvironmentVarsC(filename);
-        expand_list_glob(filename);
+        expand_list_glob(ExpandEnvironmentVarsC(filename));
         break;
     case ';':     /* comment */
     case '#':
         break;
     default:
-        filename = (char*)ExpandEnvironmentVarsC(filename);
-        expand_source_glob(filename);
+        expand_source_glob(ExpandEnvironmentVarsC(filename));
     }
 }
 
-void expand_source_glob(const char* pattern) {
+void process_file(const char* filename) {
+    init_module();
+    char* buffer = xstrdup(filename);	// calleee need to modify string
+    process_file_1(buffer);
+    xfree(buffer);
+}
+
+static void expand_source_glob(const char* pattern) {
     if (strpbrk(pattern, "*?") != NULL) {		// is a pattern
         argv_t* files = path_find_glob(pattern);
 
@@ -330,7 +151,7 @@ void expand_source_glob(const char* pattern) {
         argv_push(opts.files, search_source(pattern));
 }
 
-void expand_list_glob(const char* filename) {
+static void expand_list_glob(const char* filename) {
     if (strpbrk(filename, "*?") != NULL) {		// is a pattern
         argv_t* files = path_find_glob(filename);
 
@@ -379,58 +200,22 @@ void expand_list_glob(const char* filename) {
 }
 
 /*-----------------------------------------------------------------------------
-*   process all files
+*
 *----------------------------------------------------------------------------*/
-static void process_files( int arg, int argc, char* argv[] ) {
-    int i;
-
-    /* Assemble file list */
-    for ( i = arg; i < argc; i++ )
-        process_file( argv[i] );
-}
-
-/*-----------------------------------------------------------------------------
-*   Option functions called from Opts table
-*----------------------------------------------------------------------------*/
-int number_arg(const char* arg) {
-    char* end;
-    const char* p = arg;
-    long lval;
-    int radix;
-    char suffix = '\0';
-
-    if (p[0] == '\0') 		// empty
-        return -1;
-    else if (p[0] == '$') {
-        p++;
-        radix = 16;
-    }
-    else if (p[0] == '0' && tolower(p[1]) == 'x') {
-        p += 2;
-        radix = 16;
-    }
-    else if (isdigit(p[0]) && tolower(p[strlen(p) - 1]) == 'h') {
-        suffix = p[strlen(p) - 1];
-        radix = 16;
-    }
-    else
-        radix = 10;
-
-    lval = strtol(p, &end, radix);
-    if (*end != suffix || errno == ERANGE || lval < 0 || lval > INT_MAX)
-        return -1;
-    else
-        return (int)lval;
-}
-
 static void def_sym(const char* name, int value) {
     define_static_def_sym(name, value);
 }
 
-static void define_assembly_defines() {
+void define_assembly_defines(void) {
+    init_module();
     TraverseDefines(def_sym);
     if (SwapIxIy())
         define_static_def_sym(SWAP_IXIY_DEFINE, 1);
+}
+
+bool files_empty(void) {
+    init_module();
+    return argv_len(opts.files) == 0;
 }
 
 /*-----------------------------------------------------------------------------

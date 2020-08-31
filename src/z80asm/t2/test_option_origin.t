@@ -20,7 +20,7 @@ for my $equal ("", "=") {
 							 "0x${origin_hex}", "0X${origin_hex}", 
 							 "0${origin_hex}h", "0${origin_hex}H", 
 							 "\$${origin_hex}") {
-			asm_ok("start: jp start", "-b ".quote_os("-r${equal}${origin_text}"), 
+			asm_ok("start: jp start", quote_os("-r${equal}${origin_text}"), 
 					0xC3, $origin & 0xFF, ($origin >> 8) & 0xFF);
 		}
 	}

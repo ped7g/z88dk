@@ -227,12 +227,11 @@ void z80asm_init() {
     init_macros();
 }
 
-int z80asm_main( int argc, char* argv[] ) {
-
+int z80asm_main() {
     /* parse command line and call-back via assemble_file() */
     /* If filename starts with '@', reads the file as a list of filenames
     *	and assembles each one in turn */
-    parse_argv(argc, argv);
+    define_assembly_defines();
     if (!get_num_errors()) {
         for (char** pfile = argv_front(opts.files); *pfile; pfile++)
             assemble_file(*pfile);

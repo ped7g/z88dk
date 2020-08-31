@@ -24,11 +24,8 @@ Opts;
 
 extern Opts opts;
 
-/*-----------------------------------------------------------------------------
-*   Parse command line, set options, including opts.files with list of
-*	input files, including parsing of '@' lists
-*----------------------------------------------------------------------------*/
-extern void parse_argv( int argc, char* argv[] );
+extern void define_assembly_defines(void);
+extern bool files_empty(void);
 
 /*-----------------------------------------------------------------------------
 *   Change extension of given file name, return pointer to file name in

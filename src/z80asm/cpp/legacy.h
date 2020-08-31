@@ -12,6 +12,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 // common constants
 enum {	// TODO: use a class enum when no longer needed by C
     CPU_NOT_DEFINED = 0,
@@ -54,23 +55,23 @@ extern const char* CPU_INTEL_DEFINE;
 extern const char* SWAP_IXIY_DEFINE;
 
 // call legacy
-void z80asm_init();
-void z80asm_fini();
-int z80asm_main(int argc, char* argv[]);
+void z80asm_init(void);
+void z80asm_fini(void);
+int z80asm_main(void);
+void process_file(const char* filename);
 bool library_file_append(const char* filename);
 void set_origin_option(int origin);
 int get_first_section_origin();
+int get_num_errors(void);
 void error_invalid_org(int origin);
 void error_cmd_failed(const char* cmd);
 void error_invalid_filler_option(const char* filler_hex);
-const char* get_first_module_filename();
+void error_illegal_option(const char* option);
+void error_no_src_file(void);
+const char* get_first_module_filename(void);
+bool files_empty(void);
 
 // called by legacy
-void ClearEnvPendingOptions();
-void SetEnvPendingOptions(const char* str);
-void AppendEnvPendingOptions(const char* str);
-const char* GetEnvPendingOptions();
-
 bool OptionVerbose();
 bool OptionMapfile();
 bool OptionSymtable();

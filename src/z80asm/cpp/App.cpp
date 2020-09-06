@@ -33,33 +33,30 @@ static const char copyrightMsg[] {
 App app;
 
 App::App() {
-    optionsLexer = new OptionsLexer;
+    optionsLexer = std::make_unique<OptionsLexer>();
 }
 
 App::App(const App& rhs) {
-    optionsLexer = new OptionsLexer;
+    optionsLexer = std::make_unique<OptionsLexer>();
     files = rhs.files;
 }
 
 App::App(App&& rhs) {
-    optionsLexer = rhs.optionsLexer;
-    rhs.optionsLexer = nullptr;
+    optionsLexer = std::move(rhs.optionsLexer);
     files = std::move(rhs.files);
 }
 
 App::~App() {
-    delete optionsLexer;
 }
 
 App& App::operator=(const App& rhs) {
-    optionsLexer = new OptionsLexer;
+    optionsLexer = std::make_unique<OptionsLexer>();
     files = rhs.files;
     return *this;
 }
 
 App& App::operator=(App&& rhs) {
-    optionsLexer = rhs.optionsLexer;
-    rhs.optionsLexer = nullptr;
+    optionsLexer = std::move(rhs.optionsLexer);
     files = std::move(rhs.files);
     return *this;
 }

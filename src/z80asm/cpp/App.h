@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 #include "ghc/filesystem.hpp"
 namespace fs = ghc::filesystem;		// until we have std::filesystem
@@ -42,7 +43,7 @@ public:
     Options options;
 
 private:
-    OptionsLexer*	optionsLexer{ nullptr };
+    std::unique_ptr<OptionsLexer>	optionsLexer;
     std::vector<std::string> files;
 
     fs::path SearchZ80asmLibrary();

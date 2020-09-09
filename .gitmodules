@@ -19,9 +19,6 @@
 [submodule "ext/RE-flex"]
 	path = ext/RE-flex
 	url = https://github.com/Genivia/RE-flex.git
-[submodule "ext/cppglob"]
-	path = ext/cppglob
-	url = https://github.com/Kogia-sima/cppglob.git
 [submodule "ext/filesystem"]
 	path = ext/filesystem
 	url = https://github.com/gulrak/filesystem.git

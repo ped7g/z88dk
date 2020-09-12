@@ -57,7 +57,7 @@ ok unlink "$dir/f1.o",   "$dir/f1.o";
 
 unlink_testfiles();
 run("./z80asm -b -d -otest.bin \"\@$dir/lib.lst\"", 1, "", <<END);
-Error at file 'test/my/deep/lib/lib.lst' line 1: cannot read file 'test/my/deep/lib/f1.asm'
+test/my/deep/lib/lib.lst:1: error: file not found: test/my/deep/lib/f1.asm
 END
 
 path('test')->remove_tree;

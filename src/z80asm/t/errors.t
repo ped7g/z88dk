@@ -232,17 +232,17 @@ t_z80asm_capture("-b -l".$lib." ".asm_file(), "",
 # error_no_src_file
 unlink_testfiles();
 t_z80asm_capture("-b", "",
-		"Error: source file missing\n", 1);
+		"error: source file missing\n", 1);
 
 #------------------------------------------------------------------------------
 # error_illegal_option
 unlink_testfiles();
 write_file(asm_file(), "");
 t_z80asm_capture("-Zillegaloption ".asm_file(), "",
-		"Error: illegal option: -Zillegaloption\n",
+		"error: illegal option: -Zillegaloption\n",
 		1);
 t_z80asm_capture("+Zillegaloption ".asm_file(), "",
-		"Error: illegal option: +Zillegaloption\n",
+		"error: illegal option: +Zillegaloption\n",
 		1);
 
 #------------------------------------------------------------------------------

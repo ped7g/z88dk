@@ -31,7 +31,7 @@ static const char* search_libfile(const char* filename ) {
 /*-----------------------------------------------------------------------------
 *	make library from list of files; convert each source to object file name
 *----------------------------------------------------------------------------*/
-void make_library(const char* lib_filename, argv_t* src_files) {
+void make_library(const char* lib_filename, size_t num_files, const char* files[]) {
     ByteArray* obj_file_data;
     FILE*	lib_file;
     const char* obj_filename;
@@ -49,11 +49,11 @@ void make_library(const char* lib_filename, argv_t* src_files) {
     xfwrite_cstr(Z80libhdr, lib_file);
 
     /* write each object file */
-    for (char** pfile = argv_front(src_files); *pfile; pfile++) {
+    for (size_t i = 0; i < num_files; i++) {
         fptr = ftell( lib_file );
 
         /* read object file */
-        obj_filename  = get_obj_filename( *pfile );
+        obj_filename = get_obj_filename(files[i]);
         obj_file_data = read_obj_file_data( obj_filename );
         if ( obj_file_data == NULL ) {
             xfclose(lib_file);			/* error */
@@ -63,7 +63,7 @@ void make_library(const char* lib_filename, argv_t* src_files) {
 
         /* write file pointer of next file, or -1 if last */
         obj_size = ByteArray_size( obj_file_data );
-        if (pfile + 1 == argv_back(src_files))
+        if (i + 1 == num_files)
             xfwrite_dword(-1, lib_file);
         else
             xfwrite_dword(fptr + 4 + 4 + obj_size,  lib_file);

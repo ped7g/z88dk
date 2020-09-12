@@ -27,26 +27,6 @@ errors:
 	
   # Command line parsing errors
   - type	: ErrError
-    func	: error_no_src_file
-    args	: void
-    message	: '"source file missing"'
-	
-  - type	: ErrError
-    func	: error_illegal_option
-    args	: const char *option
-    message	: "\"illegal option: %s\", option"
-	
-  - type	: ErrError
-    func	: error_glob
-    args	: const char *filename, const char *error
-    message	: "\"problem with '%s': %s\", filename, error"
-	
-  - type	: ErrError
-    func	: error_glob_no_files
-    args	: const char *filename
-    message	: "\"pattern '%s' returned no files\", filename"
-	
-  - type	: ErrError
     func	: error_not_regular_file
     args	: const char *filename
     message	: "\"file '%s' is not a regular file\", filename"
@@ -296,9 +276,3 @@ errors:
     func	: warn_dma_ready_signal_unsupported
     args	: void
     message	: "\"DMA does not support ready signals\""
-	
-  # system call errors
-  - type	: ErrError
-    func	: error_cmd_failed
-    args	: const char *cmd
-    message	: "\"command '%s' failed\", cmd"

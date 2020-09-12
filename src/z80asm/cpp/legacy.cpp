@@ -7,10 +7,7 @@
 #include "legacy.h"
 
 #include "App.h"
-
-#include "ghc/filesystem.hpp"
-namespace fs = ghc::filesystem;		// util we have std::filesystem
-
+#include "Utils.h"
 #include <unordered_set>
 
 const char* CPU_Z80_NAME = "z80";
@@ -99,10 +96,6 @@ static const char* GetOptionPath(fs::path path) {
         return AddStringPool(path.generic_string().c_str());
 }
 
-const char* GetOutputLibrary() {
-    return GetOptionPath(app.options.outputLibrary);
-}
-
 const char* GetOutputDirectory() {
     return GetOptionPath(app.options.outputDirectory);
 }
@@ -130,12 +123,6 @@ bool SwapIxIy() {
     return app.options.swapIxIy;
 }
 
-void TraverseDefines(void(*func)(const char* name, int value)) {
-    for (auto it = app.options.defines.cbegin();
-            it != app.options.defines.cend(); ++it)
-        func((*it).first.c_str(), (*it).second);
-}
-
 bool OptionOptimizeSpeed() {
     return app.options.optimizeSpeed;
 }
@@ -155,14 +142,6 @@ const char* AddStringPool(const char* str) {
     return pooledString;
 }
 
-const char* ExpandEnvironmentVarsC(const char* str_) {
-    using namespace std;
-
-    string str{ str_ };
-    str = App::ExpandEnvironmentVars(str);
-    return AddStringPool(str.c_str());
-}
-
 void PushSourceDirname(const char* filename) {
     fs::path dirname = fs::path(filename).parent_path();
     if (dirname.empty())
@@ -179,7 +158,7 @@ void PopSourceDirname() {
 const char* SearchIncludeFile(const char* filename) {
     using namespace std;
 
-    fs::path file = App::SearchFile(filename, app.options.includePath);
+    fs::path file = SearchFile(filename, app.options.includePath);
     if (file.empty())
         return AddStringPool(filename);
     else
@@ -189,7 +168,7 @@ const char* SearchIncludeFile(const char* filename) {
 const char* SearchLibraryFile(const char* filename) {
     using namespace std;
 
-    fs::path file = App::SearchFile(filename, app.options.libraryPath);
+    fs::path file = SearchFile(filename, app.options.libraryPath);
     if (file.empty())
         return AddStringPool(filename);
     else

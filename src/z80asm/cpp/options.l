@@ -101,8 +101,6 @@ num			{num16} | {num10}
 -- \z			{ return true; }
 \z				{ return true; }
 
-[^-+] .* \z		{ process_file(text()); return true; }
-
 .				{ return false; }
 
 %%

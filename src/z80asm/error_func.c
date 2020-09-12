@@ -30,38 +30,6 @@ void error_include_recursion(const char* filename) {
 
     STR_DELETE(msg);
 }
-void error_no_src_file(void) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "source file missing" );
-    do_error( ErrError, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
-void error_illegal_option(const char* option) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "illegal option: %s", option );
-    do_error( ErrError, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
-void error_glob(const char* filename, const char* error) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "problem with '%s': %s", filename, error );
-    do_error( ErrError, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
-void error_glob_no_files(const char* filename) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "pattern '%s' returned no files", filename );
-    do_error( ErrError, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
 void error_not_regular_file(const char* filename) {
     STR_DEFINE(msg, STR_SIZE);
 
@@ -454,14 +422,6 @@ void warn_dma_ready_signal_unsupported(void) {
 
     Str_append_sprintf( msg, "DMA does not support ready signals" );
     do_error( ErrWarn, Str_data(msg) );
-
-    STR_DELETE(msg);
-}
-void error_cmd_failed(const char* cmd) {
-    STR_DEFINE(msg, STR_SIZE);
-
-    Str_append_sprintf( msg, "command '%s' failed", cmd );
-    do_error( ErrError, Str_data(msg) );
 
     STR_DELETE(msg);
 }

@@ -46,6 +46,10 @@ char* reloctable = NULL, *relocptr = NULL;
 static void query_assemble(const char* src_filename );
 static void do_assemble(const char* src_filename );
 
+void define_static_def_sym_c(const char* name, long value) {
+    define_static_def_sym(name, value);
+}
+
 /*-----------------------------------------------------------------------------
 *   Assemble one source file
 *	- if a .o file is given, and it exists, it is used without trying to assemble first
@@ -228,20 +232,9 @@ void z80asm_init() {
 }
 
 int z80asm_main() {
-    /* parse command line and call-back via assemble_file() */
-    /* If filename starts with '@', reads the file as a list of filenames
-    *	and assembles each one in turn */
-    define_assembly_defines();
-    if (!get_num_errors()) {
-        for (char** pfile = argv_front(opts.files); *pfile; pfile++)
-            assemble_file(*pfile);
-    }
-
     /* Create output file */
     if (!get_num_errors()) {
-        if (GetOutputLibrary())
-            make_library(GetOutputLibrary(), opts.files);
-        else if (OptionMakeBinary()) {
+        if (OptionMakeBinary()) {
             xassert(GetOutputObject() == NULL);
             link_modules();
 

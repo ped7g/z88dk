@@ -38,7 +38,7 @@ ok $bin eq  "\x00", "bin ok";
 
 for my $illegal (qw( -vx --vx -v=1 )) {
 	run_nok("z80asm -b $illegal $test.asm", '', <<"ERR");
-Error: illegal option: $illegal
+error: illegal option: $illegal
 ERR
 }
 

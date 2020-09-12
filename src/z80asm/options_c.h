@@ -14,20 +14,6 @@
 #include "utstring.h"
 
 /*-----------------------------------------------------------------------------
-*   singleton opts
-*----------------------------------------------------------------------------*/
-#define OPT_VAR(type, name, default)	type name;
-typedef struct Opts {
-#include "options_def.h"
-}
-Opts;
-
-extern Opts opts;
-
-extern void define_assembly_defines(void);
-extern bool files_empty(void);
-
-/*-----------------------------------------------------------------------------
 *   Change extension of given file name, return pointer to file name in
 *	strpool
 *	Extensions may be changed by options.

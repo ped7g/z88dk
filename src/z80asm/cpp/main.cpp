@@ -9,29 +9,30 @@
 
 #include <iostream>
 
-void define_assembly_defines();
-
 int main(int argc, char* argv[]) {
     z80asm_init();
 
-    if (!app.ParseEnv())
-        return EXIT_FAILURE;
-    if (!app.ParseArgs(argc, argv))
-        return EXIT_FAILURE;
-    if (!app.MakeOutputDirectory())
-        return EXIT_FAILURE;
-    if (!app.AddDefines())
-        return EXIT_FAILURE;
-    if (!app.AddLibraries())
-        return EXIT_FAILURE;
-
     // fini must run even if there were errors
     bool ok = true;
-    if (z80asm_main() != 0) // --> failed
+
+    if (!app.ParseEnv())
         ok = false;
-    if (ok)
-        if (!app.RunAppmake())
-            ok = false;
+    else if (!app.ParseArgs(argc, argv))
+        ok = false;
+    else if (!app.MakeOutputDirectory())
+        ok = false;
+    else if (!app.AddDefines())
+        ok = false;
+    else if (!app.AddLibraries())
+        ok = false;
+    else if (!app.Assemble())
+        ok = false;
+    else if (!app.MakeLibrary())
+        ok = false;
+    else if (z80asm_main() != 0) // --> failed
+        ok = false;
+    else if (!app.RunAppmake())
+        ok = false;
 
     z80asm_fini();
     if (ok)

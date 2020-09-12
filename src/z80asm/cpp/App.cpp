@@ -5,6 +5,8 @@
 //-----------------------------------------------------------------------------
 
 #include "App.h"
+#include "InputFile.h"
+#include "Utils.h"
 #include "config.h"
 #include "legacy.h"
 #include "z80asm_manual.h"
@@ -61,6 +63,62 @@ App& App::operator=(App&& rhs) {
     return *this;
 }
 
+bool App::ParseArg(std::string arg) {
+    arg = ExpandEnvVars(arg);
+    arg = Trim(arg);
+    if (arg.empty())
+        return true;
+
+    switch (arg[0]) {
+    case '-':		// option
+    case '+':
+        optionsLexer->in(arg);
+        if (!optionsLexer->lex()) {
+            reporter.Error(Reporter::Msg::ILLEGAL_OPTION, arg);
+            return false;
+        }
+        break;
+
+    case '@':							// file list
+        arg.erase(0, 1);				// remove @
+        arg = Trim(arg);				// remove blanks
+        if (!ExpandListGlob(arg))
+            return false;
+        break;
+
+    case ';':							// comment
+    case '#':
+        break;
+
+    default:							// file
+        if (!ExpandSourceGlob(arg))
+            return false;
+        break;
+    }
+
+    return true;
+}
+
+bool App::ParseArgs(int argc, char* argv[]) {
+    // if no arguments, just show usage and exit
+    if (argc == 1)
+        ExitUsage();
+
+    // parse options
+    for (int i = 1; i < argc; ++i) {
+        if (!ParseArg(argv[i]))
+            return false;
+    }
+
+    // error if options but no source file
+    if (get_num_errors() == 0 && reporter.GetErrorCount() == 0 && options.files.empty()) {
+        reporter.Error(Reporter::Msg::NO_SRC_FILE);
+        return false;
+    }
+
+    return true;
+}
+
 bool App::ParseEnv(const std::string& envVariable) {
     using namespace std;
 
@@ -68,43 +126,66 @@ bool App::ParseEnv(const std::string& envVariable) {
     if (env) {
         stringstream iss{ string(env) };
         string arg;
-
         while (iss >> arg) {
-            arg = App::ExpandEnvironmentVars(arg);
-            optionsLexer->in(arg);
-            if (!optionsLexer->lex()) {
-                error_illegal_option(arg.c_str());
+            if (!ParseArg(arg))
                 return false;
-            }
         }
     }
     return true;
 }
 
-bool App::ParseArgs(int argc, char* argv[]) {
-    using namespace std;
+bool App::ParseListFile(const fs::path& filename) {
+    std::string line;
 
-    // if no arguments, just show usage and exit
-    if (argc == 1)
-        ExitUsage();
+    InputFile in{ filename };
+    if (!in.good())
+        return false;					// could not open file
+    while (in.Getline(line)) {
+        if (!ParseArg(line))
+            return false;				// parse error
+    }
+    return true;
+}
 
-    // parse options
-    for (int i = 1; i < argc; ++i) {
-        string arg = App::ExpandEnvironmentVars(argv[i]);
-        optionsLexer->in(arg);
-        if (!optionsLexer->lex()) {
-            error_illegal_option(arg.c_str());
+bool App::ExpandListGlob(const std::string& pattern) {
+    if (pattern.find_first_of("*?") != std::string::npos) {		// have a pattern
+        auto files = FindGlob(pattern);
+        if (files.empty()) {
+            reporter.Error(Reporter::Msg::GLOB_NO_FILES, pattern);
             return false;
         }
+        else {
+            for (auto& file : files) {
+                if (!ParseListFile(file))
+                    return false;
+            }
+        }
     }
-
-    // error if options but no source file
-    if (get_num_errors() == 0 && files_empty()) {
-        error_no_src_file();
-        return false;
+    else {
+        if (!ParseListFile(pattern))
+            return false;
     }
 
     return true;
+}
+
+bool App::ExpandSourceGlob(const std::string& pattern) {
+    if (pattern.find_first_of("*?") != std::string::npos) {		// have a pattern
+        auto files = FindGlob(pattern);
+        if (files.empty()) {
+            reporter.Error(Reporter::Msg::GLOB_NO_FILES, pattern);
+            return false;
+        }
+        else {
+            for (auto& file : files) {
+                if (!AppendSource(file))
+                    return false;
+            }
+            return true;
+        }
+    }
+    else
+        return AppendSource(pattern);
 }
 
 bool App::AddDefines() {
@@ -114,6 +195,9 @@ bool App::AddDefines() {
             ++define) {
         options.defines.push_back({ *define, 1 });
     }
+
+    if (options.swapIxIy)
+        options.defines.push_back({ "__SWAP_IX_IY__", 1 });		// TODO: make constant
 
     // add ARCH defines
     for (auto define = options.arch.GetDefinesBegin();
@@ -150,6 +234,46 @@ bool App::MakeOutputDirectory() {
         return fs::create_directories(dir);
 }
 
+bool App::Assemble() {
+    // create defines
+    for (auto& define : options.defines)
+        define_static_def_sym_c(define.first.c_str(), define.second);
+
+    // assemble all files
+    for (auto& file : options.files)
+        assemble_file(file.generic_string().c_str());
+
+    // check for errors
+    if (get_num_errors() == 0 && reporter.GetErrorCount() == 0)
+        return true;
+    else
+        return false;
+}
+
+bool App::MakeLibrary() {
+    if (options.outputLibrary.empty())
+        return true;		// no -x option
+    else {
+        // create a C-list to pass to make_library
+        const char** files = new const char* [options.files.size()];
+        for (size_t i = 0; i < options.files.size(); i++)
+            files[i] = options.files[i].c_str();
+
+        // call C
+        make_library(options.outputLibrary.generic_string().c_str(),
+                     options.files.size(), files);
+
+        // free array
+        delete[] files;
+
+        // check for errors
+        if (get_num_errors() == 0 && reporter.GetErrorCount() == 0)
+            return true;
+        else
+            return false;
+    }
+}
+
 bool App::RunAppmake() {
     using namespace std;
 
@@ -175,12 +299,11 @@ bool App::RunAppmake() {
         << " -o \"" << outFilename.generic_string() << "\""
         << " --org " << origin;
 
-    if (OptionVerbose())
-        cout << "Running: " << cmd.str() << endl;
+    reporter.Info(Reporter::Msg::RUN, cmd.str());
 
     int rv = system(cmd.str().c_str());
     if (rv != 0) {
-        error_cmd_failed(cmd.str().c_str());
+        reporter.Error(Reporter::Msg::RUN_FAILED, cmd.str());
         return false;
     }
 
@@ -202,49 +325,6 @@ void App::ExitManual() {
     exit(EXIT_SUCCESS);
 }
 
-std::string App::ExpandEnvironmentVars(std::string str) {
-    using namespace std;
-
-    size_t pos1 = str.find("${");
-    while (pos1 != string::npos) {
-        size_t pos2 = str.find("}", pos1 + 2);
-        if (pos2 != string::npos) {		// found ${ENVVAR}
-            string var = str.substr(pos1 + 2, pos2 - pos1 - 2);
-            const char* value = getenv(var.c_str());
-            if (value == nullptr)
-                value = "";
-            str = str.substr(0, pos1) + value + str.substr(pos2 + 1);
-            pos1 += strlen(value);
-        }
-        else
-            pos1 += 2;
-
-        // search next
-        pos1 = str.find("${", pos1);
-    }
-
-    return str;
-}
-
-fs::path App::SearchFile(const fs::path& file,
-                         const std::vector<fs::path>& dirs) {
-    using namespace std;
-
-    // if no directory list or file exists, return filename
-    if (fs::is_regular_file(file))
-        return file;
-
-    // search in dir list
-    for (const auto& dir : dirs) {
-        fs::path testFile = dir / file;
-        if (fs::is_regular_file(testFile))
-            return testFile;
-    }
-
-    // not found, return empty path
-    return fs::path();
-}
-
 /*	z80asm standard library
 	search in current die, then in exe path, then in exe path/../lib, then in ZCCCFG/..
 	Ignore if not found, probably benign - user will see undefined symbols
@@ -254,7 +334,7 @@ fs::path App::SearchZ80asmLibrary() {
     using namespace std;
 
     // build library name: z80asm-CPU-[ixiy].lib
-    string libName = "z80asm-" + options.cpu.GetName() + "-";
+    std::string libName = "z80asm-" + options.cpu.GetName() + "-";
     if (options.swapIxIy)
         libName += "ixiy";
     libName += ".lib";
@@ -276,7 +356,7 @@ fs::path App::SearchZ80asmLibrary() {
 
     // check environment ${ZCCCFG}
     libPath = "${ZCCCFG}/../" + libName;
-    libPath = ExpandEnvironmentVars(libPath);
+    libPath = ExpandEnvVars(libPath);
     if (CheckLibraryExists(libPath))
         return libPath;
 
@@ -290,8 +370,42 @@ bool App::CheckLibraryExists(const fs::path& filename) {
     if (fs::is_regular_file(filename))
         return true;
     else {
-        if (options.verbose)
-            cout << "Library '" << filename.generic_string() << "' not found" << endl;
+        reporter.Info(Reporter::Msg::LIBRARY_NOT_FOUND, filename.generic_string());
         return false;
+    }
+}
+
+// search for the first file in path, with the given extension,
+// with .asm extension and with .o extension
+// if not found, return original file
+// so that user can type "test" instead of "test.asm"
+fs::path App::SearchSource(const fs::path& filename) {
+    fs::path f = SearchFile(filename, options.includePath);
+    if (!f.empty())
+        return f;
+
+    f = filename;
+    f.replace_extension(".asm");		// TODO: make constant
+    f = SearchFile(f, options.includePath);
+    if (!f.empty())
+        return f;
+
+    f = filename;
+    f.replace_extension(".o");			// TODO: make constant
+    f = SearchFile(f, options.includePath);
+    if (!f.empty())
+        return f;
+
+    reporter.Error(Reporter::Msg::FILE_NOT_FOUND, filename.generic_string());
+    return fs::path();
+}
+
+bool App::AppendSource(const fs::path& filename) {
+    auto f = SearchSource(filename);
+    if (f.empty())
+        return false;
+    else {
+        options.files.push_back(f);
+        return true;
     }
 }

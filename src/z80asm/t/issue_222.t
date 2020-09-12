@@ -111,7 +111,7 @@ z80asm($asm, "+zx -m -v", 0, <<'END');
 
 	Code size: 4 bytes ($5CD0 to $5CD3)
 	Creating binary 'test.bin'
-	Running: appmake +zx -b "test.bin" -o "test.tap" --org 23760
+	run: appmake +zx -b "test.bin" -o "test.tap" --org 23760
 END
 check_bin_file("test.bin", $bin);
 check_bin_file("test.tap", $rem_tap);
@@ -255,7 +255,7 @@ z80asm($asm, "+zx81 -v", 0, <<'END', "");
 
 	Code size: 4 bytes ($4082 to $4085)
 	Creating binary 'test.bin'
-	Running: appmake +zx81 -b "test.bin" -o "test.P" --org 16514
+	run: appmake +zx81 -b "test.bin" -o "test.P" --org 16514
 END
 check_bin_file("test.bin", $bin);
 check_bin_file("test.P", $rem_P);

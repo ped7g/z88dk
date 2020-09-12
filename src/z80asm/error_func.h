@@ -5,10 +5,6 @@
 extern void error_read_file(const char* filename);
 extern void error_write_file(const char* filename);
 extern void error_include_recursion(const char* filename);
-extern void error_no_src_file(void);
-extern void error_illegal_option(const char* option);
-extern void error_glob(const char* filename, const char* error);
-extern void error_glob_no_files(const char* filename);
 extern void error_not_regular_file(const char* filename);
 extern void warn_symbol_different(const char* name, const char* used);
 extern void warn_expr_in_parens(void);
@@ -58,4 +54,3 @@ extern void warn_dma_unsupported_features(void);
 extern void warn_dma_unsupported_command(void);
 extern void warn_dma_half_cycle_timing(void);
 extern void warn_dma_ready_signal_unsupported(void);
-extern void error_cmd_failed(const char* cmd);

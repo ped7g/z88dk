@@ -1,0 +1,17 @@
+//-----------------------------------------------------------------------------
+// z80asm restart - error and diagnostics reporter
+// Copyright (C) Paulo Custodio, 2011-2020
+// License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
+//-----------------------------------------------------------------------------
+
+X(OK,					"ok")
+X(ILLEGAL_OPTION,		"illegal option")
+X(NO_SRC_FILE,			"source file missing")
+X(LIBRARY_NOT_FOUND,	"library not found")
+X(RUN,					"run")
+X(RUN_FAILED,			"run failed")
+X(FILE_NOT_FOUND,		"file not found")
+X(GLOB_NO_FILES,		"no files matched by")
+X(RECURSIVE_INCLUDE,	"recursive include")
+
+#undef X

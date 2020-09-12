@@ -7,6 +7,7 @@
 #pragma once
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 // interface between legacy C code and new C++ code
 #ifdef __cplusplus
@@ -58,18 +59,16 @@ extern const char* SWAP_IXIY_DEFINE;
 void z80asm_init(void);
 void z80asm_fini(void);
 int z80asm_main(void);
-void process_file(const char* filename);
 bool library_file_append(const char* filename);
 void set_origin_option(int origin);
 int get_first_section_origin();
 int get_num_errors(void);
 void error_invalid_org(int origin);
-void error_cmd_failed(const char* cmd);
 void error_invalid_filler_option(const char* filler_hex);
-void error_illegal_option(const char* option);
-void error_no_src_file(void);
 const char* get_first_module_filename(void);
-bool files_empty(void);
+void assemble_file(const char* filename);
+void define_static_def_sym_c(const char* name, long value);
+void make_library(const char* lib_filename, size_t num_files, const char* files[]);
 
 // called by legacy
 bool OptionVerbose();
@@ -86,7 +85,6 @@ bool OptionRelocInfo();
 bool OptionAppmake();
 int OptionFiller();
 
-const char* GetOutputLibrary();
 const char* GetOutputDirectory();
 const char* GetOutputBinary();
 const char* GetOutputObject();
@@ -94,12 +92,10 @@ const char* GetOutputObject();
 int GetCpu();
 int GetInvokeOpcode();
 bool SwapIxIy();
-void TraverseDefines(void(*func)(const char* name, int value));
 bool OptionOptimizeSpeed();
 bool OptionDebugInfo();
 
 const char* AddStringPool(const char* str);
-const char* ExpandEnvironmentVarsC(const char* str);
 
 void PushSourceDirname(const char* filename);
 void PopSourceDirname();

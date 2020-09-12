@@ -46,7 +46,7 @@ for my $help (qw( -? -h )) {
 for my $illegal (qw( -hx --hx -h=1 -?x --?x -?=1 )) {
 	$ENV{Z80ASM} = $illegal;
 	run_nok("z80asm -b $test.asm", '', <<"ERR");
-Error: illegal option: $illegal
+error: illegal option: $illegal
 ERR
 }
 

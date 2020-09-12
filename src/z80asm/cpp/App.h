@@ -7,10 +7,10 @@
 #pragma once
 
 #include "Options.h"
-
-#include <vector>
-#include <string>
+#include "Reporter.h"
 #include <memory>
+#include <string>
+#include <vector>
 
 #include "ghc/filesystem.hpp"
 namespace fs = ghc::filesystem;		// until we have std::filesystem
@@ -26,21 +26,25 @@ public:
     App& operator=(const App& rhs);
     App& operator=(App&& rhs);
 
-    bool ParseEnv(const std::string& envVariable = "Z80ASM");
+    bool ParseArg(std::string arg);
     bool ParseArgs(int argc, char* argv[]);
+    bool ParseEnv(const std::string& envVariable = "Z80ASM");
+    bool ParseListFile(const fs::path& filename);
+    bool ExpandListGlob(const std::string& pattern);
+    bool ExpandSourceGlob(const std::string& pattern);
     bool AddDefines();
     bool AddLibraries();
     bool MakeOutputDirectory();
+    bool Assemble();
+    bool MakeLibrary();
     bool RunAppmake();
 
     static void ExitUsage();
     static void ExitManual();
-    static std::string ExpandEnvironmentVars(std::string str);
-    static fs::path SearchFile(const fs::path& file,
-                               const std::vector<fs::path>& dirs);
 
-    // public access to options
+    // public access attributes
     Options options;
+    Reporter reporter;
 
 private:
     std::unique_ptr<OptionsLexer>	optionsLexer;
@@ -48,6 +52,8 @@ private:
 
     fs::path SearchZ80asmLibrary();
     bool CheckLibraryExists(const fs::path& filename);
+    fs::path SearchSource(const fs::path& filename);
+    bool AppendSource(const fs::path& filename);
 };
 
 // sigleton

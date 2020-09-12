@@ -56,4 +56,5 @@ void Options::SetAppmake(Appmake appmake) {
     this->appmake = appmake;
     set_origin_option(appmakeOriginMin);
     makeBinary = true;
+    cpu.Init(Cpu::Type::Z80);
 }

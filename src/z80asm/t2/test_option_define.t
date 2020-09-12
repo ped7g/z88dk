@@ -25,7 +25,7 @@ END
 # invalid -D
 for my $option ('-D23', '-Da-', '-Daaa=', '-Daaa=a', '-Daaa=!', '-Daaa=1x') {
 	run_nok("z80asm ${option} ${test}.asm", "", <<END);
-Error: illegal option: ${option}
+error: illegal option: ${option}
 END
 }
 

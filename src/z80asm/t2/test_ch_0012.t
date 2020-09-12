@@ -14,7 +14,7 @@ my $test = test_name();
 
 unlink_testfiles();
 run_nok("z80asm ${test}.asm", "", <<END);
-Error: cannot read file '${test}.asm'
+error: file not found: ${test}.asm
 END
 
 unlink_testfiles();

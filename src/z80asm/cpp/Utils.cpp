@@ -89,7 +89,7 @@ std::string CanonPath(std::string pathname) {
 }
 
 static int xglob(const std::string& pattern, int flags,
-                 const int(*errfunc)(const char* epath, int eerrno), glob_t* pglob) {
+                 int(*errfunc)(const char* epath, int eerrno), glob_t* pglob) {
     int ret = glob(pattern.c_str(), flags, errfunc, pglob);
     if (ret == GLOB_NOMATCH || ret == 0)
         return ret;
@@ -130,7 +130,7 @@ static void find_glob_1(std::vector<fs::path>& files, std::string pattern) {
         glob_t glob_files;
         int ret = xglob(sub_pattern, GLOB_NOESCAPE, NULL, &glob_files);
         if (ret == 0) {									// matched files
-            for (int i = 0; i < glob_files.gl_pathc; i++) {
+            for (size_t i = 0; i < glob_files.gl_pathc; i++) {
                 std::string found = glob_files.gl_pathv[i];
                 if (fs::is_directory(found)) {
                     sub_pattern = found + "/**";
@@ -161,7 +161,7 @@ static void find_glob_1(std::vector<fs::path>& files, std::string pattern) {
         glob_t glob_files;
         int ret = xglob(sub_pattern, GLOB_NOESCAPE, NULL, &glob_files);
         if (ret == 0) {									// matched files
-            for (int i = 0; i < glob_files.gl_pathc; i++) {
+            for (size_t i = 0; i < glob_files.gl_pathc; i++) {
                 sub_pattern = glob_files.gl_pathv[i];
                 if (p_child != std::string::npos)
                     sub_pattern += pattern.substr(p_child);

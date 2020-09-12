@@ -27,6 +27,6 @@ EXTERN asm_hbios
     ld bc,__BF_CIOIST<<8|0      ; direct console i/o test
     call asm_hbios              ; result in A
     ld l,a
+    ld h,0                      ; make sure H is reset
     or a                        ; reset carry
-    ld h,a                      ; make sure H is reset
     ret

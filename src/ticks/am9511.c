@@ -68,7 +68,7 @@ static uint8_t _apu_status;
 
 int apu_out(int port, int value)
 {
-    if ( (port & 0xff) != 0x80 && (port & 0xff) != 0x81) {
+    if ( (port & 0xff) != 0x42 && (port & 0xff) != 0x43) {
         return -1;
     }
 
@@ -79,7 +79,7 @@ int apu_out(int port, int value)
 
 int apu_in(int port)
 {
-    if ( (port & 0xff) != 0x80 && (port & 0xff) != 0x81) {
+    if ( (port & 0xff) != 0x42 && (port & 0xff) != 0x43) {
         return -1;
     }
 
@@ -609,6 +609,6 @@ void apu_write_command ( uint8_t cmd )
 			clocks = 4; // no idea what happens.
 			break;
 	}
-    // Say the APU runs at half the speed of the CPU
-    st += (clocks * 2);
+    // Say the APU runs at one third the speed of the CPU (for rc2014 target)
+    st += (clocks * 3);
 }

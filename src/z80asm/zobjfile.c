@@ -17,7 +17,6 @@ Handle object file contruction, reading and writing
 #include "fileutil.h"
 #include "libfile.h"
 #include "model.h"
-#include "options_c.h"
 #include "str.h"
 #include "strutil.h"
 #include "utstring.h"
@@ -211,7 +210,7 @@ void write_obj_file(const char* source_filename) {
     int i;
 
     /* open file */
-    obj_filename = get_obj_filename(source_filename);
+    obj_filename = GetOFilename(source_filename);
 
     if (OptionVerbose())
         printf("Writing object file '%s'\n", path_canon(obj_filename));

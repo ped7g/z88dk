@@ -8,6 +8,12 @@
 #include "legacy.h"
 #include <cassert>
 
+const char
+* _ASM{ ".asm" }, *_I{ ".i" }, *_LIS{ ".lis" }, *_O{ ".o" }, *_DEF{ ".def" },
+*_BIN{ ".bin" }, *_LIB{ ".lib" }, *_SYM{ ".sym" }, *_MAP{ ".map" },
+*_RELOC{ ".reloc" }, *_TAP{ ".tap" }, *_P{ ".P" };
+
+
 fs::path Options::GetOutputBinary() const {
     if (outputFile.empty())
         return fs::path();
@@ -22,7 +28,7 @@ fs::path Options::GetOutputObject() const {
         return fs::path();
     else if (!makeBinary) {
         fs::path obj = outputFile;
-        obj.replace_extension(".o");		// TODO: make constant
+        obj.replace_extension(_O);
         return obj;
     }
     else
@@ -38,7 +44,7 @@ void Options::SetAppmake(Appmake appmake) {
     switch (appmake) {
     case Appmake::ZX:
         appmakeOptions = "+zx";
-        appmakeExtension = ".tap";
+        appmakeExtension = _TAP;
         appmakeOriginMin = 23760;
         appmakeOriginMax = 0xFFFF;
         break;
@@ -57,4 +63,16 @@ void Options::SetAppmake(Appmake appmake) {
     set_origin_option(appmakeOriginMin);
     makeBinary = true;
     cpu.Init(Cpu::Type::Z80);
+}
+
+fs::path Options::PrependOutputDir(const fs::path& filename) {
+    if (outputDirectory.empty())
+        return filename;
+    else {
+        std::string f = filename.generic_string();
+        if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':')
+            return outputDirectory / fs::path(f.substr(2));	// win32 absolute path
+        else
+            return outputDirectory / filename;
+    }
 }

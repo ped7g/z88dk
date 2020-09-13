@@ -197,32 +197,6 @@ ASM
 );
 
 #------------------------------------------------------------------------------
-# BUG_0023: Error file with warning is removed in link phase
-note "BUG_0023";
-z80asm(
-	asm		=> "ld a,-129 ;; 3E 7F ;; warn: integer '-129' out of range",
-);
-is_text(scalar(read_file("test.err")), <<'ERROR');
-Warning at file 'test.asm' line 1: integer '-129' out of range
-ERROR
-
-z80asm(
-	asm  	=> <<'ASM',
-			EXTERN value
-			ld a,value		;; 3E 7F ;; warn 3: integer '-129' out of range
-			ld b,256		;; 06 00 ;; warn 2: integer '256' out of range
-ASM
-	asm1	=> <<'ASM1',
-			PUBLIC value
-			defc value = -129
-ASM1
-);
-is_text(scalar(read_file("test.err")), <<'ERROR');
-Warning at file 'test.asm' line 3: integer '256' out of range
-Warning at file 'test.asm' line 2: integer '-129' out of range
-ERROR
-
-#------------------------------------------------------------------------------
 # BUG_0033 : -d option fails if .asm does not exist
 SKIP: {
 	skip "zcc needs to be fixed to not call z80asm -ns", 1;

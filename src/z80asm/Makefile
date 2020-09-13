@@ -156,10 +156,10 @@ all: z80asm_lib
 
 z80asm_lib:
 ifeq ($(CROSS),0)
-	$(MAKE) -C dev/z80asm_lib
-	cp dev/z80asm_lib/$(PROJ)-*.lib .
+	$(MAKE) -C z80asm_lib
+	cp z80asm_lib/$(PROJ)-*.lib .
 ifdef ZCCCFG
-	cp dev/z80asm_lib/$(PROJ)-*.lib $(ZCCCFG)/../
+	cp z80asm_lib/$(PROJ)-*.lib $(ZCCCFG)/../
 endif
 endif
 

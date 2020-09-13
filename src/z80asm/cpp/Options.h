@@ -16,6 +16,9 @@
 #include "ghc/filesystem.hpp"
 namespace fs = ghc::filesystem;		// until we have std::filesystem
 
+extern const char
+* _ASM, *_I, *_LIS, *_O, *_DEF, *_BIN, *_LIB, *_SYM, *_MAP, *_RELOC, *_TAP, *_P;
+
 enum class Appmake { NONE, ZX81, ZX };
 
 struct Options {
@@ -58,7 +61,7 @@ struct Options {
     // methods
     fs::path GetOutputBinary() const;	// -o argument if -b
     fs::path GetOutputObject() const;	// -o argument if !-b
-
+    fs::path PrependOutputDir(const fs::path& filename);
     void SetDebug();
     void SetAppmake(Appmake appmake);
 };

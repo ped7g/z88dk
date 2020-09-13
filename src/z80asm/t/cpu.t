@@ -26,10 +26,9 @@ for my $file (<dev/cpu/cpu_test*.asm>) {
 	# assembler output files
 	(my $file_bin = $file) =~ s/\.asm$/.bin/;
 	(my $file_o   = $file) =~ s/\.asm$/.o/;
-	(my $file_err = $file) =~ s/\.asm$/.err/;
 	(my $file_lis = $file) =~ s/\.asm$/.lis/;
 	(my $file_map = $file) =~ s/\.asm$/.map/;
-	unlink "test.err", $file_bin, $file_o, $file_err, $file_lis, $file_map;
+	unlink "test.err", $file_bin, $file_o, $file_lis, $file_map;
 	
 	if ($ok) {
 		# build binary image
@@ -62,11 +61,8 @@ for my $file (<dev/cpu/cpu_test*.asm>) {
 		
 		# run assembler
 		ok system($cmd)==0, $cmd;
+		ok 0 == -s "test.err";
 		diag slurp("test.err") if !-s "test.err";
-		ok !-f $file_err, "no $file_err";
-		if (-f $file_err) {
-			diag slurp($file_err);
-		}
 
 		# read labels from map file and patch @bin
 		{
@@ -111,9 +107,9 @@ for my $file (<dev/cpu/cpu_test*.asm>) {
 		
 		# run assembler
 		ok system($cmd)!=0, $cmd;
+		ok 0 != -s "test.err";
 		diag slurp("test.err") if !-s "test.err";
-		ok -f $file_err, "$file_err exists";
-		local(@ARGV) = $file_err;
+		local(@ARGV) = "test.err";
 		while (<>) {
 			if (/^Error .*? line (\d+)/ ||
 				/^Warning .* line (\d+): interpreting indirect value as immediate/) {
@@ -130,7 +126,7 @@ for my $file (<dev/cpu/cpu_test*.asm>) {
 	}
 	
 	if (Test::More->builder->is_passing) {
-		unlink "test.err", $file_bin, $file_o, $file_err, $file_lis, $file_map;
+		unlink "test.err", $file_bin, $file_o, $file_lis, $file_map;
 	}
     else { 
         die;

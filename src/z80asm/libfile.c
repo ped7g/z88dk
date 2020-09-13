@@ -12,7 +12,6 @@
 #include "modlink.h"
 #include "utlist.h"
 #include "zobjfile.h"
-#include "options_c.h"
 
 char Z80libhdr[] = "Z80LMF" OBJ_VERSION;
 
@@ -21,7 +20,7 @@ char Z80libhdr[] = "Z80LMF" OBJ_VERSION;
 *----------------------------------------------------------------------------*/
 static const char* search_libfile(const char* filename ) {
     if ( filename != NULL && *filename != '\0' )	/* not empty */
-        return get_lib_filename( filename );		/* add '.lib' extension */
+        return GetLibFilename( filename );		/* add '.lib' extension */
     else {
         error_not_lib_file(filename);
         return NULL;
@@ -53,7 +52,7 @@ void make_library(const char* lib_filename, size_t num_files, const char* files[
         fptr = ftell( lib_file );
 
         /* read object file */
-        obj_filename = get_obj_filename(files[i]);
+        obj_filename = GetOFilename(files[i]);
         obj_file_data = read_obj_file_data( obj_filename );
         if ( obj_file_data == NULL ) {
             xfclose(lib_file);			/* error */
@@ -81,7 +80,7 @@ void make_library(const char* lib_filename, size_t num_files, const char* files[
 
 bool check_library_file(const char* src_filename) {
     return check_obj_lib_file(
-               get_lib_filename(src_filename),
+               GetLibFilename(src_filename),
                Z80libhdr,
                error_not_lib_file,
                error_lib_file_version);

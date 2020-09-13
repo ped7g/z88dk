@@ -11,7 +11,6 @@ Error handling.
 #include "errors.h"
 #include "fileutil.h"
 #include "init.h"
-#include "options_c.h"
 #include "srcfile.h"
 #include "str.h"
 #include "strhash.h"
@@ -32,14 +31,6 @@ typedef struct Errors {
 
 static Errors errors;				/* count errors and locations */
 
-
-typedef struct ErrorFile {
-    FILE*		file;				/* currently open error file */
-    const char*	filename;			/* name of error file */
-} ErrorFile;
-
-static ErrorFile error_file;		/* currently open error file */
-
 /*-----------------------------------------------------------------------------
 *   Initialize and Terminate module
 *----------------------------------------------------------------------------*/
@@ -53,8 +44,6 @@ DEFINE_init_module() {
 }
 
 DEFINE_dtor_module() {
-    /* close error file, delete it if no errors */
-    close_error_file();
 }
 
 void errors_init( void ) {
@@ -110,46 +99,6 @@ int get_num_errors( void ) {
 }
 
 /*-----------------------------------------------------------------------------
-*	Open file to receive all errors / warnings from now on
-*	File is appended, to allow assemble	and link errors to be joined in the same file.
-*----------------------------------------------------------------------------*/
-void open_error_file(const char* src_filename ) {
-    const char* filename = get_err_filename( src_filename );
-
-    init_module();
-
-    /* close current file if any */
-    close_error_file();
-
-    error_file.filename = spool_add( filename );
-    error_file.file = xfopen(error_file.filename, "a");		// TODO: remove error file at start of assembly
-}
-
-void close_error_file( void ) {
-    init_module();
-
-    /* close current file if any */
-    if (error_file.file != NULL) {
-        xfclose(error_file.file);
-
-        /* delete file if no errors found */
-        if (error_file.filename != NULL && file_size(error_file.filename) == 0)
-            remove(error_file.filename);
-    }
-
-    /* reset */
-    error_file.file		= NULL;
-    error_file.filename	= NULL;        /* filename kept in strpool, no leak */
-}
-
-static void puts_error_file( char* string ) {
-    init_module();
-
-    if ( error_file.file != NULL )
-        fputs( string, error_file.file );
-}
-
-/*-----------------------------------------------------------------------------
 *   Output error message
 *----------------------------------------------------------------------------*/
 void do_error( enum ErrType err_type, char* message ) {
@@ -197,9 +146,6 @@ void do_error( enum ErrType err_type, char* message ) {
 
     /* CH_0001 : Assembly error messages should appear on stderr */
     fputs( Str_data(msg), stderr );
-
-    /* send to error file */
-    puts_error_file( Str_data(msg) );
 
     if ( err_type == ErrError )
         errors.count++;		/* count number of errors */

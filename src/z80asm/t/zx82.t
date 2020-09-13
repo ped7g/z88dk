@@ -16,7 +16,6 @@ require './t/test_utils.pl';
 my $src = 	  "t/data/zx48.asm";
 my $bmk_bin = "t/data/zx48.rom";
 my $patched_src = "zx48.asm";
-my $err = 	  "zx48.err";
 my $obj = 	  "zx48.o";
 my $bin = 	  "zx48.bin";
 my $reloc =	  "zx48.reloc";
@@ -26,15 +25,14 @@ my $project =	  "t/data/zx48_01.prj";
 
 # get project files
 my @prj_src = split(' ', scalar(read_file($project)));
-my @prj_err = @prj_src; for (@prj_err) { s/\.asm$/.err/i }
 my @prj_obj = @prj_src; for (@prj_obj) { s/\.asm$/.o/i }
 my @prj_sym = @prj_src; for (@prj_sym) { s/\.asm$/.sym/i }
 my $prj_bin = $prj_src[0]; $prj_bin =~ s/\.asm$/.bin/i;
 my $prj_reloc = $prj_src[0]; $prj_reloc =~ s/\.asm$/.reloc/i;
 my $prj_map = $prj_src[0]; $prj_map =~ s/\.asm$/.map/i;
 
-my @testfiles = ($patched_src, $err, $obj, $bin, $reloc, $map, $sym,
-		 @prj_err, @prj_obj, @prj_sym, $prj_bin, $prj_reloc, $prj_map);
+my @testfiles = ($patched_src, $obj, $bin, $reloc, $map, $sym,
+		         @prj_obj, @prj_sym, $prj_bin, $prj_reloc, $prj_map);
 unlink_testfiles(@testfiles);
 
 # patch original source to comply with z80asm syntax
@@ -56,7 +54,6 @@ ok close($out_src), "close $patched_src";
 
 # assemble as one source file
 t_z80asm_capture("-b $patched_src", "", "", 0);
-ok ! -f $err, "no $err";
 ok -f $obj, "$obj exists";
 ok -f $bin, "$bin exists";
 t_binary(read_binfile($bin),
@@ -64,7 +61,6 @@ t_binary(read_binfile($bin),
 
 # assemble with separate modules
 t_z80asm_capture("-b \@$project", "", "", 0);
-for (@prj_err) { ok ! -f $_, "no $_"; }
 for (@prj_obj) { ok -f $_, "$_ exists"; }
 ok -f $prj_bin, "$prj_bin exists";
 t_binary(read_binfile($prj_bin),

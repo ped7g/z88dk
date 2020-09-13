@@ -54,6 +54,7 @@ private:
     bool CheckLibraryExists(const fs::path& filename);
     fs::path SearchSource(const fs::path& filename);
     bool AppendSource(const fs::path& filename);
+    bool AssembleFile(const fs::path& filename);
 };
 
 // sigleton

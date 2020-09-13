@@ -11,7 +11,6 @@ extern "C" {
 #include "listfile.h"
 #include "model.h"
 #include "module.h"
-#include "options_c.h"
 #include "sym.h"
 #include "symtab.h"
 

@@ -240,14 +240,13 @@ bool App::Assemble() {
         define_static_def_sym_c(define.first.c_str(), define.second);
 
     // assemble all files
-    for (auto& file : options.files)
-        assemble_file(file.generic_string().c_str());
+    bool allOk = true;
+    for (auto& file : options.files) {
+        if (!AssembleFile(file))
+            allOk = false;
+    }
 
-    // check for errors
-    if (get_num_errors() == 0 && reporter.GetErrorCount() == 0)
-        return true;
-    else
-        return false;
+    return allOk;
 }
 
 bool App::MakeLibrary() {
@@ -287,11 +286,10 @@ bool App::RunAppmake() {
         return false;
     }
 
-    fs::path binFilename = get_first_module_filename();
-    binFilename.replace_extension(".bin");		// TODO: make constant
-
-    fs::path outFilename = get_first_module_filename();
-    outFilename.replace_extension(options.appmakeExtension);
+    fs::path binFilename = fs::path(get_first_module_filename())
+                           .replace_extension(_BIN);
+    fs::path outFilename = fs::path(get_first_module_filename())
+                           .replace_extension(options.appmakeExtension);
 
     stringstream cmd;
     cmd << "appmake " << options.appmakeOptions
@@ -337,7 +335,7 @@ fs::path App::SearchZ80asmLibrary() {
     std::string libName = "z80asm-" + options.cpu.GetName() + "-";
     if (options.swapIxIy)
         libName += "ixiy";
-    libName += ".lib";
+    libName += _LIB;
 
     // check current directory
     fs::path libPath = libName;
@@ -384,14 +382,12 @@ fs::path App::SearchSource(const fs::path& filename) {
     if (!f.empty())
         return f;
 
-    f = filename;
-    f.replace_extension(".asm");		// TODO: make constant
+    f = fs::path(filename).replace_extension(_ASM);
     f = SearchFile(f, options.includePath);
     if (!f.empty())
         return f;
 
-    f = filename;
-    f.replace_extension(".o");			// TODO: make constant
+    f = fs::path(filename).replace_extension(_O);
     f = SearchFile(f, options.includePath);
     if (!f.empty())
         return f;
@@ -408,4 +404,14 @@ bool App::AppendSource(const fs::path& filename) {
         options.files.push_back(f);
         return true;
     }
+}
+
+bool App::AssembleFile(const fs::path& filename) {
+    assemble_file(filename.generic_string().c_str());
+
+    // check for errors
+    if (get_num_errors() == 0 && reporter.GetErrorCount() == 0)
+        return true;
+    else
+        return false;
 }

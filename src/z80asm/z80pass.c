@@ -169,7 +169,7 @@ void Z80pass2(void) {
 
     // add to the list of objects to link
     if (!get_num_errors())
-        object_file_append(get_obj_filename(CURRENTMODULE->filename), CURRENTMODULE, false, false);
+        object_file_append(GetOFilename(CURRENTMODULE->filename), CURRENTMODULE, false, false);
 
     if (!get_num_errors() && OptionSymtable())
         write_sym_file(CURRENTMODULE);

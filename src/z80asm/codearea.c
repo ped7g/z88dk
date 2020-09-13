@@ -15,7 +15,6 @@ Manage the code area in memory
 #include "fileutil.h"
 #include "init.h"
 #include "listfile.h"
-#include "options_c.h"
 #include "strutil.h"
 #include "utstring.h"
 #include "z80asm.h"
@@ -562,7 +561,7 @@ void fwrite_codearea(const char* filename, FILE** pbinfile, FILE** prelocfile) {
                         cur_addr != section->addr ||
                         (section != get_first_section(NULL) && section->origin >= 0)) {
                     if (OptionAppmake())
-                        warn_org_ignored(get_obj_filename(filename), section->name);
+                        warn_org_ignored(GetOFilename(filename), section->name);
                     else {
                         Str_set(new_name, path_remove_ext(filename));	/* "test" */
                         Str_append_char(new_name, '_');
@@ -571,13 +570,13 @@ void fwrite_codearea(const char* filename, FILE** pbinfile, FILE** prelocfile) {
                         xfclose_remove_empty(*pbinfile);
 
                         if (OptionVerbose())
-                            printf("Creating binary '%s'\n", path_canon(get_bin_filename(Str_data(new_name))));
+                            printf("Creating binary '%s'\n", path_canon(GetBinFilename(Str_data(new_name))));
 
-                        *pbinfile = xfopen(get_bin_filename(Str_data(new_name)), "wb");
+                        *pbinfile = xfopen(GetBinFilename(Str_data(new_name)), "wb");
 
                         if (*prelocfile) {
                             xfclose_remove_empty(*prelocfile);
-                            *prelocfile = xfopen(get_reloc_filename(Str_data(new_name)), "wb");
+                            *prelocfile = xfopen(GetRelocFilename(Str_data(new_name)), "wb");
                             cur_section_block_size = 0;
                         }
 

@@ -102,6 +102,16 @@ void PopSourceDirname();
 const char* SearchIncludeFile(const char* filename);
 const char* SearchLibraryFile(const char* filename);
 
+const char* GetAsmFilename(const char* filename);
+const char* GetLisFilename(const char* filename);
+const char* GetOFilename(const char* filename);
+const char* GetDefFilename(const char* filename);
+const char* GetBinFilename(const char* filename);
+const char* GetLibFilename(const char* filename);
+const char* GetSymFilename(const char* filename);
+const char* GetMapFilename(const char* filename);
+const char* GetRelocFilename(const char* filename);
+
 #ifdef __cplusplus
 };
 #endif

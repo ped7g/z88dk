@@ -67,7 +67,7 @@ void assemble_file( const char* filename ) {
     Module* module;
 
     /* create output directory*/
-    obj_filename = path_canon(get_obj_filename(filename));
+    obj_filename = path_canon(GetOFilename(filename));
     path_mkdir(path_dir(obj_filename));
 
     /* try to load object file */
@@ -85,7 +85,7 @@ void assemble_file( const char* filename ) {
             src_filename = filename;						/* use whatever extension was given */
         }
         else {
-            const char* asm_filename = get_asm_filename(filename);
+            const char* asm_filename = GetAsmFilename(filename);
             if (file_exists(asm_filename)) 				/* file with .asm extension exists */
                 src_filename = asm_filename;
             else if (file_exists(obj_filename)) {
@@ -120,10 +120,6 @@ void assemble_file( const char* filename ) {
     module = set_cur_module( new_module() );
     module->filename = spool_add( src_filename );
 
-    /* Create error file */
-    remove(get_err_filename(src_filename));
-    open_error_file(src_filename);
-
     if (load_obj_only)
         object_file_append(obj_filename, CURRENTMODULE, true, false);
     else
@@ -143,7 +139,7 @@ void assemble_file( const char* filename ) {
 static void query_assemble(const char* src_filename ) {
     struct stat src_stat, obj_stat;
     int src_stat_result, obj_stat_result;
-    const char* obj_filename = get_obj_filename( src_filename );
+    const char* obj_filename = GetOFilename( src_filename );
 
     /* get time stamp of files, error if source not found */
     src_stat_result = stat( src_filename, &src_stat );		/* BUG_0033 */
@@ -171,13 +167,13 @@ static void query_assemble(const char* src_filename ) {
 *----------------------------------------------------------------------------*/
 static void do_assemble(const char* src_filename ) {
     int start_errors = get_num_errors();     /* count errors in this source file */
-    const char* obj_filename = get_obj_filename(src_filename);
+    const char* obj_filename = GetOFilename(src_filename);
 
     clear_macros();
 
     /* create list file */
     if (OptionListfile())
-        list_open(get_list_filename(src_filename));
+        list_open(GetLisFilename(src_filename));
 
     /* initialize local symtab with copy of static one (-D defines) */
     copy_static_syms();
@@ -211,9 +207,7 @@ static void do_assemble(const char* src_filename ) {
 
     /* remove incomplete object file */
     if (start_errors != get_num_errors())
-        remove(get_obj_filename(src_filename));
-
-    close_error_file();
+        remove(GetOFilename(src_filename));
 
     remove_all_local_syms();
     remove_all_global_syms();
@@ -247,7 +241,7 @@ int z80asm_main() {
 
             set_cur_module(get_first_module(NULL));
 
-            CURRENTMODULE->filename = get_asm_filename(GetOutputObject());
+            CURRENTMODULE->filename = GetAsmFilename(GetOutputObject());
             CURRENTMODULE->modname = path_remove_ext(path_file(CURRENTMODULE->filename));
 
             if (!get_num_errors())
@@ -268,8 +262,6 @@ int z80asm_main() {
 
 void z80asm_fini() {
     set_error_null();
-    close_error_file();
-
     delete_modules();		/* Release module information (symbols, etc.) */
 
     if (OptionRelocatable()) {

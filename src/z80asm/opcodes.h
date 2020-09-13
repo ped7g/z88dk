@@ -13,7 +13,6 @@ Define CPU opcodes
 #include "legacy.h"
 
 #include "errors.h"
-#include "options_c.h"
 
 /* forward declaration without include cycle */
 struct Expr;

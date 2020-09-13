@@ -16,7 +16,6 @@ License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_licens
 #include "libfile.h"
 #include "listfile.h"
 #include "modlink.h"
-#include "options_c.h"
 #include "scan.h"
 #include "str.h"
 #include "strutil.h"
@@ -197,7 +196,7 @@ bool library_file_append(const char* filename) {
     }
 
     // search library path
-    const char* found_filename = SearchLibraryFile(get_lib_filename(filename));
+    const char* found_filename = SearchLibraryFile(GetLibFilename(filename));
     if (*found_filename != '\0')
         filename = found_filename;
 
@@ -925,9 +924,6 @@ void link_modules(void) {
     for (obj_file_t* obj = g_objects; !get_num_errors() && obj != NULL; obj = obj->next) {
         set_cur_module(obj->module);
 
-        // open error file on first module
-        if (obj == g_objects)
-            open_error_file(CURRENTMODULE->filename);
         set_error_null();
         set_error_module(CURRENTMODULE->modname);
 
@@ -977,8 +973,6 @@ void link_modules(void) {
 
     set_error_null();
 
-    close_error_file();
-
     if (!get_num_errors()) {
         if (OptionMapfile())
             write_map_file();
@@ -999,7 +993,7 @@ void CreateBinFile(void) {
     if (GetOutputBinary())		/* use prefined output filename from command line */
         filename = GetOutputBinary();
     else						/* create output filename, based on project filename */
-        filename = get_bin_filename(get_first_module(NULL)->filename);		/* add '.bin' extension */
+        filename = GetBinFilename(get_first_module(NULL)->filename);		/* add '.bin' extension */
 
     /* binary output to filename.bin */
     if (OptionVerbose())
@@ -1008,7 +1002,7 @@ void CreateBinFile(void) {
     binaryfile = xfopen(filename, "wb");
     inital_binaryfile = binaryfile;
 
-    relocfile = OptionRelocatable() ? NULL : OptionRelocInfo() ? xfopen(get_reloc_filename(filename),
+    relocfile = OptionRelocatable() ? NULL : OptionRelocInfo() ? xfopen(GetRelocFilename(filename),
                 "wb") : NULL;
     initial_relocfile = relocfile;
 

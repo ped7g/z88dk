@@ -12,7 +12,6 @@ Handle assembly listing and symbol table listing.
 #include "errors.h"
 #include "fileutil.h"
 #include "listfile.h"
-#include "options_c.h"
 #include "strutil.h"
 #include "types.h"
 #include "utstring.h"

@@ -19,7 +19,6 @@ b) performance - avltree 50% slower when loading the symbols from the ZX 48 ROM 
 #include "listfile.h"
 #include "fileutil.h"
 #include "model.h"
-#include "options_c.h"
 #include "symbol.h"
 #include "symtab.h"
 #include "str.h"
@@ -549,7 +548,7 @@ static bool cond_all_symbols(Symbol* sym) { return true; }
 
 void write_map_file(void) {
     _write_symbol_file(
-        get_map_filename(get_first_module(NULL)->filename),
+        GetMapFilename(get_first_module(NULL)->filename),
         NULL, cond_all_symbols, "", true);
 }
 
@@ -559,7 +558,7 @@ static bool cond_global_symbols(Symbol* sym) {
 
 void write_def_file(void) {
     _write_symbol_file(
-        get_def_filename(get_first_module(NULL)->filename),
+        GetDefFilename(get_first_module(NULL)->filename),
         NULL, cond_global_symbols, "DEFC ", false);
 }
 
@@ -574,7 +573,7 @@ static bool cond_module_symbols(Symbol* sym) {
 
 void write_sym_file(Module* module) {
     _write_symbol_file(
-        get_sym_filename(module->filename),
+        GetSymFilename(module->filename),
         module, cond_module_symbols, "", true);
 }
 

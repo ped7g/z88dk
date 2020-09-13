@@ -9,7 +9,6 @@ License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_licens
 
 extern "C" {
 #include "codearea.h"
-#include "options_c.h"
 
 const char *GetLibfile( char * ) { return ""; }
 };

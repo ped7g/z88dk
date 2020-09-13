@@ -14,7 +14,6 @@ Global data model.
 #include "init.h"
 #include "macros.h"
 #include "listfile.h"
-#include "options_c.h"
 #include "srcfile.h"
 
 /*-----------------------------------------------------------------------------

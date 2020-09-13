@@ -10,6 +10,9 @@
 #include "Utils.h"
 #include <unordered_set>
 
+#include "ghc/filesystem.hpp"
+namespace fs = ghc::filesystem;		// until we have std::filesystem
+
 const char* CPU_Z80_NAME = "z80";
 const char* CPU_Z80N_NAME = "z80n";
 const char* CPU_Z180_NAME = "z180";
@@ -174,3 +177,49 @@ const char* SearchLibraryFile(const char* filename) {
     else
         return AddStringPool(file.generic_string().c_str());
 }
+
+const char* GetAsmFilename(const char* filename) {
+    return AddStringPool(fs::path(filename).replace_extension(_ASM)
+                         .generic_string().c_str());
+}
+
+const char* GetLisFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_LIS)
+                         .generic_string().c_str());
+}
+
+const char* GetOFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_O)
+                         .generic_string().c_str());
+}
+
+const char* GetDefFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_DEF)
+                         .generic_string().c_str());
+}
+
+const char* GetBinFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_BIN)
+                         .generic_string().c_str());
+}
+
+const char* GetLibFilename(const char* filename) {
+    return AddStringPool(fs::path(filename).replace_extension(_LIB)
+                         .generic_string().c_str());
+}
+
+const char* GetSymFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_SYM)
+                         .generic_string().c_str());
+}
+
+const char* GetMapFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_MAP)
+                         .generic_string().c_str());
+}
+
+const char* GetRelocFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_RELOC)
+                         .generic_string().c_str());
+}
+

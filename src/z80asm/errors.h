@@ -39,14 +39,6 @@ extern void reset_error_count( void );
 extern int  get_num_errors( void );
 
 /*-----------------------------------------------------------------------------
-*	Open file to receive all errors / warnings from now on
-*	File is created on first call and appended on second, to allow assemble
-*	and link errors to be joined in the same file.
-*----------------------------------------------------------------------------*/
-extern void open_error_file(const char* src_filename );
-extern void close_error_file( void );   /* deletes the file if no errors */
-
-/*-----------------------------------------------------------------------------
 *   Execute an error
 *----------------------------------------------------------------------------*/
 extern void do_error( enum ErrType err_type, char* message );

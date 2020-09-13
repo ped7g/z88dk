@@ -141,9 +141,6 @@
     <ClCompile Include="..\..\src\z80asm\cpp\Options.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\z80asm\options_c.c">
-      <Filter>Source Files\legacy</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\z80asm\cpp\Cpu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -236,9 +233,6 @@
     <ClInclude Include="..\..\src\z80asm\opcodes.h">
       <Filter>Header Files\legacy</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\z80asm\options_def.h">
-      <Filter>Header Files\legacy</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\z80asm\parse.h">
       <Filter>Header Files\legacy</Filter>
     </ClInclude>
@@ -304,9 +298,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\z80asm\cpp\Options.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\z80asm\options_c.h">
-      <Filter>Header Files\legacy</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\z80asm\cpp\Cpu.h">
       <Filter>Header Files</Filter>

@@ -134,20 +134,11 @@ sub t_z80asm {
 	my $exp_err_screen = my $exp_err_file = $args{err}.$args{linkerr};
 	my $ok_err_screen = is_text($stderr, $exp_err_screen, "$line err");
 	$errors++ unless $ok_err_screen;
-	if ($stderr && $stderr !~ /option.*deprecated/) {	# option deprecated: before error file is created
-		ok -f err_file(), "$line ".err_file();
-		my $got_err_file = read_file(err_file(), err_mode => 'quiet') // "";
-		chomp_eol($got_err_file);
-		is_text($exp_err_file, $got_err_file, "$line err file");
-	}
 
 	# check retval
 	if (defined($args{bin})) {	# asm success
 		$errors++ unless $return == 0;
 		ok $return == 0, "$line exit value";
-
-		# warning -> got_err_file
-		# ok ! -f err_file(), "$line no ".err_file();
 
 		ok -f $_, "$line $_" for (@o, bin_file());
 
@@ -166,8 +157,6 @@ sub t_z80asm {
 		$errors++ unless $return != 0;
 		ok $return != 0, "$line exit value";
 
-		ok -f err_file(), "$line ".err_file();
-
 		ok -f $_, "$line $_" for (@o);
 		ok ! -f $_, "$line no $_" for (bin_file(), map_file());
 
@@ -181,8 +170,6 @@ sub t_z80asm {
 	else {				# asm failed
 		$errors++ unless $return != 0;
 		ok $return != 0, "$line exit value";
-
-		ok -f err_file(), "$line ".err_file();
 
 		ok ! -f $_, "$line no $_" for (@o, bin_file(), map_file());
 
@@ -247,7 +234,6 @@ sub t_z80asm_error {
 	is $stdout, "", "$line stdout";
 	is_text( $stderr, $expected_err, "$line stderr" );
 	ok $return != 0, "$line exit value";
-	ok -f err_file(), "$line error file found";
 	ok ! -f o_file(), "$line object file deleted";
 	ok ! -f bin_file(), "$line binary file deleted";
 	if (defined($options) && $options =~ /-x(\S+)/) {
@@ -256,9 +242,6 @@ sub t_z80asm_error {
 
 		ok ! -f $1, "$line library file deleted";
 	}
-
-	is_text( read_file(err_file(), err_mode => 'quiet'),
-				$expected_err, "$line error in error file" );
 
 	exit 1 if $return == 0 && $STOP_ON_ERR;
 }
@@ -290,7 +273,6 @@ sub t_z80asm_ok {
 	is_text( $stderr, $expected_warnings, "$line stderr" );
 
 	ok $return == 0, "$line exit value";
-	ok ! -f err_file(), "$line no error file";
 	ok -f bin_file(), "$line bin file found";
 
 	my $binary = read_file(bin_file(), binmode => ':raw', err_mode => 'quiet');

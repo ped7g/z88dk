@@ -221,7 +221,6 @@
     <ClCompile Include="..\..\src\z80asm\module.c" />
     <ClCompile Include="..\..\src\z80asm\zobjfile.c" />
     <ClCompile Include="..\..\src\z80asm\opcodes.c" />
-    <ClCompile Include="..\..\src\z80asm\options_c.c" />
     <ClCompile Include="..\..\src\z80asm\parse.c" />
     <ClCompile Include="..\..\src\z80asm\scan.c" />
     <ClCompile Include="..\..\src\z80asm\sym.c" />
@@ -273,8 +272,6 @@
     <ClInclude Include="..\..\src\z80asm\module.h" />
     <ClInclude Include="..\..\src\z80asm\zobjfile.h" />
     <ClInclude Include="..\..\src\z80asm\opcodes.h" />
-    <ClInclude Include="..\..\src\z80asm\options_c.h" />
-    <ClInclude Include="..\..\src\z80asm\options_def.h" />
     <ClInclude Include="..\..\src\z80asm\parse.h" />
     <ClInclude Include="..\..\src\z80asm\parse_rules.h" />
     <ClInclude Include="..\..\src\z80asm\scan.h" />

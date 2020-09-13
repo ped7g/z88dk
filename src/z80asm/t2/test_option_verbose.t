@@ -22,6 +22,7 @@ ok $bin eq  "\x00", "bin ok";
 
 unlink "$test.bin";
 run_ok("z80asm -b -v $test.asm", <<"OUT", '');
+z80asm command line: z80asm -b -v test_option_verbose.asm
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = \$0001
 Predefined constant: __CPU_ZILOG__ = \$0001

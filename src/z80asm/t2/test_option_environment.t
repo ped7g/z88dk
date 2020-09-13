@@ -17,6 +17,7 @@ END
 $ENV{Z80ASM} = "-v -m";
 unlink "$test.bin". "$test.map";
 run_ok("z80asm -b $test.asm", <<"OUT", '');
+z80asm command line: z80asm -b test_option_environment.asm
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = \$0001
 Predefined constant: __CPU_ZILOG__ = \$0001

@@ -101,6 +101,7 @@ check_bin_file("test.tap", $rem_tap);
 # no org, verbose
 unlink_testfiles();
 z80asm($asm, "+zx -m -v", 0, <<'END');
+	z80asm command line: z80asm +zx -m -v test.asm
 	Reading library 'z80asm-z80-.lib'
 	Predefined constant: __CPU_Z80__ = $0001
 	Predefined constant: __CPU_ZILOG__ = $0001
@@ -245,6 +246,7 @@ check_bin_file("test.P", $rem_P);
 # no org, verbose
 unlink_testfiles();
 z80asm($asm, "+zx81 -v", 0, <<'END', "");
+	z80asm command line: z80asm +zx81 -v test.asm
 	Reading library 'z80asm-z80-.lib'
 	Predefined constant: __CPU_Z80__ = $0001
 	Predefined constant: __CPU_ZILOG__ = $0001

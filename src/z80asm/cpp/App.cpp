@@ -30,6 +30,8 @@ static const char copyrightMsg[] {
     "(c) InterLogic 1993-2009, Paulo Custodio 2011-2020"
 };
 
+const char* Z80ASM{ "Z80ASM" };
+
 
 // sigleton
 App app;
@@ -119,10 +121,10 @@ bool App::ParseArgs(int argc, char* argv[]) {
     return true;
 }
 
-bool App::ParseEnv(const std::string& envVariable) {
+bool App::ParseEnv() {
     using namespace std;
 
-    const char* env = getenv(envVariable.c_str());
+    const char* env = getenv(Z80ASM);
     if (env) {
         stringstream iss{ string(env) };
         string arg;

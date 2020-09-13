@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------------
 
 #include "Options.h"
+#include "Utils.h"
 #include "legacy.h"
 #include <cassert>
 
@@ -70,9 +71,11 @@ fs::path Options::PrependOutputDir(const fs::path& filename) {
         return filename;
     else {
         std::string f = filename.generic_string();
-        if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':')
-            return outputDirectory / fs::path(f.substr(2));	// win32 absolute path
-        else
-            return outputDirectory / filename;
+		if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':') {
+			f[1] = '/';		// replace colon by slash
+			return outputDirectory / f;
+		}
+		else
+			return outputDirectory / filename;
     }
 }

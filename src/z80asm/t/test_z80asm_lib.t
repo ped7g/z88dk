@@ -33,12 +33,12 @@ path('testdir/root/lib/config')->mkpath;
 
 # run with lib in current directory
 run("./z80asm -b -v test.asm", 0, <<'END', "");
-z80asm command line: ./z80asm -b -v test.asm
+z80asm command line: z80asm -b -v test.asm
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = $0001
 Predefined constant: __CPU_ZILOG__ = $0001
-Assembling 'test.asm' to 'test.o'
-Reading 'test.asm' = 'test.asm'
+Assembling 'test.i' to 'test.o'
+Reading 'test.i' = 'test.i'
 Writing object file 'test.o'
 Module 'test' size: 4 bytes
 
@@ -54,14 +54,14 @@ t_binary(path("test.bin")->slurp_raw, pack("C*", 0xCD, 0x04, 0x00, 0xC9, @RLD_AT
 $ENV{ZCCCFG} = 'testdir/root/lib/config';
 move('z80asm-z80-.lib', $ENV{ZCCCFG}.'/../z80asm-z80-.lib');
 run("./z80asm -b -v test.asm", 0, <<'END', "");
-z80asm command line: ./z80asm -b -v test.asm
+z80asm command line: z80asm -b -v test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
 Reading library 'testdir/root/lib/z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = $0001
 Predefined constant: __CPU_ZILOG__ = $0001
-Assembling 'test.asm' to 'test.o'
-Reading 'test.asm' = 'test.asm'
+Assembling 'test.i' to 'test.o'
+Reading 'test.i' = 'test.i'
 Writing object file 'test.o'
 Module 'test' size: 4 bytes
 
@@ -76,14 +76,14 @@ delete $ENV{ZCCCFG};
 
 # point library with -L
 run("./z80asm -b -v -Ltestdir/root/lib test.asm", 0, <<'END', "");
-z80asm command line: ./z80asm -b -v -Ltestdir/root/lib test.asm
+z80asm command line: z80asm -b -v -Ltestdir/root/lib test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
 Reading library 'testdir/root/lib/z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = $0001
 Predefined constant: __CPU_ZILOG__ = $0001
-Assembling 'test.asm' to 'test.o'
-Reading 'test.asm' = 'test.asm'
+Assembling 'test.i' to 'test.o'
+Reading 'test.i' = 'test.i'
 Writing object file 'test.o'
 Module 'test' size: 4 bytes
 
@@ -97,14 +97,13 @@ t_binary(path("test.bin")->slurp_raw, pack("C*", 0xCD, 0x04, 0x00, 0xC9, @RLD_AT
 
 # run without library
 run("./z80asm -b -v test.asm", 1, <<'OUT', <<'ERR');
-z80asm command line: ./z80asm -b -v test.asm
+z80asm command line: z80asm -b -v test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
-library not found: /../z80asm-z80-.lib
 Predefined constant: __CPU_Z80__ = $0001
 Predefined constant: __CPU_ZILOG__ = $0001
-Assembling 'test.asm' to 'test.o'
-Reading 'test.asm' = 'test.asm'
+Assembling 'test.i' to 'test.o'
+Reading 'test.i' = 'test.i'
 Writing object file 'test.o'
 Module 'test' size: 4 bytes
 
@@ -166,12 +165,12 @@ sub exp_output {
 				 ($cpu =~ /^80/i) ? "INTEL" : "";
 				 
 	return <<END;
-z80asm command line: ./z80asm -b -v ${mcpu}${ixiy}test.asm
+z80asm command line: z80asm -b -v ${mcpu}${ixiy}test.asm
 Reading library '$library'
 Predefined constant: __CPU_${CPU}__ = \$0001
 Predefined constant: __CPU_${FAMILY}__ = \$0001$swap_ixiy
-Assembling 'test.asm' to 'test.o'
-Reading 'test.asm' = 'test.asm'
+Assembling 'test.i' to 'test.o'
+Reading 'test.i' = 'test.i'
 Writing object file 'test.o'
 Module 'test' size: 4 bytes
 

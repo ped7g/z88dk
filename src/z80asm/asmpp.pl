@@ -5,7 +5,7 @@
 # Copyright (C) Paulo Custodio, 2011-2020
 # License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 #
-# Preprocessor that translates z80asm source code for CP/M's Z80MR, generates .i file with
+# Preprocessor that translates z80asm source code for CP/M's Z80MR, generates .pp file with
 # standard Z80 asm code and calls z80asm. Any error message is mapped back to the original
 # source file line.
 # 
@@ -583,12 +583,12 @@ sub assemble_file {
 	my($src_file) = @_;
 	my $it = read_lines_it($src_file);
 	
-	# build .i file and line map for error messages
-	my $i_file = $src_file;	$i_file =~ s/\.\w+$/.i/;
+	# build .pp file and line map for error messages
+	my $pp_file = $src_file;	$pp_file =~ s/\.\w+$/.pp/;
 	
 	my @line_map;
 	my $line_nr;
-	open(my $fh, ">", $i_file) or die "write $i_file: $!";
+	open(my $fh, ">", $pp_file) or die "write $pp_file: $!";
 	my $last_line = "";
 	while (defined(my $in = <$it>)) {
 		my $this_line = ";;".$in->{file}.":".$in->{line_nr}."\n";
@@ -605,7 +605,7 @@ sub assemble_file {
 	close $fh;
 	
 	# assemble, translate error messages
-	my @cmd = ('z80asm', @OPTIONS, $i_file);
+	my @cmd = ('z80asm', @OPTIONS, $pp_file);
 	print "@cmd\n";
 	$cmd[0] = $FindBin::Bin.'/z80asm';
 	my ($stdout, $stderr, $exit) = capture {

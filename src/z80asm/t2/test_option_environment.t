@@ -21,8 +21,8 @@ z80asm command line: z80asm -b test_option_environment.asm
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = \$0001
 Predefined constant: __CPU_ZILOG__ = \$0001
-Assembling '$test.asm' to '$test.o'
-Reading '$test.asm' = '$test.asm'
+Assembling '$test.i' to '$test.o'
+Reading '$test.i' = '$test.i'
 Writing object file '$test.o'
 Module '$test' size: 1 bytes
 

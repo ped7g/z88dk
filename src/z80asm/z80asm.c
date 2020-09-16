@@ -170,14 +170,14 @@ static void do_assemble(const char* src_filename ) {
     const char* obj_filename = GetOFilename(src_filename);
     const char* lis_filename = GetLisFilename(src_filename);
 
-    /* create list file */
-    if (OptionListfile())
-        list_open(lis_filename);
-
     // call preprocessor
     if (Preprocess(src_filename, i_filename)) {
 
         int start_errors = get_num_errors();     /* count errors in this source file */
+
+        /* create list file */
+        if (OptionListfile())
+            list_open(lis_filename);
 
         clear_macros();
 

@@ -31,6 +31,7 @@ asm_ok(<<END, "", 0..10);
 END
 
 # -I
+unlink "${test}.inc";
 mkdir("${test}_dir");
 write_file("${test}_dir/${test}.inc", 'defb 11');
 
@@ -75,10 +76,11 @@ END
 ok ! -f "${test}.lib", "${test}.lib does not exist";
 
 # error_include_recursion
-write_file("${test}.asm", "include \"${test}.inc\"");
-write_file("${test}.inc", "include \"${test}.asm\"");
+write_file("${test}.asm", "include \"${test}1.inc\"");
+write_file("${test}1.inc", "include \"${test}2.inc\"");
+write_file("${test}2.inc", "include \"${test}1.inc\"");
 run_nok("z80asm ${test}.asm}", "", <<END);
-Error at file '${test}.inc' line 1: cannot include file '${test}.asm' recursively
+Error at file '${test}2.inc' line 1: cannot include file '${test}1.inc' recursively
 END
 
 path("${test}_dir")->remove_tree;

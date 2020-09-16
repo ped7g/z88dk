@@ -10,6 +10,10 @@
 #include <iostream>
 #include <sstream>
 
+#include "ghc/filesystem.hpp"
+namespace fs = ghc::filesystem;		// until we have std::filesystem
+
+
 static bool HasVerbose(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         if (std::string(argv[i]) == "-v")       // found vebose
@@ -29,8 +33,13 @@ static bool HasVerbose(int argc, char* argv[]) {
 
 static void ShowArgv(int argc, char* argv[]) {
     if (HasVerbose(argc, argv)) {
-        std::cout << "z80asm command line:";
-        for (int i = 0; i < argc; i++)
+        // get command without directory and .exe extension
+        fs::path cmd{ argv[0] };
+        cmd = cmd.filename();
+        cmd.replace_extension();
+
+        std::cout << "z80asm command line: " << cmd.generic_string();
+        for (int i = 1; i < argc; i++)
             std::cout << " " << argv[i];
         std::cout << std::endl;
     }

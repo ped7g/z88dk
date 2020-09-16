@@ -38,6 +38,7 @@ sub run {
 	my($ok, $test, $cmd, $expout, $experr) = @_;
 	$expout //= "";
 	$experr //= "";
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 
 	$cmd .= " > $test.gotout 2> $test.goterr";
 	if ($ok) {
@@ -51,11 +52,19 @@ sub run {
 	check_text_file("$test.goterr", $experr);
 }
 
-sub run_ok  { run(1, $test, @_); }
-sub run_nok { run(0, $test, @_); }
+sub run_ok  { 
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
+	run(1, $test, @_); 
+}
+
+sub run_nok { 
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
+	run(0, $test, @_); 
+}
 
 sub asm_ok {
 	my($asm, $options, @bin) = @_;
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 	write_file("$test.asm", $asm);
 	unlink("$test.bin");
 	run_ok("z80asm -b $options $test.asm", "", "");
@@ -64,6 +73,7 @@ sub asm_ok {
 
 sub system_ok {
 	my($cmd) = @_;
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 	ok 0==system($cmd), $cmd;
 }
 
@@ -83,13 +93,15 @@ sub write_file {
 
 sub check_text_file {
 	my($file, $expected) = @_;
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 	write_file("$file.expected", $expected);
-	system_ok("diff -w $file $file.expected");
+	system_ok("diff -w $file.expected $file");
 	unlink "$file.expected" if Test::More->builder->is_passing;
 } 
 
 sub check_bin_file {
 	my($file, @data) = @_;
+	local $Test::Builder::Level = $Test::Builder::Level + 1;
 	ok path($file)->slurp_raw eq pack("C*", @data), "$file ok";
 }
 

@@ -72,11 +72,14 @@ fs::path Options::PrependOutputDir(const fs::path& filename) {
         return filename;
     else {
         std::string f = filename.generic_string();
-        if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':') {
+        if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':')
             f[1] = '/';		// replace colon by slash
-            return outputDirectory / f;
-        }
-        else
-            return outputDirectory / filename;
+
+        // remove starting slashes of filename to make a relative path
+        auto p = f.find_first_not_of("/\\");
+        if (p != std::string::npos)
+            f.erase(0, p);
+
+        return outputDirectory / f;
     }
 }

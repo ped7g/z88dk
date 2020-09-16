@@ -8,8 +8,37 @@
 #include "legacy.h"
 
 #include <iostream>
+#include <sstream>
+
+static bool HasVerbose(int argc, char* argv[]) {
+    for (int i = 1; i < argc; i++) {
+        if (std::string(argv[i]) == "-v")       // found vebose
+            return true;
+    }
+    const char* env = getenv(ENV_Z80ASM);
+    if (env) {
+        std::stringstream iss{ std::string(env) };
+        std::string arg;
+        while (iss >> arg) {
+            if (arg == "-v")
+                return true;
+        }
+    }
+    return false;
+}
+
+static void ShowArgv(int argc, char* argv[]) {
+    if (HasVerbose(argc, argv)) {
+        std::cout << "z80asm command line:";
+        for (int i = 0; i < argc; i++)
+            std::cout << " " << argv[i];
+        std::cout << std::endl;
+    }
+}
 
 int main(int argc, char* argv[]) {
+    ShowArgv(argc, argv);      // show command line if verbose - before argv parsing
+
     z80asm_init();
 
     // fini must run even if there were errors

@@ -33,6 +33,7 @@ path('testdir/root/lib/config')->mkpath;
 
 # run with lib in current directory
 run("./z80asm -b -v test.asm", 0, <<'END', "");
+z80asm command line: ./z80asm -b -v test.asm
 Reading library 'z80asm-z80-.lib'
 Predefined constant: __CPU_Z80__ = $0001
 Predefined constant: __CPU_ZILOG__ = $0001
@@ -53,6 +54,7 @@ t_binary(path("test.bin")->slurp_raw, pack("C*", 0xCD, 0x04, 0x00, 0xC9, @RLD_AT
 $ENV{ZCCCFG} = 'testdir/root/lib/config';
 move('z80asm-z80-.lib', $ENV{ZCCCFG}.'/../z80asm-z80-.lib');
 run("./z80asm -b -v test.asm", 0, <<'END', "");
+z80asm command line: ./z80asm -b -v test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
 Reading library 'testdir/root/lib/z80asm-z80-.lib'
@@ -74,6 +76,7 @@ delete $ENV{ZCCCFG};
 
 # point library with -L
 run("./z80asm -b -v -Ltestdir/root/lib test.asm", 0, <<'END', "");
+z80asm command line: ./z80asm -b -v -Ltestdir/root/lib test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
 Reading library 'testdir/root/lib/z80asm-z80-.lib'
@@ -94,6 +97,7 @@ t_binary(path("test.bin")->slurp_raw, pack("C*", 0xCD, 0x04, 0x00, 0xC9, @RLD_AT
 
 # run without library
 run("./z80asm -b -v test.asm", 1, <<'OUT', <<'ERR');
+z80asm command line: ./z80asm -b -v test.asm
 library not found: z80asm-z80-.lib
 library not found: /usr/local/share/z88dk/lib/z80asm-z80-.lib
 library not found: /../z80asm-z80-.lib
@@ -115,8 +119,8 @@ move('testdir/root/lib/z80asm-z80-.lib', 'z80asm-z80-.lib');
 
 
 # test loading of each different library for different CPUs
-run("./z80asm -b -v                 test.asm", 0, exp_output("z80",		0, "z80asm-z80-.lib"), "");
-run("./z80asm -b -v           -IXIY test.asm", 0, exp_output("z80",		1, "z80asm-z80-ixiy.lib"), "");
+run("./z80asm -b -v                 test.asm", 0, exp_output("",		0, "z80asm-z80-.lib"), "");
+run("./z80asm -b -v           -IXIY test.asm", 0, exp_output("",		1, "z80asm-z80-ixiy.lib"), "");
 
 run("./z80asm -b -v -mz80           test.asm", 0, exp_output("z80",		0, "z80asm-z80-.lib"), "");
 run("./z80asm -b -v -mz80     -IXIY test.asm", 0, exp_output("z80",		1, "z80asm-z80-ixiy.lib"), "");
@@ -139,7 +143,7 @@ done_testing;
 
 sub run {
 	my($cmd, $ret, $out, $err) = @_;
-	ok 1, $cmd;
+	ok 1, "line ".((caller)[2]).": $cmd";
 	my($stdout, $stderr, $return) = capture { system $cmd; };
 	is_text( $stdout, ($out // ""), "stdout" );
 	is_text( $stderr, ($err // ""), "stderr" );
@@ -152,16 +156,20 @@ sub run {
 
 sub exp_output {
 	my($cpu, $swap_ixiy, $library) = @_;
-	$cpu = uc($cpu);
+	my $mcpu = $cpu ? "-m$cpu " : "";
+	$cpu ||= "z80";
+	my $CPU = uc($cpu);
+	my $ixiy = $swap_ixiy ? "-IXIY " : "";
 	$swap_ixiy = $swap_ixiy ? "\nPredefined constant: __SWAP_IX_IY__ = \$0001" : "";
-	my $family = ($cpu =~ /^z/i)  ? "ZILOG" :
+	my $FAMILY = ($cpu =~ /^z/i)  ? "ZILOG" :
 				 ($cpu =~ /^r/i)  ? "RABBIT" :
 				 ($cpu =~ /^80/i) ? "INTEL" : "";
 				 
 	return <<END;
+z80asm command line: ./z80asm -b -v ${mcpu}${ixiy}test.asm
 Reading library '$library'
-Predefined constant: __CPU_${cpu}__ = \$0001
-Predefined constant: __CPU_${family}__ = \$0001$swap_ixiy
+Predefined constant: __CPU_${CPU}__ = \$0001
+Predefined constant: __CPU_${FAMILY}__ = \$0001$swap_ixiy
 Assembling 'test.asm' to 'test.o'
 Reading 'test.asm' = 'test.asm'
 Writing object file 'test.o'

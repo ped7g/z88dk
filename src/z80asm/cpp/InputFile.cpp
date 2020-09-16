@@ -19,11 +19,8 @@ InputFile::InputFile(const fs::path& filename) {
     }
     else if (app.reporter.FileInStack(foundFilename))
         app.reporter.Error(Reporter::Msg::RECURSIVE_INCLUDE, foundFilename.generic_string());
-    else {
+    else
         is.open(foundFilename, std::ios::binary);	// binary for cross-platform newlines
-        if (is.is_open())
-            isGood = true;
-    }
 
     // push a file to the input stack
     app.reporter.EnterFile(foundFilename);

@@ -159,6 +159,12 @@
     <ClCompile Include="..\..\src\z80asm\cpp\InputFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\cpp\OutputFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\z80asm\cpp\Preprocessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\z80asm\lib\alloc.h">
@@ -320,6 +326,15 @@
     <ClInclude Include="..\..\src\z80asm\cpp\InputFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\cpp\OutputFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\cpp\Preprocessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\z80asm\SymbolTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\z80asm\parse_rules.rl">
@@ -345,6 +360,9 @@
     </None>
     <None Include="..\..\src\z80asm\cpp\options.l">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\z80asm\cpp\Reporter_msgs.def">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

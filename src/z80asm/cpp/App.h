@@ -28,7 +28,7 @@ public:
 
     bool ParseArg(std::string arg);
     bool ParseArgs(int argc, char* argv[]);
-    bool ParseEnv(const std::string& envVariable = "Z80ASM");
+    bool ParseEnv();
     bool ParseListFile(const fs::path& filename);
     bool ExpandListGlob(const std::string& pattern);
     bool ExpandSourceGlob(const std::string& pattern);

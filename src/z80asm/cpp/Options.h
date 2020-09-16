@@ -17,7 +17,9 @@
 namespace fs = ghc::filesystem;		// until we have std::filesystem
 
 extern const char
-* _ASM, *_I, *_LIS, *_O, *_DEF, *_BIN, *_LIB, *_SYM, *_MAP, *_RELOC, *_TAP, *_P;
+* _ASM, *_I, *_LIS, *_O, *_DEF, *_BIN, *_LIB, *_SYM, *_MAP,
+*_RELOC, *_TAP, *_P,
+*ENV_Z80ASM, *ENV_ZCCCFG;
 
 enum class Appmake { NONE, ZX81, ZX };
 

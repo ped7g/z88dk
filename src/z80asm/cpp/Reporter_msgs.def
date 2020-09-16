@@ -13,5 +13,6 @@ X(RUN_FAILED,			"run failed")
 X(FILE_NOT_FOUND,		"file not found")
 X(GLOB_NO_FILES,		"no files matched by")
 X(RECURSIVE_INCLUDE,	"recursive include")
+X(DUPLICATE_SYMBOL,		"duplicate symbol")
 
 #undef X

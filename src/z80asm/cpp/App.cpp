@@ -119,10 +119,10 @@ bool App::ParseArgs(int argc, char* argv[]) {
     return true;
 }
 
-bool App::ParseEnv(const std::string& envVariable) {
+bool App::ParseEnv() {
     using namespace std;
 
-    const char* env = getenv(envVariable.c_str());
+    const char* env = getenv(ENV_Z80ASM);
     if (env) {
         stringstream iss{ string(env) };
         string arg;
@@ -353,10 +353,12 @@ fs::path App::SearchZ80asmLibrary() {
         return libPath;
 
     // check environment ${ZCCCFG}
-    libPath = "${ZCCCFG}/../" + libName;
-    libPath = ExpandEnvVars(libPath);
-    if (CheckLibraryExists(libPath))
-        return libPath;
+    const char* zcccfg = getenv(ENV_ZCCCFG);
+    if (zcccfg) {
+        libPath = fs::path(zcccfg) / ".." / libName;
+        if (CheckLibraryExists(libPath))
+            return libPath;
+    }
 
     // not found, return empty path
     return fs::path();

@@ -12,7 +12,8 @@
 const char
 * _ASM{ ".asm" }, *_I{ ".i" }, *_LIS{ ".lis" }, *_O{ ".o" }, *_DEF{ ".def" },
 *_BIN{ ".bin" }, *_LIB{ ".lib" }, *_SYM{ ".sym" }, *_MAP{ ".map" },
-*_RELOC{ ".reloc" }, *_TAP{ ".tap" }, *_P{ ".P" };
+*_RELOC{ ".reloc" }, *_TAP{ ".tap" }, *_P{ ".P" },
+*ENV_Z80ASM{ "Z80ASM" }, *ENV_ZCCCFG{ "ZCCCFG" };
 
 
 fs::path Options::GetOutputBinary() const {
@@ -71,11 +72,11 @@ fs::path Options::PrependOutputDir(const fs::path& filename) {
         return filename;
     else {
         std::string f = filename.generic_string();
-		if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':') {
-			f[1] = '/';		// replace colon by slash
-			return outputDirectory / f;
-		}
-		else
-			return outputDirectory / filename;
+        if (f.length() >= 2 && isalpha(f[0]) && f[1] == ':') {
+            f[1] = '/';		// replace colon by slash
+            return outputDirectory / f;
+        }
+        else
+            return outputDirectory / filename;
     }
 }

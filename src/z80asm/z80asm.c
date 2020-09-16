@@ -166,55 +166,62 @@ static void query_assemble(const char* src_filename ) {
 *	Assemble one file
 *----------------------------------------------------------------------------*/
 static void do_assemble(const char* src_filename ) {
-    int start_errors = get_num_errors();     /* count errors in this source file */
+    const char* i_filename = GetIFilename(src_filename);
     const char* obj_filename = GetOFilename(src_filename);
-
-    clear_macros();
+    const char* lis_filename = GetLisFilename(src_filename);
 
     /* create list file */
     if (OptionListfile())
-        list_open(GetLisFilename(src_filename));
+        list_open(lis_filename);
 
-    /* initialize local symtab with copy of static one (-D defines) */
-    copy_static_syms();
+    // call preprocessor
+    if (Preprocess(src_filename, i_filename)) {
 
-    /* Init ASMPC */
-    set_PC(0);
+        int start_errors = get_num_errors();     /* count errors in this source file */
 
-    if (OptionVerbose())
-        printf("Assembling '%s' to '%s'\n", path_canon(src_filename), path_canon(obj_filename));
+        clear_macros();
 
-    parse_file(src_filename);
+        /* initialize local symtab with copy of static one (-D defines) */
+        copy_static_syms();
 
-    list_end();						/* get_used_symbol will only generate page references until list_end() */
+        /* Init ASMPC */
+        set_PC(0);
 
-    asm_MODULE_default();			/* Module name must be defined */
+        if (OptionVerbose())
+            printf("Assembling '%s' to '%s'\n", path_canon(i_filename), path_canon(obj_filename));
 
-    set_error_null();
-    //set_error_module( CURRENTMODULE->modname );
+        parse_file(i_filename);
 
-    Z80pass2();						/* call pass 2 even if errors found, to issue pass2 errors */
+        list_end();						/* get_used_symbol will only generate page references until list_end() */
 
-    /*
-    * Source file no longer needed (file could already have been closed, if error occurred during INCLUDE
-    * processing).
-    */
+        asm_MODULE_default();			/* Module name must be defined */
 
-    set_error_null();
+        set_error_null();
+        //set_error_module( CURRENTMODULE->modname );
 
-    /* remove list file if more errors now than before */
-    list_close(start_errors == get_num_errors());
+        Z80pass2();						/* call pass 2 even if errors found, to issue pass2 errors */
 
-    /* remove incomplete object file */
-    if (start_errors != get_num_errors())
-        remove(GetOFilename(src_filename));
+        /*
+        * Source file no longer needed (file could already have been closed, if error occurred during INCLUDE
+        * processing).
+        */
 
-    remove_all_local_syms();
-    remove_all_global_syms();
-    ExprList_remove_all(CURRENTMODULE->exprs);
+        set_error_null();
 
-    if (OptionVerbose())
-        putchar('\n');    /* separate module texts */
+        /* remove list file if more errors now than before */
+        list_close(start_errors == get_num_errors());
+
+        /* remove incomplete object file */
+        if (start_errors != get_num_errors())
+            remove(obj_filename);
+
+        remove_all_local_syms();
+        remove_all_global_syms();
+        ExprList_remove_all(CURRENTMODULE->exprs);
+
+        if (OptionVerbose())
+            putchar('\n');    /* separate module texts */
+    }
 }
 
 /***************************************************************************************************

@@ -273,7 +273,7 @@ astyle:
 	$(ASTYLE) *.c,*.h cpp/*.cpp,*.h
 
 clean::
-	$(RM) *.orig t/*.orig *.bak t/*.bak
+	$(RM) *.orig cpp/*.orig *.bak cpp/*.bak
 
 #------------------------------------------------------------------------------
 # Dependencies

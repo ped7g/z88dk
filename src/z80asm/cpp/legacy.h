@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// z80asm restart
+// z80asm restart - legacy bridge
 // Copyright (C) Paulo Custodio, 2011-2020
 // License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 //-----------------------------------------------------------------------------
@@ -103,6 +103,7 @@ const char* SearchIncludeFile(const char* filename);
 const char* SearchLibraryFile(const char* filename);
 
 const char* GetAsmFilename(const char* filename);
+const char* GetIFilename(const char* filename);
 const char* GetLisFilename(const char* filename);
 const char* GetOFilename(const char* filename);
 const char* GetDefFilename(const char* filename);
@@ -111,6 +112,8 @@ const char* GetLibFilename(const char* filename);
 const char* GetSymFilename(const char* filename);
 const char* GetMapFilename(const char* filename);
 const char* GetRelocFilename(const char* filename);
+
+bool Preprocess(const char* asm_filename, const char* i_filename);
 
 #ifdef __cplusplus
 };

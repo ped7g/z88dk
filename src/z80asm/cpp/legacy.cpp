@@ -1,12 +1,12 @@
 //-----------------------------------------------------------------------------
-// z80asm restart
+// z80asm restart - legacy bridge
 // Copyright (C) Paulo Custodio, 2011-2020
 // License: The Artistic License 2.0, http://www.perlfoundation.org/artistic_license_2_0
 //-----------------------------------------------------------------------------
 
 #include "legacy.h"
-
 #include "App.h"
+#include "Preprocessor.h"
 #include "Utils.h"
 #include <unordered_set>
 
@@ -183,6 +183,11 @@ const char* GetAsmFilename(const char* filename) {
                          .generic_string().c_str());
 }
 
+const char* GetIFilename(const char* filename) {
+    return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_I)
+                         .generic_string().c_str());
+}
+
 const char* GetLisFilename(const char* filename) {
     return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_LIS)
                          .generic_string().c_str());
@@ -221,5 +226,10 @@ const char* GetMapFilename(const char* filename) {
 const char* GetRelocFilename(const char* filename) {
     return AddStringPool(app.options.PrependOutputDir(filename).replace_extension(_RELOC)
                          .generic_string().c_str());
+}
+
+bool Preprocess(const char* asm_filename, const char* i_filename) {
+    Preprocessor pp{ asm_filename, i_filename };
+    return pp.Run();
 }
 
